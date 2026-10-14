@@ -1,0 +1,1291 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>関西ミュージアム手帖</title>
+<meta name="description" content="大阪・京都・兵庫・奈良・滋賀・和歌山の美術館・博物館117館を、今日の開館状況・会期中の展覧会・テーマ別特集から探せる案内。">
+<meta name="theme-color" content="#f3f4f1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+html{color-scheme:light}
+/* レイアウト: マストヘッド + 固定タブ列。広い画面では左に絞り込みレール、右にカード格子。詳細は右からのスライドパネル。 */
+:root{
+  --bg:#f3f4f1; --surface:#fbfbf9; --surface-2:#e9ebe6; --fg:#1a1c1e; --fg-2:#5b6066; --fg-3:#858b91; --line:#d3d7d1; --line-strong:#b8bdb6;
+  --accent:#22418e; --accent-ink:#ffffff; --accent-soft:#e2e8f5;
+  --warn:#c5451f; --warn-soft:#fbe5dc; --ok:#1f7a4d; --ok-soft:#dff0e6;
+  --cat-art:#22418e; --cat-history:#8a5a2b; --cat-science:#1f7a6d; --cat-craft:#8c3b5a; --cat-special:#5a6b2f; --cat-temple:#b2742e;
+  --sea:#e4e9ec; --land:#f7f7f3;
+  --font-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  --font-body:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic","Noto Sans JP",system-ui,sans-serif;
+  --shadow:0 12px 40px rgba(20,24,30,.18);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141618; --surface:#1c1f22; --surface-2:#262a2e; --fg:#ecedea; --fg-2:#a7acb1; --fg-3:#7b8187; --line:#343940; --line-strong:#4a5057;
+    --accent:#9fb3ff; --accent-ink:#10204a; --accent-soft:#243052;
+    --warn:#ff8f6b; --warn-soft:#4a2418; --ok:#6fcf97; --ok-soft:#1d3a2b;
+    --cat-art:#9fb3ff; --cat-history:#d9a46f; --cat-science:#6fd1c0; --cat-craft:#e493b3; --cat-special:#b5c76f; --cat-temple:#e5b56d;
+    --sea:#1a1e23; --land:#23272b;
+    --shadow:0 12px 40px rgba(0,0,0,.5);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141618; --surface:#1c1f22; --surface-2:#262a2e; --fg:#ecedea; --fg-2:#a7acb1; --fg-3:#7b8187; --line:#343940; --line-strong:#4a5057;
+  --accent:#9fb3ff; --accent-ink:#10204a; --accent-soft:#243052;
+  --warn:#ff8f6b; --warn-soft:#4a2418; --ok:#6fcf97; --ok-soft:#1d3a2b;
+  --cat-art:#9fb3ff; --cat-history:#d9a46f; --cat-science:#6fd1c0; --cat-craft:#e493b3; --cat-special:#b5c76f; --cat-temple:#e5b56d;
+  --sea:#1a1e23; --land:#23272b;
+  --shadow:0 12px 40px rgba(0,0,0,.5);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:15px;line-height:1.7;font-feature-settings:"palt";}
+a{color:var(--accent)}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* masthead */
+.masthead{border-bottom:1px solid var(--line);background:var(--surface)}
+.masthead .wrap{padding-block:28px 22px;display:grid;gap:10px}
+.eyebrow{margin:0;font-size:12px;letter-spacing:.18em;color:var(--fg-2)}
+.masthead h1{margin:0;font-family:var(--font-display);font-weight:700;font-size:clamp(28px,4.6vw,44px);line-height:1.2;letter-spacing:.04em;text-wrap:balance}
+.lede{margin:0;max-width:40em;color:var(--fg-2);font-size:14px}
+.today{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;font-size:13px;color:var(--fg-2);font-variant-numeric:tabular-nums}
+.today strong{color:var(--fg);font-weight:500}
+.today .num{font-family:var(--font-display);font-size:20px;color:var(--fg);margin-right:2px}
+
+/* tabs */
+.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs .wrap::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:12px 14px 10px;border-bottom:2px solid transparent;color:var(--fg-2);font-size:14px;white-space:nowrap;margin-bottom:-1px}
+.tab .cnt{font-size:12px;color:var(--fg-3);margin-left:4px;font-variant-numeric:tabular-nums}
+.tab[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--accent);font-weight:500}
+.tab:hover{color:var(--fg)}
+
+/* layout */
+.layout{display:grid;grid-template-columns:1fr;gap:20px;padding-block:20px 48px}
+@media (min-width:900px){.layout{grid-template-columns:250px minmax(0,1fr);gap:36px;padding-block:28px 64px}.layout.no-rail{grid-template-columns:minmax(0,1fr)}}
+.rail{min-width:0}
+.rail-toggle{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line-strong);border-radius:999px;padding:7px 14px;font-size:13px;background:var(--surface)}
+.rail-toggle .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:none}
+.rail-toggle.active .dot{display:inline-block}
+.rail-body{display:grid;gap:18px;margin-top:14px}
+@media (min-width:900px){.rail-toggle{display:none}.rail-body{margin-top:0;position:sticky;top:calc(env(safe-area-inset-top,0px) + 56px)}}
+@media (max-width:899px){.rail-body[hidden]{display:none}}
+.field{display:grid;gap:6px}
+.field label,.group-title{font-size:12px;letter-spacing:.12em;color:var(--fg-2)}
+.search{width:100%;min-width:0;border:1px solid var(--line-strong);background:var(--surface);color:var(--fg);border-radius:6px;padding:9px 12px;font-size:14px}
+.search::placeholder{color:var(--fg-3)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line-strong);border-radius:999px;padding:4px 11px;font-size:13px;color:var(--fg-2);background:var(--surface);line-height:1.5}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.chip:hover:not([aria-pressed="true"]){border-color:var(--fg-2);color:var(--fg)}
+.chip .c{opacity:.7;font-size:11px;margin-left:3px;font-variant-numeric:tabular-nums}
+.switch{display:flex;align-items:center;gap:10px;font-size:14px;cursor:pointer}
+.switch input{width:18px;height:18px;margin:0;accent-color:var(--accent)}
+select.sort{border:1px solid var(--line-strong);background:var(--surface);color:var(--fg);border-radius:6px;padding:7px 10px;font-size:13px;max-width:100%}
+.reset{font-size:13px;color:var(--accent);text-decoration:underline;text-underline-offset:3px;justify-self:start}
+
+/* content */
+.content{min-width:0}
+.result-line{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px;margin:0 0 14px;font-size:13px;color:var(--fg-2)}
+.result-line strong{color:var(--fg);font-weight:500;font-variant-numeric:tabular-nums}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.card{display:flex;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:4px;overflow:hidden;transition:border-color .15s}
+.card:hover{border-color:var(--line-strong)}
+.spine{flex:0 0 30px;border-right:1px solid var(--line);display:flex;align-items:flex-start;justify-content:center;padding-top:12px;background:var(--surface-2)}
+.spine span{writing-mode:vertical-rl;font-family:var(--font-display);font-size:12px;letter-spacing:.1em;color:var(--fg-2);white-space:nowrap}
+.card-body{flex:1 1 auto;min-width:0;padding:14px 14px 12px;display:grid;gap:8px;align-content:start}
+.card-top{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px}
+.cat{letter-spacing:.08em;font-weight:500}
+.cat.art{color:var(--cat-art)}.cat.history{color:var(--cat-history)}.cat.science{color:var(--cat-science)}.cat.craft{color:var(--cat-craft)}.cat.special{color:var(--cat-special)}.cat.temple{color:var(--cat-temple)}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 9px;font-size:11.5px;line-height:1.6;white-space:nowrap;background:var(--surface-2);color:var(--fg-2)}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.8}
+.pill.open{background:var(--ok-soft);color:var(--ok)}
+.pill.closed{background:var(--surface-2);color:var(--fg-2)}
+.pill.closure{background:var(--warn-soft);color:var(--warn)}
+.pill.unknown{background:var(--surface-2);color:var(--fg-3)}
+.pill.seasonal{background:var(--accent-soft);color:var(--accent)}
+.name{margin:0;font-family:var(--font-display);font-weight:700;font-size:18px;line-height:1.35;letter-spacing:.02em}
+.name button{text-align:left;font:inherit;color:inherit}
+.name button:hover{color:var(--accent)}
+.pick{display:inline-block;font-size:11px;letter-spacing:.1em;color:var(--accent);border:1px solid currentColor;border-radius:3px;padding:0 5px;margin-left:8px;vertical-align:middle;font-family:var(--font-body);font-weight:500}
+.note{margin:0;font-size:13.5px;color:var(--fg-2);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 6px;font-size:11.5px;color:var(--fg-3)}
+.tags li::before{content:"#";opacity:.6}
+.card-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12.5px;color:var(--fg-2);border-top:1px solid var(--line);padding-top:8px;margin-top:2px}
+.card-foot .ex{color:var(--accent);font-weight:500}
+.fav{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:var(--fg-2);border:1px solid var(--line);border-radius:999px;padding:2px 10px}
+.fav[aria-pressed="true"]{color:var(--warn);border-color:var(--warn)}
+.fav .h::before{content:"♡"}
+.fav[aria-pressed="true"] .h::before{content:"♥"}
+.empty{border:1px dashed var(--line-strong);border-radius:6px;padding:28px 20px;text-align:center;color:var(--fg-2);font-size:14px}
+
+/* exhibitions */
+.ex-tools{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.ex-list{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.ex-row{display:grid;grid-template-columns:1fr;gap:4px 18px;padding:14px 0;border-bottom:1px solid var(--line)}
+@media (min-width:700px){.ex-row{grid-template-columns:176px minmax(0,1fr)}}
+.ex-date{font-variant-numeric:tabular-nums;font-size:13px;color:var(--fg-2);display:grid;gap:4px;align-content:start}
+.ex-date .d{color:var(--fg)}
+.ex-badge{display:inline-block;justify-self:start;font-size:11px;letter-spacing:.06em;padding:1px 7px;border-radius:3px;background:var(--surface-2);color:var(--fg-2)}
+.ex-badge.ending{background:var(--warn-soft);color:var(--warn)}
+.ex-badge.open{background:var(--ok-soft);color:var(--ok)}
+.ex-badge.upcoming{background:var(--accent-soft);color:var(--accent)}
+.ex-main{min-width:0;display:grid;gap:3px}
+.ex-title{margin:0;font-family:var(--font-display);font-weight:700;font-size:16px;line-height:1.4}
+.ex-museum{font-size:13px}
+.ex-museum button{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.ex-note{margin:0;font-size:13px;color:var(--fg-2)}
+.ex-meta{font-size:12px;color:var(--fg-3);display:flex;flex-wrap:wrap;gap:4px 12px}
+.ex-meta a{color:var(--fg-2)}
+.conf-m{color:var(--warn)}
+
+/* collections */
+.col-list{display:grid;gap:14px}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:18px 18px 14px;display:grid;gap:10px}
+.col h2{margin:0;font-family:var(--font-display);font-size:21px;font-weight:700;line-height:1.35;letter-spacing:.02em}
+.col .lead{margin:0;font-size:14px;color:var(--fg-2)}
+.col .tip{margin:0;font-size:13px;padding:10px 12px;background:var(--surface-2);border-radius:4px;color:var(--fg)}
+.col .tip b{font-weight:500;color:var(--fg-2);letter-spacing:.08em;font-size:11.5px;display:block;margin-bottom:2px}
+.col-museums{list-style:none;margin:0;padding:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.col-museums li{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px}
+.col-museums .n{font-family:var(--font-display);font-weight:700;font-size:15px;text-align:left}
+.col-museums .n:hover{color:var(--accent)}
+.col-museums .p{font-size:12px;color:var(--fg-3);letter-spacing:.06em}
+.col-museums .s{margin-left:auto;display:flex;gap:6px;align-items:center;font-size:12px;color:var(--fg-2)}
+
+/* map */
+.map-wrap{display:grid;gap:12px}
+.map-tools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:space-between}
+.legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--fg-2)}
+.legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:-1px;background:var(--c)}
+.map-frame{background:var(--sea);border:1px solid var(--line);border-radius:4px;overflow:hidden;position:relative}
+.map-frame svg{display:block;width:100%;height:auto;max-height:78vh}
+.map-frame .land{fill:var(--land);stroke:var(--line-strong);stroke-width:1}
+.map-frame .lake{fill:var(--sea);stroke:var(--line-strong);stroke-width:1}
+.map-frame .city{font-family:var(--font-body);font-size:11px;fill:var(--fg-2)}
+.map-frame .cityDot{fill:var(--fg-3)}
+.map-frame .pref{font-family:var(--font-display);font-size:13px;fill:var(--fg-3);letter-spacing:.2em}
+.map-frame .pt{cursor:pointer;stroke:var(--surface);stroke-width:1.2;transition:r .15s}
+.map-frame .pt:hover{stroke:var(--fg)}
+.map-frame .pt.art{fill:var(--cat-art)}.map-frame .pt.history{fill:var(--cat-history)}.map-frame .pt.science{fill:var(--cat-science)}.map-frame .pt.craft{fill:var(--cat-craft)}.map-frame .pt.special{fill:var(--cat-special)}.map-frame .pt.temple{fill:var(--cat-temple)}
+.map-frame .pt.dim{opacity:.18;pointer-events:none}
+.map-hover{position:absolute;left:0;top:0;pointer-events:none;background:var(--fg);color:var(--bg);font-size:12px;padding:3px 8px;border-radius:3px;transform:translate(-50%,-140%);white-space:nowrap;opacity:0;transition:opacity .1s}
+.map-hover.show{opacity:1}
+.map-note{font-size:12px;color:var(--fg-3);margin:0}
+
+/* detail sheet */
+.backdrop{position:fixed;inset:0;background:rgba(10,12,14,.45);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}
+.backdrop.show{opacity:1;pointer-events:auto}
+.sheet{position:fixed;top:0;right:0;bottom:0;width:min(560px,100%);background:var(--surface);z-index:50;transform:translateX(104%);transition:transform .25s ease;overflow-y:auto;box-shadow:var(--shadow);
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.sheet.show{transform:none}
+.sheet-in{padding:18px max(18px,env(safe-area-inset-right,0px)) 40px 20px;display:grid;gap:16px}
+.sheet-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.sheet-head .where{font-size:12px;letter-spacing:.14em;color:var(--fg-2);margin:0 0 6px}
+.sheet h2{margin:0;font-family:var(--font-display);font-size:24px;line-height:1.3;font-weight:700;letter-spacing:.02em}
+.sheet .kana{margin:2px 0 0;font-size:12px;color:var(--fg-3)}
+.close{flex:0 0 auto;width:36px;height:36px;border:1px solid var(--line-strong);border-radius:50%;font-size:18px;line-height:1;display:grid;place-items:center}
+.sheet .status-row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px}
+.sheet .closure-box{background:var(--warn-soft);color:var(--warn);padding:10px 12px;border-radius:4px;font-size:13.5px}
+.sheet .notice-box{background:var(--accent-soft);color:var(--accent);padding:10px 12px;border-radius:4px;font-size:13.5px}
+.sheet .note-full{margin:0;font-size:14.5px}
+.sheet h3{margin:0 0 6px;font-size:12px;letter-spacing:.14em;color:var(--fg-2);font-weight:500}
+.hl{margin:0;padding:0 0 0 1.2em;font-size:14px;display:grid;gap:3px}
+.info{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:6px 12px;font-size:13.5px;margin:0}
+.info dt{color:var(--fg-2)}
+.info dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.sheet .ex-list{border-top:1px solid var(--line)}
+.sheet .ex-row{grid-template-columns:1fr;padding:10px 0}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line-strong);border-radius:999px;padding:7px 14px;font-size:13.5px;text-decoration:none;color:var(--fg);background:var(--surface)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.fav-btn[aria-pressed="true"]{color:var(--warn);border-color:var(--warn)}
+.sheet .col-links{display:flex;flex-wrap:wrap;gap:6px}
+.sheet .col-links button{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--fg-2)}
+.sheet .col-links button:hover{color:var(--accent);border-color:var(--accent)}
+
+/* footer */
+.foot{border-top:1px solid var(--line);color:var(--fg-3);font-size:12px}
+.foot .wrap{padding-block:18px 32px;display:grid;gap:4px}
+
+@media (prefers-reduced-motion: reduce){
+  .sheet,.backdrop,.card,.map-frame .pt,.map-hover{transition:none}
+}
+
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">大阪・京都・兵庫・奈良・滋賀・和歌山</p>
+    <h1>関西ミュージアム手帖</h1>
+    <p class="lede">2府4県の美術館・博物館を、編集部の視点で選んで案内する手帖。今日開いている館、会期中の展覧会、テーマ別の特集から行き先を決められます。</p>
+    <div class="today" id="today-line"></div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="表示切替">
+  <div class="wrap" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-tab="list" id="tab-list" aria-selected="true">館をさがす<span class="cnt" id="cnt-list"></span></button>
+    <button class="tab" role="tab" data-tab="exhibitions" id="tab-exhibitions" aria-selected="false">展覧会<span class="cnt" id="cnt-exhibitions"></span></button>
+    <button class="tab" role="tab" data-tab="collections" id="tab-collections" aria-selected="false">特集<span class="cnt" id="cnt-collections"></span></button>
+    <button class="tab" role="tab" data-tab="map" id="tab-map" aria-selected="false">地図</button>
+    <button class="tab" role="tab" data-tab="saved" id="tab-saved" aria-selected="false">行きたい<span class="cnt" id="cnt-saved"></span></button>
+  </div>
+</nav>
+
+<main class="wrap layout">
+  <aside class="rail" id="rail" aria-label="絞り込み">
+    <button class="rail-toggle" id="rail-toggle" aria-expanded="false" aria-controls="rail-body"><span class="dot"></span>絞り込み・並べ替え</button>
+    <div class="rail-body" id="rail-body" hidden>
+      <div class="field">
+        <label for="q">キーワード</label>
+        <input class="search" id="q" type="search" placeholder="館名・エリア・作家・テーマ" autocomplete="off">
+      </div>
+      <div class="field">
+        <span class="group-title">府県</span>
+        <div class="chips" id="chips-pref"></div>
+      </div>
+      <div class="field">
+        <span class="group-title">種類</span>
+        <div class="chips" id="chips-cat"></div>
+      </div>
+      <div class="field">
+        <span class="group-title">特徴</span>
+        <div class="chips" id="chips-tag"></div>
+      </div>
+      <label class="switch"><input type="checkbox" id="open-today"> 今日開いている館だけ</label>
+      <label class="switch"><input type="checkbox" id="has-ex"> 会期中の展覧会がある館だけ</label>
+      <div class="field">
+        <label for="sort">並べ替え</label>
+        <select class="sort" id="sort">
+          <option value="pick">おすすめ順</option>
+          <option value="pref">府県順</option>
+          <option value="kana">五十音順</option>
+          <option value="ex">展覧会の多い順</option>
+        </select>
+      </div>
+      <button class="reset" id="reset">条件をクリア</button>
+    </div>
+  </aside>
+
+  <section class="content" id="content">
+    <div id="view-list" role="tabpanel" aria-labelledby="tab-list">
+      <p class="result-line"><span><strong id="list-count"></strong> 館</span><span id="list-hint"></span></p>
+      <div class="grid" id="list-grid"></div>
+    </div>
+    <div id="view-exhibitions" role="tabpanel" aria-labelledby="tab-exhibitions" hidden>
+      <div class="ex-tools" id="ex-tools"></div>
+      <p class="result-line"><span><strong id="ex-count"></strong> 件</span><span>会期終了が近い順。府県・種類・キーワードの絞り込みが効きます</span></p>
+      <ul class="ex-list" id="ex-list"></ul>
+    </div>
+    <div id="view-collections" role="tabpanel" aria-labelledby="tab-collections" hidden>
+      <p class="result-line"><span>編集部が組んだ、テーマ別のめぐり方</span></p>
+      <div class="col-list" id="col-list"></div>
+    </div>
+    <div id="view-map" role="tabpanel" aria-labelledby="tab-map" hidden>
+      <div class="map-wrap">
+        <div class="map-tools">
+          <div class="chips" id="map-zoom"></div>
+          <div class="legend" id="legend"></div>
+        </div>
+        <div class="map-frame" id="map-frame"></div>
+        <p class="map-note">概略図です。点をクリックすると詳細が開きます。絞り込み条件に合わない館は薄く表示します。</p>
+      </div>
+    </div>
+    <div id="view-saved" role="tabpanel" aria-labelledby="tab-saved" hidden>
+      <p class="result-line"><span><strong id="saved-count"></strong> 館</span><span id="saved-hint"></span></p>
+      <div class="grid" id="saved-grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>掲載データの基準日: <span id="data-asof"></span>。開館時間・休館日・料金・展覧会会期は変更されることがあります。お出かけ前に各館の公式サイトでご確認ください。</span>
+    <span>「本日開館」の判定は曜日と祝日の一般的な規則によるもので、展示替え・年末年始・臨時休館は反映できません。</span>
+  </div>
+</footer>
+
+<div class="backdrop" id="backdrop"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+  <div class="sheet-in" id="sheet-in"></div>
+</aside>
+
+<script>
+// ===== 館データ（大阪府） =====
+// cat: art=美術館 history=歴史・考古 science=自然・科学 craft=工芸・陶磁 special=テーマ・専門 temple=寺社宝物館
+// closedDays: 0=日 1=月 2=火 3=水 4=木 5=金 6=土  / holidayRule: 祝日は開館し翌日休館
+const MUSEUMS_OSAKA = [
+{id:"nakka",name:"大阪中之島美術館",kana:"おおさかなかのしまびじゅつかん",pref:"大阪",city:"大阪市北区",area:"中之島",cat:"art",tags:["現代美術","建築","駅近"],lat:34.6917,lng:135.4876,
+ access:"京阪中之島線 渡辺橋駅 徒歩5分／地下鉄四つ橋線 肥後橋駅 徒歩10分",hours:"10:00–17:00（入場は16:30まで）",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://nakka-art.jp/",
+ note:"2022年開館。黒い箱のような建物を貫く吹き抜けの「パッサージュ」が印象的。佐伯祐三、モディリアーニから具体、デザインまで6,000点超のコレクションを持ち、企画展の打率が高い。",
+ highlights:["佐伯祐三・モディリアーニなど近代美術の名品","具体美術協会やデザイン・ポスターの収集","国立国際美術館と徒歩1分、はしごが定番"],time:"90分",pick:3,arch:"遠藤克彦建築研究所（2022）"},
+{id:"nmao",name:"国立国際美術館",kana:"こくりつこくさいびじゅつかん",pref:"大阪",city:"大阪市北区",area:"中之島",cat:"art",tags:["現代美術","建築","夜間開館"],lat:34.6913,lng:135.4910,
+ access:"京阪中之島線 渡辺橋駅 徒歩5分／地下鉄四つ橋線 肥後橋駅 徒歩10分",hours:"10:00–17:00（金・土は20:00まで）",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"コレクション展 一般430円（企画展は別途）",url:"https://www.nmao.go.jp/",
+ note:"竹をイメージしたシーザー・ペリの金属モニュメントが地上に立ち、展示室はすべて地下。戦後から現代までの国内外の作品を体系的に収蔵し、コレクション展だけでも見応えがある。",
+ highlights:["完全地下型という特異な建築","戦後美術から現代までの体系的コレクション","金・土曜は夜間開館"],time:"90分",pick:3,arch:"シーザー・ペリ（2004）"},
+{id:"osaka-city-art",name:"大阪市立美術館",kana:"おおさかしりつびじゅつかん",pref:"大阪",city:"大阪市天王寺区",area:"天王寺",cat:"art",tags:["日本画","建築","庭園"],lat:34.6518,lng:135.5118,
+ access:"JR・地下鉄 天王寺駅 徒歩10分／近鉄 大阪阿部野橋駅 徒歩10分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"コレクション展 一般300円（特別展は別途）",url:"https://www.osaka-art-museum.jp/",
+ note:"1936年築の本館を大改修し、2025年春に再開館。中国絵画・石造彫刻の阿部・山口コレクションに加え、近世から近代の日本美術まで幅広い。天王寺公園の緑と通天閣を望む立地も魅力。",
+ highlights:["住友家本邸跡に建つ1936年築の本館","阿部コレクション（中国絵画）","天王寺公園・慶沢園とあわせて散策"],time:"90分",pick:3,arch:"伊藤正文・伊藤修（1936）／2025年リニューアル"},
+{id:"moco",name:"大阪市立東洋陶磁美術館",kana:"おおさかしりつとうようとうじびじゅつかん",pref:"大阪",city:"大阪市北区",area:"中之島",cat:"craft",tags:["国宝","陶磁・茶の湯","駅近"],lat:34.6936,lng:135.5050,
+ access:"京阪中之島線 なにわ橋駅 徒歩1分／地下鉄 淀屋橋駅・北浜駅 徒歩5分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://www.moco.or.jp/",
+ closure:"改修工事のため2026年8月3日から2027年4月頃まで休館。",
+ note:"安宅コレクションと李秉昌コレクションを核に、東洋陶磁では世界屈指の質。国宝「油滴天目茶碗」「飛青磁花生」を自然光に近い照明で鑑賞できる。2024年にリニューアル。",
+ highlights:["国宝2件・重要文化財13件","自然採光で見る高麗・朝鮮陶磁","中之島公園のバラ園に隣接"],time:"60分",pick:3},
+{id:"omnh",name:"大阪市立自然史博物館",kana:"おおさかしりつしぜんしはくぶつかん",pref:"大阪",city:"大阪市東住吉区",area:"長居",cat:"science",tags:["自然・科学","子ども向け"],lat:34.6102,lng:135.5196,
+ access:"地下鉄御堂筋線 長居駅 徒歩10分",hours:"9:30–17:00（11〜2月は16:30まで）",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般300円",url:"https://www.omnh.jp/",
+ note:"ナガスクジラの骨格標本が迎える正面ホールが名物。大阪の自然を切り口に、恐竜から昆虫、地質まで。研究者が常駐し、観察会などの行事が活発なのも特色。",
+ highlights:["ナウマンゾウやクジラの大型標本","大阪の自然をテーマにした常設展","長居植物園と共通券で一日遊べる"],time:"90分",pick:2},
+{id:"osaka-hist",name:"大阪歴史博物館",kana:"おおさかれきしはくぶつかん",pref:"大阪",city:"大阪市中央区",area:"大阪城",cat:"history",tags:["歴史","考古","駅近","子ども向け"],lat:34.6828,lng:135.5210,
+ access:"地下鉄 谷町四丁目駅 徒歩2分",hours:"9:30–17:00",closed:"火曜（祝日の場合は翌日）",closedDays:[2],holidayRule:true,fee:"常設展 一般600円",url:"https://www.osakamushis.jp/",
+ note:"10階の難波宮大極殿の原寸復元から始まり、下りながら大阪の歴史をたどる構成。地下には難波宮の遺構が保存され、ガイドツアーで見学できる。大阪城を望む眺望もよい。",
+ highlights:["難波宮大極殿の原寸再現","地下の遺構見学","10階から望む大阪城天守閣"],time:"90分",pick:2},
+{id:"minpaku",name:"国立民族学博物館",kana:"こくりつみんぞくがくはくぶつかん",pref:"大阪",city:"吹田市",area:"万博記念公園",cat:"special",tags:["歴史","体験型","子ども向け","建築"],lat:34.8099,lng:135.5318,
+ access:"大阪モノレール 万博記念公園駅 徒歩15分",hours:"10:00–17:00",closed:"水曜（祝日の場合は翌日）",closedDays:[3],holidayRule:true,fee:"一般580円",url:"https://www.minpaku.ac.jp/",
+ note:"通称「みんぱく」。世界の暮らしを地域ごとに巡る展示は、丸一日あっても回りきれない規模。実物資料の密度と、民族誌映像を視聴できる「ビデオテーク」が圧巻。太陽の塔とセットで。",
+ highlights:["世界の生活文化を実物で体感","ビデオテークで民族誌映像を視聴","万博記念公園・太陽の塔と同じ敷地"],time:"3時間",pick:3,arch:"黒川紀章（1977）"},
+{id:"sci-museum",name:"大阪市立科学館",kana:"おおさかしりつかがくかん",pref:"大阪",city:"大阪市北区",area:"中之島",cat:"science",tags:["自然・科学","体験型","子ども向け"],lat:34.6918,lng:135.4897,
+ access:"京阪中之島線 渡辺橋駅 徒歩5分／地下鉄四つ橋線 肥後橋駅 徒歩7分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展示場 一般400円／プラネタリウム 一般600円",url:"https://www.sci-museum.jp/",
+ note:"「宇宙とエネルギー」をテーマに、触って動かす展示が約200点。大型ドームのプラネタリウムは学芸員の生解説が評判。中之島の美術館群から徒歩すぐ。",
+ highlights:["体験型の展示場","学芸員が生解説するプラネタリウム","国立国際美術館の隣"],time:"2時間",pick:2},
+{id:"aham",name:"あべのハルカス美術館",kana:"あべのはるかすびじゅつかん",pref:"大阪",city:"大阪市阿倍野区",area:"天王寺",cat:"art",tags:["駅近","夜間開館"],lat:34.6458,lng:135.5137,
+ access:"JR・地下鉄・近鉄 天王寺駅／大阪阿部野橋駅 直結（あべのハルカス16階）",hours:"火〜金 10:00–20:00／月土日祝 10:00–18:00",closed:"展覧会により異なる（展示替え期間は休館）",closedDays:[],fee:"展覧会ごとに設定",url:"https://www.aham.jp/",
+ note:"日本有数の高さを誇るビルの16階にある都市型美術館。常設はなく、古美術から現代まで話題の企画展を次々と開催。平日は20時までで、仕事帰りに寄れる。",
+ highlights:["天王寺駅直結","平日20時までの夜間開館","幅広いジャンルの企画展"],time:"60分",pick:2},
+{id:"fujita",name:"藤田美術館",kana:"ふじたびじゅつかん",pref:"大阪",city:"大阪市都島区",area:"京橋",cat:"art",tags:["国宝","陶磁・茶の湯","建築","駅近"],lat:34.6966,lng:135.5255,
+ access:"JR東西線 大阪城北詰駅 徒歩3分／京阪 京橋駅 徒歩10分",hours:"10:00–18:00",closed:"年末年始",closedDays:[],fee:"一般1,000円（19歳以下無料）",url:"https://fujita-museum.or.jp/",
+ note:"2022年に建て替え、蔵の扉を活かしたミニマルな空間に生まれ変わった。国宝「曜変天目茶碗」をはじめ国宝9件、重要文化財53件。展示は少数精鋭で、入場後の庭とお団子も楽しみ。",
+ highlights:["国宝「曜変天目茶碗」（展示時期は要確認）","蔵の扉を残した展示空間","ほぼ無休で予定が立てやすい"],time:"60分",pick:3,arch:"大成建設（2022）"},
+{id:"kosetsu-nakanoshima",name:"中之島香雪美術館",kana:"なかのしまこうせつびじゅつかん",pref:"大阪",city:"大阪市北区",area:"中之島",cat:"art",tags:["仏教美術","陶磁・茶の湯","駅近"],lat:34.6934,lng:135.4933,
+ access:"地下鉄四つ橋線 肥後橋駅／京阪中之島線 渡辺橋駅 直結（中之島フェスティバルタワー・ウエスト4階）",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://www.kosetsu-museum.or.jp/nakanoshima/",
+ note:"朝日新聞創業者・村山龍平の収集品を、超高層ビルの4階で公開。茶室「玄庵」の原寸再現があり、仏教美術・茶道具・近代日本画を落ち着いて見られる。駅直結で雨の日向き。",
+ highlights:["茶室「玄庵」の原寸再現","仏教美術と茶道具の名品","肥後橋駅・渡辺橋駅直結"],time:"60分",pick:2},
+{id:"itsuo",name:"逸翁美術館",kana:"いつおうびじゅつかん",pref:"大阪",city:"池田市",area:"池田",cat:"art",tags:["陶磁・茶の湯","日本画"],lat:34.8225,lng:135.4285,
+ access:"阪急宝塚線 池田駅 徒歩10分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般700円",url:"https://www.hankyu-bunka.or.jp/itsuo-museum/",
+ note:"阪急と宝塚歌劇の創業者・小林一三（逸翁）の茶道具と古美術。年に数回の展示替えで、テーマごとに丁寧に見せる。隣の小林一三記念館（旧邸宅）とあわせて。",
+ highlights:["小林一三のコレクション","小林一三記念館とセット見学","池田の街歩きと相性がよい"],time:"45分",pick:1},
+{id:"kuboso",name:"和泉市久保惣記念美術館",kana:"いずみしくぼそうきねんびじゅつかん",pref:"大阪",city:"和泉市",area:"和泉中央",cat:"art",tags:["国宝","日本画","庭園"],lat:34.4596,lng:135.4408,
+ access:"泉北高速鉄道 和泉中央駅 バス「美術館前」下車",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般500円（特別展は別途）",url:"https://www.ikm-art.jp/",
+ note:"国宝「青磁鳳凰耳花生 銘万声」と「歌仙歌合」を所蔵する、南大阪の隠れた名館。日本庭園と茶室、新館・本館を巡る動線が心地よく、モネやロダンもある。",
+ highlights:["国宝2件・重要文化財多数","日本庭園と茶室","混雑と無縁の静かな鑑賞環境"],time:"60分",pick:2},
+{id:"chikatsu",name:"大阪府立近つ飛鳥博物館",kana:"おおさかふりつちかつあすかはくぶつかん",pref:"大阪",city:"南河内郡河南町",area:"河南",cat:"history",tags:["考古","建築"],lat:34.4940,lng:135.6305,
+ access:"近鉄長野線 喜志駅 バス「阪南ネオポリス」下車 徒歩10分",hours:"9:45–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般310円",url:"https://www.chikatsu-asuka.jp/",
+ note:"安藤忠雄設計の大階段が丘に向かって伸びる、古墳時代専門の博物館。周囲は一須賀古墳群を整備した風土記の丘で、建築と古墳歩きの両方が楽しめる。",
+ highlights:["安藤忠雄の階段状建築","仁徳天皇陵古墳の150分の1模型","一須賀古墳群の散策"],time:"90分",pick:2,arch:"安藤忠雄（1994）"},
+{id:"yayoi",name:"大阪府立弥生文化博物館",kana:"おおさかふりつやよいぶんかはくぶつかん",pref:"大阪",city:"和泉市",area:"信太山",cat:"history",tags:["考古","子ども向け"],lat:34.4868,lng:135.4233,
+ access:"JR阪和線 信太山駅 徒歩7分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般310円",url:"https://www.kanku-city.or.jp/yayoi/",
+ note:"弥生時代を専門とする全国唯一の博物館。隣接する池上曽根遺跡には復元建物があり、弥生のムラを歩ける。",
+ highlights:["弥生時代に特化した常設展","池上曽根史跡公園","卑弥呼の館の復元模型"],time:"60分",pick:1},
+{id:"shiba",name:"司馬遼太郎記念館",kana:"しばりょうたろうきねんかん",pref:"大阪",city:"東大阪市",area:"八戸ノ里",cat:"special",tags:["文学","建築"],lat:34.6593,lng:135.5888,
+ access:"近鉄奈良線 八戸ノ里駅 徒歩8分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般500円",url:"https://www.shibazaidan.or.jp/",
+ note:"自宅の書斎を庭から覗き、安藤忠雄設計の記念館へ。高さ11mの壁面に約2万冊が並ぶ書架は圧巻で、作家の頭の中を歩くような体験。",
+ highlights:["高さ11mの大書架","書斎を当時のまま保存","安藤忠雄の曲面建築"],time:"45分",pick:2,arch:"安藤忠雄（2001）"},
+{id:"konjakukan",name:"大阪くらしの今昔館",kana:"おおさかくらしのこんじゃくかん",pref:"大阪",city:"大阪市北区",area:"天神橋",cat:"history",tags:["歴史","体験型","子ども向け","駅近"],lat:34.7104,lng:135.5115,
+ access:"地下鉄・阪急 天神橋筋六丁目駅 直結（住まい情報センター8階）",hours:"10:00–17:00",closed:"火曜（祝日の場合は翌日）",closedDays:[2],holidayRule:true,fee:"一般600円",url:"https://www.osaka-angenet.jp/konjyakukan/",
+ note:"天保年間の大坂の町並みを実物大で再現し、町家の中に入れる。照明が朝から夜へ移り変わる演出が楽しい。着物体験もあり、海外からの客も多い。",
+ highlights:["江戸時代の町並みを実物大再現","時間とともに変わる照明演出","天神橋筋六丁目駅直結"],time:"60分",pick:2},
+{id:"yuki",name:"湯木美術館",kana:"ゆきびじゅつかん",pref:"大阪",city:"大阪市中央区",area:"淀屋橋",cat:"craft",tags:["陶磁・茶の湯","季節限定","駅近"],lat:34.6899,lng:135.5008,
+ access:"地下鉄 淀屋橋駅 徒歩5分",hours:"10:00–16:30",closed:"月曜（展覧会期間中のみ開館）",closedDays:[1],holidayRule:true,seasonal:"春・秋などの展覧会期間中のみ開館",unknownOpen:true,fee:"一般700円",url:"https://www.yuki-museum.or.jp/",
+ note:"料亭「吉兆」創業者・湯木貞一が集めた茶道具。茶事の季節感に沿った展示が特徴で、オフィス街の中で静かに名碗と向き合える。",
+ highlights:["茶道具の名品","季節の茶事に沿った展示構成","淀屋橋駅から徒歩5分"],time:"40分",pick:1},
+{id:"minka",name:"日本民家集落博物館",kana:"にほんみんかしゅうらくはくぶつかん",pref:"大阪",city:"豊中市",area:"服部緑地",cat:"history",tags:["歴史","建築"],lat:34.7795,lng:135.4790,
+ access:"北大阪急行 緑地公園駅 徒歩15分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般500円",url:"https://www.occh.or.jp/minka/",
+ note:"日本各地の民家12棟を移築した野外博物館。岐阜の合掌造りから奄美の高倉まで、気候風土による住まいの違いを歩いて体感できる。",
+ highlights:["全国の民家12棟を移築","服部緑地の中で森林浴気分","重要文化財の民家"],time:"60分",pick:1},
+{id:"cupnoodle",name:"カップヌードルミュージアム 大阪池田",kana:"かっぷぬーどるみゅーじあむおおさかいけだ",pref:"大阪",city:"池田市",area:"池田",cat:"special",tags:["体験型","子ども向け","無料","駅近"],lat:34.8170,lng:135.4235,
+ access:"阪急宝塚線 池田駅 徒歩5分",hours:"9:30–16:30",closed:"火曜（祝日の場合は翌日）",closedDays:[2],holidayRule:true,fee:"入館無料（体験は有料）",url:"https://www.cupnoodles-museum.jp/ja/osaka_ikeda/",
+ note:"インスタントラーメン発祥の地・池田で、安藤百福の発明の軌跡をたどる。マイカップヌードル作りは当日整理券または予約を。入館無料で家族連れに人気。",
+ highlights:["入館無料","マイカップヌードルファクトリー","チキンラーメン手作り体験（要予約）"],time:"60分",pick:2},
+{id:"sakai",name:"堺市博物館",kana:"さかいしはくぶつかん",pref:"大阪",city:"堺市堺区",area:"百舌鳥",cat:"history",tags:["歴史","考古"],lat:34.5610,lng:135.4884,
+ access:"JR阪和線 百舌鳥駅 徒歩6分",hours:"9:30–17:15",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般200円",url:"https://www.city.sakai.lg.jp/kanko/hakubutsukan/",
+ note:"世界遺産・百舌鳥古墳群の中、大仙公園にある。古墳時代から中世の自由都市・堺、鉄砲や千利休まで、堺の歴史を一望。仁徳天皇陵古墳の見学の拠点に。",
+ highlights:["百舌鳥古墳群のガイダンス","中世の自治都市・堺","仁徳天皇陵古墳の徒歩圏"],time:"45分",pick:1},
+{id:"kamigata",name:"上方浮世絵館",kana:"かみがたうきよえかん",pref:"大阪",city:"大阪市中央区",area:"難波",cat:"art",tags:["日本画","駅近"],lat:34.6665,lng:135.5020,
+ access:"地下鉄 なんば駅 徒歩5分",hours:"11:00–18:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般700円",url:"https://www.kamigata.jp/",
+ note:"大坂で生まれた役者絵「上方浮世絵」を専門に扱う、世界で唯一の私設館。難波の法善寺横丁近くで、江戸とは違う大坂の芝居文化に触れられる。",
+ highlights:["上方浮世絵の専門館","法善寺横丁から徒歩すぐ","30分ほどで見られる小規模館"],time:"30分",pick:1},
+{id:"kinutani",name:"絹谷幸二 天空美術館",kana:"きぬたにこうじてんくうびじゅつかん",pref:"大阪",city:"大阪市北区",area:"梅田",cat:"art",tags:["現代美術","体験型","夜間開館"],lat:34.7053,lng:135.4905,
+ access:"JR 大阪駅 徒歩10分（梅田スカイビル タワーウエスト27階）",hours:"10:00–18:00（金土日祝は20:00まで）",closed:"火曜（祝日の場合は翌日）",closedDays:[2],holidayRule:true,fee:"一般1,000円",url:"https://www.kinutani-tenku.jp/",
+ note:"梅田スカイビル27階、地上約130mにある美術館。絹谷幸二のアフレスコ画の中に入り込む3D映像の演出が独特。夜景とセットで。",
+ highlights:["3D映像で絵の中に入る体験","梅田スカイビルからの眺望","週末の夜間開館"],time:"45分",pick:1},
+{id:"osakajo",name:"大阪城天守閣",kana:"おおさかじょうてんしゅかく",pref:"大阪",city:"大阪市中央区",area:"大阪城",cat:"history",tags:["歴史"],lat:34.6873,lng:135.5262,
+ access:"JR 大阪城公園駅／地下鉄 谷町四丁目駅 徒歩15〜20分",hours:"9:00–17:00",closed:"年末年始",closedDays:[],fee:"一般600円",url:"https://www.osakacastle.net/",
+ note:"1931年再建の天守閣は、内部が豊臣秀吉と大坂の陣をテーマにした歴史博物館。黄金の茶室の原寸模型や屏風絵のパノラマビジョンが見どころ。",
+ highlights:["大坂夏の陣図屏風のミニチュア展示","最上階の展望台","大阪歴史博物館と徒歩圏"],time:"60分",pick:2},
+{id:"sayamaike",name:"大阪府立狭山池博物館",kana:"おおさかふりつさやまいけはくぶつかん",pref:"大阪",city:"大阪狭山市",area:"狭山",cat:"history",tags:["歴史","建築","無料"],lat:34.5036,lng:135.5487,
+ access:"南海高野線 大阪狭山市駅 徒歩10分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"無料",url:"https://sayamaikehaku.osakasayama.osaka.jp/",
+ note:"日本最古のダム式ため池・狭山池の堤を、実物のまま切り取って展示。安藤忠雄の水庭とコンクリートの回廊は、府内屈指の建築体験でしかも無料。",
+ highlights:["高さ15mの堤の断面を実物展示","安藤忠雄の水庭","入館無料"],time:"60分",pick:2,arch:"安藤忠雄（2001）"},
+{id:"mingeikan",name:"大阪日本民芸館",kana:"おおさかにほんみんげいかん",pref:"大阪",city:"吹田市",area:"万博記念公園",cat:"craft",tags:["工芸"],lat:34.8080,lng:135.5296,
+ access:"大阪モノレール 万博記念公園駅 徒歩15分",hours:"10:00–17:00",closed:"水曜（祝日の場合は翌日）",closedDays:[3],holidayRule:true,fee:"一般700円",url:"https://www.mingeikan-osaka.or.jp/",
+ note:"1970年大阪万博のパビリオンを引き継いだ民芸館。陶磁、染織、木工など暮らしの中の美を、半年ごとの企画展で紹介。みんぱくとはしごできる。",
+ highlights:["万博パビリオンの建物","民藝運動ゆかりのコレクション","国立民族学博物館の隣"],time:"45分",pick:1}
+];
+
+// ===== 館データ（京都府） =====
+const MUSEUMS_KYOTO = [
+{id:"kyohaku",name:"京都国立博物館",kana:"きょうとこくりつはくぶつかん",pref:"京都",city:"京都市東山区",area:"七条",cat:"art",tags:["国宝","仏教美術","建築","日本画"],lat:34.9900,lng:135.7730,
+ access:"京阪 七条駅 徒歩7分／市バス「博物館三十三間堂前」すぐ",hours:"9:30–17:00（特別展期間は変更あり）",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"名品ギャラリー 一般700円（特別展は別途）",url:"https://www.kyohaku.go.jp/",
+ note:"片山東熊設計の明治古都館（重文）と谷口吉生設計の平成知新館。京都の寺社から寄託された仏像・絵画・工芸が揃い、名品ギャラリーだけでも圧倒的。秋の特別展は毎年の目玉。",
+ highlights:["明治古都館の外観と噴水の庭","平成知新館の仏像展示室","三十三間堂の向かい"],time:"2時間",pick:3,arch:"片山東熊（1895）／谷口吉生（2014）"},
+{id:"momak",name:"京都国立近代美術館",kana:"きょうとこくりつきんだいびじゅつかん",pref:"京都",city:"京都市左京区",area:"岡崎",cat:"art",tags:["日本画","工芸","夜間開館"],lat:35.0122,lng:135.7813,
+ access:"地下鉄東西線 東山駅 徒歩10分／市バス「岡崎公園 美術館・平安神宮前」すぐ",hours:"10:00–18:00（金曜は20:00まで）",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"コレクション展 一般430円（企画展は別途）",url:"https://www.momak.go.jp/",
+ note:"槇文彦設計、平安神宮の大鳥居の脇。京都画壇と工芸（河井寬次郎、富本憲吉など）に強く、4階のコレクション展から疏水と東山を見渡せる。",
+ highlights:["京都画壇と近代工芸のコレクション","4階ロビーからの東山の眺め","金曜夜間開館"],time:"90分",pick:3,arch:"槇文彦（1986）"},
+{id:"kyocera",name:"京都市京セラ美術館",kana:"きょうとしきょうせらびじゅつかん",pref:"京都",city:"京都市左京区",area:"岡崎",cat:"art",tags:["建築","日本画","現代美術","庭園"],lat:35.0139,lng:135.7828,
+ access:"地下鉄東西線 東山駅 徒歩8分／市バス「岡崎公園 美術館・平安神宮前」すぐ",hours:"10:00–18:00",closed:"月曜（祝日の場合は開館）",closedDays:[1],holidayRule:true,fee:"コレクションルーム 一般730円（企画展は別途）",url:"https://kyotocity-kyocera.museum/",
+ note:"1933年の帝冠様式の本館を、青木淳・西澤徹夫が地下に広場を掘り込んで再生。現代美術の「東山キューブ」と日本画のコレクションルーム、日本庭園まで一体で楽しめる。",
+ highlights:["ガラスのリボンと地下エントランス","京都画壇のコレクションルーム","東山キューブの現代美術展"],time:"2時間",pick:3,arch:"前田健二郎（1933）／青木淳・西澤徹夫（2020）"},
+{id:"bunpaku",name:"京都文化博物館",kana:"きょうとぶんかはくぶつかん",pref:"京都",city:"京都市中京区",area:"三条",cat:"history",tags:["歴史","建築","駅近","夜間開館"],lat:35.0097,lng:135.7614,
+ access:"地下鉄 烏丸御池駅 徒歩3分",hours:"総合展示 10:00–19:30／特別展 10:00–18:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"総合展示 一般500円（特別展は別途）",url:"https://www.bunpaku.or.jp/",
+ note:"辰野金吾設計の旧日本銀行京都支店（重文）が別館。京都の歴史と祇園祭の展示に加え、京都ゆかりの映画を上映するフィルムシアターがある。",
+ highlights:["赤レンガの旧日本銀行京都支店","祇園祭の山鉾展示","フィルムシアターの名画上映"],time:"60分",pick:2,arch:"辰野金吾（1906・別館）"},
+{id:"hosomi",name:"細見美術館",kana:"ほそみびじゅつかん",pref:"京都",city:"京都市左京区",area:"岡崎",cat:"art",tags:["日本画","工芸"],lat:35.0127,lng:135.7811,
+ access:"地下鉄東西線 東山駅 徒歩7分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://www.emuseum.or.jp/",
+ note:"琳派と伊藤若冲のコレクションで知られる私設館。地下へ降りていく展示動線と中庭、茶室「古香庵」が京都らしい。企画展はテーマ性が高く、少数精鋭。",
+ highlights:["琳派・若冲の名品","中庭を囲む建築","岡崎エリアの美術館はしごの要"],time:"60分",pick:3},
+{id:"fukuda",name:"福田美術館",kana:"ふくだびじゅつかん",pref:"京都",city:"京都市右京区",area:"嵐山",cat:"art",tags:["日本画","建築","庭園"],lat:35.0146,lng:135.6791,
+ access:"嵐電 嵐山駅 徒歩4分／JR 嵯峨嵐山駅 徒歩11分",hours:"10:00–17:00",closed:"火曜（祝日の場合は翌日）",closedDays:[2],holidayRule:true,fee:"一般1,500円（嵯峨嵐山文華館との二館共通券あり）",url:"https://fukuda-art-museum.jp/",
+ note:"2019年開館、渡月橋のたもと。江戸から近代の日本画約2,000点を、蔵をイメージした空間で見せる。カフェからの大堰川の眺めも名物。",
+ highlights:["若冲・応挙から竹内栖鳳・上村松園まで","ガラスの映り込みを抑えた展示ケース","カフェから渡月橋を望む"],time:"60分",pick:3},
+{id:"samac",name:"嵯峨嵐山文華館",kana:"さがあらしやまぶんかかん",pref:"京都",city:"京都市右京区",area:"嵐山",cat:"art",tags:["日本画","文学"],lat:35.0133,lng:135.6786,
+ access:"嵐電 嵐山駅 徒歩5分",hours:"10:00–17:00",closed:"火曜（祝日の場合は翌日）",closedDays:[2],holidayRule:true,fee:"一般1,000円（福田美術館との二館共通券あり）",url:"https://www.samac.jp/",
+ note:"小倉百人一首の常設展示と、2階の畳敷き120畳のギャラリーで日本画の企画展。福田美術館と二館共通券があり、嵐山で日本画の午後を。",
+ highlights:["百人一首の歴史とかるた","120畳の畳ギャラリー","福田美術館と徒歩2分"],time:"45分",pick:2},
+{id:"senoku",name:"泉屋博古館",kana:"せんおくはくこかん",pref:"京都",city:"京都市左京区",area:"鹿ケ谷",cat:"art",tags:["工芸","仏教美術"],lat:35.0197,lng:135.7956,
+ access:"市バス「東天王町」徒歩3分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般1,000円",url:"https://sen-oku.or.jp/",
+ note:"住友家の中国古代青銅器コレクションは世界有数。鹿ケ谷の静かな環境で、青銅器館を常設公開しつつ、企画展で絵画や工芸も。",
+ highlights:["中国古代青銅器の名品","鹿ケ谷の静かな立地","哲学の道・法然院が徒歩圏"],time:"60分",pick:2},
+{id:"nomura",name:"野村美術館",kana:"のむらびじゅつかん",pref:"京都",city:"京都市左京区",area:"南禅寺",cat:"craft",tags:["陶磁・茶の湯","季節限定"],lat:35.0133,lng:135.7910,
+ access:"地下鉄東西線 蹴上駅 徒歩10分",hours:"10:00–16:30",closed:"月曜（春季・秋季のみ開館）",closedDays:[1],holidayRule:true,seasonal:"春季（3〜6月）・秋季（9〜12月）のみ開館",seasonMonths:[3,4,5,6,9,10,11,12],fee:"一般800円",url:"https://nomura-museum.or.jp/",
+ note:"野村證券創業者・野村徳七の茶道具と能面。南禅寺界隈の別荘地にあり、春と秋だけ開く。茶の湯の季節感を大事にした展示。",
+ highlights:["茶道具・能装束","南禅寺・永観堂と同じエリア","季節限定の開館"],time:"40分",pick:1},
+{id:"raku",name:"樂美術館",kana:"らくびじゅつかん",pref:"京都",city:"京都市上京区",area:"西陣",cat:"craft",tags:["陶磁・茶の湯"],lat:35.0256,lng:135.7514,
+ access:"市バス「堀川中立売」徒歩3分",hours:"10:00–16:30",closed:"月曜（祝日の場合は開館）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://www.raku-yaki.or.jp/museum/",
+ note:"樂家に隣接し、初代長次郎から当代までの樂茶碗を歴代順に見られる唯一の場所。「手にふれる樂茶碗鑑賞会」も不定期に開催。",
+ highlights:["樂歴代の茶碗を通覧","樂家の工房に隣接","西陣・堀川エリアの散策と"],time:"45分",pick:2},
+{id:"kawai",name:"河井寬次郎記念館",kana:"かわいかんじろうきねんかん",pref:"京都",city:"京都市東山区",area:"五条坂",cat:"craft",tags:["工芸","陶磁・茶の湯","建築"],lat:34.9948,lng:135.7763,
+ access:"京阪 清水五条駅 徒歩10分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般900円",url:"http://www.kanjiro.jp/",
+ note:"陶芸家・河井寬次郎が自ら設計した住まい兼工房をそのまま公開。登り窯や囲炉裏、自作の家具に囲まれ、民藝の思想が空間として残る。",
+ highlights:["登り窯と工房","自身の設計による民家建築","五条坂・清水寺の近く"],time:"45分",pick:2},
+{id:"kyotomm",name:"京都国際マンガミュージアム",kana:"きょうとこくさいまんがみゅーじあむ",pref:"京都",city:"京都市中京区",area:"烏丸御池",cat:"special",tags:["マンガ・サブカル","子ども向け","体験型","駅近"],lat:35.0117,lng:135.7596,
+ access:"地下鉄 烏丸御池駅 徒歩2分",hours:"10:30–17:30",closed:"水曜（祝日の場合は翌日）",closedDays:[3],holidayRule:true,fee:"一般1,200円",url:"https://kyotomm.jp/",
+ note:"廃校になった小学校を活用。約5万冊の「マンガの壁」は読み放題で、芝生で寝転んで読む人も。紙芝居や似顔絵コーナーもあり、半日居られる。",
+ highlights:["読み放題の「マンガの壁」","旧小学校の校舎と講堂","烏丸御池駅から徒歩2分"],time:"2時間",pick:2},
+{id:"kyoto-railway",name:"京都鉄道博物館",kana:"きょうとてつどうはくぶつかん",pref:"京都",city:"京都市下京区",area:"梅小路",cat:"special",tags:["体験型","子ども向け","駅近"],lat:34.9871,lng:135.7425,
+ access:"JR 梅小路京都西駅 徒歩2分",hours:"10:00–17:00",closed:"水曜（祝日の場合は開館）",closedDays:[3],holidayRule:true,fee:"一般1,500円",url:"https://www.kyotorailwaymuseum.jp/",
+ note:"蒸気機関車から新幹線まで54両を展示。扇形車庫でSLが実際に動き、SLスチーム号に乗れる。運転シミュレータは整理券制。",
+ highlights:["扇形車庫と転車台","SLスチーム号の乗車","梅小路京都西駅から徒歩2分"],time:"3時間",pick:2},
+{id:"eki",name:"美術館「えき」KYOTO",kana:"びじゅつかんえききょうと",pref:"京都",city:"京都市下京区",area:"京都駅",cat:"art",tags:["駅近","夜間開館"],lat:34.9858,lng:135.7586,
+ access:"JR 京都駅 直結（ジェイアール京都伊勢丹7階）",hours:"10:00–19:30",closed:"展示替え期間（百貨店に準ずる）",closedDays:[],fee:"展覧会ごとに設定",url:"https://kyoto.wjr-isetan.co.jp/museum/",
+ note:"ジェイアール京都伊勢丹7階。絵本原画やイラスト、写真など親しみやすい企画展が多く、京都駅での待ち時間に立ち寄れる。",
+ highlights:["京都駅直結","19:30までの開館","絵本・イラスト系の企画展"],time:"45分",pick:1},
+{id:"oyamazaki",name:"アサヒグループ大山崎山荘美術館",kana:"あさひぐるーぷおおやまざきさんそうびじゅつかん",pref:"京都",city:"乙訓郡大山崎町",area:"大山崎",cat:"art",tags:["西洋美術","建築","庭園","工芸"],lat:34.8986,lng:135.6901,
+ access:"JR 山崎駅／阪急 大山崎駅 徒歩10分（坂道。無料送迎バスあり）",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会により異なる（一般1,100円程度）",url:"https://www.asahigroup-oyamazaki.com/",
+ note:"英国風の山荘にモネの「睡蓮」と民藝のコレクション。安藤忠雄が増築した地中館「地中の宝石箱」と、テラスから望む三川合流の眺めが忘れがたい。",
+ highlights:["モネ「睡蓮」連作","安藤忠雄設計の地中館・山手館","テラスからの眺望と庭園"],time:"90分",pick:3,arch:"加賀正太郎（1932）／安藤忠雄（1996・2012）"},
+{id:"ryukoku",name:"龍谷ミュージアム",kana:"りゅうこくみゅーじあむ",pref:"京都",city:"京都市下京区",area:"西本願寺",cat:"art",tags:["仏教美術"],lat:34.9918,lng:135.7514,
+ access:"JR 京都駅 徒歩12分／市バス「西本願寺前」すぐ",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://museum.ryukoku.ac.jp/",
+ note:"龍谷大学の仏教総合博物館。インドから日本までの仏教の流れを通覧する常設展と、ベゼクリク石窟寺院の回廊を原寸で復元した展示が見どころ。西本願寺の向かい。",
+ highlights:["ベゼクリク石窟の原寸復元","仏教の伝播をたどる常設展","西本願寺と徒歩圏"],time:"60分",pick:2},
+{id:"domoto",name:"京都府立堂本印象美術館",kana:"きょうとふりつどうもといんしょうびじゅつかん",pref:"京都",city:"京都市北区",area:"衣笠",cat:"art",tags:["日本画","建築"],lat:35.0382,lng:135.7276,
+ access:"市バス「立命館大学前」徒歩2分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般510円",url:"https://insho-domoto.com/",
+ note:"日本画家・堂本印象が外観から内装、家具まで自らデザインした美術館。抽象への転換も含む画業を、建物ごと作品として体験できる。きぬかけの路沿い。",
+ highlights:["画家自身がデザインした建築","具象から抽象への変遷","金閣寺・龍安寺の中間に立地"],time:"45分",pick:2,arch:"堂本印象（1966）"},
+{id:"sannenzaka",name:"清水三年坂美術館",kana:"きよみずさんねんざかびじゅつかん",pref:"京都",city:"京都市東山区",area:"清水",cat:"craft",tags:["工芸"],lat:34.9972,lng:135.7803,
+ access:"市バス「清水道」徒歩7分",hours:"10:00–17:00",closed:"月・火曜（祝日の場合は開館）",closedDays:[1,2],holidayRule:true,fee:"一般1,000円",url:"https://sannenzaka-museum.co.jp/",
+ note:"幕末・明治の七宝、金工、蒔絵、京薩摩を専門とする小さな美術館。海外へ流出した超絶技巧の作品を買い戻したコレクションは、ルーペ必携の精密さ。",
+ highlights:["明治の超絶技巧工芸","並河靖之の七宝","清水寺参道の中にある"],time:"40分",pick:2},
+{id:"jotenkaku",name:"承天閣美術館",kana:"じょうてんかくびじゅつかん",pref:"京都",city:"京都市上京区",area:"相国寺",cat:"temple",tags:["仏教美術","日本画"],lat:35.0318,lng:135.7623,
+ access:"地下鉄 今出川駅 徒歩8分",hours:"10:00–17:00",closed:"展示替え期間",closedDays:[],fee:"一般800円",url:"https://www.shokoku-ji.jp/museum/",
+ note:"相国寺と金閣寺・銀閣寺に伝わる宝物を公開する美術館。伊藤若冲の鹿苑寺大書院障壁画（重文）を常設展示し、若冲好きには欠かせない。",
+ highlights:["若冲の鹿苑寺大書院障壁画","相国寺・金閣・銀閣の寺宝","同志社大学の隣"],time:"45分",pick:2},
+{id:"kahitsukan",name:"何必館・京都現代美術館",kana:"かひつかんきょうとげんだいびじゅつかん",pref:"京都",city:"京都市東山区",area:"祇園",cat:"art",tags:["現代美術","写真","日本画"],lat:35.0037,lng:135.7763,
+ access:"京阪 祇園四条駅 徒歩5分",hours:"10:00–18:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般1,000円",url:"http://www.kahitsukan.or.jp/",
+ note:"祇園の雑踏の中、ビル一棟の静かな美術館。村上華岳、山口薫、北大路魯山人を軸に、写真展も多い。5階の光庭と茶室が隠れ家のよう。",
+ highlights:["村上華岳・魯山人のコレクション","5階の光庭","祇園・八坂神社の近く"],time:"40分",pick:1},
+{id:"chado",name:"茶道資料館",kana:"ちゃどうしりょうかん",pref:"京都",city:"京都市上京区",area:"西陣",cat:"craft",tags:["陶磁・茶の湯","体験型"],lat:35.0346,lng:135.7526,
+ access:"市バス「堀川寺ノ内」徒歩3分",hours:"9:30–16:30",closed:"月曜（祝日の場合は開館）",closedDays:[1],holidayRule:true,fee:"一般700円",url:"https://www.urasenke.or.jp/textm/gallery/",
+ note:"裏千家今日庵に隣接。茶道具の展示に加え、呈茶（抹茶と菓子）が入館料に含まれ、茶室で一服できる。茶の湯の入門にも。",
+ highlights:["呈茶付きの入館","裏千家の茶道具","三千家が並ぶ界隈の散策"],time:"45分",pick:1},
+{id:"kyoto-univ",name:"京都大学総合博物館",kana:"きょうとだいがくそうごうはくぶつかん",pref:"京都",city:"京都市左京区",area:"百万遍",cat:"science",tags:["自然・科学","考古"],lat:35.0267,lng:135.7817,
+ access:"京阪 出町柳駅 徒歩15分／市バス「百万遍」徒歩3分",hours:"9:30–16:30",closed:"月・火曜（祝日の場合も休館）",closedDays:[1,2],fee:"一般400円",url:"https://www.museum.kyoto-u.ac.jp/",
+ note:"京大の研究で集められた標本や資料260万点から精選展示。ランビルの熱帯林の再現、化石、考古資料まで、大学博物館ならではの雑多さが魅力。",
+ highlights:["熱帯林の再現展示","ナウマンゾウなどの化石","京大キャンパス散策と"],time:"60分",pick:1},
+{id:"hakusasonso",name:"白沙村荘 橋本関雪記念館",kana:"はくさそんそうはしもとかんせつきねんかん",pref:"京都",city:"京都市左京区",area:"銀閣寺",cat:"art",tags:["庭園","日本画"],lat:35.0272,lng:135.7956,
+ access:"市バス「銀閣寺道」徒歩3分",hours:"10:00–17:00",closed:"無休",closedDays:[],fee:"一般1,300円",url:"https://www.hakusasonso.jp/",
+ note:"日本画家・橋本関雪が自ら作庭した約1万㎡の庭園と画室、記念館。銀閣寺のすぐ近くながら静かで、春秋は庭そのものが主役になる。",
+ highlights:["関雪作庭の池泉回遊式庭園","大画室「存古楼」","銀閣寺・哲学の道と同じエリア"],time:"60分",pick:2},
+{id:"kanji",name:"漢字ミュージアム",kana:"かんじみゅーじあむ",pref:"京都",city:"京都市東山区",area:"祇園",cat:"special",tags:["体験型","子ども向け"],lat:35.0036,lng:135.7765,
+ access:"京阪 祇園四条駅 徒歩5分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般800円",url:"https://www.kanjimuseum.kyoto/",
+ note:"祇園の旧弥栄中学校跡に建つ、漢字をテーマにした体験型ミュージアム（漢検 漢字博物館・図書館）。年末の「今年の漢字」が展示される。子どもから外国人まで楽しめる。",
+ highlights:["「今年の漢字」の実物展示","体験型の漢字ゲーム","八坂神社の目の前"],time:"60分",pick:1},
+{id:"dento",name:"京都伝統産業ミュージアム",kana:"きょうとでんとうさんぎょうみゅーじあむ",pref:"京都",city:"京都市左京区",area:"岡崎",cat:"craft",tags:["工芸","無料"],lat:35.0130,lng:135.7808,
+ access:"地下鉄東西線 東山駅 徒歩8分（みやこめっせ地下1階）",hours:"9:00–17:00",closed:"不定休（京都市勧業館に準ずる）",closedDays:[],fee:"無料",url:"https://kmtc.jp/",
+ note:"西陣織、京友禅、京焼など京都の伝統工芸74品目を一堂に。みやこめっせ地下1階で入館無料。職人の実演やショップもあり、岡崎の美術館の合間に。",
+ highlights:["74品目の伝統工芸を展示","入館無料","職人の実演（日程は公式サイト）"],time:"45分",pick:1},
+{id:"maizuru",name:"舞鶴引揚記念館",kana:"まいづるひきあげきねんかん",pref:"京都",city:"舞鶴市",area:"舞鶴",cat:"history",tags:["歴史"],lat:35.4954,lng:135.4077,
+ access:"JR 東舞鶴駅 バス「引揚記念館前」すぐ",hours:"9:00–17:00",closed:"第3木曜（祝日の場合は翌日）",closedDays:[],thirdThu:true,fee:"一般400円",url:"https://m-hikiage-museum.jp/",
+ note:"シベリア抑留と引き揚げの記憶を伝える記念館。収蔵資料はユネスコ「世界の記憶」に登録。再現された収容所や白樺日誌が胸に迫る。",
+ highlights:["ユネスコ「世界の記憶」登録資料","収容所の再現展示","引揚桟橋の復元"],time:"60分",pick:2},
+{id:"genji",name:"宇治市源氏物語ミュージアム",kana:"うじしげんじものがたりみゅーじあむ",pref:"京都",city:"宇治市",area:"宇治",cat:"special",tags:["文学","体験型"],lat:34.8923,lng:135.8104,
+ access:"京阪 宇治駅 徒歩8分／JR 宇治駅 徒歩15分",hours:"9:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般600円",url:"https://www.city.uji.kyoto.jp/site/genji/",
+ note:"「宇治十帖」の舞台で源氏物語の世界を映像と模型で体感。平安の牛車や六条院の模型があり、平等院・宇治上神社の散策と組み合わせたい。",
+ highlights:["六条院と牛車の復元模型","オリジナル映像作品","平等院まで徒歩15分"],time:"45分",pick:1}
+];
+
+// ===== 館データ（兵庫県） =====
+const MUSEUMS_HYOGO = [
+{id:"hyogo-art",name:"兵庫県立美術館",kana:"ひょうごけんりつびじゅつかん",pref:"兵庫",city:"神戸市中央区",area:"HAT神戸",cat:"art",tags:["建築","現代美術","西洋美術"],lat:34.6986,lng:135.2162,
+ access:"阪神 岩屋駅 徒歩8分／JR 灘駅 徒歩10分",hours:"10:00–18:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"コレクション展 一般500円（特別展は別途）",url:"https://www.artm.pref.hyogo.jp/",
+ note:"安藤忠雄の設計で、海に面した回廊と円形テラスが続く。金山平三、小磯良平から具体美術協会まで兵庫ゆかりの近現代美術を所蔵。屋上の青いリンゴは震災復興のシンボル。",
+ highlights:["安藤忠雄の海辺の大建築","具体美術協会のコレクション","「Ando Gallery」で建築模型を見学"],time:"2時間",pick:3,arch:"安藤忠雄（2002）"},
+{id:"kobe-museum",name:"神戸市立博物館",kana:"こうべしりつはくぶつかん",pref:"兵庫",city:"神戸市中央区",area:"旧居留地",cat:"history",tags:["国宝","歴史","建築","西洋美術","夜間開館"],lat:34.6894,lng:135.1909,
+ access:"JR・阪神 元町駅 徒歩10分／三宮駅 徒歩10分",hours:"10:00–17:00（金・土は19:30まで）",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"コレクション展示 一般300円（特別展は別途）",url:"https://www.kobecitymuseum.jp/",
+ note:"旧横浜正金銀行の列柱が並ぶ建物に、国宝「桜ヶ丘銅鐸・銅戈」と南蛮美術の名品。神戸の歴史展示も充実し、2019年の改修でレストランとカフェが入った。",
+ highlights:["国宝の銅鐸群","南蛮美術の名品（展示時期は要確認）","旧居留地のレトロ建築"],time:"90分",pick:3,arch:"桜井小太郎（1935）"},
+{id:"ytmoca",name:"横尾忠則現代美術館",kana:"よこおただのりげんだいびじゅつかん",pref:"兵庫",city:"神戸市灘区",area:"王子公園",cat:"art",tags:["現代美術"],lat:34.7076,lng:135.2178,
+ access:"阪急 王子公園駅 徒歩6分／JR 灘駅 徒歩12分",hours:"10:00–18:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般700円（展覧会により異なる）",url:"https://ytmoca.jp/",
+ note:"西脇市出身の横尾忠則の作品を、年3〜4回の企画展で切り口を変えて紹介。アーカイブ室と3階の図書コーナーも楽しい。王子動物園の向かい。",
+ highlights:["横尾作品を切り口を変えて見せる企画展","アーカイブルーム","王子動物園・原田の森ギャラリーに隣接"],time:"60分",pick:2},
+{id:"fashion",name:"神戸ファッション美術館",kana:"こうべふぁっしょんびじゅつかん",pref:"兵庫",city:"神戸市東灘区",area:"六甲アイランド",cat:"special",tags:["工芸"],lat:34.6810,lng:135.2731,
+ access:"六甲ライナー アイランドセンター駅 徒歩3分",hours:"10:00–18:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://www.fashionmuseum.jp/",
+ note:"日本初のファッション専門公立美術館。18世紀から現代までの服飾コレクションに、ファッションの図書館が併設。UFOのような外観は六甲アイランドの目印。",
+ highlights:["18世紀以降の衣装コレクション","服飾専門の図書室","神戸ゆかりの美術館を併設"],time:"60分",pick:1},
+{id:"koiso",name:"神戸市立小磯記念美術館",kana:"こうべしりつこいそきねんびじゅつかん",pref:"兵庫",city:"神戸市東灘区",area:"六甲アイランド",cat:"art",tags:["西洋美術"],lat:34.6787,lng:135.2746,
+ access:"六甲ライナー アイランド北口駅 徒歩5分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般200円（特別展は別途）",url:"https://www.city.kobe.lg.jp/koisomuseum",
+ note:"洋画家・小磯良平の作品約2,500点と、移築したアトリエを公開。静かな中庭に面した展示室で、小磯の端正な人物画に向き合える。",
+ highlights:["小磯良平のアトリエ再現","中庭を囲む落ち着いた展示室","神戸ファッション美術館と徒歩圏"],time:"45分",pick:2},
+{id:"hyogo-rekihaku",name:"兵庫県立歴史博物館",kana:"ひょうごけんりつれきしはくぶつかん",pref:"兵庫",city:"姫路市",area:"姫路城",cat:"history",tags:["歴史","建築","子ども向け","体験型"],lat:34.8393,lng:134.6952,
+ access:"JR・山陽 姫路駅 徒歩25分／神姫バス「姫山公園南・医療センター・博物館前」徒歩5分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般200円（特別展は別途）",url:"https://rekihaku.pref.hyogo.lg.jp/",
+ note:"丹下健三設計、ガラス壁に姫路城が映り込む建物。城と城下町の歴史に加え、おもちゃや絵本などの展示が子どもにも。甲冑や十二単の試着体験が人気。",
+ highlights:["姫路城を映すガラスの外壁","甲冑・十二単の着付け体験","姫路城と徒歩圏"],time:"60分",pick:2,arch:"丹下健三（1983）"},
+{id:"himeji-art",name:"姫路市立美術館",kana:"ひめじしりつびじゅつかん",pref:"兵庫",city:"姫路市",area:"姫路城",cat:"art",tags:["建築","西洋美術"],lat:34.8391,lng:134.6981,
+ access:"JR・山陽 姫路駅 徒歩20分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般300円程度（特別展は別途）",url:"https://www.city.himeji.lg.jp/art/",
+ closure:"館内空調設備等の大規模修繕のため、2026年4月から2027年12月末（予定）まで全館休館。庭園は開放。",
+ note:"旧陸軍の赤レンガ倉庫を転用し、背景に姫路城がそびえるロケーションは国内屈指。マティスやドラン、ベルギー美術の國富コレクションを常設。",
+ highlights:["赤レンガ倉庫と姫路城の構図","國富コレクション（マティス、ピカソ）","前庭の彫刻は休館中も鑑賞可"],time:"60分",pick:2},
+{id:"hitohaku",name:"兵庫県立人と自然の博物館",kana:"ひょうごけんりつひととしぜんのはくぶつかん",pref:"兵庫",city:"三田市",area:"フラワータウン",cat:"science",tags:["自然・科学","子ども向け","駅近"],lat:34.9071,lng:135.2118,
+ access:"神戸電鉄 フラワータウン駅 徒歩5分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般200円",url:"https://www.hitohaku.jp/",
+ note:"通称「ひとはく」。丹波竜（タンバティタニス）の化石をはじめ、兵庫の自然と人との関わりを扱う。研究員のセミナーが豊富で、200円の入館料は破格。",
+ highlights:["丹波竜の化石","アンモナイトやナウマンゾウの標本","フラワータウン駅から徒歩5分"],time:"90分",pick:2},
+{id:"mcart",name:"兵庫陶芸美術館",kana:"ひょうごとうげいびじゅつかん",pref:"兵庫",city:"丹波篠山市",area:"立杭",cat:"craft",tags:["陶磁・茶の湯","工芸"],lat:35.0027,lng:135.1336,
+ access:"JR 相野駅 バス15分「兵庫陶芸美術館」下車",hours:"10:00–18:00（11〜3月は17:00まで）",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://www.mcart.jp/",
+ note:"丹波焼の産地・立杭の山裾にある陶芸専門館。丹波焼の古陶から現代陶芸まで。窯元が並ぶ集落と「立杭 陶の郷」とあわせて一日に。",
+ highlights:["丹波焼の歴史を通覧","現代陶芸の企画展","丹波焼の里の窯元めぐり"],time:"60分",pick:2},
+{id:"otani",name:"西宮市大谷記念美術館",kana:"にしのみやしおおたにきねんびじゅつかん",pref:"兵庫",city:"西宮市",area:"香櫨園",cat:"art",tags:["庭園","日本画","西洋美術"],lat:34.7253,lng:135.3357,
+ access:"阪神 香櫨園駅 徒歩6分",hours:"10:00–17:00",closed:"水曜（祝日の場合は翌日）",closedDays:[3],holidayRule:true,fee:"展覧会ごとに設定",url:"https://otanimuseum.jp/",
+ note:"実業家・大谷竹次郎の邸宅跡。展示室から日本庭園を望む設計が心地よい。夏の「イタリア・ボローニャ国際絵本原画展」は関西の風物詩。",
+ highlights:["展示室から眺める日本庭園","毎夏のボローニャ国際絵本原画展","香櫨園駅から徒歩6分"],time:"60分",pick:2},
+{id:"ashiya",name:"芦屋市立美術博物館",kana:"あしやしりつびじゅつはくぶつかん",pref:"兵庫",city:"芦屋市",area:"芦屋",cat:"art",tags:["現代美術","歴史"],lat:34.7181,lng:135.3062,
+ access:"阪神 芦屋駅 徒歩15分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://ashiya-museum.jp/",
+ note:"具体美術協会の拠点だった芦屋で、吉原治良ら具体の作品を所蔵・紹介。小出楢重のアトリエ再現もあり、戦前からの芦屋の文化を知る場所。",
+ highlights:["具体美術協会のコレクション","小出楢重のアトリエ再現","谷崎潤一郎記念館が隣接"],time:"60分",pick:2},
+{id:"hakutsuru",name:"白鶴美術館",kana:"はくつるびじゅつかん",pref:"兵庫",city:"神戸市東灘区",area:"住吉",cat:"art",tags:["国宝","工芸","季節限定","建築"],lat:34.7325,lng:135.2567,
+ access:"阪急 御影駅 徒歩15分／市バス「白鶴美術館前」すぐ",hours:"10:00–16:30",closed:"月曜（春季・秋季のみ開館）",closedDays:[1],holidayRule:true,seasonal:"春季（3〜6月）・秋季（9〜11月）のみ開館",seasonMonths:[3,4,5,6,9,10,11],fee:"一般800円",url:"https://www.hakutsuru-museum.org/",
+ note:"白鶴酒造7代目・嘉納治兵衛の中国古代青銅器・鏡・陶磁のコレクション。国宝2件、重文22件。春秋のみ開館する本館の建築と、新館の絨毯も見逃せない。",
+ highlights:["中国古代青銅器・銅鏡","国宝「大般若経」「賢愚経」","季節限定開館の和風建築"],time:"45分",pick:2},
+{id:"kosetsu-mikage",name:"香雪美術館",kana:"こうせつびじゅつかん",pref:"兵庫",city:"神戸市東灘区",area:"御影",cat:"art",tags:["仏教美術","陶磁・茶の湯","庭園"],lat:34.7236,lng:135.2478,
+ access:"阪急 御影駅 徒歩5分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://www.kosetsu-museum.or.jp/mikage/",
+ closure:"施設設備の改築工事に伴い長期休館中。展覧会活動は中之島香雪美術館で継続。",
+ note:"朝日新聞創業者・村山龍平の旧邸内にある本館。屋敷林に囲まれた環境で、仏教美術・茶道具・近代絵画を展示。中之島の分館とコレクションを共有する。",
+ highlights:["村山龍平邸の屋敷林","茶道具と仏教美術","旧村山家住宅（重文）"],time:"45分",pick:1},
+{id:"dougukan",name:"竹中大工道具館",kana:"たけなかだいくどうぐかん",pref:"兵庫",city:"神戸市中央区",area:"新神戸",cat:"craft",tags:["工芸","建築","体験型","駅近"],lat:34.7067,lng:135.1968,
+ access:"新幹線・地下鉄 新神戸駅 徒歩3分",hours:"9:30–16:30",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般700円",url:"https://www.dougukan.jp/",
+ note:"大工道具をテーマにした日本唯一の博物館。原寸の唐招提寺の組物や茶室の木組み、鉋の削り花が香る展示は、建築好きでなくても引き込まれる。新神戸駅から徒歩3分。",
+ highlights:["原寸大の木組み模型","世界の大工道具の比較展示","数寄屋の職人技が詰まった建物"],time:"90分",pick:3},
+{id:"kaiyo",name:"神戸海洋博物館・カワサキワールド",kana:"こうべかいようはくぶつかん",pref:"兵庫",city:"神戸市中央区",area:"メリケンパーク",cat:"special",tags:["体験型","子ども向け"],lat:34.6820,lng:135.1876,
+ access:"JR・阪神 元町駅 徒歩15分",hours:"10:00–18:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般900円",url:"https://kobe-maritime-museum.com/",
+ note:"白い帆のような屋根がメリケンパークのランドマーク。神戸港の歴史と、川崎重工の企業館カワサキワールドでは新幹線や大型バイクに乗れる。",
+ highlights:["0系新幹線の運転席","実物のモーターサイクルに跨れる","メリケンパーク・ポートタワーの隣"],time:"90分",pick:1},
+{id:"ucc",name:"UCCコーヒー博物館",kana:"ゆーしーしーこーひーはくぶつかん",pref:"兵庫",city:"神戸市中央区",area:"ポートアイランド",cat:"special",tags:["体験型","駅近"],lat:34.6651,lng:135.2111,
+ access:"ポートライナー 南公園駅 徒歩1分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般300円",url:"https://www.ucc.co.jp/museum/",
+ note:"コーヒーの栽培から文化までをたどる専門博物館。焙煎の香りを嗅ぎ分ける展示や、テイスティングセミナーが楽しい。ポートライナー南公園駅すぐ。",
+ highlights:["コーヒーの歴史と文化","テイスティング体験","南公園駅から徒歩1分"],time:"45分",pick:1},
+{id:"itami",name:"市立伊丹ミュージアム",kana:"しりついたみみゅーじあむ",pref:"兵庫",city:"伊丹市",area:"伊丹",cat:"art",tags:["工芸","文学","西洋美術"],lat:34.7844,lng:135.4036,
+ access:"JR 伊丹駅 徒歩6分／阪急 伊丹駅 徒歩9分",hours:"10:00–18:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://itami-im.jp/",
+ note:"美術館・博物館・工芸センター・俳諧の柿衞文庫が2022年に統合。ドーミエの版画コレクションや現代工芸の企画展、俳句関連の展示までジャンルの幅が広い。",
+ highlights:["ドーミエの版画コレクション","柿衞文庫の俳諧資料","伊丹郷町の酒蔵街にある"],time:"60分",pick:1},
+{id:"tezuka",name:"宝塚市立手塚治虫記念館",kana:"たからづかしりつてづかおさむきねんかん",pref:"兵庫",city:"宝塚市",area:"宝塚",cat:"special",tags:["マンガ・サブカル","子ども向け","体験型"],lat:34.8081,lng:135.3443,
+ access:"阪急・JR 宝塚駅 徒歩8分",hours:"9:30–17:00",closed:"水曜（祝日の場合は開館。春・夏休み期間は無休）",closedDays:[3],holidayRule:true,fee:"一般700円",url:"https://www.city.takarazuka.hyogo.jp/tezuka/",
+ note:"手塚治虫が5歳から24歳まで過ごした宝塚に建つ。火の鳥のモニュメント、生原稿の展示、アニメ制作体験ができる工房があり、宝塚大劇場の隣。",
+ highlights:["火の鳥のエントランス","アニメ制作体験","宝塚大劇場・花のみちと一緒に"],time:"60分",pick:2},
+{id:"akashi",name:"明石市立天文科学館",kana:"あかししりつてんもんかがくかん",pref:"兵庫",city:"明石市",area:"人丸前",cat:"science",tags:["自然・科学","子ども向け","駅近"],lat:34.6497,lng:134.9950,
+ access:"山陽電鉄 人丸前駅 徒歩3分／JR 明石駅 徒歩15分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般700円",url:"https://www.am12.jp/",
+ note:"東経135度の日本標準時子午線の上に建つ「時と宇宙」の博物館。1960年から稼働する現役最古のプラネタリウム投影機は、解説員の生解説つき。",
+ highlights:["日本標準時子午線の真上","現役最古のプラネタリウム","展望室から明石海峡大橋"],time:"90分",pick:2},
+{id:"hyogo-koko",name:"兵庫県立考古博物館",kana:"ひょうごけんりつこうこはくぶつかん",pref:"兵庫",city:"加古郡播磨町",area:"播磨",cat:"history",tags:["考古","体験型","子ども向け"],lat:34.7280,lng:134.8700,
+ access:"JR 土山駅 徒歩15分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般200円",url:"https://www.hyogo-koukohaku.jp/",
+ note:"発掘現場をイメージした体験型の考古博物館。土器づくりや古代の火おこしなどの体験が豊富で、大中遺跡公園の竪穴住居と一緒に歩ける。",
+ highlights:["体験型の考古展示","大中遺跡公園の竪穴住居","入館200円"],time:"60分",pick:1},
+{id:"bbplaza",name:"BBプラザ美術館",kana:"びーびーぷらざびじゅつかん",pref:"兵庫",city:"神戸市灘区",area:"HAT神戸",cat:"art",tags:["西洋美術"],lat:34.7041,lng:135.2134,
+ access:"阪神 岩屋駅 徒歩3分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般500円",url:"https://bbpmuseum.jp/",
+ note:"兵庫県立美術館の目の前にある小さな私設館。ブラックやビュッフェなどフランス近代絵画と、関西の作家の企画展。はしごにちょうどよい規模。",
+ highlights:["フランス近代絵画のコレクション","兵庫県立美術館から徒歩1分","静かな鑑賞環境"],time:"30分",pick:1},
+{id:"himeji-lit",name:"姫路文学館",kana:"ひめじぶんがくかん",pref:"兵庫",city:"姫路市",area:"姫路城",cat:"special",tags:["文学","建築"],lat:34.8391,lng:134.6842,
+ access:"JR・山陽 姫路駅 バス「市之橋文学館前」徒歩4分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般310円",url:"https://www.city.himeji.lg.jp/bungaku/",
+ note:"姫路城の西、安藤忠雄設計の北館・南館が水辺に並ぶ。播磨ゆかりの文学者や司馬遼太郎記念室。望景亭（旧濱本家住宅）からの姫路城の眺めも。",
+ highlights:["安藤忠雄の水辺の建築","司馬遼太郎記念室","望景亭からの姫路城"],time:"45分",pick:1,arch:"安藤忠雄（1991・1996）"},
+{id:"toy",name:"日本玩具博物館",kana:"にほんがんぐはくぶつかん",pref:"兵庫",city:"姫路市",area:"香寺",cat:"special",tags:["子ども向け","工芸"],lat:34.9026,lng:134.7239,
+ access:"JR播但線 香呂駅 徒歩15分",hours:"10:00–17:00",closed:"水曜（祝日の場合は開館）",closedDays:[3],holidayRule:true,fee:"一般600円",url:"https://japan-toy-museum.org/",
+ note:"白壁土蔵造りの6棟に、世界160か国の玩具と日本の郷土玩具約9万点。季節のちりめん細工やクリスマス展など、企画展の時期を狙って。",
+ highlights:["世界の玩具9万点","土蔵造りの展示棟","季節ごとの企画展"],time:"60分",pick:1}
+];
+
+// ===== 館データ（奈良県） =====
+const MUSEUMS_NARA = [
+{id:"narahaku",name:"奈良国立博物館",kana:"ならこくりつはくぶつかん",pref:"奈良",city:"奈良市",area:"奈良公園",cat:"art",tags:["国宝","仏教美術","建築"],lat:34.6835,lng:135.8371,
+ access:"近鉄 奈良駅 徒歩15分／JR 奈良駅 バス「氷室神社・国立博物館」すぐ",hours:"9:30–17:00（正倉院展期間は変更あり）",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"名品展 一般700円（特別展は別途）",url:"https://www.narahaku.go.jp/",
+ note:"仏教美術の殿堂。片山東熊設計の「なら仏像館」には飛鳥から鎌倉までの仏像が常時100体近く並び、秋の正倉院展は毎年の大イベント。奈良公園の鹿と一緒に。",
+ highlights:["なら仏像館の仏像展示","毎秋の正倉院展","地下回廊（無料）の仏像解説コーナー"],time:"2時間",pick:3,arch:"片山東熊（1894）"},
+{id:"nara-art",name:"奈良県立美術館",kana:"ならけんりつびじゅつかん",pref:"奈良",city:"奈良市",area:"奈良公園",cat:"art",tags:["駅近","日本画"],lat:34.6853,lng:135.8334,
+ access:"近鉄 奈良駅 徒歩5分",hours:"9:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://www.pref.nara.lg.jp/n044/11842.html",
+ note:"近鉄奈良駅から徒歩5分。風俗史研究家・吉川観方のコレクションや富本憲吉の陶芸など奈良ゆかりの作品を所蔵し、企画展を中心に運営。",
+ highlights:["近鉄奈良駅から徒歩5分","吉川観方コレクション","奈良公園散策の起点に"],time:"45分",pick:1},
+{id:"yamato",name:"大和文華館",kana:"やまとぶんかかん",pref:"奈良",city:"奈良市",area:"学園前",cat:"art",tags:["国宝","日本画","庭園","建築"],lat:34.6797,lng:135.7757,
+ access:"近鉄 学園前駅 徒歩7分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般630円（特別展は別途）",url:"https://www.kintetsu-g-hd.co.jp/culture/yamato/",
+ note:"近鉄が創設した東洋美術の名館。吉田五十八設計の本館は蛙股池を見下ろす丘に建ち、庭「文華苑」は花の名所。国宝4件、重文31件。",
+ highlights:["国宝「松浦屏風」「寝覚物語絵巻」","吉田五十八の数寄屋建築","梅・ささゆり・紅葉の文華苑"],time:"60分",pick:3,arch:"吉田五十八（1960）"},
+{id:"shohaku",name:"松伯美術館",kana:"しょうはくびじゅつかん",pref:"奈良",city:"奈良市",area:"登美ヶ丘",cat:"art",tags:["日本画","庭園"],lat:34.7080,lng:135.7600,
+ access:"近鉄 学園前駅 バス「大渕橋（松伯美術館前）」徒歩2分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般820円程度（展覧会により異なる）",url:"https://www.kintetsu-g-hd.co.jp/culture/shohaku/",
+ note:"上村松園・松篁・淳之の三代の日本画を専門に。近鉄の佐伯勇旧邸の敷地にあり、大渕池を望む静かな環境。美人画と花鳥画の系譜をたどれる。",
+ highlights:["上村松園の美人画","三代の花鳥画","旧佐伯勇邸の庭"],time:"45分",pick:2},
+{id:"irie",name:"入江泰吉記念奈良市写真美術館",kana:"いりえたいきちきねんならししゃしんびじゅつかん",pref:"奈良",city:"奈良市",area:"高畑",cat:"art",tags:["写真","建築"],lat:34.6775,lng:135.8431,
+ access:"市内循環バス「破石町」徒歩10分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般500円",url:"https://irietaikichi.jp/",
+ closure:"改修工事のため2026年9月28日〜2027年3月15日休館。",
+ note:"大和路を撮り続けた写真家・入江泰吉の全作品を収蔵。黒川紀章設計の建物は瓦屋根と地下展示室で高畑の町並みに溶け込む。新薬師寺の隣。",
+ highlights:["入江泰吉の大和路写真","黒川紀章の地下展示室","新薬師寺・志賀直哉旧居が徒歩圏"],time:"45分",pick:2,arch:"黒川紀章（1992）"},
+{id:"kashikoken",name:"奈良県立橿原考古学研究所附属博物館",kana:"ならけんりつかしはらこうこがくけんきゅうじょふぞくはくぶつかん",pref:"奈良",city:"橿原市",area:"畝傍",cat:"history",tags:["考古","駅近"],lat:34.4959,lng:135.7874,
+ access:"近鉄 畝傍御陵前駅 徒歩5分",hours:"9:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般400円",url:"https://www.kashikoken.jp/museum/",
+ note:"藤ノ木古墳やキトラ古墳など、奈良の発掘成果を直接見られる考古学の本丸。旧石器から平安まで実物資料で通史をたどる常設展は密度が高い。",
+ highlights:["藤ノ木古墳の副葬品","奈良の発掘成果を集約","畝傍御陵前駅から徒歩5分"],time:"60分",pick:2},
+{id:"tenri",name:"天理大学附属天理参考館",kana:"てんりだいがくふぞくてんりさんこうかん",pref:"奈良",city:"天理市",area:"天理",cat:"history",tags:["考古","歴史"],lat:34.5944,lng:135.8406,
+ access:"近鉄・JR 天理駅 徒歩20分",hours:"9:30–16:30",closed:"火曜（祝日の場合は翌日）",closedDays:[2],holidayRule:true,fee:"一般500円",url:"https://www.sankokan.jp/",
+ note:"世界の生活文化と考古美術を集めた大学博物館。古代オリエント、中国、朝鮮の考古資料から日本の民俗まで、展示密度と質が高く、知る人ぞ知る存在。",
+ highlights:["古代オリエントの考古資料","世界各地の生活文化資料","天理の宗教建築群の街歩き"],time:"90分",pick:2},
+{id:"heijo",name:"平城宮跡資料館",kana:"へいじょうきゅうせきしりょうかん",pref:"奈良",city:"奈良市",area:"平城宮跡",cat:"history",tags:["考古","歴史","無料"],lat:34.6929,lng:135.7951,
+ access:"近鉄 大和西大寺駅 徒歩10分",hours:"9:00–16:30",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"無料",url:"https://www.nabunken.go.jp/heijo/museum/",
+ note:"奈良文化財研究所の資料館。平城宮の発掘で出土した木簡や瓦、役所の再現展示を無料で見られる。復原された大極殿・朱雀門と一緒に半日を。",
+ highlights:["入館無料","平城宮の出土品と役所の再現","第一次大極殿・朱雀門の見学と"],time:"45分",pick:1},
+{id:"kofukuji",name:"興福寺国宝館",kana:"こうふくじこくほうかん",pref:"奈良",city:"奈良市",area:"奈良公園",cat:"temple",tags:["国宝","仏教美術","駅近"],lat:34.6830,lng:135.8319,
+ access:"近鉄 奈良駅 徒歩5分",hours:"9:00–17:00",closed:"無休",closedDays:[],fee:"一般700円",url:"https://www.kohfukuji.com/",
+ note:"阿修羅像をはじめ八部衆・十大弟子、天燈鬼・龍燈鬼、千手観音など、国宝の仏像がこれほど並ぶ場所は他にない。2018年に再建された中金堂とあわせて。",
+ highlights:["国宝「阿修羅像」","天燈鬼・龍燈鬼","再建された中金堂"],time:"45分",pick:3},
+{id:"todaiji",name:"東大寺ミュージアム",kana:"とうだいじみゅーじあむ",pref:"奈良",city:"奈良市",area:"奈良公園",cat:"temple",tags:["国宝","仏教美術"],lat:34.6873,lng:135.8371,
+ access:"近鉄 奈良駅 徒歩20分／市内循環バス「東大寺大仏殿・春日大社前」徒歩5分",hours:"9:30–17:30（季節により変動）",closed:"無休（展示替え期間を除く）",closedDays:[],fee:"一般600円（大仏殿との共通券あり）",url:"https://www.todaiji.or.jp/",
+ note:"大仏殿の手前にある東大寺の宝物館。法華堂から移された日光・月光菩薩像（国宝）を間近に拝観でき、大仏殿の前に立ち寄ると理解が深まる。",
+ highlights:["国宝の日光・月光菩薩像","大仏殿との共通券","南大門から大仏殿への参道沿い"],time:"40分",pick:2},
+{id:"neiraku",name:"寧楽美術館（依水園）",kana:"ねいらくびじゅつかん",pref:"奈良",city:"奈良市",area:"奈良公園",cat:"art",tags:["庭園","陶磁・茶の湯"],lat:34.6861,lng:135.8406,
+ access:"近鉄 奈良駅 徒歩15分",hours:"9:30–16:30",closed:"火曜（祝日の場合は翌日）",closedDays:[2],holidayRule:true,fee:"一般1,200円（依水園の入園料に含む）",url:"https://isuien.or.jp/",
+ note:"東大寺南大門の近くにある名勝庭園・依水園の中の美術館。中国古代の青銅器や高麗・朝鮮の陶磁を展示。庭園とあわせ、奈良公園の喧騒から逃れる場所。",
+ highlights:["名勝・依水園の池泉回遊式庭園","中国・朝鮮の古美術","若草山を借景にした眺め"],time:"60分",pick:1},
+{id:"kasuga",name:"春日大社国宝殿",kana:"かすがたいしゃこくほうでん",pref:"奈良",city:"奈良市",area:"奈良公園",cat:"temple",tags:["国宝","工芸"],lat:34.6815,lng:135.8466,
+ access:"市内循環バス「春日大社本殿」徒歩3分",hours:"10:00–17:00",closed:"無休（展示替え期間を除く）",closedDays:[],fee:"一般500円",url:"https://www.kasugataisha.or.jp/",
+ note:"「平安の正倉院」と呼ばれる春日大社の宝物を展示。国宝の甲冑や太刀、舞楽面など。弥勒浄土を表した「神垣」の暗闇の空間が印象的。",
+ highlights:["国宝の甲冑・太刀","だだいこの実物展示","春日大社参拝とあわせて"],time:"40分",pick:1},
+{id:"sugioka",name:"奈良市杉岡華邨書道美術館",kana:"ならしすぎおかかそんしょどうびじゅつかん",pref:"奈良",city:"奈良市",area:"ならまち",cat:"art",tags:["工芸"],lat:34.6799,lng:135.8297,
+ access:"近鉄 奈良駅 徒歩10分",hours:"9:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般300円",url:"https://www.city.nara.lg.jp/site/kakin/",
+ note:"かな書の第一人者・杉岡華邨の作品を中心とした書道専門の美術館。ならまちの町家散策の途中に、静かに書と向き合える。",
+ highlights:["かな書の名品","ならまちエリアに立地","入館300円"],time:"30分",pick:1},
+{id:"horyuji",name:"法隆寺 大宝蔵院",kana:"ほうりゅうじだいほうぞういん",pref:"奈良",city:"生駒郡斑鳩町",area:"斑鳩",cat:"temple",tags:["国宝","仏教美術","建築"],lat:34.6144,lng:135.7342,
+ access:"JR 法隆寺駅 徒歩20分／バス「法隆寺参道」徒歩5分",hours:"8:00–17:00（11月4日〜2月21日は16:30まで）",closed:"無休",closedDays:[],fee:"一般1,500円（西院伽藍・大宝蔵院・東院伽藍共通）",url:"https://www.horyuji.or.jp/",
+ note:"世界最古の木造建築群・法隆寺の宝物館。百済観音、玉虫厨子、夢違観音など飛鳥時代の至宝が並ぶ。伽藍と一緒に世界遺産を丸ごと体験できる。",
+ highlights:["国宝「百済観音」","玉虫厨子","世界最古の木造建築・金堂と五重塔"],time:"2時間",pick:2},
+{id:"insect",name:"橿原市昆虫館",kana:"かしはらしこんちゅうかん",pref:"奈良",city:"橿原市",area:"香久山",cat:"science",tags:["自然・科学","子ども向け"],lat:34.4870,lng:135.8241,
+ access:"近鉄 大和八木駅 バス「昆虫館」すぐ",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般520円",url:"https://www.city.kashihara.nara.jp/kontyu/",
+ note:"放蝶温室で沖縄の蝶が一年中舞う昆虫館。香久山公園の中にあり、標本展示と生態展示のバランスがよく、小さな子ども連れに向く。",
+ highlights:["放蝶温室","香久山公園での散策","生きた昆虫の生態展示"],time:"60分",pick:1},
+{id:"manyo",name:"奈良県立万葉文化館",kana:"ならけんりつまんようぶんかかん",pref:"奈良",city:"高市郡明日香村",area:"飛鳥",cat:"special",tags:["文学","日本画","無料"],lat:34.4761,lng:135.8258,
+ access:"近鉄 橿原神宮前駅 バス「万葉文化館西口」徒歩3分",hours:"10:00–17:30",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"入館無料（日本画展示室は有料）",url:"https://www.manyo.jp/",
+ note:"万葉集をテーマに、歌にちなんだ日本画154点を収蔵する文化館。飛鳥の中心にあり、飛鳥資料館や石舞台古墳とあわせて自転車で巡りたい。",
+ highlights:["万葉歌を題材にした日本画","飛鳥池工房遺跡の展示","明日香村サイクリングの拠点"],time:"60分",pick:1}
+];
+
+// ===== 館データ（滋賀県） =====
+const MUSEUMS_SHIGA = [
+{id:"miho",name:"MIHO MUSEUM",kana:"みほみゅーじあむ",pref:"滋賀",city:"甲賀市",area:"信楽",cat:"art",tags:["建築","庭園","季節限定","工芸"],lat:34.9078,lng:136.0398,
+ access:"JR 石山駅 帝産バス約50分「MIHO MUSEUM」下車",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）。冬季休館",closedDays:[1],holidayRule:true,seasonal:"春季・夏季・秋季の会期中のみ開館（2026年秋季は9月26日〜12月6日。冬季休館後、2027年春季は3月13日から）",seasons:[["2026-09-26","2026-12-06"],["2027-03-13","2027-06-13"]],fee:"一般1,300円",url:"https://www.miho.jp/",
+ note:"I.M.ペイが「桃源郷」を主題に設計。トンネルと吊り橋を抜けると、山の中に埋め込まれた建物が現れる。エジプト、西アジア、中国の古代美術と、特別展の質が高い。",
+ highlights:["I.M.ペイの建築とアプローチのトンネル","古代エジプト・西アジア美術","信楽の山中、紅葉と桜の季節が格別"],time:"3時間",pick:3,arch:"I.M.ペイ（1997）"},
+{id:"shiga-art",name:"滋賀県立美術館",kana:"しがけんりつびじゅつかん",pref:"滋賀",city:"大津市",area:"瀬田",cat:"art",tags:["日本画","現代美術","工芸"],lat:34.9791,lng:135.9457,
+ access:"JR 瀬田駅 バス「文化ゾーン前」徒歩5分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般540円（企画展は別途）",url:"https://www.shigamuseum.jp/",
+ closedRanges:[["2026-11-24","2026-12-08"]],notice:"展示替えのため2026年11月24日〜12月8日は休館。",
+ note:"2021年にリニューアル。小倉遊亀、志村ふくみに加え、アール・ブリュットを本格的に収集する公立館として知られる。びわこ文化公園の森に囲まれた「リビングルームのような美術館」。",
+ highlights:["アール・ブリュットのコレクション","小倉遊亀・志村ふくみ","びわこ文化公園の散策"],time:"60分",pick:2},
+{id:"biwahaku",name:"滋賀県立琵琶湖博物館",kana:"しがけんりつびわこはくぶつかん",pref:"滋賀",city:"草津市",area:"烏丸半島",cat:"science",tags:["自然・科学","子ども向け","体験型"],lat:35.0738,lng:135.9377,
+ access:"JR 草津駅 バス約25分「琵琶湖博物館前」すぐ",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般800円",url:"https://www.biwahaku.jp/",
+ note:"琵琶湖の400万年の歴史と、湖と人の暮らしを扱う総合博物館。淡水魚の水族展示は国内最大級で、トンネル水槽のビワコオオナマズに出会える。",
+ highlights:["淡水の水族展示（国内最大級）","ツダンスキーゾウの骨格","琵琶湖畔の烏丸半島に立地"],time:"2時間",pick:3},
+{id:"sagawa",name:"佐川美術館",kana:"さがわびじゅつかん",pref:"滋賀",city:"守山市",area:"守山",cat:"art",tags:["建築","日本画","陶磁・茶の湯"],lat:35.1040,lng:135.9239,
+ access:"JR 守山駅 バス約30分「佐川美術館」すぐ／JR 堅田駅 バス約15分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般1,000円",url:"https://www.sagawa-artmuseum.or.jp/",
+ note:"建物を囲む水庭に浮かぶような展示棟。平山郁夫の日本画、佐藤忠良の彫刻、樂吉左衞門（十五代）の茶室と陶芸を三本柱に。2026年7月に改修を終えて再開館。水面に映る建築だけでも訪ねる価値がある。",
+ highlights:["水庭に浮かぶ建築","樂吉左衞門館の茶室（要予約）","平山郁夫・佐藤忠良の常設"],time:"90分",pick:3,arch:"竹中工務店（1998）／樂吉左衞門館（2007）"},
+{id:"azuchi",name:"滋賀県立安土城考古博物館",kana:"しがけんりつあづちじょうこうこはくぶつかん",pref:"滋賀",city:"近江八幡市",area:"安土",cat:"history",tags:["考古","歴史"],lat:35.1527,lng:136.1376,
+ access:"JR 安土駅 徒歩25分",hours:"9:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般500円",url:"https://www.azuchi-museum.or.jp/",
+ note:"織田信長の安土城と、周辺の古墳・城郭をテーマにした博物館。安土城天主の復元模型や、近江の考古資料。安土城跡・信長の館と一緒に歩きたい。",
+ highlights:["安土城と信長の展示","近江の古墳・城郭の考古資料","安土城跡と信長の館が徒歩圏"],time:"60分",pick:1},
+{id:"otsu",name:"大津市歴史博物館",kana:"おおつしれきしはくぶつかん",pref:"滋賀",city:"大津市",area:"三井寺",cat:"history",tags:["歴史","駅近"],lat:35.0146,lng:135.8546,
+ access:"京阪 大津市役所前駅 徒歩5分",hours:"9:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般330円",url:"https://www.rekihaku.otsu.shiga.jp/",
+ note:"三井寺の隣にある市立博物館。大津絵や近江八景、比叡山と延暦寺など、大津の歴史を手堅く展示。企画展のテーマ設定が渋く、歴史好きの評価が高い。",
+ highlights:["大津絵のコレクション","琵琶湖と大津の街並みを望む立地","三井寺（園城寺）の隣"],time:"45分",pick:1},
+{id:"hikone",name:"彦根城博物館",kana:"ひこねじょうはくぶつかん",pref:"滋賀",city:"彦根市",area:"彦根城",cat:"history",tags:["歴史","工芸"],lat:35.2757,lng:136.2524,
+ access:"JR 彦根駅 徒歩15分",hours:"8:30–17:00",closed:"年末年始",closedDays:[],fee:"一般500円（彦根城との共通券あり）",url:"https://hikone-castle-museum.jp/",
+ note:"彦根藩主・井伊家の表御殿を復元した博物館。赤備えの甲冑、能面・能装束、茶道具など井伊家伝来の品々を、能舞台や御殿の座敷とともに見られる。",
+ highlights:["井伊家伝来の赤備え甲冑","復元された能舞台と御殿","国宝・彦根城とセットで"],time:"60分",pick:2},
+{id:"togei",name:"滋賀県立陶芸の森 陶芸館",kana:"しがけんりつとうげいのもりとうげいかん",pref:"滋賀",city:"甲賀市",area:"信楽",cat:"craft",tags:["陶磁・茶の湯","工芸"],lat:34.8721,lng:136.0641,
+ access:"信楽高原鐵道 信楽駅 徒歩20分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://www.sccp.jp/",
+ note:"信楽焼の里に広がる公園の中の陶芸専門美術館。国内外の現代陶芸と信楽の古陶を企画展で紹介し、屋外の作品や創作研修館の作家の活動も見られる。",
+ highlights:["現代陶芸の企画展","屋外展示の広場","信楽の窯元めぐりとあわせて"],time:"60分",pick:1},
+{id:"hikiyama",name:"長浜市曳山博物館",kana:"ながはましひきやまはくぶつかん",pref:"滋賀",city:"長浜市",area:"長浜",cat:"history",tags:["歴史","工芸"],lat:35.3816,lng:136.2707,
+ access:"JR 長浜駅 徒歩10分",hours:"9:00–17:00",closed:"年末年始",closedDays:[],fee:"一般600円",url:"https://www.nagahama-hikiyama.or.jp/",
+ note:"ユネスコ無形文化遺産・長浜曳山まつりの曳山を実物展示。「動く美術館」と呼ばれる曳山の装飾を間近に見られ、子ども歌舞伎の映像も。黒壁の街歩きと。",
+ highlights:["実物の曳山2基を展示","子ども歌舞伎の映像","黒壁スクエアの街並み"],time:"45分",pick:1},
+{id:"noma",name:"ボーダレス・アートミュージアムNO-MA",kana:"ぼーだれすあーとみゅーじあむのーま",pref:"滋賀",city:"近江八幡市",area:"近江八幡",cat:"art",tags:["現代美術"],lat:35.1361,lng:136.0916,
+ access:"JR 近江八幡駅 バス「小幡町資料館前」徒歩3分",hours:"11:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"展覧会ごとに設定",url:"https://no-ma.jp/",
+ note:"近江八幡の旧市街の町家を改修した小さな美術館。障害のある人の表現と現代アートを「ボーダレス」に並べる企画で、国内外から注目される。",
+ highlights:["アール・ブリュットと現代美術の併置","町家を改修した展示空間","近江八幡の八幡堀散策と"],time:"40分",pick:1},
+{id:"yanmar",name:"ヤンマーミュージアム",kana:"やんまーみゅーじあむ",pref:"滋賀",city:"長浜市",area:"長浜",cat:"special",tags:["体験型","子ども向け"],lat:35.3756,lng:136.2801,
+ access:"JR 長浜駅 徒歩10分",hours:"10:00–18:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般900円",url:"https://www.yanmar.com/jp/museum/",
+ note:"ヤンマー創業者・山岡孫吉の故郷・長浜にある体験型ミュージアム。ショベルカーの操作体験やボート、足湯まであり、子どもが夢中になる。",
+ highlights:["ショベルカーの操作体験","ディーゼルエンジンの展示","屋上の足湯"],time:"90分",pick:1},
+{id:"enryakuji",name:"比叡山延暦寺 国宝殿",kana:"ひえいざんえんりゃくじこくほうでん",pref:"滋賀",city:"大津市",area:"比叡山",cat:"temple",tags:["国宝","仏教美術"],lat:35.0706,lng:135.8411,
+ access:"坂本ケーブル ケーブル延暦寺駅 徒歩10分",hours:"8:30–16:30（季節により変動）",closed:"無休",closedDays:[],fee:"一般500円（諸堂巡拝料は別途）",url:"https://www.hieizan.or.jp/",
+ note:"延暦寺に伝わる仏像・仏画・書跡を公開する宝物館。東塔エリアにあり、根本中堂の拝観とあわせて。比叡山の歴史を知るうえで最初に寄りたい。",
+ highlights:["延暦寺伝来の仏像・仏画","根本中堂の修理見学と","比叡山ドライブウェイ・ケーブルの眺望"],time:"40分",pick:1}
+];
+
+// ===== 館データ（和歌山県） =====
+const MUSEUMS_WAKAYAMA = [
+{id:"momaw",name:"和歌山県立近代美術館",kana:"わかやまけんりつきんだいびじゅつかん",pref:"和歌山",city:"和歌山市",area:"和歌山城",cat:"art",tags:["建築","現代美術","西洋美術"],lat:34.2241,lng:135.1691,
+ access:"JR 和歌山駅／南海 和歌山市駅 バス「県庁前」徒歩2分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"コレクション展 一般350円（企画展は別途）",url:"https://www.momaw.jp/",
+ note:"黒川紀章設計の大屋根の建物が和歌山城の南に建つ。版画コレクションが充実し、浜口陽三、川口軌外、保田龍門など和歌山ゆかりの作家と、国内外の近現代美術を所蔵。",
+ highlights:["版画コレクション","黒川紀章の建築","和歌山城と徒歩圏"],time:"60分",pick:2,arch:"黒川紀章（1994）"},
+{id:"wakayama-museum",name:"和歌山県立博物館",kana:"わかやまけんりつはくぶつかん",pref:"和歌山",city:"和歌山市",area:"和歌山城",cat:"history",tags:["歴史","仏教美術","建築"],lat:34.2233,lng:135.1701,
+ access:"JR 和歌山駅／南海 和歌山市駅 バス「県庁前」徒歩2分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般280円（特別展は別途）",url:"https://www.hakubutu.wakayama.jp/",
+ note:"近代美術館と並んで建つ県立博物館。高野山・熊野をはじめ紀伊の仏教美術と歴史資料に強く、特別展のテーマ設定も質が高い。",
+ highlights:["紀伊の仏教美術・歴史資料","近代美術館と同じ敷地","特別展のテーマが渋い"],time:"60分",pick:2,arch:"黒川紀章（1994）"},
+{id:"wakayama-city",name:"和歌山市立博物館",kana:"わかやましりつはくぶつかん",pref:"和歌山",city:"和歌山市",area:"和歌山市駅",cat:"history",tags:["歴史","駅近"],lat:34.2341,lng:135.1596,
+ access:"南海 和歌山市駅 徒歩5分",hours:"9:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般100円",url:"https://www.wakayama-city-museum.jp/",
+ note:"紀州徳川家と城下町和歌山の歴史を手堅く展示。入館100円。南海和歌山市駅からすぐで、和歌山城へ向かう前の予習に向く。",
+ highlights:["紀州徳川家の資料","入館100円","和歌山市駅から徒歩5分"],time:"40分",pick:1},
+{id:"reihokan",name:"高野山霊宝館",kana:"こうやさんれいほうかん",pref:"和歌山",city:"伊都郡高野町",area:"高野山",cat:"temple",tags:["国宝","仏教美術"],lat:34.2113,lng:135.5801,
+ access:"南海 高野山駅 バス「霊宝館前」すぐ",hours:"8:30–17:30（11〜4月は17:00まで）",closed:"年末年始",closedDays:[],fee:"一般1,300円",url:"https://www.reihokan.or.jp/",
+ note:"高野山の寺院に伝わる国宝・重文を収蔵・展示する宝物館。運慶作の八大童子像、平安仏画の「阿弥陀聖衆来迎図」など、密教美術の最高峰が揃う。",
+ highlights:["運慶作「八大童子立像」（国宝）","平安仏画の名品","壇上伽藍・奥之院とあわせて一日"],time:"60分",pick:3},
+{id:"wakayama-nature",name:"和歌山県立自然博物館",kana:"わかやまけんりつしぜんはくぶつかん",pref:"和歌山",city:"海南市",area:"海南",cat:"science",tags:["自然・科学","子ども向け"],lat:34.1601,lng:135.2081,
+ access:"JR 海南駅 バス「琴の浦」徒歩3分",hours:"9:30–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般480円",url:"https://www.shizenhaku.wakayama-c.ed.jp/",
+ note:"黒潮の海の生き物を中心に、和歌山の自然を扱う博物館。水族展示があり、モササウルスの化石など地学展示も。海南駅からバスで海沿いへ。",
+ highlights:["紀州の海の水族展示","モササウルスの化石","入館480円で子ども連れ向き"],time:"60分",pick:1},
+{id:"tanabe",name:"田辺市立美術館",kana:"たなべしりつびじゅつかん",pref:"和歌山",city:"田辺市",area:"田辺",cat:"art",tags:["日本画"],lat:33.7391,lng:135.3871,
+ access:"JR 紀伊田辺駅 バス「新庄公園前」徒歩3分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般260円",url:"https://www.city.tanabe.lg.jp/bijutsukan/",
+ note:"紀南の文人画（野呂介石、祇園南海ら）と、田辺ゆかりの近代洋画を所蔵。熊野古道なかへち美術館の本館にあたる。入館260円。",
+ highlights:["紀州の南画コレクション","入館260円","熊野古道の玄関口・田辺に立地"],time:"40分",pick:1},
+{id:"nakahechi",name:"熊野古道なかへち美術館",kana:"くまのこどうなかへちびじゅつかん",pref:"和歌山",city:"田辺市",area:"中辺路",cat:"art",tags:["建築","日本画"],lat:33.8201,lng:135.5291,
+ access:"JR 紀伊田辺駅 バス約50分「近露王子」徒歩3分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般260円",url:"https://www.city.tanabe.lg.jp/nakahechi-museum/",
+ note:"SANAA（妹島和世＋西沢立衛）の初期作、ガラスの箱のような美術館が熊野古道中辺路の近露王子跡の近くに建つ。渡瀬凌雲・野長瀬晩花の日本画。古道歩きの休憩地に。",
+ highlights:["SANAA設計のガラス建築","熊野古道・近露王子の近く","入館260円"],time:"40分",pick:2,arch:"SANAA 妹島和世＋西沢立衛（1997）"},
+{id:"minakata",name:"南方熊楠記念館",kana:"みなかたくまぐすきねんかん",pref:"和歌山",city:"西牟婁郡白浜町",area:"白浜",cat:"science",tags:["自然・科学","建築"],lat:33.6940,lng:135.3364,
+ access:"JR 白浜駅 バス「臨海」徒歩8分",hours:"9:00–17:00",closed:"木曜（祝日の場合は開館）",closedDays:[4],holidayRule:true,fee:"一般600円",url:"https://www.minakatakumagusu-kinenkan.jp/",
+ note:"博物学者・南方熊楠の遺品と標本を、白浜の番所山の上で公開。屋上からの太平洋の眺めと、2017年新館の菌類標本の展示。京都大学白浜水族館が隣。",
+ highlights:["南方熊楠の標本・遺品","屋上展望台からの海","京都大学白浜水族館が隣"],time:"45分",pick:2},
+{id:"kenshokan",name:"南方熊楠顕彰館",kana:"みなかたくまぐすけんしょうかん",pref:"和歌山",city:"田辺市",area:"田辺",cat:"science",tags:["無料","自然・科学"],lat:33.7319,lng:135.3776,
+ access:"JR 紀伊田辺駅 徒歩10分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"無料（旧邸見学は別途）",url:"https://www.minakata.org/",
+ note:"田辺の南方熊楠旧邸に隣接する資料館。蔵書や日記などを保存・公開し、旧邸（有料）も見学できる。入館無料。",
+ highlights:["入館無料","南方熊楠旧邸（別途料金）","田辺の街なかで気軽に"],time:"30分",pick:1},
+{id:"kujira",name:"太地町立くじらの博物館",kana:"たいじちょうりつくじらのはくぶつかん",pref:"和歌山",city:"東牟婁郡太地町",area:"太地",cat:"science",tags:["自然・科学","子ども向け","体験型"],lat:33.5954,lng:135.9479,
+ access:"JR 太地駅 町営バス「くじら館前」すぐ",hours:"8:30–17:00",closed:"無休",closedDays:[],fee:"一般1,500円程度",url:"https://www.kujirakan.jp/",
+ note:"古式捕鯨発祥の地・太地にある鯨の総合博物館。セミクジラの実物大模型と捕鯨の歴史資料、イルカ・クジラのショーを一か所で。",
+ highlights:["クジラの骨格と実物大模型","捕鯨の歴史資料","イルカ・クジラのショー"],time:"90分",pick:1},
+{id:"inamura",name:"稲むらの火の館",kana:"いなむらのひのやかた",pref:"和歌山",city:"有田郡広川町",area:"広川",cat:"history",tags:["歴史","体験型"],lat:34.0330,lng:135.1711,
+ access:"JR 湯浅駅 徒歩15分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般500円",url:"https://www.town.hirogawa.wakayama.jp/inamuranohi/",
+ note:"安政南海地震の津波から村人を救った濱口梧陵の記念館と津波防災教育センター。「稲むらの火」の物語と、3D津波映像で防災を学ぶ。",
+ highlights:["濱口梧陵の記念館","3Dシアターの津波映像","広村堤防の見学"],time:"60分",pick:1},
+{id:"fudoki",name:"和歌山県立紀伊風土記の丘",kana:"わかやまけんりつきいふどきのおか",pref:"和歌山",city:"和歌山市",area:"岩橋",cat:"history",tags:["考古","歴史"],lat:34.2326,lng:135.2268,
+ access:"JR 和歌山駅 バス「紀伊風土記の丘」徒歩8分",hours:"9:00–16:30",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般190円",url:"https://www.kiifudoki.wakayama-c.ed.jp/",
+ note:"国特別史跡・岩橋千塚古墳群の中にある考古博物館。資料館で埴輪を見たあと、約800基の古墳が点在する丘を歩いて石室に入れる。",
+ highlights:["岩橋千塚古墳群の散策","横穴式石室の見学","移築された江戸時代の民家"],time:"90分",pick:1},
+{id:"wakayama-castle",name:"和歌山城天守閣",kana:"わかやまじょうてんしゅかく",pref:"和歌山",city:"和歌山市",area:"和歌山城",cat:"history",tags:["歴史"],lat:34.2277,lng:135.1717,
+ access:"南海 和歌山市駅 徒歩10分／JR 和歌山駅 バス「公園前」すぐ",hours:"9:00–17:30",closed:"年末年始",closedDays:[],fee:"一般410円",url:"http://wakayamajo.jp/",
+ note:"紀州徳川家55万5千石の居城。1958年再建の天守閣内は資料館で、甲冑や刀剣を展示。最上階から和歌山市街と紀ノ川を一望。",
+ highlights:["紀州徳川家の資料","天守からの眺望","御橋廊下と西之丸庭園"],time:"60分",pick:1}
+];
+
+// ===== 特集（編集部のキュレーション） =====
+const COLLECTIONS = [
+{id:"nakanoshima-walk",title:"中之島ミュージアム・ウォーク",lead:"大阪のミュージアムが最も密集する中之島。徒歩10分圏に美術館3館、科学館、陶磁美術館が並び、半日で5館を回れる。",
+ tip:"午前に国立国際美術館と中之島美術館（隣同士）、昼を挟んで中之島香雪美術館、夕方に科学館のプラネタリウムという順がおすすめ。東洋陶磁美術館は2027年春まで休館中。",
+ museums:["nmao","nakka","sci-museum","kosetsu-nakanoshima","moco"]},
+{id:"ando",title:"安藤忠雄の建築をめぐる",lead:"関西は安藤忠雄建築の宝庫。兵庫県立美術館の海辺の大回廊から、狭山池博物館の水庭、司馬遼太郎記念館の大書架まで、作品そのものを歩く。",
+ tip:"兵庫県立美術館と姫路文学館は同じ日に。大山崎山荘の地中館はモネ「睡蓮」のための空間で、安藤建築の中でも特別。狭山池博物館は無料。",
+ museums:["hyogo-art","oyamazaki","sayamaike","chikatsu","shiba","himeji-lit"]},
+{id:"kokuho",title:"国宝に会いに行く",lead:"曜変天目、阿修羅像、運慶の八大童子、桜ヶ丘銅鐸。関西の館には、教科書で見た国宝が日常的に並んでいる。",
+ tip:"国宝は展示替えで見られない時期がある。藤田美術館の曜変天目や京博・奈良博の名品は、公式サイトの展示予定を確認してから。東洋陶磁美術館は2027年春まで休館。",
+ museums:["fujita","kofukuji","reihokan","kyohaku","narahaku","yamato","kobe-museum","kuboso","horyuji","moco"]},
+{id:"okazaki",title:"岡崎・東山アートはしご",lead:"平安神宮の大鳥居を中心に、京セラ美術館、近代美術館、細見美術館が徒歩5分圏。鹿ケ谷の泉屋博古館まで足を延ばせば、京都の美術館の層の厚さがわかる。",
+ tip:"京セラ美術館は2時間みておきたい。細見美術館のカフェで休憩し、伝統産業ミュージアム（無料）を経由して泉屋博古館へ。帰りは哲学の道を歩いて銀閣寺方面へ抜けると白沙村荘にも寄れる。",
+ museums:["kyocera","momak","hosomi","dento","senoku","hakusasonso"]},
+{id:"nara-autumn",title:"秋の奈良、正倉院展とあわせて",lead:"毎年10月末から11月上旬の正倉院展は、奈良がいちばん賑わう2週間。奈良博を軸に、徒歩圏の宝物館をつなぐと一日が充実する。",
+ tip:"正倉院展は日時指定の前売券が基本。朝いちばんに奈良博へ入り、興福寺国宝館、東大寺ミュージアム、春日大社国宝殿と回る。依水園（寧楽美術館）は人混みから逃れる場所に。",
+ museums:["narahaku","kofukuji","todaiji","kasuga","neiraku","nara-art"]},
+{id:"kids",title:"子どもと一日",lead:"体験型の展示と広い敷地。大人も飽きない、家族で過ごせる館を選んだ。雨の日の選択肢としても。",
+ tip:"琵琶湖博物館と京都鉄道博物館は半日では足りない規模。みんぱくは万博記念公園とセットで一日に。カップヌードルミュージアムの体験は事前予約を。",
+ museums:["biwahaku","kyoto-railway","minpaku","kyotomm","cupnoodle","hitohaku","sci-museum","omnh","akashi","tezuka"]},
+{id:"rainy",title:"雨でも楽しい駅直結・駅近",lead:"駅から傘をささずに、または数分で着く館。天気の悪い日や、移動の合間に。",
+ tip:"中之島香雪美術館（肥後橋駅直結）、あべのハルカス美術館（天王寺駅直結）、くらしの今昔館（天神橋筋六丁目駅直結）は完全に屋内移動で行ける。",
+ museums:["kosetsu-nakanoshima","aham","konjakukan","bunpaku","kyotomm","dougukan","ucc","kyoto-railway","eki","fujita"]},
+{id:"architecture",title:"建築そのものが作品",lead:"I.M.ペイ、谷口吉生、SANAA、吉田五十八、黒川紀章。展示の前に建物を見に行く価値がある館。",
+ tip:"MIHO MUSEUMは季節開館で、冬季は閉まる。佐川美術館は水庭が主役なので晴れた日に。京博は明治古都館の外観だけなら庭から無料で眺められる。",
+ museums:["miho","sagawa","kyohaku","fukuda","nakahechi","hyogo-art","domoto","kyocera","yamato","momaw"]},
+{id:"tea",title:"うつわと茶の湯",lead:"樂茶碗、曜変天目、丹波焼、信楽焼。関西は茶の湯とやきものの中心地で、専門館の密度が高い。",
+ tip:"樂美術館と茶道資料館は西陣で徒歩圏。藤田美術館は入館後の庭でお団子と抹茶が楽しめる。東洋陶磁美術館は2027年春まで休館中なので再開後に。",
+ museums:["fujita","raku","chado","yuki","nomura","itsuo","mcart","togei","kawai","moco"]},
+{id:"arashiyama",title:"嵐山で日本画の午後",lead:"渡月橋のたもとに並ぶ福田美術館と嵯峨嵐山文華館は、二館共通券で行き来できる。観光の人混みを離れ、若冲や松園と静かに向き合える。",
+ tip:"午後の光が入る福田美術館のカフェから渡月橋を眺めるのが定番。混雑を避けるなら開館直後に。",
+ museums:["fukuda","samac"]},
+{id:"shiga",title:"湖国・滋賀をめぐる",lead:"琵琶湖のまわりには、建築と自然をテーマにした大型館が点在する。車があれば一日で3館、電車とバスなら2館が目安。",
+ tip:"MIHO MUSEUMは石山駅からバスで50分、佐川美術館は守山駅からバスで30分。同じ日に両方は難しい。琵琶湖博物館と滋賀県立美術館は草津・瀬田でまとめやすい。",
+ museums:["miho","sagawa","biwahaku","shiga-art","hikone","otsu"]},
+{id:"kii",title:"紀伊半島の秘宝",lead:"高野山の密教美術から、南方熊楠の標本、熊野古道のガラスの美術館まで。距離はあるが、どれも代えがたい。",
+ tip:"高野山は霊宝館と壇上伽藍・奥之院で一日。白浜・田辺は南方熊楠記念館と顕彰館を同じ日に。なかへち美術館は熊野古道歩きの休憩に。",
+ museums:["reihokan","minakata","kenshokan","nakahechi","kujira","wakayama-museum"]}
+];
+
+// ===== 展覧会データ（2026-10-14 時点の調査。各館の公式サイト等で確認した会期）=====
+// m: 館ID / conf: high=公式サイト等で会期を確認, medium=要確認
+const EXHIBITIONS = [
+{"m":"otani","title":"2026 イタリア・ボローニャ国際絵本原画展","start":"2026-08-22","end":"2026-10-18","note":"毎年恒例。ボローニャ国際児童図書展の入選絵本原画を紹介","src":"http://www.otanimuseum.jp/exhibition_260822.html","conf":"high"},
+{"m":"yamato","title":"日本工芸の美―古代から近世まで―","start":"2026-08-29","end":"2026-10-18","note":"飛鳥・奈良から桃山・江戸までの日本工芸の変遷をたどる展覧会","src":"https://www.artagenda.jp/exhibition/detail/12102","conf":"high"},
+{"m":"senoku","title":"特別展「寛永行幸と花の都の文化びと」","start":"2026-09-05","end":"2026-10-18","note":"寛永行幸400年記念。館蔵《二条城行幸図屏風》を中心に寛永の文化人を紹介","src":"https://www.museum.or.jp/news/126377","conf":"high"},
+{"m":"eki","title":"宇野亞喜良展 AQUIRAX UNO","start":"2026-09-09","end":"2026-10-25","note":"初期の広告・演劇ポスターから近年の絵画まで宇野亞喜良の仕事。会期中無休","src":"https://artscape.jp/exhibitions/76400/","conf":"high"},
+{"m":"sci-museum","title":"企画展「月から火星へ 宇宙探査におけるイタリア」","start":"2026-09-19","end":"2026-10-25","note":"日伊修好160周年記念、イタリア文化会館-大阪と共同主催。次世代宇宙服レプリカを日本初公開、展示場1階","src":"https://www.sci-museum.jp/press/20260902/","conf":"high"},
+{"m":"sci-museum","title":"企画展「カプラ展」","start":"2026-09-19","end":"2026-10-25","note":"積み木「カプラ」の企画展、展示場1階、展示場観覧料で観覧可（会期は公式イベント一覧の検索結果のみで確認）","src":"https://www.sci-museum.jp/event/","conf":"medium"},
+{"m":"otsu","title":"ユネスコ無形文化遺産「山・鉾・屋台行事」登録記念 特別展示「四宮祭礼図絵巻」","start":"2026-09-08","end":"2026-11-01","note":"ユネスコ無形文化遺産登録を記念した「四宮祭礼図絵巻」の特別展示","src":"https://rekihaku.otsu.shiga.jp/event/kikakuten.html","conf":"high"},
+{"m":"nmao","title":"笹本晃 ラボラトリー","start":"2026-07-19","end":"2026-11-03","note":"特別展。NY拠点の笹本晃によるパフォーマンス・映像・インスタレーション、B3階展示室","src":"https://www.nmao.go.jp/events/event/20260719_sasamoto-aki/","conf":"high"},
+{"m":"nmao","title":"開館50周年記念プレ企画 コレクション1：私／行為","start":"2026-07-19","end":"2026-11-03","note":"2026年度コレクション展の第1期、B2階展示室","src":"https://www.nmao.go.jp/events/event/collection20260719/","conf":"high"},
+{"m":"itami","title":"I/Mクラフト会員展 2026伊丹クラフトフェア","start":"2026-10-23","end":"2026-11-03","note":"クラフト会員による作品展（展示室6）。観覧無料","src":"https://itami-im.jp/exhibitions/","conf":"high"},
+{"m":"nakka","title":"NMAOサテライト","start":"2026-10-10","end":"2026-11-07","note":"国立国際美術館との連携企画「コレナカ」第二弾。所蔵8作家の現代美術を2階多目的スペースで無料展示","src":"https://nakka-art.jp/exhibition-post/colle-naka-2026/","conf":"high"},
+{"m":"koiso","title":"生誕120年 三岸節子展","start":"2026-08-29","end":"2026-11-08","note":"特別展。同時開催「小磯良平作品選Ⅲ」","src":"https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/migishisetsuko120.html","conf":"high"},
+{"m":"hosomi","title":"特別展「良寛さん ―その人と禅―」","start":"2026-09-12","end":"2026-11-08","note":"良寛の書《凧文字 天上大風》《長歌 月の兎》など。一部展示替えあり","src":"https://www.emuseum.or.jp/exhibition/ex094/index.html","conf":"high"},
+{"m":"omnh","title":"テーマ展示「化石を楽しむ2026」","start":"2026-10-17","end":"2026-11-08","note":"本館1階ナウマンホール。化石をテーマにしたテーマ展示（特別展「大絶滅展」は10/12閉幕）","src":"https://omnh.jp/archives/14250","conf":"high"},
+{"m":"narahaku","title":"第78回 正倉院展","start":"2026-10-24","end":"2026-11-09","note":"正倉院宝物を公開する年に一度の特別展。1946年の第1回から80年の節目","src":"https://www.narahaku.go.jp/exhibition/special/special_exhibition/202610_shosoin/","conf":"high"},
+{"m":"bunpaku","title":"寛永行幸四百年祭開催記念 特別展「寛永 太平がはぐくむ美」","start":"2026-09-19","end":"2026-11-15","note":"前期9/19-10/18、後期10/20-11/15で展示替え。4階・3階展示室","src":"https://www.museum.or.jp/event/127037","conf":"high"},
+{"m":"nara-art","title":"特別展「時代を越えて～日本画のゆくえ 特集展示：近代奈良の日本画家 庄田鶴友と植中直斎」","start":"2026-09-19","end":"2026-11-15","note":"日本画の現在と行方をたどる特別展。特集展示で庄田鶴友・植中直斎を紹介","src":"https://www.pref.nara.lg.jp/n044/p105026.html","conf":"high"},
+{"m":"nara-art","title":"昭和100年企画「新収蔵記念/生誕140年 富本憲吉と昭和」","start":"2026-09-19","end":"2026-11-15","note":"新収蔵を記念し、生誕140年の陶芸家・富本憲吉と昭和を振り返る企画（特別展と同時開催）","src":"https://www.pref.nara.lg.jp/n044/63124.html","conf":"high"},
+{"m":"biwahaku","title":"第34回企画展示 博物館はタイムマシン -魚類学者がみた琵琶湖-","start":"2026-07-18","end":"2026-11-23","note":"シーボルトが持ち帰った琵琶湖の魚の標本やトキのタイプ標本など貴重標本を展示","src":"https://www.pref.shiga.lg.jp/kensei/koho/e-shinbun/oshirase/350953.html","conf":"high"},
+{"m":"shiga-art","title":"常設展 時間はかたち？","start":"2026-09-05","end":"2026-11-23","note":"「時間」をテーマにコレクションを展示する常設展","src":"https://www.shigamuseum.jp/exhibitions/14578/","conf":"high"},
+{"m":"osaka-hist","title":"特集展示「新発見！なにわの考古学2026」","start":"2026-09-09","end":"2026-11-23","note":"8階特集展示室。大阪市内の遺跡発掘調査の最新成果を出土遺物と写真パネルで紹介","src":"https://www.osakamushis.jp/news/2026/naniwakoko2026.html","conf":"high"},
+{"m":"shiga-art","title":"丸木スマ展 73歳からのアーティスト","start":"2026-09-11","end":"2026-11-23","note":"73歳から絵を描き始めた丸木スマの作品を紹介する企画展（展示室3）","src":"https://www.shigamuseum.jp/exhibitions/12995/","conf":"high"},
+{"m":"sagawa","title":"生誕140周年 藤田嗣治 ７つの情熱","start":"2026-09-17","end":"2026-11-23","note":"藤田嗣治の芸術を7つのテーマで紹介。油彩・版画・資料約140点、日本初公開作も","src":"https://www.sagawa-artmuseum.or.jp/plan/2026/07/140-1.html","conf":"high"},
+{"m":"ryukoku","title":"秋季企画展「東三河の普門寺さん －1300年の至宝－」（仮称）","start":"2026-09-19","end":"2026-11-23","note":"愛知・豊橋の普門寺の仏像・歴史資料。重文 木造伝釈迦如来坐像など","src":"https://museum.ryukoku.ac.jp/guide/schedule2026.html","conf":"high"},
+{"m":"mcart","title":"ゲンダイトウゲイ＊ミニ＊クロニクル－やきものはアートだ！","start":"2026-09-19","end":"2026-11-23","note":"特別展。現代陶芸の歩みをコンパクトにたどる","src":"https://www.artagenda.jp/museum/detail/583","conf":"high"},
+{"m":"otsu","title":"第101回企画展 未来へつなぐ 大津のたから ―大津の文化財保護60年のあゆみ―","start":"2026-10-10","end":"2026-11-23","note":"大津市の文化財保護60年の歩みと未指定文化財調査の成果を紹介。前後期で一部展示替え","src":"https://rekihaku.otsu.shiga.jp/news/2605_k101.html","conf":"high"},
+{"m":"hyogo-rekihaku","title":"ふれる×れきはく―ユニバーサルミュージアムへの試み―","start":"2026-10-03","end":"2026-11-29","note":"企画展。複製資料や県内の伝統工芸品に触れて楽しむ体験型展示","src":"https://rekihaku.pref.hyogo.lg.jp/exhibition/21536/","conf":"high"},
+{"m":"kashikoken","title":"令和8年度秋季特別展 ウマと馬具－国宝・藤ノ木古墳出土品修理事業成果展２－","start":"2026-10-03","end":"2026-11-29","note":"修理を終えた国宝・藤ノ木古墳出土の馬具（B・Cセット）などを中心に公開","src":"https://www.kashikoken.jp/museum/tenrankai/tenrankai.html","conf":"high"},
+{"m":"kyohaku","title":"特別展「源氏物語 王朝のかがやき」","start":"2026-10-06","end":"2026-11-29","note":"平成知新館での源氏物語をめぐる特別展。金曜は20時まで開館","src":"https://www.museum.or.jp/event/121146","conf":"high"},
+{"m":"fujita","title":"話～ものがたりに飛び込め","start":"2026-09-01","end":"2026-11-30","note":"漢字一文字テーマの所蔵品展示。絵巻を中心にものがたりを考える（年初の予告ページに基づく）","src":"https://fujita-museum.or.jp/news/2026/02/13/13324/","conf":"medium"},
+{"m":"oyamazaki","title":"開館30周年記念 ジョルジュ・ルオー ―いつくしむまなざし、祈りの筆あと","start":"2026-09-19","end":"2026-12-06","note":"館蔵4点にパナソニック汐留美術館所蔵約35点を加えた同館初のルオー展","src":"https://www.asahigroup-oyamazaki.com/exhibition/rouault/","conf":"high"},
+{"m":"miho","title":"2026年秋季特別展 百済寺と近江の仏教美術 百済寺秘仏公開によせて","start":"2026-09-26","end":"2026-12-06","note":"百済寺の寺宝と秘仏本尊・木造十一面観音立像を寺外で初公開。近江の文化財も展示","src":"https://www.miho.jp/exhibition/autumn2026/","conf":"high"},
+{"m":"aham","title":"アンドリュー・ワイエス展","start":"2026-10-03","end":"2026-12-06","note":"日本では17年ぶりの大規模巡回展。前期〜11/3、後期11/4〜で一部展示替え","src":"https://www.aham.jp/exhibition/future/wyeth/","conf":"high"},
+{"m":"kyocera","title":"禅とジブリ展（京都展）","start":"2026-10-03","end":"2026-12-06","note":"『君たちはどう生きるか』を軸にジブリ作品で禅的なまなざしを体感。新館 東山キューブ","src":"https://bijutsutecho.com/exhibitions/18774","conf":"high"},
+{"m":"wakayama-museum","title":"企画展 くらひらく―博物館の蔵仕事事例集―","start":"2026-10-10","end":"2026-12-06","note":"高野山北室院の文化財調査（高野山大学との共同研究）を中心に、文化財調査の現場を紹介","src":"https://hakubutu.wakayama.jp/cms/hakubutsu-management/contents/uploads/2026/04/2026Pamphlet-teachers.pdf.pdf","conf":"high"},
+{"m":"yamato","title":"特別展 地上の天堂（パラダイス） 杭州と呉越国――渡海する信仰と美","start":"2026-10-24","end":"2026-12-06","note":"杭州と呉越国をめぐる東アジアの信仰と美術。前期10/24〜11/15、後期11/17〜12/6","src":"https://www.kintetsu-g-hd.co.jp/culture/yamato/exhibition/","conf":"high"},
+{"m":"otani","title":"大野麥風「魚の画家」展","start":"2026-10-31","end":"2026-12-06","note":"没後50年。西宮ゆかりの日本画家・大野麥風の魚の絵を紹介","src":"http://otanimuseum.jp/exhibition.html","conf":"high"},
+{"m":"dougukan","title":"木の生命、かたちへ ―ジョージ・ナカシマと職人たち","start":"2026-10-03","end":"2026-12-13","note":"企画展。ジョージ・ナカシマの家具と一枚板、職人の技を約35点で紹介","src":"https://www.dougukan.jp/special_exhibition/where_trees_live_again","conf":"high"},
+{"m":"kyocera","title":"2026年度 コレクションルーム 秋期 特集「美術館物語 市美の産声」","start":"2026-10-09","end":"2026-12-13","note":"所蔵品による季節展示。特集は市美術館の歩みをたどる","src":"https://kyotocity-kyocera.museum/wp-content/uploads/membership_benefits_202602.pdf","conf":"high"},
+{"m":"kobe-museum","title":"トーベとムーミン展～とっておきのものを探しに～","start":"2026-10-10","end":"2026-12-13","note":"特別展。トーベ・ヤンソンの油彩・風刺画・ムーミン原画など約300点（HAM協力）","src":"https://www.kobecitymuseum.jp/exhibition/upcoming","conf":"high"},
+{"m":"itami","title":"酒にのまれ展","start":"2026-10-16","end":"2026-12-13","note":"酒をテーマにした企画展（展示室1・2・3・5）。観覧無料","src":"https://itami-im.jp/exhibitions/%E9%85%92%E3%81%AB%E3%81%AE%E3%81%BE%E3%82%8C%E5%B1%95/","conf":"high"},
+{"m":"hyogo-art","title":"2026コレクション展Ⅱ テーマ展「前衛」","start":"2026-10-20","end":"2026-12-13","note":"コレクション展。ポンピドゥー・センター「前衛芸術の日本」展40年を機に前衛を再考（2階）","src":"https://www.artm.pref.hyogo.jp/news/press/pdf/press_y260902-z.pdf","conf":"medium"},
+{"m":"nakka","title":"Osaka Directory 13 Supported by RICHARD MILLE 橘 葉月","start":"2026-11-14","end":"2026-12-13","note":"若手作家を紹介するシリーズ企画Osaka Directory第13弾、橘葉月の個展","src":"https://nakka-art.jp/wp10/wp-content/uploads/2026/03/schedule2026_JP.pdf","conf":"high"},
+{"m":"minpaku","title":"企画展「トレス海峡（ゼナドスケス）と日本――大島襄二写真コレクションから見た交流と歴史」","start":"2026-09-10","end":"2026-12-15","note":"本館企画展示場。大島襄二の写真コレクションからトレス海峡と日本の交流史をたどる","src":"https://www.minpaku.ac.jp/ai1ec_event/69812","conf":"high"},
+{"m":"minpaku","title":"特別展・令和8年度アイヌ工芸品展「沙流川に生きる ――サルンクㇽの近代 Nupursar kotan ta: sinrit orwano tan te pakno」","start":"2026-09-25","end":"2026-12-15","note":"特別展示館。沙流川流域のアイヌ（サルンクㇽ）の近代を工芸品で紹介","src":"https://www.minpaku.ac.jp/ai1ec_event/69685","conf":"high"},
+{"m":"shiga-art","title":"第80回滋賀県美術展覧会","start":"2026-12-09","end":"2026-12-16","note":"滋賀県の公募美術展（県展）","src":"https://www.shigamuseum.jp/news/13235/","conf":"high"},
+{"m":"shohaku","title":"没後２５年 上村松篁展","start":"2026-08-29","end":"2026-12-20","note":"上村松篁の没後25年を機に所蔵の代表作で画業と生涯を回顧。会期中一部展示替え","src":"https://www.kintetsu-g-hd.co.jp/culture/shohaku/exhibition/exhibition.html","conf":"high"},
+{"m":"senoku","title":"青銅器館「中国青銅器の時代」","start":"2026-09-05","end":"2026-12-20","note":"青銅器館での館蔵中国青銅器の展示（2026年度事業計画の予定、要確認）","src":"https://sen-oku.or.jp/wp-content/themes/senoku/_imageServer/info_project2026.pdf","conf":"medium"},
+{"m":"kyocera","title":"特別展「生誕140年記念 染織家 山鹿清華─宙翔ぶイマジネーション」","start":"2026-09-19","end":"2026-12-20","note":"染織家・山鹿清華の40年ぶりの回顧展。本館 南回廊1F","src":"https://kyotocity-kyocera.museum/wp-content/uploads/KCKM_pressrelease_exhibition2026_jp_260215_0618.pdf","conf":"high"},
+{"m":"osaka-city-art","title":"躍動する明代の書－台北・何創時（かそうじ）コレクションの至宝","start":"2026-10-09","end":"2026-12-20","note":"特別展。台北・何創時コレクションの明代書跡を紹介、会期中の展示替えなし","src":"https://www.osaka-art-museum.jp/special_exhibition/mindai","conf":"high"},
+{"m":"osaka-city-art","title":"東アジアの金工品","start":"2026-10-09","end":"2026-12-20","note":"企画展示（館蔵品によるコレクション展示）","src":"https://www.osaka-art-museum.jp/planned_exhibition","conf":"high"},
+{"m":"osaka-city-art","title":"明末清初 景徳鎮のやきもの","start":"2026-10-09","end":"2026-12-20","note":"企画展示（館蔵品によるコレクション展示）","src":"https://www.osaka-art-museum.jp/planned_exhibition","conf":"high"},
+{"m":"osaka-city-art","title":"アジアの彫刻","start":"2026-10-09","end":"2026-12-20","note":"企画展示（館蔵品によるコレクション展示）","src":"https://www.osaka-art-museum.jp/planned_exhibition","conf":"high"},
+{"m":"nakka","title":"NHK日曜美術館50年展","start":"2026-10-10","end":"2026-12-20","note":"NHK「日曜美術館」放送50年記念。番組を彩った名品を5階展示室で紹介する巡回展","src":"https://nakka-art.jp/wp10/wp-content/uploads/2026/03/schedule2026_JP.pdf","conf":"high"},
+{"m":"kosetsu-nakanoshima","title":"企画展 東京富士美術館所蔵「魅惑の人物表現――人のかたち、心のもよう ジョルジュ・ド・ラ・トゥール、ティントレット、ジャン＝フランソワ・ミレー」","start":"2026-10-10","end":"2026-12-20","note":"東京富士美術館所蔵の西洋絵画で人物表現をたどる。版画は前期〜11/15、後期11/17〜","src":"https://www.kosetsu-museum.or.jp/nakanoshima/exhibition/latour/","conf":"high"},
+{"m":"senoku","title":"特別展 没後100年記念 住友春翠 ―仕合わせの住友近代美術コレクション","start":"2026-10-31","end":"2026-12-20","note":"住友春翠没後100年記念。住友の近代美術コレクションを紹介（東京展から巡回）","src":"https://www.museum.or.jp/event/123888","conf":"high"},
+{"m":"eki","title":"カイ・フランク展 時代を超えるフィンランド・デザイン","start":"2026-11-03","end":"2026-12-20","note":"フィンランドのデザイナー、カイ・フランクの作品展（日程は要確認）","src":"https://www.museum.or.jp/museum/5285","conf":"medium"},
+{"m":"itami","title":"2026伊丹国際クラフト展「酒器・酒盃台」","start":"2026-11-14","end":"2026-12-20","note":"公募展。酒器・酒盃台をテーマにした入選作を展示（展示室6）","src":"https://itami-im.jp/exhibitions/","conf":"high"},
+{"m":"reihokan","title":"令和8年度秋期企画展 高野山と豊臣家","start":"2026-10-03","end":"2026-12-21","note":"豊臣家と高野山・紀州の関わりを示す文化財を紹介。前期10/3〜11/15、後期11/17〜12/21、会期中無休","src":"https://www.koyasan.or.jp/en/","conf":"medium"},
+{"m":"ytmoca","title":"Curators in Panic 2 ~横尾忠則展 学芸員危機2髪？","start":"2026-09-19","end":"2026-12-27","note":"当館と兵庫県立美術館の学芸員5名が所蔵作品から独自に選び構成する展覧会","src":"https://web.pref.hyogo.lg.jp/kk18/20260729.html","conf":"high"},
+{"m":"hyogo-art","title":"国立美術館 コレクション・ダイアローグ 松方幸次郎 × 山村德太郎 蒐集のパッション ―ロダンを日本へ、具体を世界へ","start":"2026-10-10","end":"2026-12-27","note":"企画展。松方コレクション（ロダン等）と山村コレクション（具体）を対比して紹介","src":"https://artscape.jp/exhibitions/78332/","conf":"high"},
+{"m":"fujita","title":"特別展示『能～教えて能楽師！』（瓦照苑×藤田美術館）","start":"2026-10-01","end":"2026-12-28","note":"夙川能舞台瓦照苑との共同企画。能装束などを展示、会期中無休、入館料1,000円","src":"https://fujita-museum.or.jp/noh_gasyouen_fujitamuseum/","conf":"high"},
+{"m":"momaw","title":"コレクション展 絵画と彫刻／版画と美術散歩","start":"2026-08-04","end":"2027-01-11","note":"4期制のコレクション展。第2期は10/18まで、第3期は2026-10-24〜11-29","src":"https://www.momaw.jp/information/exhibitions-2026/","conf":"high"},
+{"m":"bunpaku","title":"特別展「令和6年能登半島地震復興祈念 不滅の力 永井豪 -永井豪記念館リバイバル-」","start":"2026-11-28","end":"2027-01-11","note":"被災した永井豪記念館から見つかった原画や描き下ろしを紹介。3階展示室","src":"https://www.bunpaku.or.jp/exhi_special_post/20261128-20270111/","conf":"high"},
+{"m":"kyocera","title":"特別展「白隠さんの禅」（スタジオジブリ企画制作・京都展）","start":"2026-12-17","end":"2027-01-11","note":"スタジオジブリ企画制作。禅僧・白隠の禅画を紹介する特別展","src":"https://kyotocity-kyocera.museum/wp-content/uploads/membership_benefits_202603.pdf","conf":"high"},
+{"m":"kyocera","title":"第119回日展京都展","start":"2026-12-19","end":"2027-01-16","note":"日展の京都巡回展","src":"https://kyotocity-kyocera.museum/wp-content/uploads/membership_benefits_202603.pdf","conf":"medium"},
+{"m":"fukuda","title":"愛のカタチ ー幻の春画《稚児草紙》公開ー","start":"2026-09-19","end":"2027-01-17","note":"幻の春画《稚児草紙》を公開。18歳未満入館不可。10/20・12/15は点検休館","src":"https://www.e-tix.jp/fukuda-art-museum/","conf":"high"},
+{"m":"ashiya","title":"浮世絵の風景画を楽しむ 広重+北斎","start":"2026-10-22","end":"2027-01-17","note":"特別展。広重『東海道五十三次』や北斎『富嶽三十六景』など141点","src":"https://bijutsutecho.com/magazine/news/exhibition/33071","conf":"high"},
+{"m":"momak","title":"ジュエリーは、誰を夢みる","start":"2026-10-24","end":"2027-01-17","note":"戦後日本のコンテンポラリー・ジュエリー約350件。3階企画展示室","src":"https://www.momak.go.jp/Japanese/exhibitionarchive/2026/468.html","conf":"high"},
+{"m":"momak","title":"2026年度 第3回コレクション展","start":"2026-10-24","end":"2027-01-17","note":"企画展に連動し金属工芸(Metal)に注目。会期は企画展と同期間と案内","src":"https://www.momak.go.jp/Japanese/collectiongalleryarchive/2026/collectiongallery2026no03.html","conf":"medium"},
+{"m":"narahaku","title":"特別陳列 春日若宮おん祭の信仰と美術","start":"2026-12-12","end":"2027-01-17","note":"春日大社若宮の祭礼「おん祭」にまつわる美術を紹介する恒例の特別陳列（新館第3室）","src":"https://www.narahaku.go.jp/exhibition/special/feature_exhibition/202612_on-matsuri/","conf":"high"},
+{"m":"nakka","title":"Osaka Directory 14 迫 鉄平","start":"2026-12-19","end":"2027-01-17","note":"若手作家を紹介するシリーズ企画Osaka Directory第14弾、迫鉄平の個展","src":"https://nakka-art.jp/wp10/wp-content/uploads/2026/03/schedule2026_JP.pdf","conf":"high"},
+{"m":"narahaku","title":"特集展示 新たに修理された文化財","start":"2026-12-22","end":"2027-01-17","note":"前年度までに修理を終えた収蔵品を公開する特集展示（新館第2室）","src":"https://www.narahaku.go.jp/exhibition/special/thematic_exhibition/202612_shuri/","conf":"high"},
+{"m":"kyotomm","title":"Mangaと育った子どもたち：ヨーロッパにおけるManga文化の40年","start":"2026-09-17","end":"2027-01-19","note":"ヨーロッパのマンガ受容40年を紹介。京まふ2026関連企画。2階ギャラリー1-3","src":"https://kyotomm.jp/en/ee/manga-in-europe-40/","conf":"high"},
+{"m":"yamato","title":"特別企画展 歌舞音曲の美術","start":"2026-12-12","end":"2027-01-24","note":"歌舞音曲を題材とした美術を紹介する特別企画展","src":"https://www.kintetsu-g-hd.co.jp/culture/yamato/exhibition/","conf":"high"},
+{"m":"eki","title":"魯山人の宇宙 魂を刳る美が欲しい","start":"2027-01-02","end":"2027-01-25","note":"北大路魯山人展。日程は公式サイト予定欄からの読み取りで要確認","src":"https://kyoto.wjr-isetan.co.jp/museum/","conf":"medium"},
+{"m":"nakka","title":"大英博物館日本美術コレクション 百花繚乱〜海を越えた江戸絵画","start":"2026-10-31","end":"2027-01-31","note":"大英博物館の日本コレクションから江戸絵画を中心に紹介。歌麿・応挙など、4階展示室","src":"https://nakka-art.jp/en/exhibition-post/daiei-ten2026-en/","conf":"high"},
+{"m":"hosomi","title":"巨匠ハインツ・ヴェルナーの描いた物語(メルヘン)―現代マイセンの磁器芸術―","start":"2026-11-21","end":"2027-01-31","note":"現代マイセン磁器の巨匠ハインツ・ヴェルナーのメルヘン作品","src":"https://www.emuseum.or.jp/exhibition/next_exhi.html","conf":"high"},
+{"m":"omnh","title":"ジュニア自由研究・標本ギャラリー","start":"2026-12-12","end":"2027-01-31","note":"小・中・高校生の自由研究や標本作りの作品を展示","src":"https://omnh.jp/archives/14265","conf":"high"},
+{"m":"osaka-hist","title":"特集展示「千日前の興行師・奥田辨次郎」","start":"2026-11-25","end":"2027-02-01","note":"千日前の興行師・奥田辨次郎を紹介。常設展示観覧料で観覧可、年末年始12/28〜1/5休館","src":"https://www.osakamushis.jp/news/2026/okudabennjiro.html","conf":"high"},
+{"m":"kyohaku","title":"新春特集展示 ひつじづくし―干支を愛でる―","start":"2026-12-22","end":"2027-02-07","note":"2027年の干支・未にちなむ新春特集展示（名品ギャラリー）","src":"https://www.kyohaku.go.jp/jp/exhibitions/upcoming.html","conf":"high"},
+{"m":"eki","title":"京都 日本画新展2027","start":"2027-01-29","end":"2027-02-07","note":"若手日本画家の公募展。日程は公式サイト予定欄からの読み取りで要確認","src":"https://kyoto.wjr-isetan.co.jp/museum/","conf":"medium"},
+{"m":"momaw","title":"鈴木崇「もののをかし」","start":"2026-10-14","end":"2027-02-11","note":"写真メディアで視覚と知覚の関係を探る鈴木崇の作品を、コレクションの新しい見方とともに紹介","src":"https://www.momaw.jp/information/exhibitions-2026/","conf":"high"},
+{"m":"wakayama-museum","title":"企画展 海南の古刹 願成寺","start":"2026-12-19","end":"2027-02-14","note":"海南市の古刹・願成寺の文化財を紹介する冬の企画展","src":"https://www.museum.or.jp/schedule/2026/area_shiga-nara-wakayama","conf":"high"},
+{"m":"nara-art","title":"特別展 伝統文化の現在 墨と和紙の世界―現代美術における墨表現（仮）","start":"2027-01-16","end":"2027-02-14","note":"現代美術における墨表現を紹介する特別展（展覧会名は仮）","src":"https://www.pref.nara.lg.jp/n044/68711.html","conf":"medium"},
+{"m":"nara-art","title":"第53回奈良県ジュニア美術展覧会入賞作品特別展","start":"2027-01-16","end":"2027-02-14","note":"県内の児童・生徒によるジュニア美術展の入賞作品展（上記特別展と同時開催）","src":"https://www.pref.nara.lg.jp/n044/68711.html","conf":"high"},
+{"m":"shohaku","title":"奈良芸術短期大学日本画コースの歩み（仮）","start":"2027-01-19","end":"2027-02-14","note":"奈良芸術短期大学日本画コースの歩みを紹介（展覧会名は仮）","src":"https://www.kintetsu-g-hd.co.jp/culture/shohaku/exhibition/exhibition.html","conf":"medium"},
+{"m":"ryukoku","title":"シリーズ展「特集展示：インド細密画の神やほとけたち－畠中光享コレクション－」（仮称）","start":"2027-01-09","end":"2027-02-21","note":"畠中光享コレクションのインド細密画を京都初公開","src":"https://www.artagenda.jp/exhibition/detail/11975","conf":"high"},
+{"m":"hyogo-art","title":"2026コレクション展Ⅱ 小企画 美術の中のかたち—手で見る造形 青木野枝「動体」","start":"2026-10-20","end":"2027-02-23","note":"彫刻家・青木野枝の新作を中心に手で触れて鑑賞する小企画（3階展示室2）","src":"https://www.artm.pref.hyogo.jp/news/press/pdf/press_y260902-z.pdf","conf":"high"},
+{"m":"samac","title":"企画展「絵で知る、もっと楽しむ京都」","start":"2026-10-03","end":"2027-02-28","note":"京都を描いた絵画で名所や文化を楽しむ。前期10/3-12/14、後期12/16-2/28","src":"https://www.tokyoartbeat.com/events/-/Discover-And-Enjoy-Kyoto-Even-More-Through-Pictures/saga-arashiyama-museum-of-arts-and-culture/2026-10-03","conf":"high"},
+{"m":"sagawa","title":"大カプコン展―世界を魅了するゲームクリエイション","start":"2026-12-08","end":"2027-02-28","note":"カプコンのゲームクリエイションを紹介する企画展","src":"https://www.sagawa-artmuseum.or.jp/plan/2026/10/post-183.html","conf":"high"},
+{"m":"aham","title":"ルーシー・リー展 －東西をつなぐ優美のうつわ－","start":"2026-12-26","end":"2027-03-07","note":"英国で活躍した陶芸家ルーシー・リーの優美な器を紹介","src":"https://www.aham.jp/exhibition/future/lucie_rie/","conf":"high"},
+{"m":"nmao","title":"コトバの重なる場所","start":"2026-12-01","end":"2027-03-14","note":"当館コレクションを活用した特別展","src":"https://www.nmao.go.jp/events/event/20261201_stratified-languages/","conf":"high"},
+{"m":"kyocera","title":"2026年度 コレクションルーム 冬期 特集「時を塗る－京都のうるしが映した近代」","start":"2027-01-15","end":"2027-03-14","note":"所蔵品による季節展示。特集は京都の近代漆芸","src":"https://kyotocity-kyocera.museum/wp-content/uploads/membership_benefits_202603.pdf","conf":"high"},
+{"m":"nmao","title":"開館50周年記念プレ企画 コレクション2：歴史化する現代","start":"2026-12-01","end":"2027-03-22","note":"2026年度コレクション展の第2期","src":"https://www.nmao.go.jp/exhibition/current_exhibition/","conf":"high"},
+{"m":"kyohaku","title":"特集展示 茶の湯の道具と次第","start":"2026-12-22","end":"2027-03-22","note":"茶道具を取り上げる特集展示（名品ギャラリー）","src":"https://www.kyohaku.go.jp/jp/exhibitions/upcoming.html","conf":"high"},
+{"m":"nakka","title":"つくる女性の100年","start":"2027-01-09","end":"2027-03-22","note":"女性の創作活動の100年をたどる展覧会（会場・内容の詳細は未確認、公式スケジュールに記載）","src":"https://nakka-art.jp/wp10/wp-content/uploads/2026/03/schedule2026_JP.pdf","conf":"high"},
+{"m":"shiga-art","title":"佐川晃司（仮称）","start":"2027-01-15","end":"2027-03-22","note":"画家・佐川晃司を紹介する企画展（展覧会名は仮称）","src":"https://www.shigamuseum.jp/news/13235/","conf":"medium"},
+{"m":"koiso","title":"室内の光","start":"2027-01-09","end":"2027-03-28","note":"コレクション企画展示。同時開催「小磯良平作品選Ⅳ」","src":"https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/tenrankai/index.html","conf":"high"},
+{"m":"oyamazaki","title":"開館30周年記念 没後100年 クロード・モネ展","start":"2026-03-20","end":"2027-04-11","note":"館蔵モネ作品を通年展示。Ⅱ期は2026/9/19〜2027/4/11で一部展示替え","src":"https://www.30th.asahigroup-oyamazaki.com/assets/pdf/exhibitions/Monet_Exhibition_Schedule.pdf","conf":"high"},
+{"m":"oyamazaki","title":"萩尾望都展 ―欧州への憧憬","start":"2026-12-19","end":"2027-04-11","note":"漫画家・萩尾望都の展覧会。欧州への憧憬がテーマ（一部資料では仮称）","src":"https://www.asahigroup-oyamazaki.com/exhibition/","conf":"high"},
+{"m":"osaka-city-art","title":"ベトナムと海のやきもの","start":"2027-01-09","end":"2027-04-11","note":"企画展示（コレクション展示）。公式サイト上の掲載表示に不整合があり要再確認","src":"https://www.osaka-art-museum.jp/planned_exhibition","conf":"medium"},
+{"m":"kyocera","title":"ザ・トライアングル 藤野裕美子","start":"2027-01-15","end":"2027-04-18","note":"新進作家を紹介するシリーズ「ザ・トライアングル」","src":"https://kyotocity-kyocera.museum/wp-content/uploads/membership_benefits_202603.pdf","conf":"medium"},
+{"m":"fukuda","title":"Timeless Code 現代⇔江戸","start":"2027-01-30","end":"2027-06-06","note":"江戸絵画と現代をつなぐ企画展（2027年年間スケジュール発表より）","src":"https://fukuda-art-museum.jp/wp/wp-content/uploads/2026/08/2027%E5%B9%B4%E7%A6%8F%E7%94%B0%E7%BE%8E%E8%A1%93%E9%A4%A8%E5%B9%B4%E9%96%93%E3%82%B9%E3%82%B1%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E3%83%97%E3%83%AC%E3%82%B9%E3%83%AA%E3%83%AA%E3%83%BC%E3%82%B9F6.pdf","conf":"high"}
+];
+
+</script>
+<script>
+(function(){
+'use strict';
+const DATA_ASOF='2026-10-14';
+const PREFS=['大阪','京都','兵庫','奈良','滋賀','和歌山'];
+const CATS={art:'美術館',history:'歴史・考古',science:'自然・科学',craft:'工芸・陶磁',special:'テーマ・専門',temple:'寺社宝物館'};
+const TAG_ORDER=['国宝','建築','庭園','日本画','現代美術','西洋美術','仏教美術','陶磁・茶の湯','工芸','考古','歴史','自然・科学','写真','文学','マンガ・サブカル','子ども向け','体験型','無料','駅近','夜間開館','季節限定'];
+const HOLIDAYS=new Set(['2026-01-01','2026-01-12','2026-02-11','2026-02-23','2026-03-20','2026-04-29','2026-05-03','2026-05-04','2026-05-05','2026-05-06','2026-07-20','2026-08-11','2026-09-21','2026-09-22','2026-09-23','2026-10-12','2026-11-03','2026-11-23',
+ '2027-01-01','2027-01-11','2027-02-11','2027-02-23','2027-03-21','2027-03-22','2027-04-29','2027-05-03','2027-05-04','2027-05-05','2027-07-19','2027-08-11','2027-09-20','2027-09-23','2027-10-11','2027-11-03','2027-11-23']);
+const WD=['日','月','火','水','木','金','土'];
+
+const MUSEUMS=[].concat(MUSEUMS_OSAKA,MUSEUMS_KYOTO,MUSEUMS_HYOGO,MUSEUMS_NARA,MUSEUMS_SHIGA,MUSEUMS_WAKAYAMA);
+const BY_ID=new Map(MUSEUMS.map(m=>[m.id,m]));
+const EX_BY_M=new Map();
+for(const e of EXHIBITIONS){ if(!EX_BY_M.has(e.m)) EX_BY_M.set(e.m,[]); EX_BY_M.get(e.m).push(e); }
+const COL_BY_M=new Map();
+for(const c of COLLECTIONS) for(const id of c.museums){ if(!COL_BY_M.has(id)) COL_BY_M.set(id,[]); COL_BY_M.get(id).push(c); }
+
+/* ---------- 日付 ---------- */
+const today=new Date(); today.setHours(0,0,0,0);
+const pad=n=>String(n).padStart(2,'0');
+const ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+const parseYmd=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d);};
+const TODAY=ymd(today);
+function fmtD(s){const d=parseYmd(s);const y=d.getFullYear()!==today.getFullYear()?d.getFullYear()+'/':'';return y+(d.getMonth()+1)+'/'+d.getDate()+'（'+WD[d.getDay()]+'）';}
+function daysUntil(s){return Math.round((parseYmd(s)-today)/86400000);}
+
+function openStatus(m,d){
+  const s=ymd(d), mo=d.getMonth()+1, day=d.getDate(), w=d.getDay();
+  if(m.closure) return {code:'closure',label:'休館中'};
+  if(m.closedRanges&&m.closedRanges.some(r=>s>=r[0]&&s<=r[1])) return {code:'closed',label:'本日休館（展示替え）'};
+  if((mo===12&&day>=28)||(mo===1&&day<=4)) return {code:'unknown',label:'年末年始・要確認'};
+  if(m.unknownOpen) return {code:'unknown',label:'会期中のみ開館'};
+  if(m.seasons){ if(!m.seasons.some(r=>s>=r[0]&&s<=r[1])) return {code:'seasonal',label:'季節開館・会期外'}; }
+  else if(m.seasonMonths){ if(!m.seasonMonths.includes(mo)) return {code:'seasonal',label:'季節開館・会期外'}; }
+  if(m.thirdThu&&w===4&&day>=15&&day<=21) return {code:'closed',label:'本日休館（第3木曜）'};
+  const holOpen=!!m.holidayRule, nextClosed=holOpen&&/翌/.test(m.closed||'');
+  if(m.closedDays.includes(w)){
+    if(holOpen&&HOLIDAYS.has(s)) return {code:'open',label:'本日開館（祝日）'};
+    return {code:'closed',label:'本日休館'};
+  }
+  if(nextClosed){ const y=new Date(d); y.setDate(y.getDate()-1); if(HOLIDAYS.has(ymd(y))&&m.closedDays.includes(y.getDay())) return {code:'closed',label:'本日休館（祝日の翌日）'}; }
+  return {code:'open',label:'本日開館'};
+}
+function exStatus(e){
+  if(e.start>TODAY) return {code:'upcoming',label:'開催予定'};
+  if(e.end<TODAY) return {code:'ended',label:'終了'};
+  const left=daysUntil(e.end);
+  if(left<=14) return {code:'ending',label:left===0?'本日まで':'あと'+left+'日'};
+  return {code:'open',label:'開催中'};
+}
+function exLive(m){return (EX_BY_M.get(m.id)||[]).filter(e=>{const c=exStatus(e).code;return c==='open'||c==='ending';});}
+function exFuture(m){return (EX_BY_M.get(m.id)||[]).filter(e=>exStatus(e).code!=='ended').sort((a,b)=>a.start.localeCompare(b.start));}
+
+/* ---------- 状態 ---------- */
+const state={tab:'list',q:'',prefs:new Set(),cats:new Set(),tags:new Set(),openToday:false,hasEx:false,sort:'pick',exFilter:'all',favs:new Set(),railOpen:false,zoom:'all'};
+function loadFavs(){try{const a=JSON.parse(localStorage.getItem('kmt.favs')||'[]');if(Array.isArray(a))a.forEach(id=>{if(BY_ID.has(id))state.favs.add(id);});}catch(e){}}
+function saveFavs(){try{localStorage.setItem('kmt.favs',JSON.stringify([...state.favs]));}catch(e){}}
+loadFavs();
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function norm(s){return String(s).normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60));}
+
+function matchesBase(m){
+  if(state.prefs.size&&!state.prefs.has(m.pref)) return false;
+  if(state.cats.size&&!state.cats.has(m.cat)) return false;
+  if(state.tags.size) for(const t of state.tags) if(!m.tags.includes(t)) return false;
+  if(state.q){
+    const q=norm(state.q.trim()); if(q){
+      const hay=norm([m.name,m.kana,m.pref,m.city,m.area,m.note,m.highlights.join(' '),m.tags.join(' '),m.arch||'',(EX_BY_M.get(m.id)||[]).map(e=>e.title).join(' ')].join(' '));
+      if(!hay.includes(q)) return false;
+    }
+  }
+  return true;
+}
+function matches(m){
+  if(!matchesBase(m)) return false;
+  if(state.openToday&&openStatus(m,today).code!=='open') return false;
+  if(state.hasEx&&!exLive(m).length) return false;
+  return true;
+}
+function sortList(list){
+  const pi=m=>PREFS.indexOf(m.pref), cl=m=>m.closure?1:0;
+  const byKana=(a,b)=>a.kana.localeCompare(b.kana,'ja');
+  const s=list.slice();
+  if(state.sort==='pick') s.sort((a,b)=>cl(a)-cl(b)||b.pick-a.pick||pi(a)-pi(b)||byKana(a,b));
+  else if(state.sort==='pref') s.sort((a,b)=>pi(a)-pi(b)||cl(a)-cl(b)||b.pick-a.pick||byKana(a,b));
+  else if(state.sort==='kana') s.sort(byKana);
+  else if(state.sort==='ex') s.sort((a,b)=>exLive(b).length-exLive(a).length||b.pick-a.pick||byKana(a,b));
+  return s;
+}
+function filtersActive(){return !!(state.q.trim()||state.prefs.size||state.cats.size||state.tags.size||state.openToday||state.hasEx);}
+
+/* ---------- 描画: レール ---------- */
+function chip(label,key,group,pressed,count){return '<button type="button" class="chip" data-group="'+group+'" data-key="'+esc(key)+'" aria-pressed="'+pressed+'">'+esc(label)+(count!=null?'<span class="c">'+count+'</span>':'')+'</button>';}
+function renderRail(){
+  $('chips-pref').innerHTML=PREFS.map(p=>chip(p,p,'pref',state.prefs.has(p),MUSEUMS.filter(m=>m.pref===p).length)).join('');
+  $('chips-cat').innerHTML=Object.keys(CATS).map(c=>chip(CATS[c],c,'cat',state.cats.has(c),MUSEUMS.filter(m=>m.cat===c).length)).join('');
+  const tags=TAG_ORDER.filter(t=>MUSEUMS.some(m=>m.tags.includes(t)));
+  $('chips-tag').innerHTML=tags.map(t=>chip(t,t,'tag',state.tags.has(t))).join('');
+  $('open-today').checked=state.openToday; $('has-ex').checked=state.hasEx; $('sort').value=state.sort; $('q').value=state.q;
+  $('rail-toggle').classList.toggle('active',filtersActive());
+}
+function syncRail(){
+  const desktop=window.matchMedia('(min-width:900px)').matches;
+  $('rail-body').hidden=desktop?false:!state.railOpen;
+  $('rail-toggle').setAttribute('aria-expanded',String(state.railOpen));
+}
+
+/* ---------- 描画: カード ---------- */
+function card(m){
+  const st=openStatus(m,today), live=exLive(m).length;
+  const noteText=m.closure?('休館中: '+m.closure):m.note;
+  return '<article class="card" data-id="'+m.id+'">'+
+    '<div class="spine"><span>'+esc(m.pref)+'　'+esc(m.area)+'</span></div>'+
+    '<div class="card-body">'+
+      '<div class="card-top"><span class="cat '+m.cat+'">'+CATS[m.cat]+'</span><span class="pill '+st.code+'">'+st.label+'</span></div>'+
+      '<h3 class="name"><button type="button" data-open="'+m.id+'">'+esc(m.name)+'</button>'+(m.pick===3?'<span class="pick">おすすめ</span>':'')+'</h3>'+
+      '<p class="note">'+esc(noteText)+'</p>'+
+      '<ul class="tags">'+m.tags.map(t=>'<li>'+esc(t)+'</li>').join('')+'</ul>'+
+      '<div class="card-foot"><span>'+(live?'<span class="ex">会期中の展覧会 '+live+'件</span>':'<span>所要 '+esc(m.time)+'の目安</span>')+'</span>'+
+      '<button class="fav" type="button" data-fav="'+m.id+'" aria-pressed="'+state.favs.has(m.id)+'"><span class="h"></span>行きたい</button></div>'+
+    '</div></article>';
+}
+function renderList(){
+  const list=sortList(MUSEUMS.filter(matches));
+  $('list-count').textContent=list.length;
+  $('list-hint').textContent=filtersActive()?'絞り込み中（全'+MUSEUMS.length+'館）':'編集部のおすすめ順。カードの館名で詳細を開けます';
+  $('list-grid').innerHTML=list.length?list.map(card).join(''):'<div class="empty">条件に合う館がありません。条件を減らしてみてください。</div>';
+}
+function renderSaved(){
+  const list=sortList(MUSEUMS.filter(m=>state.favs.has(m.id)));
+  $('saved-count').textContent=list.length;
+  const openN=list.filter(m=>openStatus(m,today).code==='open').length;
+  $('saved-hint').textContent=list.length?('うち本日開館 '+openN+'館。この端末のブラウザに保存されます'):'';
+  $('saved-grid').innerHTML=list.length?list.map(card).join(''):'<div class="empty">まだありません。カードの「♡ 行きたい」で、気になる館をここに集められます。</div>';
+}
+
+/* ---------- 描画: 展覧会 ---------- */
+function exRow(e,withMuseum){
+  const m=BY_ID.get(e.m), st=exStatus(e);
+  return '<li class="ex-row">'+
+    '<div class="ex-date"><span class="d">'+fmtD(e.start)+' – '+fmtD(e.end)+'</span><span class="ex-badge '+st.code+'">'+st.label+'</span></div>'+
+    '<div class="ex-main"><h3 class="ex-title">'+esc(e.title)+'</h3>'+
+    (withMuseum?'<div class="ex-museum"><button type="button" data-open="'+m.id+'">'+esc(m.name)+'</button><span style="color:var(--fg-3)">　'+esc(m.pref)+'・'+esc(m.area)+'</span></div>':'')+
+    (e.note?'<p class="ex-note">'+esc(e.note)+'</p>':'')+
+    '<div class="ex-meta">'+(e.src?'<a href="'+esc(e.src)+'" target="_blank" rel="noopener">会期の出典</a>':'')+(e.conf!=='high'?'<span class="conf-m">会期は要確認</span>':'')+'</div>'+
+    '</div></li>';
+}
+function renderExhibitions(){
+  const f=state.exFilter;
+  const opts=[['all','すべて'],['open','開催中'],['ending','まもなく終了'],['upcoming','開催予定']];
+  $('ex-tools').innerHTML=opts.map(o=>'<button type="button" class="chip" data-exf="'+o[0]+'" aria-pressed="'+(f===o[0])+'">'+o[1]+'</button>').join('');
+  let list=EXHIBITIONS.filter(e=>matchesBase(BY_ID.get(e.m))).map(e=>({e,st:exStatus(e)})).filter(x=>x.st.code!=='ended');
+  if(f==='open') list=list.filter(x=>x.st.code==='open'||x.st.code==='ending');
+  else if(f==='ending') list=list.filter(x=>x.st.code==='ending');
+  else if(f==='upcoming') list=list.filter(x=>x.st.code==='upcoming');
+  list.sort((a,b)=>{const ua=a.st.code==='upcoming',ub=b.st.code==='upcoming';if(ua!==ub)return ua?1:-1;return ua?a.e.start.localeCompare(b.e.start):a.e.end.localeCompare(b.e.end);});
+  $('ex-count').textContent=list.length;
+  $('ex-list').innerHTML=list.length?list.map(x=>exRow(x.e,true)).join(''):'<li class="empty" style="border:0">条件に合う展覧会がありません。</li>';
+}
+
+/* ---------- 描画: 特集 ---------- */
+function renderCollections(){
+  $('col-list').innerHTML=COLLECTIONS.map(c=>{
+    const rows=c.museums.map(id=>{const m=BY_ID.get(id);const st=openStatus(m,today);const live=exLive(m).length;
+      return '<li><button type="button" class="n" data-open="'+m.id+'">'+esc(m.name)+'</button><span class="p">'+esc(m.pref)+'・'+esc(m.area)+'</span><span class="s">'+(live?'<span>展覧会 '+live+'件</span>':'')+'<span class="pill '+st.code+'">'+st.label+'</span></span></li>';}).join('');
+    return '<article class="col" id="col-'+c.id+'"><h2>'+esc(c.title)+'</h2><p class="lead">'+esc(c.lead)+'</p><p class="tip"><b>めぐり方のヒント</b>'+esc(c.tip)+'</p><ul class="col-museums">'+rows+'</ul></article>';
+  }).join('');
+}
+
+/* ---------- 描画: 地図（概略図） ---------- */
+const LNG0=134.30,LAT0=35.80,S=400,KX=Math.cos(34.6*Math.PI/180);
+const px=lng=>(lng-LNG0)*S*KX, py=lat=>(LAT0-lat)*S;
+const MAP_W=px(136.45), MAP_H=py(33.45);
+const COAST=[[35.65,134.30],[35.65,134.45],[35.63,134.63],[35.64,134.82],[35.58,134.95],[35.55,135.10],[35.62,135.20],[35.75,135.22],[35.68,135.33],[35.55,135.28],[35.50,135.35],[35.47,135.42],[35.53,135.52],[35.48,135.62],[35.45,135.75],[35.55,135.95],[35.62,136.10],[35.62,136.45],[34.30,136.45],[34.20,136.33],[34.07,136.19],[33.88,136.10],[33.72,136.00],[33.60,135.95],[33.47,135.78],[33.55,135.50],[33.68,135.34],[33.72,135.37],[33.77,135.33],[33.88,135.15],[33.95,135.10],[34.08,135.10],[34.23,135.15],[34.32,135.12],[34.40,135.31],[34.47,135.36],[34.58,135.43],[34.65,135.43],[34.70,135.40],[34.71,135.34],[34.68,135.19],[34.64,135.11],[34.63,135.03],[34.64,134.99],[34.75,134.78],[34.78,134.67],[34.74,134.37],[34.74,134.30]];
+const AWAJI=[[34.60,135.02],[34.55,134.98],[34.40,134.92],[34.30,134.85],[34.25,134.72],[34.33,134.72],[34.45,134.78],[34.55,134.95]];
+const BIWA=[[35.00,135.87],[35.03,135.90],[35.07,135.93],[35.10,135.95],[35.15,136.03],[35.22,136.10],[35.27,136.22],[35.35,136.26],[35.42,136.22],[35.50,136.12],[35.48,136.05],[35.40,136.02],[35.30,135.98],[35.20,135.92],[35.12,135.90],[35.05,135.87]];
+const CITIES=[['大阪',34.69,135.50],['京都',35.01,135.76],['神戸',34.69,135.19],['奈良',34.68,135.83],['大津',35.01,135.86],['和歌山',34.23,135.17],['姫路',34.83,134.69],['田辺',33.73,135.38],['高野山',34.21,135.58],['舞鶴',35.47,135.39],['長浜',35.38,136.27],['信楽',34.90,136.05],['新宮',33.72,136.00],['橿原',34.50,135.79]];
+const PREF_LABELS=[['京 都 府',35.33,135.60],['兵 庫 県',35.18,134.72],['滋 賀 県',35.30,136.38],['奈 良 県',34.38,135.95],['和 歌 山 県',33.95,135.60],['大 阪 府',34.58,135.60]];
+const ZOOMS={all:{label:'関西全域',lat:[33.45,35.80],lng:[134.30,136.45]},keihanshin:{label:'京阪神',lat:[34.55,35.12],lng:[135.05,135.98]},nara:{label:'奈良・南大阪',lat:[34.38,34.78],lng:[135.38,135.92]},shiga:{label:'滋賀',lat:[34.84,35.46],lng:[135.78,136.36]},wakayama:{label:'和歌山',lat:[33.48,34.32],lng:[135.03,136.05]}};
+function poly(pts){return pts.map(p=>px(p[1]).toFixed(1)+','+py(p[0]).toFixed(1)).join(' ');}
+let mapBuilt=false;
+function buildMap(){
+  if(mapBuilt) return; mapBuilt=true;
+  const dots=MUSEUMS.map(m=>'<circle class="pt '+m.cat+'" data-id="'+m.id+'" cx="'+px(m.lng).toFixed(1)+'" cy="'+py(m.lat).toFixed(1)+'" r="5"><title>'+esc(m.name)+'</title></circle>').join('');
+  const cities=CITIES.map(c=>'<g class="cityg"><circle class="cityDot" cx="'+px(c[2]).toFixed(1)+'" cy="'+py(c[1]).toFixed(1)+'" r="1.8"/><text class="city" x="'+(px(c[2])+4).toFixed(1)+'" y="'+(py(c[1])-4).toFixed(1)+'">'+c[0]+'</text></g>').join('');
+  const prefs=PREF_LABELS.map(c=>'<text class="pref" x="'+px(c[2]).toFixed(1)+'" y="'+py(c[1]).toFixed(1)+'" text-anchor="middle">'+c[0]+'</text>').join('');
+  $('map-frame').innerHTML='<svg id="map-svg" viewBox="0 0 '+MAP_W.toFixed(0)+' '+MAP_H.toFixed(0)+'" role="img" aria-label="関西の館の位置を示す概略図">'+
+    '<polygon class="land" points="'+poly(COAST)+'"/><polygon class="land" points="'+poly(AWAJI)+'"/><polygon class="lake" points="'+poly(BIWA)+'"/>'+
+    prefs+cities+'<g id="map-dots">'+dots+'</g></svg><div class="map-hover" id="map-hover"></div>';
+  $('legend').innerHTML=Object.keys(CATS).map(c=>'<span style="--c:var(--cat-'+c+')">'+CATS[c]+'</span>').join('');
+  const svg=$('map-svg'), hover=$('map-hover'), frame=$('map-frame');
+  svg.addEventListener('mousemove',ev=>{const t=ev.target.closest('.pt');if(!t){hover.classList.remove('show');return;}const r=frame.getBoundingClientRect();hover.textContent=BY_ID.get(t.dataset.id).name;hover.style.left=(ev.clientX-r.left)+'px';hover.style.top=(ev.clientY-r.top)+'px';hover.classList.add('show');});
+  svg.addEventListener('mouseleave',()=>hover.classList.remove('show'));
+  svg.addEventListener('click',ev=>{const t=ev.target.closest('.pt');if(t)openDetail(t.dataset.id);});
+}
+function renderMap(){
+  buildMap();
+  $('map-zoom').innerHTML=Object.keys(ZOOMS).map(k=>'<button type="button" class="chip" data-zoom="'+k+'" aria-pressed="'+(state.zoom===k)+'">'+ZOOMS[k].label+'</button>').join('');
+  const z=ZOOMS[state.zoom], x0=px(z.lng[0]), y0=py(z.lat[1]), w=px(z.lng[1])-x0, h=py(z.lat[0])-y0;
+  const svg=$('map-svg'); svg.setAttribute('viewBox',x0.toFixed(1)+' '+y0.toFixed(1)+' '+w.toFixed(1)+' '+h.toFixed(1));
+  const k=w/MAP_W;
+  svg.querySelectorAll('.pt').forEach(el=>{const m=BY_ID.get(el.dataset.id);el.setAttribute('r',((m.pick===3?6.5:5)*Math.max(k,0.38)).toFixed(2));el.classList.toggle('dim',!matches(m));});
+  svg.querySelectorAll('.city').forEach(el=>el.setAttribute('font-size',(11*Math.max(k,0.45)).toFixed(1)));
+  svg.querySelectorAll('.cityDot').forEach(el=>el.setAttribute('r',(1.8*Math.max(k,0.45)).toFixed(2)));
+  svg.querySelectorAll('.pref').forEach(el=>el.setAttribute('font-size',(13*Math.max(k,0.45)).toFixed(1)));
+}
+
+/* ---------- 詳細パネル ---------- */
+let lastFocus=null;
+function openDetail(id){
+  const m=BY_ID.get(id); if(!m) return;
+  const st=openStatus(m,today), exs=exFuture(m), cols=COL_BY_M.get(id)||[];
+  const gmaps='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(m.name+' '+m.city);
+  let info='<dt>開館時間</dt><dd>'+esc(m.hours)+'</dd><dt>休館日</dt><dd>'+esc(m.closed)+'</dd>';
+  if(m.seasonal) info+='<dt>開館期間</dt><dd>'+esc(m.seasonal)+'</dd>';
+  info+='<dt>料金</dt><dd>'+esc(m.fee)+'</dd><dt>アクセス</dt><dd>'+esc(m.access)+'</dd><dt>所要時間</dt><dd>'+esc(m.time)+'の目安</dd>';
+  if(m.arch) info+='<dt>建築</dt><dd>'+esc(m.arch)+'</dd>';
+  $('sheet-in').innerHTML=
+    '<div class="sheet-head"><div><p class="where">'+esc(m.pref)+' ・ '+esc(m.city)+' ・ '+esc(m.area)+'</p><h2 id="sheet-title">'+esc(m.name)+'</h2><p class="kana">'+esc(m.kana)+'</p></div><button type="button" class="close" id="sheet-close" aria-label="閉じる">×</button></div>'+
+    '<div class="status-row"><span class="cat '+m.cat+'">'+CATS[m.cat]+'</span><span class="pill '+st.code+'">'+st.label+'</span>'+(m.pick===3?'<span class="pick" style="margin:0">編集部おすすめ</span>':'')+'</div>'+
+    (m.closure?'<div class="closure-box">休館中: '+esc(m.closure)+'</div>':'')+(m.notice?'<div class="notice-box">'+esc(m.notice)+'</div>':'')+
+    '<p class="note-full">'+esc(m.note)+'</p>'+
+    '<section><h3>見どころ</h3><ul class="hl">'+m.highlights.map(h=>'<li>'+esc(h)+'</li>').join('')+'</ul></section>'+
+    '<section><h3>基本情報</h3><dl class="info">'+info+'</dl></section>'+
+    '<section><h3>展覧会（会期中・予定）</h3>'+(exs.length?'<ul class="ex-list">'+exs.map(e=>exRow(e,false)).join('')+'</ul>':'<p class="ex-note" style="margin:0">'+DATA_ASOF.replace(/-/g,'/')+'時点の調査では会期中・予定の展覧会情報を確認できませんでした。公式サイトでご確認ください。</p>')+'</section>'+
+    (cols.length?'<section><h3>この館が登場する特集</h3><div class="col-links">'+cols.map(c=>'<button type="button" data-col="'+c.id+'">'+esc(c.title)+'</button>').join('')+'</div></section>':'')+
+    '<div class="actions"><a class="btn primary" href="'+esc(m.url)+'" target="_blank" rel="noopener">公式サイト</a><a class="btn" href="'+gmaps+'" target="_blank" rel="noopener">Googleマップ</a><button type="button" class="btn fav-btn" data-fav="'+m.id+'" aria-pressed="'+state.favs.has(m.id)+'"><span class="h"></span> 行きたい</button></div>';
+  lastFocus=document.activeElement;
+  $('sheet').classList.add('show'); $('backdrop').classList.add('show'); $('sheet').setAttribute('aria-hidden','false'); $('sheet').scrollTop=0;
+  document.body.style.overflow='hidden';
+  $('sheet-close').focus();
+}
+function closeDetail(){
+  if(!$('sheet').classList.contains('show')) return;
+  $('sheet').classList.remove('show'); $('backdrop').classList.remove('show'); $('sheet').setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+  if(lastFocus&&document.contains(lastFocus)) lastFocus.focus();
+}
+
+/* ---------- 共通 ---------- */
+function toggleFav(id){
+  if(state.favs.has(id)) state.favs.delete(id); else state.favs.add(id);
+  saveFavs();
+  document.querySelectorAll('[data-fav="'+id+'"]').forEach(b=>b.setAttribute('aria-pressed',String(state.favs.has(id))));
+  $('cnt-saved').textContent=state.favs.size?'('+state.favs.size+')':'';
+  if(state.tab==='saved') renderSaved();
+}
+function renderTodayLine(){
+  const openN=MUSEUMS.filter(m=>openStatus(m,today).code==='open').length;
+  const live=EXHIBITIONS.filter(e=>{const c=exStatus(e).code;return c==='open'||c==='ending';});
+  const ending=live.filter(e=>exStatus(e).code==='ending').length;
+  $('today-line').innerHTML='<span><strong>'+(today.getMonth()+1)+'月'+today.getDate()+'日（'+WD[today.getDay()]+'）</strong></span>'+
+    '<span><span class="num">'+openN+'</span>館が本日開館</span><span><span class="num">'+live.length+'</span>件の展覧会が会期中</span>'+(ending?'<span>うち2週間以内に終了 '+ending+'件</span>':'');
+}
+function setTab(tab,push){
+  if(!['list','exhibitions','collections','map','saved'].includes(tab)) tab='list';
+  state.tab=tab;
+  document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));
+  ['list','exhibitions','collections','map','saved'].forEach(t=>{$('view-'+t).hidden=t!==tab;});
+  $('rail').hidden=(tab==='collections'||tab==='saved');
+  document.querySelector('.layout').classList.toggle('no-rail',$('rail').hidden);
+  render();
+  if(push!==false){try{history.replaceState(null,'','#'+tab);}catch(e){}}
+}
+function render(){
+  if(state.tab==='list') renderList();
+  else if(state.tab==='exhibitions') renderExhibitions();
+  else if(state.tab==='collections') renderCollections();
+  else if(state.tab==='map') renderMap();
+  else if(state.tab==='saved') renderSaved();
+  $('rail-toggle').classList.toggle('active',filtersActive());
+}
+
+/* ---------- イベント ---------- */
+document.addEventListener('click',ev=>{
+  const t=ev.target.closest('button,a'); if(!t) return;
+  if(t.dataset.open){openDetail(t.dataset.open);return;}
+  if(t.dataset.fav){toggleFav(t.dataset.fav);return;}
+  if(t.dataset.col){closeDetail();setTab('collections');const el=$('col-'+t.dataset.col);if(el)el.scrollIntoView({block:'start'});return;}
+  if(t.dataset.tab){setTab(t.dataset.tab);return;}
+  if(t.dataset.group){
+    const set=t.dataset.group==='pref'?state.prefs:t.dataset.group==='cat'?state.cats:state.tags;
+    const k=t.dataset.key; if(set.has(k)) set.delete(k); else set.add(k);
+    t.setAttribute('aria-pressed',String(set.has(k))); render(); return;
+  }
+  if(t.dataset.exf){state.exFilter=t.dataset.exf;renderExhibitions();return;}
+  if(t.dataset.zoom){state.zoom=t.dataset.zoom;renderMap();return;}
+  if(t.id==='sheet-close'){closeDetail();return;}
+  if(t.id==='reset'){state.q='';state.prefs.clear();state.cats.clear();state.tags.clear();state.openToday=false;state.hasEx=false;state.sort='pick';renderRail();render();return;}
+  if(t.id==='rail-toggle'){state.railOpen=!state.railOpen;syncRail();return;}
+});
+$('backdrop').addEventListener('click',closeDetail);
+document.addEventListener('keydown',ev=>{if(ev.key==='Escape')closeDetail();});
+$('q').addEventListener('input',ev=>{state.q=ev.target.value;render();});
+$('open-today').addEventListener('change',ev=>{state.openToday=ev.target.checked;render();});
+$('has-ex').addEventListener('change',ev=>{state.hasEx=ev.target.checked;render();});
+$('sort').addEventListener('change',ev=>{state.sort=ev.target.value;render();});
+window.matchMedia('(min-width:900px)').addEventListener('change',syncRail);
+window.addEventListener('hashchange',()=>setTab((location.hash||'#list').slice(1),false));
+
+/* ---------- 初期化 ---------- */
+$('data-asof').textContent=DATA_ASOF.replace(/-/g,'年').replace('年','年').replace(/^(\d+)年(\d+)年(\d+)$/,'$1年$2月$3日');
+$('cnt-list').textContent='('+MUSEUMS.length+')';
+$('cnt-exhibitions').textContent='('+EXHIBITIONS.filter(e=>exStatus(e).code!=='ended').length+')';
+$('cnt-collections').textContent='('+COLLECTIONS.length+')';
+$('cnt-saved').textContent=state.favs.size?'('+state.favs.size+')':'';
+renderTodayLine(); renderRail(); syncRail();
+setTab((location.hash||'#list').slice(1),false);
+window.KMT={openStatus:openStatus,exStatus:exStatus,MUSEUMS:MUSEUMS,EXHIBITIONS:EXHIBITIONS};
+})();
+
+</script>
+</body>
+</html>

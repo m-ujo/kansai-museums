@@ -1,0 +1,96 @@
+<header class="masthead">
+  <div class="wrap">
+    <p class="eyebrow">大阪・京都・兵庫・奈良・滋賀・和歌山</p>
+    <h1>関西ミュージアム手帖</h1>
+    <p class="lede">2府4県の美術館・博物館を、編集部の視点で選んで案内する手帖。今日開いている館、会期中の展覧会、テーマ別の特集から行き先を決められます。</p>
+    <div class="today" id="today-line"></div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="表示切替">
+  <div class="wrap" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-tab="list" id="tab-list" aria-selected="true">館をさがす<span class="cnt" id="cnt-list"></span></button>
+    <button class="tab" role="tab" data-tab="exhibitions" id="tab-exhibitions" aria-selected="false">展覧会<span class="cnt" id="cnt-exhibitions"></span></button>
+    <button class="tab" role="tab" data-tab="collections" id="tab-collections" aria-selected="false">特集<span class="cnt" id="cnt-collections"></span></button>
+    <button class="tab" role="tab" data-tab="map" id="tab-map" aria-selected="false">地図</button>
+    <button class="tab" role="tab" data-tab="saved" id="tab-saved" aria-selected="false">行きたい<span class="cnt" id="cnt-saved"></span></button>
+  </div>
+</nav>
+
+<main class="wrap layout">
+  <aside class="rail" id="rail" aria-label="絞り込み">
+    <button class="rail-toggle" id="rail-toggle" aria-expanded="false" aria-controls="rail-body"><span class="dot"></span>絞り込み・並べ替え</button>
+    <div class="rail-body" id="rail-body" hidden>
+      <div class="field">
+        <label for="q">キーワード</label>
+        <input class="search" id="q" type="search" placeholder="館名・エリア・作家・テーマ" autocomplete="off">
+      </div>
+      <div class="field">
+        <span class="group-title">府県</span>
+        <div class="chips" id="chips-pref"></div>
+      </div>
+      <div class="field">
+        <span class="group-title">種類</span>
+        <div class="chips" id="chips-cat"></div>
+      </div>
+      <div class="field">
+        <span class="group-title">特徴</span>
+        <div class="chips" id="chips-tag"></div>
+      </div>
+      <label class="switch"><input type="checkbox" id="open-today"> 今日開いている館だけ</label>
+      <label class="switch"><input type="checkbox" id="has-ex"> 会期中の展覧会がある館だけ</label>
+      <div class="field">
+        <label for="sort">並べ替え</label>
+        <select class="sort" id="sort">
+          <option value="pick">おすすめ順</option>
+          <option value="pref">府県順</option>
+          <option value="kana">五十音順</option>
+          <option value="ex">展覧会の多い順</option>
+        </select>
+      </div>
+      <button class="reset" id="reset">条件をクリア</button>
+    </div>
+  </aside>
+
+  <section class="content" id="content">
+    <div id="view-list" role="tabpanel" aria-labelledby="tab-list">
+      <p class="result-line"><span><strong id="list-count"></strong> 館</span><span id="list-hint"></span></p>
+      <div class="grid" id="list-grid"></div>
+    </div>
+    <div id="view-exhibitions" role="tabpanel" aria-labelledby="tab-exhibitions" hidden>
+      <div class="ex-tools" id="ex-tools"></div>
+      <p class="result-line"><span><strong id="ex-count"></strong> 件</span><span>会期終了が近い順。府県・種類・キーワードの絞り込みが効きます</span></p>
+      <ul class="ex-list" id="ex-list"></ul>
+    </div>
+    <div id="view-collections" role="tabpanel" aria-labelledby="tab-collections" hidden>
+      <p class="result-line"><span>編集部が組んだ、テーマ別のめぐり方</span></p>
+      <div class="col-list" id="col-list"></div>
+    </div>
+    <div id="view-map" role="tabpanel" aria-labelledby="tab-map" hidden>
+      <div class="map-wrap">
+        <div class="map-tools">
+          <div class="chips" id="map-zoom"></div>
+          <div class="legend" id="legend"></div>
+        </div>
+        <div class="map-frame" id="map-frame"></div>
+        <p class="map-note">概略図です。点をクリックすると詳細が開きます。絞り込み条件に合わない館は薄く表示します。</p>
+      </div>
+    </div>
+    <div id="view-saved" role="tabpanel" aria-labelledby="tab-saved" hidden>
+      <p class="result-line"><span><strong id="saved-count"></strong> 館</span><span id="saved-hint"></span></p>
+      <div class="grid" id="saved-grid"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>掲載データの基準日: <span id="data-asof"></span>。開館時間・休館日・料金・展覧会会期は変更されることがあります。お出かけ前に各館の公式サイトでご確認ください。</span>
+    <span>「本日開館」の判定は曜日と祝日の一般的な規則によるもので、展示替え・年末年始・臨時休館は反映できません。</span>
+  </div>
+</footer>
+
+<div class="backdrop" id="backdrop"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+  <div class="sheet-in" id="sheet-in"></div>
+</aside>
