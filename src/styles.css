@@ -297,3 +297,11 @@ a.tl-bar{display:block}
 .map-frame .neigh-land{fill:var(--land);opacity:.45;stroke:none}
 .map-frame .pref-land{fill:var(--land);stroke:var(--line-strong);stroke-width:1;stroke-linejoin:round}
 .map-frame .pref-land:hover{fill:var(--surface-2)}
+
+/* map: gestures and zoom buttons (outline mode) */
+.map-frame svg{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
+.map-frame svg:active{cursor:grabbing}
+.map-ctrl{position:absolute;top:10px;left:10px;display:grid;gap:0;background:var(--surface);border:1px solid var(--line-strong);border-radius:6px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.12);z-index:3}
+.map-ctrl button{width:36px;height:36px;font-size:18px;line-height:1;display:grid;place-items:center;color:var(--fg);border-bottom:1px solid var(--line)}
+.map-ctrl button:last-child{border-bottom:0;font-size:16px}
+.map-ctrl button:hover{background:var(--surface-2)}

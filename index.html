@@ -973,6 +973,14 @@ a.tl-bar{display:block}
 .map-frame .pref-land{fill:var(--land);stroke:var(--line-strong);stroke-width:1;stroke-linejoin:round}
 .map-frame .pref-land:hover{fill:var(--surface-2)}
 
+/* map: gestures and zoom buttons (outline mode) */
+.map-frame svg{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
+.map-frame svg:active{cursor:grabbing}
+.map-ctrl{position:absolute;top:10px;left:10px;display:grid;gap:0;background:var(--surface);border:1px solid var(--line-strong);border-radius:6px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.12);z-index:3}
+.map-ctrl button{width:36px;height:36px;font-size:18px;line-height:1;display:grid;place-items:center;color:var(--fg);border-bottom:1px solid var(--line)}
+.map-ctrl button:last-child{border-bottom:0;font-size:16px}
+.map-ctrl button:hover{background:var(--surface-2)}
+
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
@@ -2127,7 +2135,7 @@ function probeTiles(cb){
 function gmapsUrl(m){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(m.name+' '+m.city);}
 function buildLeaflet(){
   $('map-frame').innerHTML='<div id="map-leaflet" class="map-leaflet"></div>';
-  const map=L.map('map-leaflet',{scrollWheelZoom:false,zoomSnap:0.5});
+  const map=L.map('map-leaflet',{scrollWheelZoom:true,zoomSnap:0.5});
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'}).addTo(map);
   const markers=new Map();
   for(const m of MUSEUMS){
@@ -2149,11 +2157,49 @@ function buildSvg(){
   const prefs=PREF_LABELS.map(c=>'<text class="pref" x="'+px(c[2]).toFixed(1)+'" y="'+py(c[1]).toFixed(1)+'" text-anchor="middle">'+c[0]+'</text>').join('');
   $('map-frame').innerHTML='<svg id="map-svg" viewBox="0 0 '+MAP_W.toFixed(0)+' '+MAP_H.toFixed(0)+'" role="img" aria-label="関西の館の位置を示す地図">'+
     neigh+land+'<polygon class="lake" points="'+poly(BIWA)+'"/>'+prefs+cities+'<g id="map-dots">'+dots+'</g></svg><div class="map-hover" id="map-hover"></div>';
+  $('map-frame').insertAdjacentHTML('beforeend','<div class="map-ctrl"><button type="button" data-mapzoom="in" aria-label="拡大">＋</button><button type="button" data-mapzoom="out" aria-label="縮小">－</button><button type="button" data-mapzoom="reset" aria-label="元の範囲に戻す">⟲</button></div>');
   const svg=$('map-svg'), hover=$('map-hover'), frame=$('map-frame');
   svg.addEventListener('mousemove',ev=>{const t=ev.target.closest('.pt');if(!t){hover.classList.remove('show');return;}const r=frame.getBoundingClientRect();hover.textContent=BY_ID.get(t.dataset.id).name;hover.style.left=(ev.clientX-r.left)+'px';hover.style.top=(ev.clientY-r.top)+'px';hover.classList.add('show');});
   svg.addEventListener('mouseleave',()=>hover.classList.remove('show'));
-  svg.addEventListener('click',ev=>{const t=ev.target.closest('.pt');if(t)openDetail(t.dataset.id);});
+  svg.addEventListener('click',ev=>{if(svgGesture.dragged){svgGesture.dragged=false;return;}const t=ev.target.closest('.pt');if(t)openDetail(t.dataset.id);});
+  // ピンチ・ドラッグ・ホイールで地図だけを拡大縮小
+  const pts=svgGesture.pointers;
+  svg.addEventListener('pointerdown',ev=>{if(ev.button&&ev.button!==0)return;svg.setPointerCapture(ev.pointerId);pts.set(ev.pointerId,{x:ev.clientX,y:ev.clientY,sx:ev.clientX,sy:ev.clientY});if(pts.size===2){const [a,b]=[...pts.values()];svgGesture.dist=Math.hypot(a.x-b.x,a.y-b.y);svgGesture.mid={x:(a.x+b.x)/2,y:(a.y+b.y)/2};}});
+  svg.addEventListener('pointermove',ev=>{const prev=pts.get(ev.pointerId);if(!prev)return;const cur={x:ev.clientX,y:ev.clientY,sx:prev.sx,sy:prev.sy};pts.set(ev.pointerId,cur);
+    if(pts.size===1){if(!svgGesture.dragged&&Math.hypot(cur.x-cur.sx,cur.y-cur.sy)>5)svgGesture.dragged=true;if(svgGesture.dragged){svgPan(cur.x-prev.x,cur.y-prev.y);hover.classList.remove('show');}}
+    else if(pts.size===2){const [a,b]=[...pts.values()];const dist=Math.hypot(a.x-b.x,a.y-b.y),mid={x:(a.x+b.x)/2,y:(a.y+b.y)/2};if(svgGesture.dist>0){svgZoomAt(mid,dist/svgGesture.dist);svgPan(mid.x-svgGesture.mid.x,mid.y-svgGesture.mid.y);}svgGesture.dist=dist;svgGesture.mid=mid;svgGesture.dragged=true;}
+    ev.preventDefault();});
+  const end=ev=>{pts.delete(ev.pointerId);if(pts.size<2)svgGesture.dist=0;if(pts.size===0)setTimeout(()=>{svgGesture.dragged=false;},0);};
+  svg.addEventListener('pointerup',end);svg.addEventListener('pointercancel',end);
+  svg.addEventListener('wheel',ev=>{ev.preventDefault();const f=Math.min(2,Math.max(0.5,Math.exp(-ev.deltaY*(ev.deltaMode===1?0.05:0.0015))));svgZoomAt({x:ev.clientX,y:ev.clientY},f);},{passive:false});
+  svg.addEventListener('dblclick',ev=>{ev.preventDefault();svgZoomAt({x:ev.clientX,y:ev.clientY},2);});
 }
+const svgGesture={pointers:new Map(),dragged:false,dist:0,mid:null};
+const vb={x:0,y:0,w:MAP_W,h:MAP_H};
+function svgScale(){const svg=$('map-svg');const r=svg.getBoundingClientRect();return Math.min(r.width/vb.w,r.height/vb.h);}
+function svgPointFromClient(p){const svg=$('map-svg');const pt=svg.createSVGPoint();pt.x=p.x;pt.y=p.y;const m=svg.getScreenCTM();if(!m)return {x:vb.x+vb.w/2,y:vb.y+vb.h/2};const q=pt.matrixTransform(m.inverse());return {x:q.x,y:q.y};}
+function svgSetVb(x,y,w,h){
+  const minW=MAP_W/40,maxW=MAP_W*1.4;
+  if(w>maxW){const f=maxW/w;w=maxW;h*=f;} if(w<minW){const f=minW/w;w=minW;h*=f;}
+  x=Math.min(MAP_W-w*0.4,Math.max(-w*0.6,x)); y=Math.min(MAP_H-h*0.4,Math.max(-h*0.6,y));
+  vb.x=x;vb.y=y;vb.w=w;vb.h=h; svgApplyVb();
+}
+function svgZoomAt(client,f){const c=svgPointFromClient(client);svgSetVb(c.x-(c.x-vb.x)/f,c.y-(c.y-vb.y)/f,vb.w/f,vb.h/f);}
+function svgPan(dx,dy){const sc=svgScale();svgSetVb(vb.x-dx/sc,vb.y-dy/sc,vb.w,vb.h);}
+let vbRaf=0;
+function svgApplyVb(){
+  if(vbRaf)return; vbRaf=requestAnimationFrame(()=>{vbRaf=0;const svg=$('map-svg');if(!svg)return;
+    svg.setAttribute('viewBox',vb.x.toFixed(1)+' '+vb.y.toFixed(1)+' '+vb.w.toFixed(1)+' '+vb.h.toFixed(1));
+    const k=vb.w/MAP_W, kd=Math.pow(Math.max(k,0.08),0.75), kt=Math.max(k,0.2);
+    svg.querySelectorAll('.pt').forEach(el=>{const m=BY_ID.get(el.dataset.id);el.setAttribute('r',((m.pick===3?6.5:5)*kd).toFixed(2));el.setAttribute('stroke-width',(1.2*kd).toFixed(2));});
+    svg.querySelectorAll('.city').forEach(el=>el.setAttribute('font-size',(11*kt).toFixed(1)));
+    svg.querySelectorAll('.cityDot').forEach(el=>el.setAttribute('r',(1.8*kt).toFixed(2)));
+    svg.querySelectorAll('.pref').forEach(el=>el.setAttribute('font-size',(13*kt).toFixed(1)));
+    svg.querySelectorAll('.pref-land').forEach(el=>el.setAttribute('stroke-width',(1*Math.max(k,0.3)).toFixed(2)));
+    svg.querySelectorAll('.lake').forEach(el=>el.setAttribute('stroke-width',(1*Math.max(k,0.3)).toFixed(2)));
+  });
+}
+function svgPreset(){const z=ZOOMS[state.zoom];const x0=px(z.lng[0]),y0=py(z.lat[1]);vb.x=x0;vb.y=y0;vb.w=px(z.lng[1])-x0;vb.h=py(z.lat[0])-y0;svgApplyVb();}
 function renderMap(){
   $('map-zoom').innerHTML=Object.keys(ZOOMS).map(k=>'<button type="button" class="chip" data-zoom="'+k+'" aria-pressed="'+(state.zoom===k)+'">'+ZOOMS[k].label+'</button>').join('');
   $('legend').innerHTML=Object.keys(CATS).map(c=>'<span style="--c:var(--cat-'+c+')">'+CATS[c]+'</span>').join('');
@@ -2174,15 +2220,9 @@ function applyMap(){
     leaflet.markers.forEach((c,id)=>{const el=c.getElement();if(el)el.classList.toggle('dim',!matches(BY_ID.get(id)));});
     return;
   }
-  $('map-note').textContent='概略図（都道府県の輪郭は簡略化）。点をクリックすると詳細が開きます。絞り込み条件に合わない館は薄く表示します。';
-  const x0=px(z.lng[0]), y0=py(z.lat[1]), w=px(z.lng[1])-x0, h=py(z.lat[0])-y0;
-  const svg=$('map-svg'); svg.setAttribute('viewBox',x0.toFixed(1)+' '+y0.toFixed(1)+' '+w.toFixed(1)+' '+h.toFixed(1));
-  const k=w/MAP_W;
-  svg.querySelectorAll('.pt').forEach(el=>{const m=BY_ID.get(el.dataset.id);el.setAttribute('r',((m.pick===3?6.5:5)*Math.max(k,0.38)).toFixed(2));el.classList.toggle('dim',!matches(m));});
-  svg.querySelectorAll('.city').forEach(el=>el.setAttribute('font-size',(11*Math.max(k,0.45)).toFixed(1)));
-  svg.querySelectorAll('.cityDot').forEach(el=>el.setAttribute('r',(1.8*Math.max(k,0.45)).toFixed(2)));
-  svg.querySelectorAll('.pref').forEach(el=>el.setAttribute('font-size',(13*Math.max(k,0.45)).toFixed(1)));
-  svg.querySelectorAll('.pref-land').forEach(el=>el.setAttribute('stroke-width',(1*Math.max(k,0.5)).toFixed(2)));
+  $('map-note').textContent='概略図（都道府県の輪郭は簡略化）。ピンチやホイール、＋－で拡大、ドラッグで移動できます。点をクリックすると詳細が開きます。絞り込み条件に合わない館は薄く表示します。';
+  if(appliedZoom!==state.zoom){svgPreset();appliedZoom=state.zoom;}
+  $('map-svg').querySelectorAll('.pt').forEach(el=>el.classList.toggle('dim',!matches(BY_ID.get(el.dataset.id))));
 }
 
 /* ---------- 詳細パネル ---------- */
@@ -2267,7 +2307,8 @@ document.addEventListener('click',ev=>{
   if(t.dataset.exf){state.exFilter=t.dataset.exf;renderExhibitions();return;}
   if(t.dataset.exv){state.exView=t.dataset.exv;renderExhibitions();return;}
   if(t.dataset.jump){state.exFilter=t.dataset.jump;state.exView='timeline';setTab('exhibitions');window.scrollTo({top:0});return;}
-  if(t.dataset.zoom){state.zoom=t.dataset.zoom;renderMap();return;}
+  if(t.dataset.zoom){state.zoom=t.dataset.zoom;appliedZoom=null;renderMap();return;}
+  if(t.dataset.mapzoom){const k=t.dataset.mapzoom;if(mapMode==='tiles'&&leaflet){if(k==='in')leaflet.map.zoomIn();else if(k==='out')leaflet.map.zoomOut();else{appliedZoom=null;applyMap();}}else if(mapMode==='svg'){const svg=$('map-svg');const r=svg.getBoundingClientRect();const c={x:r.left+r.width/2,y:r.top+r.height/2};if(k==='in')svgZoomAt(c,1.6);else if(k==='out')svgZoomAt(c,1/1.6);else svgPreset();}return;}
   if(t.id==='sheet-close'){closeDetail();return;}
   if(t.id==='reset'){state.q='';state.prefs.clear();state.cats.clear();state.tags.clear();state.openToday=false;state.hasEx=false;state.sort='pick';renderRail();render();return;}
   if(t.id==='rail-toggle'){state.railOpen=!state.railOpen;syncRail();return;}
