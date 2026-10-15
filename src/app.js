@@ -52,7 +52,7 @@ function exLive(m){return (EX_BY_M.get(m.id)||[]).filter(e=>{const c=exStatus(e)
 function exFuture(m){return (EX_BY_M.get(m.id)||[]).filter(e=>exStatus(e).code!=='ended').sort((a,b)=>a.start.localeCompare(b.start));}
 
 /* ---------- 状態 ---------- */
-const state={tab:'list',q:'',prefs:new Set(),cats:new Set(),tags:new Set(),openToday:false,hasEx:false,sort:'pick',exFilter:'all',favs:new Set(),railOpen:false,zoom:'all'};
+const state={tab:'list',q:'',prefs:new Set(),cats:new Set(),tags:new Set(),openToday:false,hasEx:false,sort:'pick',exFilter:'open',exView:'timeline',favs:new Set(),railOpen:false,zoom:'all'};
 function loadFavs(){try{const a=JSON.parse(localStorage.getItem('kmt.favs')||'[]');if(Array.isArray(a))a.forEach(id=>{if(BY_ID.has(id))state.favs.add(id);});}catch(e){}}
 function saveFavs(){try{localStorage.setItem('kmt.favs',JSON.stringify([...state.favs]));}catch(e){}}
 loadFavs();
@@ -147,17 +147,83 @@ function exRow(e,withMuseum){
     '<div class="ex-meta">'+(e.src?'<a href="'+esc(e.src)+'" target="_blank" rel="noopener">会期の出典</a>':'')+(e.conf!=='high'?'<span class="conf-m">会期は要確認</span>':'')+'</div>'+
     '</div></li>';
 }
-function renderExhibitions(){
+function fmtShort(s){const d=parseYmd(s);return (d.getMonth()+1)+'/'+d.getDate();}
+function addDays(d,n){const x=new Date(d);x.setDate(x.getDate()+n);return x;}
+function exFiltered(){
   const f=state.exFilter;
-  const opts=[['all','すべて'],['open','開催中'],['ending','まもなく終了'],['upcoming','開催予定']];
-  $('ex-tools').innerHTML=opts.map(o=>'<button type="button" class="chip" data-exf="'+o[0]+'" aria-pressed="'+(f===o[0])+'">'+o[1]+'</button>').join('');
   let list=EXHIBITIONS.filter(e=>matchesBase(BY_ID.get(e.m))).map(e=>({e,st:exStatus(e)})).filter(x=>x.st.code!=='ended');
   if(f==='open') list=list.filter(x=>x.st.code==='open'||x.st.code==='ending');
   else if(f==='ending') list=list.filter(x=>x.st.code==='ending');
   else if(f==='upcoming') list=list.filter(x=>x.st.code==='upcoming');
   list.sort((a,b)=>{const ua=a.st.code==='upcoming',ub=b.st.code==='upcoming';if(ua!==ub)return ua?1:-1;return ua?a.e.start.localeCompare(b.e.start):a.e.end.localeCompare(b.e.end);});
+  return list;
+}
+function renderExhibitions(){
+  const f=state.exFilter, v=state.exView;
+  const opts=[['open','開催中'],['ending','まもなく終了'],['upcoming','開催予定'],['all','すべて']];
+  $('ex-tools').innerHTML=opts.map(o=>'<button type="button" class="chip" data-exf="'+o[0]+'" aria-pressed="'+(f===o[0])+'">'+o[1]+'</button>').join('');
+  const views=[['timeline','タイムライン'],['board','館ごと'],['list','リスト']];
+  $('ex-views').innerHTML=views.map(o=>'<button type="button" class="chip" data-exv="'+o[0]+'" aria-pressed="'+(v===o[0])+'">'+o[1]+'</button>').join('');
+  const list=exFiltered();
   $('ex-count').textContent=list.length;
-  $('ex-list').innerHTML=list.length?list.map(x=>exRow(x.e,true)).join(''):'<li class="empty" style="border:0">条件に合う展覧会がありません。</li>';
+  const hints={timeline:'横軸が日付、縦線が今日。棒をクリックすると館の詳細が開きます',board:'府県ごと・館ごとにまとめた一覧。館名で詳細が開きます',list:'会期終了が近い順。府県・種類・キーワードの絞り込みが効きます'};
+  $('ex-hint').textContent=hints[v];
+  $('ex-timeline').hidden=v!=='timeline'; $('ex-board').hidden=v!=='board'; $('ex-list').hidden=v!=='list';
+  if(!list.length){const empty='<div class="empty">条件に合う展覧会がありません。</div>';$('ex-timeline').innerHTML=empty;$('ex-board').innerHTML=empty;$('ex-list').innerHTML='<li class="empty" style="border:0">条件に合う展覧会がありません。</li>';return;}
+  if(v==='timeline') renderTimeline(list);
+  else if(v==='board') renderBoard(list);
+  else $('ex-list').innerHTML=list.map(x=>exRow(x.e,true)).join('');
+}
+function groupByPref(list){
+  const g=new Map(); for(const p of PREFS) g.set(p,[]);
+  for(const x of list) g.get(BY_ID.get(x.e.m).pref).push(x);
+  return g;
+}
+function renderTimeline(list){
+  const rangeStart=addDays(today,-7);
+  let maxStart=TODAY; for(const x of list) if(x.e.start>maxStart) maxStart=x.e.start;
+  const DAYS=Math.min(210,Math.max(112,daysUntil(maxStart)+21));
+  const rangeEnd=addDays(rangeStart,DAYS);
+  const pos=d=>Math.min(100,Math.max(0,(d-rangeStart)/86400000/DAYS*100));
+  // 月の境目
+  let months='', grid='';
+  const cur=new Date(rangeStart.getFullYear(),rangeStart.getMonth()+1,1);
+  while(cur<rangeEnd){const l=pos(cur).toFixed(2);months+='<span class="tl-month" style="left:'+l+'%">'+(cur.getMonth()+1)+'月'+(cur.getMonth()===0?'<small>'+cur.getFullYear()+'</small>':'')+'</span>';grid+='<span class="gl" style="left:'+l+'%"></span>';cur.setMonth(cur.getMonth()+1);}
+  const tp=pos(today).toFixed(2);
+  const groups=groupByPref(list); let rows='';
+  for(const [pref,items] of groups){
+    if(!items.length) continue;
+    items.sort((a,b)=>a.e.start.localeCompare(b.e.start)||a.e.end.localeCompare(b.e.end));
+    rows+='<div class="tl-group">'+esc(pref)+'<span class="c">'+items.length+'</span></div>';
+    for(const x of items){
+      const m=BY_ID.get(x.e.m), s=parseYmd(x.e.start), e=addDays(parseYmd(x.e.end),1);
+      const l=pos(s), r=pos(e); const cutL=s<rangeStart, cutR=e>rangeEnd;
+      const cls='tl-bar '+x.st.code+(cutL?' cut-l':'')+(cutR?' cut-r':'');
+      const label=x.st.code==='upcoming'?fmtShort(x.e.start)+'から':x.st.code==='ending'?x.st.label:fmtShort(x.e.end)+'まで';
+      rows+='<div class="tl-row"><div class="tl-label"><button type="button" class="tl-m" data-open="'+m.id+'">'+esc(m.name)+'</button><span class="tl-t" title="'+esc(x.e.title)+'">'+esc(x.e.title)+'</span><span class="tl-d">'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'</span></div>'+
+        '<div class="tl-track"><button type="button" class="'+cls+'" data-open="'+m.id+'" style="left:'+l.toFixed(2)+'%;width:'+Math.max(0.6,r-l).toFixed(2)+'%" title="'+esc(x.e.title)+'　'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'"><span class="visually-hidden">'+esc(x.e.title)+'</span></button>'+
+        (r<97?'<span class="tl-end" style="left:'+r.toFixed(2)+'%">'+esc(label)+'</span>':'')+'</div></div>';
+    }
+  }
+  $('ex-timeline').innerHTML='<div class="tl-inner"><div class="tl-head"><div class="tl-corner"><span class="tl-key"><i class="k open"></i>開催中</span><span class="tl-key"><i class="k ending"></i>2週間以内に終了</span><span class="tl-key"><i class="k upcoming"></i>開催予定</span></div><div class="tl-months">'+months+'<span class="tl-today" style="left:'+tp+'%">今日</span></div></div>'+
+    '<div class="tl-body"><div class="tl-grid">'+grid+'<span class="today" style="left:'+tp+'%"></span></div>'+rows+'</div></div>';
+}
+function renderBoard(list){
+  const groups=groupByPref(list); let html='';
+  for(const [pref,items] of groups){
+    if(!items.length) continue;
+    const byM=new Map(); for(const x of items){ if(!byM.has(x.e.m)) byM.set(x.e.m,[]); byM.get(x.e.m).push(x); }
+    const ms=[...byM.keys()].map(id=>BY_ID.get(id)).sort((a,b)=>b.pick-a.pick||a.kana.localeCompare(b.kana,'ja'));
+    html+='<section class="board-group"><h2 class="board-pref">'+esc(pref)+'<span class="c">'+ms.length+'館 ・ '+items.length+'件</span></h2><div class="board-grid">';
+    for(const m of ms){
+      const st=openStatus(m,today);
+      const exs=byM.get(m.id).sort((a,b)=>a.e.start.localeCompare(b.e.start));
+      html+='<article class="bcard"><div class="bcard-head"><div><button type="button" class="bcard-name" data-open="'+m.id+'">'+esc(m.name)+'</button><div class="bcard-where">'+esc(m.area)+' ・ '+esc(m.hours)+'</div></div><span class="pill '+st.code+'">'+st.label+'</span></div><ul class="bcard-list">'+
+        exs.map(x=>'<li><span class="ex-badge '+x.st.code+'">'+x.st.label+'</span><span class="bcard-t">'+esc(x.e.title)+'</span><span class="bcard-d">'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'</span></li>').join('')+'</ul></article>';
+    }
+    html+='</div></section>';
+  }
+  $('ex-board').innerHTML=html;
 }
 
 /* ---------- 描画: 特集 ---------- */
@@ -252,7 +318,7 @@ function renderTodayLine(){
   const live=EXHIBITIONS.filter(e=>{const c=exStatus(e).code;return c==='open'||c==='ending';});
   const ending=live.filter(e=>exStatus(e).code==='ending').length;
   $('today-line').innerHTML='<span><strong>'+(today.getMonth()+1)+'月'+today.getDate()+'日（'+WD[today.getDay()]+'）</strong></span>'+
-    '<span><span class="num">'+openN+'</span>館が本日開館</span><span><span class="num">'+live.length+'</span>件の展覧会が会期中</span>'+(ending?'<span>うち2週間以内に終了 '+ending+'件</span>':'');
+    '<span><span class="num">'+openN+'</span>館が本日開館</span><button type="button" class="today-jump" data-jump="open"><span class="num">'+live.length+'</span>件の展覧会が会期中</button>'+(ending?'<button type="button" class="today-jump" data-jump="ending">うち2週間以内に終了 '+ending+'件</button>':'');
 }
 function setTab(tab,push){
   if(!['list','exhibitions','collections','map','saved'].includes(tab)) tab='list';
@@ -286,6 +352,8 @@ document.addEventListener('click',ev=>{
     t.setAttribute('aria-pressed',String(set.has(k))); render(); return;
   }
   if(t.dataset.exf){state.exFilter=t.dataset.exf;renderExhibitions();return;}
+  if(t.dataset.exv){state.exView=t.dataset.exv;renderExhibitions();return;}
+  if(t.dataset.jump){state.exFilter=t.dataset.jump;state.exView='timeline';setTab('exhibitions');window.scrollTo({top:0});return;}
   if(t.dataset.zoom){state.zoom=t.dataset.zoom;renderMap();return;}
   if(t.id==='sheet-close'){closeDetail();return;}
   if(t.id==='reset'){state.q='';state.prefs.clear();state.cats.clear();state.tags.clear();state.openToday=false;state.hasEx=false;state.sort='pick';renderRail();render();return;}

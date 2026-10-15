@@ -58,8 +58,13 @@
       <div class="grid" id="list-grid"></div>
     </div>
     <div id="view-exhibitions" role="tabpanel" aria-labelledby="tab-exhibitions" hidden>
-      <div class="ex-tools" id="ex-tools"></div>
-      <p class="result-line"><span><strong id="ex-count"></strong> 件</span><span>会期終了が近い順。府県・種類・キーワードの絞り込みが効きます</span></p>
+      <div class="ex-bar">
+        <div class="ex-tools" id="ex-tools" aria-label="会期の状態"></div>
+        <div class="ex-views" id="ex-views" aria-label="表示形式"></div>
+      </div>
+      <p class="result-line"><span><strong id="ex-count"></strong> 件</span><span id="ex-hint"></span></p>
+      <div class="tl" id="ex-timeline"></div>
+      <div class="board" id="ex-board"></div>
       <ul class="ex-list" id="ex-list"></ul>
     </div>
     <div id="view-collections" role="tabpanel" aria-labelledby="tab-collections" hidden>
