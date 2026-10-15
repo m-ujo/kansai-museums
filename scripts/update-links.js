@@ -90,7 +90,7 @@ function anchors(html,baseUrl){
   }
   return out;
 }
-const GENERIC_ID=/^(pan|pankuzu|breadcrumb|main|content|contents|container|wrapper|wrap|header|footer|nav|menu|gnav|side|sidebar|top|page|body|notice|info|info_top|tmp_anchor|tmp_contents|tmp_[a-z_]+|section\d*|area|box|inner|outer|primary|secondary|column|col\d*|list|news|skip|anchor|here|current|upcoming|next|coming|schedule|past|future)$/i;
+const GENERIC_ID=/^(pan|pankuzu|breadcrumb|main|content|contents|container|wrapper|wrap|header|footer|nav|menu|gnav|side|sidebar|top|page|body|notice|info|info_top|tmp_anchor|tmp_contents|tmp_[a-z_]+|section\d*|area|box|inner|outer|primary|secondary|column|col\d*|list|news|skip|anchor|here|current|upcoming|next|coming|schedule|past|future|[a-z]*navi(gation)?|[a-z]*nav|[a-z]*menu|[a-z]*header|[a-z]*footer|contents?[-_]?\w*|pagetop|totop|toc)$/i;
 function anchorIdFor(html,title){
   // タイトルの直前（タグ除去後 600 文字以内）にある、展覧会固有らしい id="..." を探す
   const c=core(title); const re=/\bid\s*=\s*"([^"\s]+)"/gi; let m,best=null;
