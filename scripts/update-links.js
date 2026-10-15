@@ -177,7 +177,9 @@ async function candidates(){
     }
   }
   const file=path.join(ROOT,'research','candidates.json'); fs.mkdirSync(path.dirname(file),{recursive:true});
-  fs.writeFileSync(file,JSON.stringify({generated:TODAY,note:'展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。',candidates:out},null,1)+'\n');
+  let generated=TODAY; // 候補に変化がなければ日付も据え置き（無駄なコミットを避ける）
+  try{ const prev=JSON.parse(fs.readFileSync(file,'utf8')); if(JSON.stringify(prev.candidates)===JSON.stringify(out)) generated=prev.generated||TODAY; }catch(e){}
+  fs.writeFileSync(file,JSON.stringify({generated,note:'展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。',candidates:out},null,1)+'\n');
   return out.length;
 }
 
@@ -189,7 +191,9 @@ function writeData(){
   js+='const EXHIBITIONS = [\n';
   for(const e of sorted){ const o={m:e.m,title:e.title,start:e.start,end:e.end,note:e.note,src:e.src,conf:e.conf}; if(e.page){o.page=e.page;o.kind=e.kind;} if(e.added)o.added=true; if(e.autolink)o.autolink=e.autolink; js+=JSON.stringify(o)+',\n'; }
   js=js.replace(/,\n$/,'\n')+'];\n// 館ごとの「展覧会一覧」ページ（展覧会に個別ページが見つからない場合のリンク先）\nconst EX_INDEX_URLS = '+JSON.stringify(EX_INDEX_URLS,null,0).replace(/","/g,'",\n "')+';\n';
-  fs.writeFileSync(path.join(SRC,'data-exhibitions.js'),js);
+  const strip=s=>s.replace(/\n\/\/ links-checked:.*\n?/,'\n');
+  if(strip(js)===strip(exSrc)){ say('- データに変化なし（links-checked の日付は据え置き）'); return false; }
+  fs.writeFileSync(path.join(SRC,'data-exhibitions.js'),js); return true;
 }
 
 (async()=>{
