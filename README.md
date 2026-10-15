@@ -45,7 +45,7 @@ kansai-museums/
    - 会期終了から 90 日以上たった展覧会を削除します。
    - 一覧ページ上でまだデータにない展覧会らしきリンクを `research/candidates.json` に書き出します。
    - `index.html` を再生成し、変更があれば main に push します（GitHub Pages が自動で再デプロイ）。
-2. **Claude の定期タスク**（月・木 07:40 JST）が、会期が近く終わる館や展覧会データのない館を中心に、公式サイトの検索結果から新しい展覧会・会期・休館情報を調べて `data-exhibitions.js` に追加し、再ビルドして push します。
+2. **Claude の定期タスク**（月・木 07:40 JST）が、会期が近く終わる館や展覧会データのない館を中心に、公式サイトの検索結果から新しい展覧会・会期・休館情報を調べて `data-exhibitions.js` に追加し、再ビルドして push します。あわせて `node build.js --artifact` で生成した `artifact.html` を claude.ai の Artifact（https://claude.ai/artifact/NQRBtUq2Qfs2Q6hfkNwqzv ）に publish して、Artifact 版も最新にします（`artifact.html` は .gitignore 済み）。
 
 手動で実行する場合: `cd kansai-museums && node scripts/update-links.js`（インターネット接続が必要）。
 
