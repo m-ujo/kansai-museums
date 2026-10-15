@@ -87,7 +87,7 @@ const MUSEUMS_HYOGO = [
  note:"兵庫県立美術館の目の前にある小さな私設館。ブラックやビュッフェなどフランス近代絵画と、関西の作家の企画展。はしごにちょうどよい規模。",
  highlights:["フランス近代絵画のコレクション","兵庫県立美術館から徒歩1分","静かな鑑賞環境"],time:"30分",pick:1},
 {id:"himeji-lit",name:"姫路文学館",kana:"ひめじぶんがくかん",pref:"兵庫",city:"姫路市",area:"姫路城",cat:"special",tags:["文学","建築"],lat:34.8391,lng:134.6842,
- access:"JR・山陽 姫路駅 バス「市之橋文学館前」徒歩4分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般310円",url:"https://www.city.himeji.lg.jp/bungaku/",
+ access:"JR・山陽 姫路駅 バス「市之橋文学館前」徒歩4分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般310円",url:"https://www.himejibungakukan.jp/",
  note:"姫路城の西、安藤忠雄設計の北館・南館が水辺に並ぶ。播磨ゆかりの文学者や司馬遼太郎記念室。望景亭（旧濱本家住宅）からの姫路城の眺めも。",
  highlights:["安藤忠雄の水辺の建築","司馬遼太郎記念室","望景亭からの姫路城"],time:"45分",pick:1,arch:"安藤忠雄（1991・1996）"},
 {id:"toy",name:"日本玩具博物館",kana:"にほんがんぐはくぶつかん",pref:"兵庫",city:"姫路市",area:"香寺",cat:"special",tags:["子ども向け","工芸"],lat:34.9026,lng:134.7239,

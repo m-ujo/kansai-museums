@@ -10,6 +10,7 @@ const MUSEUMS_NARA = [
  highlights:["近鉄奈良駅から徒歩5分","吉川観方コレクション","奈良公園散策の起点に"],time:"45分",pick:1},
 {id:"yamato",name:"大和文華館",kana:"やまとぶんかかん",pref:"奈良",city:"奈良市",area:"学園前",cat:"art",tags:["国宝","日本画","庭園","建築"],lat:34.6797,lng:135.7757,
  access:"近鉄 学園前駅 徒歩7分",hours:"10:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般630円（特別展は別途）",url:"https://www.kintetsu-g-hd.co.jp/culture/yamato/",
+ closedRanges:[["2026-10-19","2026-10-23"]],notice:"展示替えのため2026年10月19日〜23日は休館。",
  note:"近鉄が創設した東洋美術の名館。吉田五十八設計の本館は蛙股池を見下ろす丘に建ち、庭「文華苑」は花の名所。国宝4件、重文31件。",
  highlights:["国宝「松浦屏風」「寝覚物語絵巻」","吉田五十八の数寄屋建築","梅・ささゆり・紅葉の文華苑"],time:"60分",pick:3,arch:"吉田五十八（1960）"},
 {id:"shohaku",name:"松伯美術館",kana:"しょうはくびじゅつかん",pref:"奈良",city:"奈良市",area:"登美ヶ丘",cat:"art",tags:["日本画","庭園"],lat:34.7080,lng:135.7600,

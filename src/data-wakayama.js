@@ -46,6 +46,7 @@ const MUSEUMS_WAKAYAMA = [
  highlights:["濱口梧陵の記念館","3Dシアターの津波映像","広村堤防の見学"],time:"60分",pick:1},
 {id:"fudoki",name:"和歌山県立紀伊風土記の丘",kana:"わかやまけんりつきいふどきのおか",pref:"和歌山",city:"和歌山市",area:"岩橋",cat:"history",tags:["考古","歴史"],lat:34.2326,lng:135.2268,
  access:"JR 和歌山駅 バス「紀伊風土記の丘」徒歩8分",hours:"9:00–16:30",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"常設展 一般190円",url:"https://www.kiifudoki.wakayama-c.ed.jp/",
+ closure:"資料館は改修工事のため2026年3月31日で一時休館。令和10年（2028年）下期（予定）に和歌山県考古民俗博物館（仮称）として開館予定。園内は一部を除き利用可。",
  note:"国特別史跡・岩橋千塚古墳群の中にある考古博物館。資料館で埴輪を見たあと、約800基の古墳が点在する丘を歩いて石室に入れる。",
  highlights:["岩橋千塚古墳群の散策","横穴式石室の見学","移築された江戸時代の民家"],time:"90分",pick:1},
 {id:"wakayama-castle",name:"和歌山城天守閣",kana:"わかやまじょうてんしゅかく",pref:"和歌山",city:"和歌山市",area:"和歌山城",cat:"history",tags:["歴史"],lat:34.2277,lng:135.1717,
