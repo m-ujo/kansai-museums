@@ -11,6 +11,12 @@
   {
    "museum_id": "nakka",
    "museum": "大阪中之島美術館",
+   "text": "「開館5周年記念特別展 大阪中之島美術館オールスターズ☆それをまとめて見たかったです！」開催のお知らせ",
+   "url": "https://nakka-art.jp/news/nakka5th-20261015/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
    "text": "「大阪中之島美術館開館5周年記念 生誕120年 東山魁夷展」開催のお知らせ",
    "url": "https://nakka-art.jp/news/kaii120_20261008/"
   },
@@ -45,108 +51,6 @@
    "url": "https://omnh.jp/archives/category/%e3%83%86%e3%83%bc%e3%83%9e%e5%b1%95%e7%a4%ba%e3%83%bb%e3%83%9f%e3%83%8b%e5%b1%95%e7%a4%ba"
   },
   {
-   "museum_id": "omnh",
-   "museum": "大阪市立自然史博物館",
-   "text": "バーチャル展示室",
-   "url": "https://omnh.jp/page-12404"
-  },
-  {
-   "museum_id": "omnh",
-   "museum": "大阪市立自然史博物館",
-   "text": "旧バーチャル展示・バーチャル特別展",
-   "url": "https://omnh.jp/tour/"
-  },
-  {
-   "museum_id": "omnh",
-   "museum": "大阪市立自然史博物館",
-   "text": "過去の特別展",
-   "url": "https://omnh.jp/exhibition/past_exhibitions"
-  },
-  {
-   "museum_id": "omnh",
-   "museum": "大阪市立自然史博物館",
-   "text": "バーチャル特別展",
-   "url": "https://omnh.jp/exhibition/page-11770"
-  },
-  {
-   "museum_id": "omnh",
-   "museum": "大阪市立自然史博物館",
-   "text": "イベントレポート",
-   "url": "https://omnh.jp/event/"
-  },
-  {
-   "museum_id": "osaka-hist",
-   "museum": "大阪歴史博物館",
-   "text": "&emsp;展示・イベント",
-   "url": "https://www.osakamushis.jp/news/mainnews.html"
-  },
-  {
-   "museum_id": "osaka-hist",
-   "museum": "大阪歴史博物館",
-   "text": "&emsp;展示更新情報",
-   "url": "https://www.osakamushis.jp/news/update.html"
-  },
-  {
-   "museum_id": "sci-museum",
-   "museum": "大阪市立科学館",
-   "text": "展示場に入りたい",
-   "url": "https://www.sci-museum.jp/exhibit/"
-  },
-  {
-   "museum_id": "sci-museum",
-   "museum": "大阪市立科学館",
-   "text": "４F 科学の探究",
-   "url": "https://www.sci-museum.jp/exhibit/n4f/"
-  },
-  {
-   "museum_id": "sci-museum",
-   "museum": "大阪市立科学館",
-   "text": "３F 物質の探究",
-   "url": "https://www.sci-museum.jp/exhibit/n3f/"
-  },
-  {
-   "museum_id": "sci-museum",
-   "museum": "大阪市立科学館",
-   "text": "２F みんなでたのしむサイエンス",
-   "url": "https://www.sci-museum.jp/exhibit/n2f/"
-  },
-  {
-   "museum_id": "sci-museum",
-   "museum": "大阪市立科学館",
-   "text": "１F みんなのサイエンス・ラボ",
-   "url": "https://www.sci-museum.jp/exhibit/n1f/"
-  },
-  {
-   "museum_id": "sci-museum",
-   "museum": "大阪市立科学館",
-   "text": "B１F ツアイス広場",
-   "url": "https://www.sci-museum.jp/exhibit/nB1f/"
-  },
-  {
-   "museum_id": "sci-museum",
-   "museum": "大阪市立科学館",
-   "text": "ポケット学芸員",
-   "url": "https://www.sci-museum.jp/exhibit/pocket/"
-  },
-  {
-   "museum_id": "sci-museum",
-   "museum": "大阪市立科学館",
-   "text": "学芸員の展示場ガイド",
-   "url": "https://www.sci-museum.jp/exhibit/movie/"
-  },
-  {
-   "museum_id": "sci-museum",
-   "museum": "大阪市立科学館",
-   "text": "-->グルメな江戸時代",
-   "url": "https://sake-museum.jp/exhibitions/3306/"
-  },
-  {
-   "museum_id": "aham",
-   "museum": "あべのハルカス美術館",
-   "text": "これまでの展覧会",
-   "url": "https://www.aham.jp/exhibition/past/past.html"
-  },
-  {
    "museum_id": "aham",
    "museum": "あべのハルカス美術館",
    "text": "小村雪岱のすべて",
@@ -173,80 +77,8 @@
   {
    "museum_id": "fujita",
    "museum": "藤田美術館",
-   "text": "展示一覧 Exhibition",
-   "url": "https://fujita-museum.or.jp/exhibition/"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
-   "text": "現在の展示 Exhibition",
-   "url": "https://fujita-museum.or.jp/exhibition/"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
-   "text": "もっと詳しく More Info.",
-   "url": "https://fujita-museum.or.jp/exhibition/"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
-   "text": "もっと詳しく More Info.",
-   "url": "https://fujita-museum.or.jp/event-banner/"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
-   "text": "講座 10 17 （土） 14：00-15:00 【学芸講座】藤田家と能",
-   "url": "https://fujita-museum.or.jp/event/2026/10/12/17332/"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
    "text": "能楽 10 18 （日） 11:00-12:00 教えて能楽師！2026～特別編～",
    "url": "https://fujita-museum.or.jp/event/2026/09/26/17006/"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
-   "text": "茶話 10 20 （火） 14:15-15:00 【毎週火曜】あみじま茶話（10/20）",
-   "url": "https://fujita-museum.or.jp/event/2026/07/22/15942/"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
-   "text": "建築 10 23 （金） 14:15-15:00 【毎週金曜】たてものツアー(10/23)",
-   "url": "https://fujita-museum.or.jp/event/2026/02/12/13379/"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
-   "text": "寄席 10 24 （土） 14:00～15:00 大坂はなしぐれ2026～秋～",
-   "url": "https://fujita-museum.or.jp/event/2026/03/17/13938/"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
-   "text": "2026.10.02 NEWS 2026年 特別展示スタンプラリーキャンペーン",
-   "url": "https://fujita-museum.or.jp/news/2026/10/02/17224/"
-  },
-  {
-   "museum_id": "kyohaku",
-   "museum": "京都国立博物館",
-   "text": "館外での作品公開",
-   "url": "https://knmdb.kyohaku.go.jp/exhibitions/"
-  },
-  {
-   "museum_id": "kyohaku",
-   "museum": "京都国立博物館",
-   "text": "イベント・講座",
-   "url": "https://www.kyohaku.go.jp/jp/events/"
-  },
-  {
-   "museum_id": "kyohaku",
-   "museum": "京都国立博物館",
-   "text": "屋外展示はこちら",
-   "url": "https://www.kyohaku.go.jp/jp/exhibitions/outdoor/"
   },
   {
    "museum_id": "kyohaku",
@@ -303,22 +135,28 @@
    "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6583-22"
   },
   {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 染織 染織を彩る金と銀 2026年12月22日（火）～2027年1月31日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6586-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 近世絵画 画文交響 2026年12月22日（火）～2027年2月7日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6575-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 中国絵画 歳寒三友―理想をうつす松竹梅 2026年12月22日（火）～2027年2月7日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6580-22"
+  },
+  {
    "museum_id": "momak",
    "museum": "京都国立近代美術館",
    "text": "独立行政法人国立美術館の所蔵作品展における観覧料金の改定について",
    "url": "https://www.momak.go.jp/Japanese/news/?sy=2026&tp=news#post-131905"
-  },
-  {
-   "museum_id": "bunpaku",
-   "museum": "京都文化博物館",
-   "text": "過去の特別展",
-   "url": "https://www.bunpaku.or.jp/exhi_special/archives"
-  },
-  {
-   "museum_id": "bunpaku",
-   "museum": "京都文化博物館",
-   "text": "過去の総合展示",
-   "url": "https://www.bunpaku.or.jp/exhi_sogo/archives"
   },
   {
    "museum_id": "bunpaku",
@@ -341,20 +179,8 @@
   {
    "museum_id": "bunpaku",
    "museum": "京都文化博物館",
-   "text": "過去のぶんぱく子ども教室",
-   "url": "https://www.bunpaku.or.jp/museum-event/classroom/archives"
-  },
-  {
-   "museum_id": "bunpaku",
-   "museum": "京都文化博物館",
    "text": "京都アート・クラフトマーケット",
    "url": "https://www.bunpaku.or.jp/museum-event/art-craft-market"
-  },
-  {
-   "museum_id": "bunpaku",
-   "museum": "京都文化博物館",
-   "text": "過去の京都アート・クラフトマーケット",
-   "url": "https://www.bunpaku.or.jp/museum-event/art-craft-market/archives"
   },
   {
    "museum_id": "bunpaku",
@@ -365,20 +191,44 @@
   {
    "museum_id": "bunpaku",
    "museum": "京都文化博物館",
-   "text": "過去のろうじ店舗イベント",
-   "url": "https://www.bunpaku.or.jp/museum-event/roji/archives"
-  },
-  {
-   "museum_id": "bunpaku",
-   "museum": "京都文化博物館",
    "text": "地域連携イベント",
    "url": "https://www.bunpaku.or.jp/museum-event/chiiki"
   },
   {
    "museum_id": "bunpaku",
    "museum": "京都文化博物館",
-   "text": "過去の地域連携イベント",
-   "url": "https://www.bunpaku.or.jp/museum-event/chiiki/archives"
+   "text": "ろうじ店舗の催し",
+   "url": "https://www.bunpaku.or.jp/museum-event/roji"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "第42回文化書道近畿連合会展 2026.10.17(土) 〜 10.18(日) ６階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261017-1018/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "京の名工展 2026.10.21(水) 〜 10.25(日) 5階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261021-1025/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "林サヨコ 創作キルトの世界展2026 2026.10.22(木) 〜 10.25(日) 別館ホール",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261022-1025/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "選抜 京都墨彩画壇 秋季展 2026.10.28(水) 〜 11.1(日) 5階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261028-1101/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "京漆匠省庵工房 乾漆展 佐々木漆器 130年 記念展示会 2026.10.29(木) 〜 11.1(日) 5階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261029-1101-3/"
   },
   {
    "museum_id": "hosomi",
@@ -407,12 +257,6 @@
   {
    "museum_id": "fukuda",
    "museum": "福田美術館",
-   "text": "イベント 一覧 いちらん",
-   "url": "https://fukuda-art-museum.jp/category/event-info"
-  },
-  {
-   "museum_id": "fukuda",
-   "museum": "福田美術館",
    "text": "展覧会 てんらんかい",
    "url": "https://fukuda-art-museum.jp/exhibition"
   },
@@ -427,18 +271,6 @@
    "museum": "福田美術館",
    "text": "ー東京・新宿歌舞伎町春画展WA×京都・愛のカタチー 大変お得な東西春画巡りのご案内(10/10-)",
    "url": "https://fukuda-art-museum.jp/info/202610095040"
-  },
-  {
-   "museum_id": "senoku",
-   "museum": "泉屋博古館",
-   "text": "イベント・ラーニング",
-   "url": "https://sen-oku.or.jp/kyoto/event"
-  },
-  {
-   "museum_id": "senoku",
-   "museum": "泉屋博古館",
-   "text": "イベント・ラーニング一覧",
-   "url": "https://sen-oku.or.jp/kyoto/event/"
   },
   {
    "museum_id": "kyotomm",
@@ -463,12 +295,6 @@
    "museum": "京都国際マンガミュージアム",
    "text": "常設コーナー",
    "url": "https://kyotomm.jp/event_category/permanent"
-  },
-  {
-   "museum_id": "kyotomm",
-   "museum": "京都国際マンガミュージアム",
-   "text": "さらに以前の 展示・イベント についてはこちら",
-   "url": "https://kyotomm.jp/event/"
   },
   {
    "museum_id": "oyamazaki",
@@ -511,18 +337,6 @@
    "museum": "龍谷ミュージアム",
    "text": "展示コンセプト",
    "url": "https://museum.ryukoku.ac.jp/concept.html"
-  },
-  {
-   "museum_id": "kobe-museum",
-   "museum": "神戸市立博物館",
-   "text": "過去の特別展",
-   "url": "https://www.kobecitymuseum.jp/exhibition/past"
-  },
-  {
-   "museum_id": "kobe-museum",
-   "museum": "神戸市立博物館",
-   "text": "過去の企画展",
-   "url": "https://www.kobecitymuseum.jp/exhibition/theme"
   },
   {
    "museum_id": "kobe-museum",
@@ -571,24 +385,6 @@
    "museum": "神戸市立博物館",
    "text": "詳細ページへ",
    "url": "https://www.kobecitymuseum.jp/exhibition/detail?exhibition=397"
-  },
-  {
-   "museum_id": "kobe-museum",
-   "museum": "神戸市立博物館",
-   "text": "2018 年以前の特別展",
-   "url": "https://www.kobecitymuseum.jp/exhibition/past_before2018"
-  },
-  {
-   "museum_id": "kobe-museum",
-   "museum": "神戸市立博物館",
-   "text": "2018 年以前の企画",
-   "url": "https://www.kobecitymuseum.jp/exhibition/theme_before2018"
-  },
-  {
-   "museum_id": "koiso",
-   "museum": "神戸市立小磯記念美術館",
-   "text": "過去の展覧会/Past Exhibition",
-   "url": "https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/tenrankai/tenrankai_past.html"
   },
   {
    "museum_id": "koiso",
@@ -641,18 +437,6 @@
   {
    "museum_id": "ashiya",
    "museum": "芦屋市立美術博物館",
-   "text": "イベント・講座",
-   "url": "https://ashiya-museum.jp/event-program_new/"
-  },
-  {
-   "museum_id": "ashiya",
-   "museum": "芦屋市立美術博物館",
-   "text": "これまでの展覧会",
-   "url": "https://ashiya-museum.jp/exhibition_backnumber"
-  },
-  {
-   "museum_id": "ashiya",
-   "museum": "芦屋市立美術博物館",
    "text": "これからの展覧会",
    "url": "https://ashiya-museum.jp/exhibition_next"
   },
@@ -663,12 +447,6 @@
    "url": "https://ashiya-museum.jp/event-program_new/"
   },
   {
-   "museum_id": "ashiya",
-   "museum": "芦屋市立美術博物館",
-   "text": "イベント・講座アーカイブ",
-   "url": "https://ashiya-museum.jp/event-program/"
-  },
-  {
    "museum_id": "itami",
    "museum": "市立伊丹ミュージアム",
    "text": "開催中のイベント・今後の予定",
@@ -677,20 +455,8 @@
   {
    "museum_id": "itami",
    "museum": "市立伊丹ミュージアム",
-   "text": "過去のイベント",
-   "url": "https://itami-im.jp/events/category/past/"
-  },
-  {
-   "museum_id": "itami",
-   "museum": "市立伊丹ミュージアム",
    "text": "歴史常設展示",
    "url": "https://itami-im.jp/about/permanent/"
-  },
-  {
-   "museum_id": "itami",
-   "museum": "市立伊丹ミュージアム",
-   "text": "俳諧・俳句 企画展 無料 伊丹っ子作品展 2026年10月27日(火)～10月31日(土) 会場：講座室",
-   "url": "https://itami-im.jp/exhibitions/itamikkosakuhinntenn-2026/"
   },
   {
    "museum_id": "nara-art",
@@ -727,12 +493,6 @@
    "museum": "奈良県立美術館",
    "text": "これからの展覧会",
    "url": "https://www.pref.nara.lg.jp/n044/68463.html"
-  },
-  {
-   "museum_id": "nara-art",
-   "museum": "奈良県立美術館",
-   "text": "これまでの展覧会",
-   "url": "https://www.pref.nara.lg.jp/n044/54714.html"
   },
   {
    "museum_id": "yamato",
@@ -855,22 +615,10 @@
    "url": "https://www.biwahaku.jp/event/2026/09/post_3587.html"
   },
   {
-   "museum_id": "biwahaku",
-   "museum": "滋賀県立琵琶湖博物館",
-   "text": "その他の展示 第36回学芸員のこだわり展示「江戸時代の湖畔イメージに迫る―「湊はん志やう画巻」をよむ―」 2026年09月15日 - 2026年11月15日",
-   "url": "https://www.biwahaku.jp/event/2026/09/36.html"
-  },
-  {
    "museum_id": "sagawa",
    "museum": "佐川美術館",
    "text": "展覧会トップ",
    "url": "https://www.sagawa-artmuseum.or.jp/plan/"
-  },
-  {
-   "museum_id": "sagawa",
-   "museum": "佐川美術館",
-   "text": "過去の展示情報",
-   "url": "https://www.sagawa-artmuseum.or.jp/plan/exhibition/archive.html"
   },
   {
    "museum_id": "otsu",
@@ -1013,12 +761,6 @@
   {
    "museum_id": "wakayama-museum",
    "museum": "和歌山県立博物館",
-   "text": "常設展ガイド",
-   "url": "https://hakubutu.wakayama.jp/exhibit-menu/josetu/"
-  },
-  {
-   "museum_id": "wakayama-museum",
-   "museum": "和歌山県立博物館",
    "text": "3D画像で体験！",
    "url": "https://hakubutu.wakayama.jp/exhibit-menu/3d/"
   },
@@ -1077,16 +819,16 @@
    "url": "https://hakubutu.wakayama.jp/exhibit/seitijunrei-5/"
   },
   {
-   "museum_id": "reihokan",
-   "museum": "高野山霊宝館",
-   "text": "展覧会について",
-   "url": "https://reihokan.or.jp/tenrankai/"
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "世界遺産「紀伊山地の霊場と参詣道」登録20周年記念特別展 聖地巡礼 ―熊野と高野― 第Ⅳ期 熊野信仰の美と荘厳 ―熊野速玉大社の神像と古神宝―",
+   "url": "https://hakubutu.wakayama.jp/exhibit/seitijunrei-4/"
   },
   {
    "museum_id": "reihokan",
    "museum": "高野山霊宝館",
-   "text": "過去の記録（展覧会について）",
-   "url": "https://reihokan.or.jp/pages/23/"
+   "text": "展覧会について",
+   "url": "https://reihokan.or.jp/tenrankai/"
   },
   {
    "museum_id": "reihokan",
@@ -1098,19 +840,19 @@
    "museum_id": "reihokan",
    "museum": "高野山霊宝館",
    "text": "展示替えに伴う臨時休館日のお知らせ",
-   "url": "https://reihokan.or.jp/pages/151?detail=1&amp;b_id=908&amp;r_id=124#block908"
+   "url": "https://reihokan.or.jp/pages/151?detail=1&b_id=908&r_id=124#block908"
   },
   {
    "museum_id": "reihokan",
    "museum": "高野山霊宝館",
    "text": "第46回大宝蔵展「高野山の名宝 ～大集合！ 金剛峯寺の宝物～」開催のお知らせです。",
-   "url": "https://reihokan.or.jp/pages/151?detail=1&amp;b_id=908&amp;r_id=113#block908"
+   "url": "https://reihokan.or.jp/pages/151?detail=1&b_id=908&r_id=113#block908"
   },
   {
    "museum_id": "reihokan",
    "museum": "高野山霊宝館",
    "text": "東京国立博物館 弘法大師生誕1250年記念 特別展「空海と真言の名宝展」開催のお知らせです。",
-   "url": "https://reihokan.or.jp/pages/151?detail=1&amp;b_id=908&amp;r_id=108#block908"
+   "url": "https://reihokan.or.jp/pages/151?detail=1&b_id=908&r_id=108#block908"
   }
  ]
 }
