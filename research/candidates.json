@@ -9,18 +9,6 @@
    "url": "https://nakka-art.jp/exhibition/date-held/"
   },
   {
-   "museum_id": "nakka",
-   "museum": "大阪中之島美術館",
-   "text": "「開館5周年記念特別展 大阪中之島美術館オールスターズ☆それをまとめて見たかったです！」開催のお知らせ",
-   "url": "https://nakka-art.jp/news/nakka5th-20261015/"
-  },
-  {
-   "museum_id": "nakka",
-   "museum": "大阪中之島美術館",
-   "text": "「大阪中之島美術館開館5周年記念 生誕120年 東山魁夷展」開催のお知らせ",
-   "url": "https://nakka-art.jp/news/kaii120_20261008/"
-  },
-  {
    "museum_id": "nmao",
    "museum": "国立国際美術館",
    "text": "国立国際美術館(NMAO)×大阪中之島美術館(NAKKA)コレクション活用連携事業 コレナカ NMAOサテライト",
@@ -81,22 +69,76 @@
    "url": "https://fujita-museum.or.jp/event/2026/09/26/17006/"
   },
   {
-   "museum_id": "kyohaku",
-   "museum": "京都国立博物館",
-   "text": "開催予定 特別展 京都国立博物館開館130周年記念 特別展 大狩野派 ＜第1部 室町～桃山編＞ 2027年4月20日（火）～5月30日（日）",
-   "url": "https://www.kyohaku.go.jp/jp/exhibitions/special/2027_kano/"
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和8年 春季展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2026_spring2.html"
   },
   {
-   "museum_id": "kyohaku",
-   "museum": "京都国立博物館",
-   "text": "開催予定 特別展 京都国立博物館開館130周年記念 特別展 大狩野派 ＜第2部 江戸～明治編＞ 2027年6月8日（火）～7月19日（月・祝）",
-   "url": "https://www.kyohaku.go.jp/jp/exhibitions/special/2027_kano/"
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和8年 早春展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2026_spring.html"
   },
   {
-   "museum_id": "kyohaku",
-   "museum": "京都国立博物館",
-   "text": "開催予定 特別展 京都国立博物館開館130周年記念 特別展 薩摩島津家八〇〇年 2027年10月8日（金）～12月5日（日）",
-   "url": "https://www.kyohaku.go.jp/jp/exhibitions/special/2027_shimadzu/"
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和7年 秋季展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2025_autumn.html"
+  },
+  {
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和7年 夏季展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2025_summer.html"
+  },
+  {
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和7年 春季展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2025_spring2.html"
+  },
+  {
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和7年 早春展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2025_spring.html"
+  },
+  {
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和6年 秋季展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2024_autumn.html"
+  },
+  {
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和6年 夏季展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2024_summer.html"
+  },
+  {
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和6年 春季展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2024_spring2.html"
+  },
+  {
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和6年 早春展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2024_spring.html"
+  },
+  {
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和5年 秋季展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2023_autumn.html"
+  },
+  {
+   "museum_id": "yuki",
+   "museum": "湯木美術館",
+   "text": "令和5年 夏季展",
+   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2023_summer.html"
   },
   {
    "museum_id": "kyohaku",
@@ -151,6 +193,24 @@
    "museum": "京都国立博物館",
    "text": "開催予定 名品ギャラリー 中国絵画 歳寒三友―理想をうつす松竹梅 2026年12月22日（火）～2027年2月7日（日）",
    "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6580-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 金工 茶の湯釜 2026年12月22日（火）～2027年2月7日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6587-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 漆工 アニマル☆蒔絵&mdash;漆芸にみる動物表現&mdash; 2026年12月22日（火）～2027年2月7日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6589-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 彫刻 仏像入門 2026年12月22日（火）～2027年3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6582-22"
   },
   {
    "museum_id": "momak",
@@ -339,6 +399,150 @@
    "url": "https://museum.ryukoku.ac.jp/concept.html"
   },
   {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "2026年度特別展 伊谷純一郎生誕百年記念「野生の眼、野生の心 自然の探究者 伊谷純一郎」",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20261104/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "2026年度特別展 重要文化財指定記念展示「建内記」—自筆本が伝える世界—",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20260902/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "2026年度企画展「日本のゾウ化石」",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20260708/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "コレクション展",
+   "url": "https://www.museum.kyoto-u.ac.jp/special_cat/%e3%82%b3%e3%83%ac%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e5%b1%95/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "2026年度コレクション展「鉱床—日本列島の金・銀・銅鉱石」",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20260422/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "2025年度企画展 文化財発掘Ⅻ「模型からみる文化遺産」",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20260311/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "夢幻のかたち-数理の生み出す美と不思議-",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20250730/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "2024年度特別展 文化財発掘Ⅺ 「吉田遺産探訪 遺跡・古図・剣鉾」",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20250319/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "蝶に会える日 村田泰隆コレクション展 Vol.3 日本の蝶",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20241120/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "2024年度企画展「宇宙からの手紙 隕石の発見からはやぶさ2の探査まで」",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20240724/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "2023年度企画展 文化財発掘Ⅹ 「比叡山麓の縄文世界」",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20240306/"
+  },
+  {
+   "museum_id": "kyoto-univ",
+   "museum": "京都大学総合博物館",
+   "text": "蝶に会える日 村田泰隆コレクション展 Vol.2 東南アジアが育んだ多様性",
+   "url": "https://www.museum.kyoto-u.ac.jp/special/20231129/"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "開催中・開催予定の企画展",
+   "url": "http://www.hakusasonso.jp/exhibition/index.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-66.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/-part12026.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-65.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "志野流二十一代家元継承記念展 「香道の正統 ー志野流五百五十年 一子相伝の血脈」",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-64.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-64.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "定家亜由子の花まんだら 京都と手しごと展",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-63.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-63.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "白沙村荘造営110年記念春季特別展「絶筆物語」",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/110.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/110.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "2026.10.10 SAT - 12.13 SUN 種房ひさ子 舞妓展",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-66.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "2026.08.29 SAT - 10.25 SUN 白沙村荘秋季展 part.1「月、皓々と2026」",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/-part12026.html"
+  },
+  {
    "museum_id": "kobe-museum",
    "museum": "神戸市立博物館",
    "text": "常設展示トップ",
@@ -377,12 +581,6 @@
   {
    "museum_id": "kobe-museum",
    "museum": "神戸市立博物館",
-   "text": "大ゴッホ展 アルルの跳ね橋",
-   "url": "https://www.kobecitymuseum.jp/exhibition/detail?exhibition=397"
-  },
-  {
-   "museum_id": "kobe-museum",
-   "museum": "神戸市立博物館",
    "text": "詳細ページへ",
    "url": "https://www.kobecitymuseum.jp/exhibition/detail?exhibition=397"
   },
@@ -397,6 +595,48 @@
    "museum": "神戸市立小磯記念美術館",
    "text": "コレクション企画展示「色彩と絵画、新収蔵品とともに」と「小磯良平作品選Ⅰ」の開催",
    "url": "https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/shikisaitokaiga.html"
+  },
+  {
+   "museum_id": "hitohaku",
+   "museum": "兵庫県立人と自然の博物館",
+   "text": "ひとはくの展示",
+   "url": "https://www.hitohaku.jp/exhibition/e-about.html"
+  },
+  {
+   "museum_id": "hitohaku",
+   "museum": "兵庫県立人と自然の博物館",
+   "text": "ひとはくサロン",
+   "url": "https://www.hitohaku.jp/exhibition/salon.html"
+  },
+  {
+   "museum_id": "hitohaku",
+   "museum": "兵庫県立人と自然の博物館",
+   "text": "ひとはく恐竜ラボ",
+   "url": "https://www.hitohaku.jp/exhibition/d-labo.html"
+  },
+  {
+   "museum_id": "hitohaku",
+   "museum": "兵庫県立人と自然の博物館",
+   "text": "コレクショナリウム",
+   "url": "https://www.hitohaku.jp/exhibition/collectionarium.html"
+  },
+  {
+   "museum_id": "hitohaku",
+   "museum": "兵庫県立人と自然の博物館",
+   "text": "みんなの展示",
+   "url": "https://www.hitohaku.jp/exhibition/everyone.html"
+  },
+  {
+   "museum_id": "hitohaku",
+   "museum": "兵庫県立人と自然の博物館",
+   "text": "「但馬牛博物館×ひとはくコラボ展2026『但馬牛ビデオ劇場＆但馬牛のうた・詩展』」",
+   "url": "https://www.hitohaku.jp/exhibition/planning/tajimaushi2026.html"
+  },
+  {
+   "museum_id": "hitohaku",
+   "museum": "兵庫県立人と自然の博物館",
+   "text": "ひとはくで展示がしたい",
+   "url": "https://www.hitohaku.jp/exhibition/everyone.html"
   },
   {
    "museum_id": "otani",
@@ -445,6 +685,78 @@
    "museum": "芦屋市立美術博物館",
    "text": "最新のイベント",
    "url": "https://ashiya-museum.jp/event-program_new/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "本館 生きもの活き！活き！ ―美術でめぐる白鶴動物ワンダーランド",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2026spring-main/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "新館 中東絨毯の動物文",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2026spring-annex/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "本館 吉祥の美 ―中国陶磁",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2025autumn-main/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "新館 新館開館30周年記念 中東美術の華 ―絨毯",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2025autumn-annex/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "本館 東洋古代金工の美しき世界 ―鋳・鍛・彫の技を観る",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2025spring-main/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "新館 中東絨毯の美 ―コーカサス編",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2025spring-annex/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "本館 観古 ―いにしえをみる",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2024autumn-main/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "新館 中東絨毯の美 ―アナトリア編",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2024autumn-annex/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "本館 中国美術コレクションの精華",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2024spring-main/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "新館 中東絨毯の美 ペルシア編",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2024spring-annex/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "本館 中国陶磁の植物文 ―清雅と繁栄の象徴",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2023autumn-main/"
+  },
+  {
+   "museum_id": "hakutsuru",
+   "museum": "白鶴美術館",
+   "text": "新館 アナトリア絨毯の植物文 ―豊穣のイメージ",
+   "url": "https://www.hakutsuru-museum.org/exhibition/2023autumn-annex/"
   },
   {
    "museum_id": "itami",
@@ -541,12 +853,6 @@
    "museum": "滋賀県立美術館",
    "text": "常設展 小倉遊亀コーナー 2026年2月25日（水）〜2027年4月4日（日）",
    "url": "https://www.shigamuseum.jp/exhibitions/13627/"
-  },
-  {
-   "museum_id": "shiga-art",
-   "museum": "滋賀県立美術館",
-   "text": "ラボ ＜国立印刷局との連携企画＞「お札を支える伝統技術～すき入れ・凹版・彩紋の世界～」 2026年10月6日（火）～11月15日（日）",
-   "url": "https://www.shigamuseum.jp/exhibitions/14631/"
   },
   {
    "museum_id": "biwahaku",
@@ -679,6 +985,18 @@
    "museum": "大津市歴史博物館",
    "text": "����܂ł̊��W�E�~�j���W�̈ꗗ >",
    "url": "https://rekihaku.otsu.shiga.jp/event/history.html"
+  },
+  {
+   "museum_id": "hikone",
+   "museum": "彦根城博物館",
+   "text": "常設展‟ほんもの”との出会い",
+   "url": "https://hikone-castle-museum.jp/permanent/"
+  },
+  {
+   "museum_id": "hikone",
+   "museum": "彦根城博物館",
+   "text": "常設展“ほんもの”との出会い",
+   "url": "https://hikone-castle-museum.jp/permanent/"
   },
   {
    "museum_id": "momaw",
