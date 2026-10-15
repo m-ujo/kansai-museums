@@ -23,6 +23,8 @@ const log=[]; const say=s=>{log.push(s);console.log(s);};
 
 /* ---------- 取得 ---------- */
 const UA='Mozilla/5.0 (compatible; kansai-museums-link-bot/1.0; +https://m-ujo.github.io/bid-monitor/kansai-museums/)';
+const DEADLINE=Date.now()+8*60*1000; // ネットワーク処理全体の上限（8分）
+const overBudget=()=>Date.now()>DEADLINE;
 const cache=new Map();
 async function fetchText(url){
   if(FIX){ // テスト用フィクスチャ
@@ -30,9 +32,10 @@ async function fetchText(url){
     return (f&&fs.existsSync(f))?{status:200,text:fs.readFileSync(f,'utf8'),url}:{status:404,text:'',url};
   }
   if(cache.has(url)) return cache.get(url);
+  if(overBudget()) return {status:0,text:'',url,error:'time budget exceeded'};
   const p=(async()=>{
     try{
-      const ctl=new AbortController(); const t=setTimeout(()=>ctl.abort(),20000);
+      const ctl=new AbortController(); const t=setTimeout(()=>ctl.abort(),15000);
       const r=await fetch(url,{headers:{'user-agent':UA,'accept':'text/html,*/*;q=0.8','accept-language':'ja,en;q=0.5'},redirect:'follow',signal:ctl.signal});
       clearTimeout(t);
       const ct=r.headers.get('content-type')||'';
@@ -42,10 +45,12 @@ async function fetchText(url){
   })();
   cache.set(url,p); return p;
 }
+async function prefetch(urls,conc){const q=[...new Set(urls)];let i=0;await Promise.all(Array.from({length:conc},async()=>{while(i<q.length){const u=q[i++];const t0=Date.now();const r=await fetchText(u);console.log(`  fetched ${u} status ${r.status} ${Date.now()-t0}ms`);}}));}
 async function headStatus(url){
   if(FIX) return 200;
+  if(overBudget()) return 0;
   try{
-    const ctl=new AbortController(); const t=setTimeout(()=>ctl.abort(),20000);
+    const ctl=new AbortController(); const t=setTimeout(()=>ctl.abort(),15000);
     let r=await fetch(url,{method:'HEAD',headers:{'user-agent':UA},redirect:'follow',signal:ctl.signal}).catch(()=>null);
     if(!r||r.status===405||r.status===403||r.status===501){r=await fetch(url,{method:'GET',headers:{'user-agent':UA},redirect:'follow',signal:ctl.signal});}
     clearTimeout(t); return r.status;
@@ -97,6 +102,7 @@ async function resolveLinks(){
   const need=EXHIBITIONS.filter(e=>!e.page||['index','listing','home'].includes(e.kind));
   const byMuseum=new Map(); for(const e of need){ if(!byMuseum.has(e.m)) byMuseum.set(e.m,[]); byMuseum.get(e.m).push(e); }
   let resolved=0;
+  await prefetch([...byMuseum.keys()].map(mid=>EX_INDEX_URLS[mid]||BY_ID.get(mid).url),6);
   for(const [mid,list] of byMuseum){
     const m=BY_ID.get(mid); const indexUrl=EX_INDEX_URLS[mid]||m.url;
     const r=await fetchText(indexUrl);
@@ -118,7 +124,7 @@ async function resolveLinks(){
 async function checkLinks(){
   const targets=EXHIBITIONS.filter(e=>e.page&&['official','news','pdf'].includes(e.kind)&&!e.page.includes('#'));
   let broken=0, i=0; const workers=[];
-  for(let w=0;w<4;w++) workers.push((async()=>{ while(i<targets.length){ const e=targets[i++]; const st=await headStatus(e.page); if(st===404||st===410){ broken++; const m=BY_ID.get(e.m); say(`- [リンク切れ] ${m.name}「${e.title}」 ${e.page} → 一覧ページに戻す`); e.page=EX_INDEX_URLS[e.m]||m.url; e.kind='index'; delete e.autolink; } } })());
+  for(let w=0;w<8;w++) workers.push((async()=>{ while(i<targets.length){ const e=targets[i++]; const st=await headStatus(e.page); if(st===404||st===410){ broken++; const m=BY_ID.get(e.m); say(`- [リンク切れ] ${m.name}「${e.title}」 ${e.page} → 一覧ページに戻す`); e.page=EX_INDEX_URLS[e.m]||m.url; e.kind='index'; delete e.autolink; } } })());
   await Promise.all(workers); return broken;
 }
 
@@ -132,6 +138,7 @@ function prune(){
 /* ---------- 4. 新規候補の抽出 ---------- */
 async function candidates(){
   const known=new Set(EXHIBITIONS.map(e=>e.m+'|'+core(e.title))); const out=[];
+  await prefetch(MUSEUMS.map(m=>EX_INDEX_URLS[m.id]).filter(Boolean),6);
   for(const m of MUSEUMS){
     const indexUrl=EX_INDEX_URLS[m.id]; if(!indexUrl) continue;
     const r=await fetchText(indexUrl); if(!r.text) continue;
