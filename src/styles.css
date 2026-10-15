@@ -159,11 +159,11 @@ select.sort{border:1px solid var(--line-strong);background:var(--surface);color:
 .map-frame{background:var(--sea);border:1px solid var(--line);border-radius:4px;overflow:hidden;position:relative}
 .map-frame svg{display:block;width:100%;height:auto;max-height:78vh}
 .map-frame .land{fill:var(--land);stroke:var(--line-strong);stroke-width:1}
-.map-frame .lake{fill:var(--sea);stroke:var(--line-strong);stroke-width:1}
-.map-frame .city{font-family:var(--font-body);font-size:11px;fill:var(--fg-2)}
+.map-frame .lake{fill:var(--sea);stroke:var(--line-strong);stroke-width:1px;vector-effect:non-scaling-stroke}
+.map-frame .city{font-family:var(--font-body);fill:var(--fg-2);pointer-events:none}
 .map-frame .cityDot{fill:var(--fg-3)}
-.map-frame .pref{font-family:var(--font-display);font-size:13px;fill:var(--fg-3);letter-spacing:.2em}
-.map-frame .pt{cursor:pointer;stroke:var(--surface);stroke-width:1.2;transition:r .15s}
+.map-frame .pref{font-family:var(--font-display);fill:var(--fg-3);letter-spacing:.2em;pointer-events:none}
+.map-frame .pt{cursor:pointer;stroke:var(--surface);stroke-width:1.2px;vector-effect:non-scaling-stroke}
 .map-frame .pt:hover{stroke:var(--fg)}
 .map-frame .pt.art{fill:var(--cat-art)}.map-frame .pt.history{fill:var(--cat-history)}.map-frame .pt.science{fill:var(--cat-science)}.map-frame .pt.craft{fill:var(--cat-craft)}.map-frame .pt.special{fill:var(--cat-special)}.map-frame .pt.temple{fill:var(--cat-temple)}
 .map-frame .pt.dim{opacity:.18;pointer-events:none}
@@ -294,8 +294,8 @@ a.tl-bar{display:block}
 .leaflet-tile-pane{filter:var(--tile-filter)}
 
 /* map: outline mode */
-.map-frame .neigh-land{fill:var(--land);opacity:.45;stroke:none}
-.map-frame .pref-land{fill:var(--land);stroke:var(--line-strong);stroke-width:1;stroke-linejoin:round}
+.map-frame .neigh-land{fill:var(--land);opacity:.45;stroke:none;pointer-events:none}
+.map-frame .pref-land{fill:var(--land);stroke:var(--line-strong);stroke-width:1px;vector-effect:non-scaling-stroke;stroke-linejoin:round}
 .map-frame .pref-land:hover{fill:var(--surface-2)}
 
 /* map: gestures and zoom buttons (outline mode) */

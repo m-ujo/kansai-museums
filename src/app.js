@@ -147,7 +147,7 @@ function exRow(e,withMuseum){
     '<div class="ex-main"><h3 class="ex-title">'+exTitle(e)+'</h3>'+
     (withMuseum?'<div class="ex-museum"><button type="button" data-open="'+m.id+'">'+esc(m.name)+'</button><span style="color:var(--fg-3)">　'+esc(m.pref)+'・'+esc(m.area)+'</span></div>':'')+
     (e.note?'<p class="ex-note">'+esc(e.note)+'</p>':'')+
-    '<div class="ex-meta"><span>'+({official:'リンク先: 公式の展覧会ページ',index:'リンク先: 館の展覧会一覧',listing:'リンク先: 展覧会情報サイト',home:'リンク先: 館の公式サイト'}[exLink(e).kind])+'</span>'+(e.src&&e.src!==exHref(e)?'<a href="'+esc(e.src)+'" target="_blank" rel="noopener">会期の出典</a>':'')+(e.conf!=='high'?'<span class="conf-m">会期は要確認</span>':'')+'</div>'+
+    '<div class="ex-meta"><span>'+({official:'リンク先: 公式の展覧会ページ',news:'リンク先: 公式サイトのお知らせ',pdf:'リンク先: 公式の案内（PDF）',index:'リンク先: 館の展覧会一覧',listing:'リンク先: 展覧会情報サイト',home:'リンク先: 館の公式サイト'}[exLink(e).kind]||'リンク先: 展覧会のページ')+'</span>'+(e.src&&e.src!==exHref(e)?'<a href="'+esc(e.src)+'" target="_blank" rel="noopener">会期の出典</a>':'')+(e.conf!=='high'?'<span class="conf-m">会期は要確認</span>':'')+'</div>'+
     '</div></li>';
 }
 function fmtShort(s){const d=parseYmd(s);return (d.getMonth()+1)+'/'+d.getDate();}
@@ -276,12 +276,12 @@ function buildLeaflet(){
 }
 function buildSvg(){
   const neigh=Object.keys(GEO.neighbor).map(n=>'<path class="neigh-land" d="'+prefPath(GEO.neighbor[n])+'"/>').join('');
-  const land=Object.keys(GEO.target).map(n=>'<path class="pref-land" d="'+prefPath(GEO.target[n])+'"><title>'+n+'</title></path>').join('');
-  const dots=MUSEUMS.map(m=>'<circle class="pt '+m.cat+'" data-id="'+m.id+'" cx="'+px(m.lng).toFixed(1)+'" cy="'+py(m.lat).toFixed(1)+'" r="5"><title>'+esc(m.name)+'</title></circle>').join('');
+  const land=Object.keys(GEO.target).map(n=>'<path class="pref-land" vector-effect="non-scaling-stroke" d="'+prefPath(GEO.target[n])+'"><title>'+n+'</title></path>').join('');
+  const dots=MUSEUMS.map(m=>'<circle class="pt '+m.cat+'" vector-effect="non-scaling-stroke" data-id="'+m.id+'" cx="'+px(m.lng).toFixed(1)+'" cy="'+py(m.lat).toFixed(1)+'" r="5"><title>'+esc(m.name)+'</title></circle>').join('');
   const cities=CITIES.map(c=>'<g class="cityg"><circle class="cityDot" cx="'+px(c[2]).toFixed(1)+'" cy="'+py(c[1]).toFixed(1)+'" r="1.8"/><text class="city" x="'+(px(c[2])+4).toFixed(1)+'" y="'+(py(c[1])-4).toFixed(1)+'">'+c[0]+'</text></g>').join('');
   const prefs=PREF_LABELS.map(c=>'<text class="pref" x="'+px(c[2]).toFixed(1)+'" y="'+py(c[1]).toFixed(1)+'" text-anchor="middle">'+c[0]+'</text>').join('');
   $('map-frame').innerHTML='<svg id="map-svg" viewBox="0 0 '+MAP_W.toFixed(0)+' '+MAP_H.toFixed(0)+'" role="img" aria-label="関西の館の位置を示す地図">'+
-    neigh+land+'<polygon class="lake" points="'+poly(BIWA)+'"/>'+prefs+cities+'<g id="map-dots">'+dots+'</g></svg><div class="map-hover" id="map-hover"></div>';
+    neigh+land+'<polygon class="lake" vector-effect="non-scaling-stroke" points="'+poly(BIWA)+'"/>'+prefs+cities+'<g id="map-dots">'+dots+'</g></svg><div class="map-hover" id="map-hover"></div>';
   $('map-frame').insertAdjacentHTML('beforeend','<div class="map-ctrl"><button type="button" data-mapzoom="in" aria-label="拡大">＋</button><button type="button" data-mapzoom="out" aria-label="縮小">－</button><button type="button" data-mapzoom="reset" aria-label="元の範囲に戻す">⟲</button></div>');
   const svg=$('map-svg'), hover=$('map-hover'), frame=$('map-frame');
   svg.addEventListener('mousemove',ev=>{const t=ev.target.closest('.pt');if(!t){hover.classList.remove('show');return;}const r=frame.getBoundingClientRect();hover.textContent=BY_ID.get(t.dataset.id).name;hover.style.left=(ev.clientX-r.left)+'px';hover.style.top=(ev.clientY-r.top)+'px';hover.classList.add('show');});
@@ -315,13 +315,11 @@ let vbRaf=0;
 function svgApplyVb(){
   if(vbRaf)return; vbRaf=requestAnimationFrame(()=>{vbRaf=0;const svg=$('map-svg');if(!svg)return;
     svg.setAttribute('viewBox',vb.x.toFixed(1)+' '+vb.y.toFixed(1)+' '+vb.w.toFixed(1)+' '+vb.h.toFixed(1));
-    const k=vb.w/MAP_W, kd=Math.pow(Math.max(k,0.08),0.75), kt=Math.max(k,0.2);
-    svg.querySelectorAll('.pt').forEach(el=>{const m=BY_ID.get(el.dataset.id);el.setAttribute('r',((m.pick===3?6.5:5)*kd).toFixed(2));el.setAttribute('stroke-width',(1.2*kd).toFixed(2));});
-    svg.querySelectorAll('.city').forEach(el=>el.setAttribute('font-size',(11*kt).toFixed(1)));
+    const k=vb.w/MAP_W, kd=k*Math.min(2.2,Math.pow(k,-0.25)), kt=k*Math.min(1.8,Math.pow(k,-0.2));
+    svg.querySelectorAll('.pt').forEach(el=>{const m=BY_ID.get(el.dataset.id);el.setAttribute('r',((m.pick===3?6.5:5)*kd).toFixed(2));});
+    svg.querySelectorAll('.city').forEach(el=>{el.style.fontSize=(11*kt).toFixed(1)+'px';});
     svg.querySelectorAll('.cityDot').forEach(el=>el.setAttribute('r',(1.8*kt).toFixed(2)));
-    svg.querySelectorAll('.pref').forEach(el=>el.setAttribute('font-size',(13*kt).toFixed(1)));
-    svg.querySelectorAll('.pref-land').forEach(el=>el.setAttribute('stroke-width',(1*Math.max(k,0.3)).toFixed(2)));
-    svg.querySelectorAll('.lake').forEach(el=>el.setAttribute('stroke-width',(1*Math.max(k,0.3)).toFixed(2)));
+    svg.querySelectorAll('.pref').forEach(el=>{el.style.fontSize=(13*kt).toFixed(1)+'px';});
   });
 }
 function svgPreset(){const z=ZOOMS[state.zoom];const x0=px(z.lng[0]),y0=py(z.lat[1]);vb.x=x0;vb.y=y0;vb.w=px(z.lng[1])-x0;vb.h=py(z.lat[0])-y0;svgApplyVb();}
