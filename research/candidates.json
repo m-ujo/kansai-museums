@@ -1,0 +1,1872 @@
+{
+ "generated": "2026-10-15",
+ "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
+ "candidates": [
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "開催予定の展覧会",
+   "url": "https://nakka-art.jp/exhibition/date-held/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "イベントカレンダー",
+   "url": "https://nakka-art.jp/exhibition/calendar/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "イベントカレンダー",
+   "url": "https://nakka-art.jp/exhibition/calendar-sp/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "本日の催しはこちら",
+   "url": "https://nakka-art.jp/exhibition/calendar/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "オオカミベンチがやってくる！",
+   "url": "https://nakka-art.jp/event-post/nichibiten50-20261010-20270105/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "学芸員が選ぶ！おすすめ作品トーク",
+   "url": "https://nakka-art.jp/event-post/nichibiten50-20261015/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "学芸員が選ぶ！おすすめ作品トーク",
+   "url": "https://nakka-art.jp/event-post/nichibiten50-20261023/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "記念講演会「大英博物館の日本美術コレクション・本展のみどころ」",
+   "url": "https://nakka-art.jp/event-post/daiei-20261031/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "アーティスト・トーク",
+   "url": "https://nakka-art.jp/event-post/osaka-directory13-20261114/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "学芸員が選ぶ！おすすめ作品トーク",
+   "url": "https://nakka-art.jp/event-post/nichibiten50-20261114/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "記念トークショー「\"私\"の日曜美術館」",
+   "url": "https://nakka-art.jp/event-post/nichibiten50-20261123/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "特別講演会「大英博物館の浮世絵コレクション」",
+   "url": "https://nakka-art.jp/event-post/daiei-20261128/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "学芸員が選ぶ！おすすめ作品トーク",
+   "url": "https://nakka-art.jp/event-post/nichibiten50-20261208/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "講演会「世界を魅了する大英博物館の江戸絵画」",
+   "url": "https://nakka-art.jp/event-post/daiei-20261226/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "ナッカキッズデー",
+   "url": "https://nakka-art.jp/event-post/daiei-20270104/"
+  },
+  {
+   "museum_id": "nakka",
+   "museum": "大阪中之島美術館",
+   "text": "「大阪中之島美術館開館5周年記念 生誕120年 東山魁夷展」開催のお知らせ",
+   "url": "https://nakka-art.jp/news/kaii120_20261008/"
+  },
+  {
+   "museum_id": "nmao",
+   "museum": "国立国際美術館",
+   "text": "15 10 月 15 日 10/15 本日は開館日 10:00-17:00 （入場16:30まで）",
+   "url": "https://www.nmao.go.jp/event/calendar/"
+  },
+  {
+   "museum_id": "nmao",
+   "museum": "国立国際美術館",
+   "text": "イベントカレンダー",
+   "url": "https://www.nmao.go.jp/event/calendar/"
+  },
+  {
+   "museum_id": "nmao",
+   "museum": "国立国際美術館",
+   "text": "イベント一覧",
+   "url": "https://www.nmao.go.jp/event/eventlist/"
+  },
+  {
+   "museum_id": "nmao",
+   "museum": "国立国際美術館",
+   "text": "国立国際美術館(NMAO)×大阪中之島美術館(NAKKA)コレクション活用連携事業 コレナカ NMAOサテライト",
+   "url": "https://www.nmao.go.jp/events/event/20261010_nmao-satellite/"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "年間スケジュールはこちら（PDF）",
+   "url": "https://www.osaka-art-museum.jp/sites/default/files/2026-09/R8_exhibition_schedule_20260924.pdf"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "開催予定 円山応挙 リアルの先へ 空間革命 2027.02.06～04.04 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/10344"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "開催予定 生誕160周年記念特別展「復活！武藤山治コレクション―国宝を見出した紡績王」 2027.04.24～06.20 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/muto"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "開催予定 シンシナティ美術館展 ～アメリカに渡ったヨーロッパの至宝～ 2027.07.17～09.26 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/cincinnati"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 大阪市立美術館開館90周年記念特別展 水滸伝 2026.07.11～09.06 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8301"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 開館90周年記念特別展 全力！名宝物語 ―大阪市美とたどる美のエピソード 2026.04.25～06.21 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8302"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 興祖微妙大師六百五十年遠諱記念特別展 妙心寺 禅の継承 2026.02.07～04.05 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8303"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 日伊国交160周年記念 大阪・関西万博開催記念特別展 天空のアトラス イタリア館の至宝 2025.10.25～2026.01.12 特別展",
+   "url": "https://www.osaka-art-museum.jp/node/8300"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 ＮＥＧＯＲＯ 根来 － 赤と黒のうるし 2025.09.20～11.09 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8304"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 大阪･関西万博開催記念 大阪市立美術館リニューアル記念特別展 ゴッホ展 家族がつないだ画家の夢【終了】 2025.07.05～08.31 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8305"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 大阪･関西万博開催記念 大阪市立美術館リニューアル記念特別展 日本国宝展【終了】 2025.04.26～06.15 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8306"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 リニューアルオープン記念特別展 What's New! 大阪市立美術館 名品珍品大公開!! 2025.03.01～03.30 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8307"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 ドレスデン国立古典絵画館所蔵 【終了】フェルメールと17世紀オランダ絵画展 2022.07.16～09.25 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/10375"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 華風到来 チャイニーズアートセレクション 2022.04.16～06.05 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8309"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 第8回日展大阪展 2022.02.26～03.21 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8311"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 【中止】第67回全関西美術展 2022.02.05～02.15 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8310"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 メトロポリタン美術館展 西洋絵画の500年【終了】 2021.11.13～2022.01.16 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/10374"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 千四百年御聖忌記念特別展 聖徳太子 日出づる処の天子 2021.09.04～10.24 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8313"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 揚州八怪 2021.06.22～08.15 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8314"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "終了 【中止】豊臣の美術 2021.04.03～05.16 特別展",
+   "url": "https://www.osaka-art-museum.jp/special_exhibition/8315"
+  },
+  {
+   "museum_id": "omnh",
+   "museum": "大阪市立自然史博物館",
+   "text": "テーマ展示・ミニ展示",
+   "url": "https://omnh.jp/archives/category/%e3%83%86%e3%83%bc%e3%83%9e%e5%b1%95%e7%a4%ba%e3%83%bb%e3%83%9f%e3%83%8b%e5%b1%95%e7%a4%ba"
+  },
+  {
+   "museum_id": "omnh",
+   "museum": "大阪市立自然史博物館",
+   "text": "バーチャル展示室",
+   "url": "https://omnh.jp/page-12404"
+  },
+  {
+   "museum_id": "omnh",
+   "museum": "大阪市立自然史博物館",
+   "text": "旧バーチャル展示・バーチャル特別展",
+   "url": "https://omnh.jp/tour/"
+  },
+  {
+   "museum_id": "omnh",
+   "museum": "大阪市立自然史博物館",
+   "text": "過去の特別展",
+   "url": "https://omnh.jp/exhibition/past_exhibitions"
+  },
+  {
+   "museum_id": "omnh",
+   "museum": "大阪市立自然史博物館",
+   "text": "バーチャル特別展",
+   "url": "https://omnh.jp/exhibition/page-11770"
+  },
+  {
+   "museum_id": "omnh",
+   "museum": "大阪市立自然史博物館",
+   "text": "イベント（観察会・実習・講演会）",
+   "url": "https://www2.omnh.jp/scripts/event.exe"
+  },
+  {
+   "museum_id": "omnh",
+   "museum": "大阪市立自然史博物館",
+   "text": "イベントレポート",
+   "url": "https://omnh.jp/event/"
+  },
+  {
+   "museum_id": "osaka-hist",
+   "museum": "大阪歴史博物館",
+   "text": "&emsp;展示・イベント",
+   "url": "https://www.osakamushis.jp/news/mainnews.html"
+  },
+  {
+   "museum_id": "osaka-hist",
+   "museum": "大阪歴史博物館",
+   "text": "&emsp;展示更新情報",
+   "url": "https://www.osakamushis.jp/news/update.html"
+  },
+  {
+   "museum_id": "sci-museum",
+   "museum": "大阪市立科学館",
+   "text": "展示場に入りたい",
+   "url": "https://www.sci-museum.jp/exhibit/"
+  },
+  {
+   "museum_id": "sci-museum",
+   "museum": "大阪市立科学館",
+   "text": "４F 科学の探究",
+   "url": "https://www.sci-museum.jp/exhibit/n4f/"
+  },
+  {
+   "museum_id": "sci-museum",
+   "museum": "大阪市立科学館",
+   "text": "３F 物質の探究",
+   "url": "https://www.sci-museum.jp/exhibit/n3f/"
+  },
+  {
+   "museum_id": "sci-museum",
+   "museum": "大阪市立科学館",
+   "text": "２F みんなでたのしむサイエンス",
+   "url": "https://www.sci-museum.jp/exhibit/n2f/"
+  },
+  {
+   "museum_id": "sci-museum",
+   "museum": "大阪市立科学館",
+   "text": "１F みんなのサイエンス・ラボ",
+   "url": "https://www.sci-museum.jp/exhibit/n1f/"
+  },
+  {
+   "museum_id": "sci-museum",
+   "museum": "大阪市立科学館",
+   "text": "B１F ツアイス広場",
+   "url": "https://www.sci-museum.jp/exhibit/nB1f/"
+  },
+  {
+   "museum_id": "sci-museum",
+   "museum": "大阪市立科学館",
+   "text": "ポケット学芸員",
+   "url": "https://www.sci-museum.jp/exhibit/pocket/"
+  },
+  {
+   "museum_id": "sci-museum",
+   "museum": "大阪市立科学館",
+   "text": "学芸員の展示場ガイド",
+   "url": "https://www.sci-museum.jp/exhibit/movie/"
+  },
+  {
+   "museum_id": "sci-museum",
+   "museum": "大阪市立科学館",
+   "text": "-->グルメな江戸時代",
+   "url": "https://sake-museum.jp/exhibitions/3306/"
+  },
+  {
+   "museum_id": "aham",
+   "museum": "あべのハルカス美術館",
+   "text": "これまでの展覧会",
+   "url": "https://www.aham.jp/exhibition/past/past.html"
+  },
+  {
+   "museum_id": "aham",
+   "museum": "あべのハルカス美術館",
+   "text": "小村雪岱のすべて",
+   "url": "https://www.aham.jp/exhibition/future/komurasettai/"
+  },
+  {
+   "museum_id": "aham",
+   "museum": "あべのハルカス美術館",
+   "text": "特別展 古代エジプト",
+   "url": "https://www.aham.jp/exhibition/future/brooklyn/"
+  },
+  {
+   "museum_id": "aham",
+   "museum": "あべのハルカス美術館",
+   "text": "ゴッホの跳ね橋と印象派の画家たち",
+   "url": "https://www.aham.jp/exhibition/future/wallraf/"
+  },
+  {
+   "museum_id": "aham",
+   "museum": "あべのハルカス美術館",
+   "text": "エリック・カール展",
+   "url": "https://www.aham.jp/exhibition/future/ericcarle/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "展示一覧 Exhibition",
+   "url": "https://fujita-museum.or.jp/exhibition/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "現在の展示 Exhibition",
+   "url": "https://fujita-museum.or.jp/exhibition/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "もっと詳しく More Info.",
+   "url": "https://fujita-museum.or.jp/exhibition/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "年間展示スケジュール Schedule",
+   "url": "https://fujita-museum.or.jp/wp/wp-content/uploads/2026/08/87de26e7dc6c0bc034806bdaa9900cdf.pdf"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "イベントカレンダー Event Calendar",
+   "url": "https://fujita-museum.or.jp/event-banner/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "もっと詳しく More Info.",
+   "url": "https://fujita-museum.or.jp/event-banner/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "講座 10 17 （土） 14：00-15:00 【学芸講座】藤田家と能",
+   "url": "https://fujita-museum.or.jp/event/2026/10/12/17332/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "能楽 10 18 （日） 11:00-12:00 教えて能楽師！2026～特別編～",
+   "url": "https://fujita-museum.or.jp/event/2026/09/26/17006/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "茶話 10 20 （火） 14:15-15:00 【毎週火曜】あみじま茶話（10/20）",
+   "url": "https://fujita-museum.or.jp/event/2026/07/22/15942/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "建築 10 23 （金） 14:15-15:00 【毎週金曜】たてものツアー(10/23)",
+   "url": "https://fujita-museum.or.jp/event/2026/02/12/13379/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "寄席 10 24 （土） 14:00～15:00 大坂はなしぐれ2026～秋～",
+   "url": "https://fujita-museum.or.jp/event/2026/03/17/13938/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "解説 11 1 （日） 14:00-15:00 能楽師によるギャラリートーク",
+   "url": "https://fujita-museum.or.jp/event/2026/10/02/17186/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "解説 11 21 （土） 14:00-15:00 能楽師によるギャラリートーク",
+   "url": "https://fujita-museum.or.jp/event/2026/10/02/17186/"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "2026.10.02 NEWS 2026年 特別展示スタンプラリーキャンペーン",
+   "url": "https://fujita-museum.or.jp/news/2026/10/02/17224/"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "年間スケジュール（PDF）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/assets/schedule_ja.pdf"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "館外での作品公開",
+   "url": "https://knmdb.kyohaku.go.jp/exhibitions/"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "イベント・講座",
+   "url": "https://www.kyohaku.go.jp/jp/events/"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "屋外展示はこちら",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/outdoor/"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 特別展 京都国立博物館開館130周年記念 特別展 大狩野派 ＜第1部 室町～桃山編＞ 2027年4月20日（火）～5月30日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/special/2027_kano/"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 特別展 京都国立博物館開館130周年記念 特別展 大狩野派 ＜第2部 江戸～明治編＞ 2027年6月8日（火）～7月19日（月・祝）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/special/2027_kano/"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 特別展 京都国立博物館開館130周年記念 特別展 薩摩島津家八〇〇年 2027年10月8日（金）～12月5日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/special/2027_shimadzu/"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー：特別企画・特集展示 特集展示 新春特集展示 ひつじづくし―干支を愛でる― 2026年12月22日（火）～2027年2月7日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/feature/b/2026_sheep/"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー：特別企画・特集展示 特集展示 特集展示 茶の湯の道具と次第 2026年12月22日（火）～2027年3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/feature/b/2026_tea/"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー：特別企画・特集展示 特集展示 特集展示 雛まつりと人形 2027年2月13日（土）～3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/feature/b/2027_hina/"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 絵巻 嘉禄の法難800年 2026年12月22日（火）～2027年1月24日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6570-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 中世絵画 阿弥派の絵画Ⅰ 2026年12月22日（火）～2027年1月24日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6573-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 書跡 『古今和歌集』の古筆 2026年12月22日（火）～2027年1月24日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6583-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 染織 染織を彩る金と銀 2026年12月22日（火）～2027年1月31日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6586-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 近世絵画 画文交響 2026年12月22日（火）～2027年2月7日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6575-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 中国絵画 歳寒三友―理想をうつす松竹梅 2026年12月22日（火）～2027年2月7日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6580-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 金工 茶の湯釜 2026年12月22日（火）～2027年2月7日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6587-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 漆工 アニマル☆蒔絵&mdash;漆芸にみる動物表現&mdash; 2026年12月22日（火）～2027年2月7日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6589-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 彫刻 仏像入門 2026年12月22日（火）～2027年3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2026/12/?date=22#Theme6582-22"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 陶磁 日本と東洋のやきもの 2027年1月2日（土）～3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/01/?date=02#Theme6568-02"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 考古 特別公開 和束谷の開拓者―原山古墳被葬者の実像― 2027年1月2日（土）～3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/01/?date=02#Theme6569-02"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 絵巻 仏の霊験 2027年1月26日（火）～2月21日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/01/?date=26#Theme6571-26"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 中世絵画 阿弥派の絵画Ⅱ 2027年1月26日（火）～2月21日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/01/?date=26#Theme6574-26"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 書跡 書跡2 2027年1月26日（火）～2月21日（日）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/01/?date=26#Theme6584-26"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 近世絵画 建仁寺の障壁画 2027年2月9日（火）～3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/02/?date=09#Theme6576-09"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 仏画 涅槃図 2027年2月9日（火）～3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/02/?date=09#Theme6578-09"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 中国絵画 明清時代の山水画 2027年2月9日（火）～3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/02/?date=09#Theme6581-09"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 金工 金工2 2027年2月10日（水）～3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/02/?date=10#Theme6588-10"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 絵巻 弘法大師空海の絵伝 2027年2月23日（火・祝）～3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/02/?date=23#Theme6572-23"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 中世絵画 中世絵画 2027年2月23日（火・祝）～3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/02/?date=23#Theme6579-23"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "開催予定 名品ギャラリー 書跡 書跡3 2027年2月23日（火・祝）～3月22日（月・休）",
+   "url": "https://www.kyohaku.go.jp/jp/exhibitions/collection/2027/02/?date=23#Theme6585-23"
+  },
+  {
+   "museum_id": "kyohaku",
+   "museum": "京都国立博物館",
+   "text": "2021年度以前の展示",
+   "url": "https://www.kyohaku.go.jp/old/jp/tenji/koremade/"
+  },
+  {
+   "museum_id": "momak",
+   "museum": "京都国立近代美術館",
+   "text": "イベントカレンダー",
+   "url": "https://www.momak.go.jp/Japanese/eventCalendar/"
+  },
+  {
+   "museum_id": "momak",
+   "museum": "京都国立近代美術館",
+   "text": "独立行政法人国立美術館の所蔵作品展における観覧料金の改定について",
+   "url": "https://www.momak.go.jp/Japanese/news/?sy=2026&tp=news#post-131905"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "フィルムシアター",
+   "url": "https://www.bunpaku.or.jp/museum-event/this_month/%E3%83%95%E3%82%A3%E3%83%AB%E3%83%A0%E3%82%B7%E3%82%A2%E3%82%BF%E3%83%BC"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "ギャラリー・ホール",
+   "url": "https://www.bunpaku.or.jp/museum-event/this_month/%E3%82%AE%E3%83%A3%E3%83%A9%E3%83%AA%E3%83%BC%E3%83%BB%E3%83%9B%E3%83%BC%E3%83%AB"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "博物館について",
+   "url": "https://www.bunpaku.or.jp/museum-event/this_month/%E5%8D%9A%E7%89%A9%E9%A4%A8%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "特別展スケジュール",
+   "url": "https://www.bunpaku.or.jp/exhi_special/schedule"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "過去の特別展",
+   "url": "https://www.bunpaku.or.jp/exhi_special/archives"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "イベント申込フォーム",
+   "url": "https://www.bunpaku.or.jp/exhi_special/form"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "総合展示スケジュール",
+   "url": "https://www.bunpaku.or.jp/exhi_sogo/schedule"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "過去の総合展示",
+   "url": "https://www.bunpaku.or.jp/exhi_sogo/archives"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "フィルムシアターでのイベント",
+   "url": "https://www.bunpaku.or.jp/exhi_film/event"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "イベント申込フォーム",
+   "url": "https://www.bunpaku.or.jp/exhi_film/event_form"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "来月以降の催し",
+   "url": "https://www.bunpaku.or.jp/museum-event/next_month"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "ぶんぱく子ども教室",
+   "url": "https://www.bunpaku.or.jp/museum-event/classroom"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "過去のぶんぱく子ども教室",
+   "url": "https://www.bunpaku.or.jp/museum-event/classroom/archives"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "ぶんぱく子ども教室申込フォーム",
+   "url": "https://www.bunpaku.or.jp/museum-event/classroom/form"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "京都アート・クラフトマーケット",
+   "url": "https://www.bunpaku.or.jp/museum-event/art-craft-market"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "過去の京都アート・クラフトマーケット",
+   "url": "https://www.bunpaku.or.jp/museum-event/art-craft-market/archives"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "ろうじ店舗イベント",
+   "url": "https://www.bunpaku.or.jp/museum-event/roji"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "過去のろうじ店舗イベント",
+   "url": "https://www.bunpaku.or.jp/museum-event/roji/archives"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "地域連携イベント",
+   "url": "https://www.bunpaku.or.jp/museum-event/chiiki"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "過去の地域連携イベント",
+   "url": "https://www.bunpaku.or.jp/museum-event/chiiki/archives"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "過去の展覧会図録",
+   "url": "https://www.bunpaku.or.jp/info/books/catalogue"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "イベント・ワークショップ",
+   "url": "https://www.bunpaku.or.jp/exhi_film/event"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "ろうじ店舗の催し",
+   "url": "https://www.bunpaku.or.jp/museum-event/roji"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "寛永展：ギャラリートーク① 2026.10.16(金) 4・3階展示室",
+   "url": "https://www.bunpaku.or.jp/exhi_special_post/20260919-1115/#sp_20261016-1113"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "第42回文化書道近畿連合会展 2026.10.17(土) 〜 10.18(日) ６階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261017-1018/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "京の名工展 2026.10.21(水) 〜 10.25(日) 5階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261021-1025/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "林サヨコ 創作キルトの世界展2026 2026.10.22(木) 〜 10.25(日) 別館ホール",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261022-1025/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "選抜 京都墨彩画壇 秋季展 2026.10.28(水) 〜 11.1(日) 5階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261028-1101/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "京漆匠省庵工房 乾漆展 佐々木漆器 130年 記念展示会 2026.10.29(木) 〜 11.1(日) 5階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261029-1101-3/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "徳田嘉孝 作品展 2026.10.29(木) 〜 11.1(日) 5階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261029-1101-2/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "平安書道会 第45回聚英展 2026.10.29(木) 〜 11.1(日) 5階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261029-1101/"
+  },
+  {
+   "museum_id": "hosomi",
+   "museum": "細見美術館",
+   "text": "展覧会特設ページ",
+   "url": "https://www.emuseum.or.jp/exhibition/ex090/index.html"
+  },
+  {
+   "museum_id": "hosomi",
+   "museum": "細見美術館",
+   "text": "主な出品作品・イベント",
+   "url": "https://www.emuseum.or.jp/exhibition/ex048/pdf/ex048_release160508.pdf"
+  },
+  {
+   "museum_id": "hosomi",
+   "museum": "細見美術館",
+   "text": "気軽にお茶会体験 第35回「洋食器のミニ茶会Ⅳ」",
+   "url": "https://www.emuseum.or.jp/event/index.html#ev138"
+  },
+  {
+   "museum_id": "hosomi",
+   "museum": "細見美術館",
+   "text": "ヨーロッパ名窯 美麗革命！アール・ヌーヴォ―の装飾磁器 展「ギャラリートーク」",
+   "url": "https://www.emuseum.or.jp/event/index.html#ev139"
+  },
+  {
+   "museum_id": "hosomi",
+   "museum": "細見美術館",
+   "text": "展覧会特設ページ",
+   "url": "https://www.emuseum.or.jp/exhibition/ex086/index.html"
+  },
+  {
+   "museum_id": "hosomi",
+   "museum": "細見美術館",
+   "text": "イベント イベント紹介/申込み/..",
+   "url": "https://www.emuseum.or.jp/event/index.html"
+  },
+  {
+   "museum_id": "hosomi",
+   "museum": "細見美術館",
+   "text": "ニュースレター 特集記事/みどころ/..",
+   "url": "https://nl.emuseum.or.jp//"
+  },
+  {
+   "museum_id": "fukuda",
+   "museum": "福田美術館",
+   "text": "イベント 一覧 いちらん",
+   "url": "https://fukuda-art-museum.jp/category/event-info"
+  },
+  {
+   "museum_id": "fukuda",
+   "museum": "福田美術館",
+   "text": "展覧会 てんらんかい",
+   "url": "https://fukuda-art-museum.jp/exhibition"
+  },
+  {
+   "museum_id": "fukuda",
+   "museum": "福田美術館",
+   "text": "展覧会一覧を見る",
+   "url": "https://fukuda-art-museum.jp/exhibition"
+  },
+  {
+   "museum_id": "fukuda",
+   "museum": "福田美術館",
+   "text": "ー東京・新宿歌舞伎町春画展WA×京都・愛のカタチー 大変お得な東西春画巡りのご案内(10/10-)",
+   "url": "https://fukuda-art-museum.jp/info/202610095040"
+  },
+  {
+   "museum_id": "senoku",
+   "museum": "泉屋博古館",
+   "text": "イベント・ラーニング",
+   "url": "https://sen-oku.or.jp/kyoto/event"
+  },
+  {
+   "museum_id": "senoku",
+   "museum": "泉屋博古館",
+   "text": "イベント・ラーニング一覧",
+   "url": "https://sen-oku.or.jp/kyoto/event/"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "展示・イベント アーカイブ - 京都国際マンガミュージアム",
+   "url": "https://kyotomm.jp/ee/%3Cmeta%20name='robots'%20content='index,%20follow,%20max-image-preview:large,%20max-snippet:-1,%20max-video-preview:-1'%20/%3E%3C!--%20This%20site%20is%20optimized%20with%20the%20Yoast%20SEO%20plugin%20v28.7%20-%20https://yoast.com/product/yoast-seo-wordpress/%20--%3E%3Ctitle%3E%E5%B1%95%E7%A4%BA%E3%83%BB%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%20%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96%20-%20%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%3C/title%3E%3Clink%20rel=%22canonical%22%20href=%22https://kyotomm.jp/ee/%22%20/%3E%3Clink%20rel=%22next%22%20href=%22https://kyotomm.jp/ee/page/2/%22%20/%3E%3Cmeta%20property=%22og:locale%22%20content=%22ja_JP%22%20/%3E%3Cmeta%20property=%22og:type%22%20content=%22website%22%20/%3E%3Cmeta%20property=%22og:title%22%20content=%22%E5%B1%95%E7%A4%BA%E3%83%BB%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%20%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96%20-%20%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%22%20/%3E%3Cmeta%20property=%22og:url%22%20content=%22https://kyotomm.jp/ee/%22%20/%3E%3Cmeta%20property=%22og:site_name%22%20content=%22%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%22%20/%3E%3Cmeta%20name=%22twitter:card%22%20content=%22summary_large_image%22%20/%3E%3Cscript%20type=%22application/ld+json%22%20class=%22yoast-schema-graph%22%3E%7B%22@context%22:%22https:////schema.org%22,%22@graph%22:[%7B%22@type%22:%22CollectionPage%22,%22@id%22:%22https:////kyotomm.jp//ee//%22,%22url%22:%22https:////kyotomm.jp//ee//%22,%22name%22:%22%E5%B1%95%E7%A4%BA%E3%83%BB%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%20%E3%82%A2%E3%83%BC%E3%82%AB%E3%82%A4%E3%83%96%20-%20%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%22,%22isPartOf%22:%7B%22@id%22:%22https:////kyotomm.jp//#website%22},%22primaryImageOfPage%22:{%22@id%22:%22https:\\/\\/kyotomm.jp\\/ee\\/#primaryimage%22},%22image%22:{%22@id%22:%22https:\\/\\/kyotomm.jp\\/ee\\/#primaryimage%22},%22thumbnailUrl%22:%22https:\\/\\/kyotomm.jp\\/dwp\\/wp-content\\/uploads\\/2026\\/04\\/07cd83257f0547405b562bab6d98566a.jpg%22,%22breadcrumb%22:{%22@id%22:%22https:\\/\\/kyotomm.jp\\/ee\\/#breadcrumb%22},%22inLanguage%22:%22ja%22},{%22@type%22:%22ImageObject%22,%22inLanguage%22:%22ja%22,%22@id%22:%22https:\\/\\/kyotomm.jp\\/ee\\/#primaryimage%22,%22url%22:%22https:\\/\\/kyotomm.jp\\/dwp\\/wp-content\\/uploads\\/2026\\/04\\/07cd83257f0547405b562bab6d98566a.jpg%22,%22contentUrl%22:%22https:\\/\\/kyotomm.jp\\/dwp\\/wp-content\\/uploads\\/2026\\/04\\/07cd83257f0547405b562bab6d98566a.jpg%22,%22width%22:422,%22height%22:596},{%22@type%22:%22BreadcrumbList%22,%22@id%22:%22https:\\/\\/kyotomm.jp\\/ee\\/#breadcrumb%22,%22itemListElement%22:[{%22@type%22:%22ListItem%22,%22position%22:1,%22name%22:%22%E3%83%9B%E3%83%BC%E3%83%A0%22,%22item%22:%22https:\\/\\/kyotomm.jp\\/%22},{%22@type%22:%22ListItem%22,%22position%22:2,%22name%22:%22%E5%B1%95%E7%A4%BA%E3%83%BB%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88%22}]},{%22@type%22:%22WebSite%22,%22@id%22:%22https:\\/\\/kyotomm.jp\\/#website%22,%22url%22:%22https:\\/\\/kyotomm.jp\\/%22,%22name%22:%22%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%22,%22description%22:%22%E6%97%A5%E6%9C%AC%E5%88%9D%E3%81%AE%E3%83%9E%E3%83%B3%E3%82%AC%E5%8D%9A%E7%89%A9%E9%A4%A8%E3%83%BB%E5%9B%B3%E6%9B%B8%E9%A4%A8%E3%80%80%E4%BA%AC%E9%83%BD%E5%B8%82%E3%81%A8%E4%BA%AC%E9%83%BD%E7%B2%BE%E8%8F%AF%E5%A4%A7%E5%AD%A6%E3%81%AE%E5%85%B1%E5%90%8C%E4%BA%8B%E6%A5%AD%22,%22potentialAction%22:[{%22@type%22:%22SearchAction%22,%22target%22:{%22@type%22:%22EntryPoint%22,%22urlTemplate%22:%22https:\\/\\/kyotomm.jp\\/?s={search_term_string}%22},%22query-input%22:{%22@type%22:%22PropertyValueSpecification%22,%22valueRequired%22:true,%22valueName%22:%22search_term_string%22}}],%22inLanguage%22:%22ja%22}]}%3C/script%3E%3C!--%20/%20Yoast%20SEO%20plugin.%20--%3E%3Cstyle%20id=%22wp-img-auto-sizes-contain-inline-css%22%3Eimg:is([sizes=auto%20i],[sizes^=%22auto,%22%20i]){contain-intrinsic-size:3000px%201500px}/*#%20sourceURL=wp-img-auto-sizes-contain-inline-css%20*/%3C/style%3E%3Clink%20rel='stylesheet'%20id='sbi-tokens-local-css'%20href='https://kyotomm.jp/dwp/wp-content/plugins/instagram-feed/assets/tokens/sb-tokens-local.css?ver=6.14.0'%20media='all'%20/%3E%3Clink%20rel='stylesheet'%20id='sbi_styles-css'%20href='https://kyotomm.jp/dwp/wp-content/plugins/instagram-feed/css/sbi-styles.min.css?ver=6.14.0'%20media='all'%20/%3E%3Cstyle%20id=%22classic-theme-styles-inline-css%22%3E/*!%20This%20file%20is%20auto-generated%20*/.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em%20+%202px)%20calc(1.333em%20+%202px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}/*#%20sourceURL=/wp-includes/css/classic-themes.min.css%20*/%3C/style%3E%3Cstyle%20id=%22global-styles-inline-css%22%3E:root{--wp--preset--aspect-ratio--square:%201;--wp--preset--aspect-ratio--4-3:%204/3;--wp--preset--aspect-ratio--3-4:%203/4;--wp--preset--aspect-ratio--3-2:%203/2;--wp--preset--aspect-ratio--2-3:%202/3;--wp--preset--aspect-ratio--16-9:%2016/9;--wp--preset--aspect-ratio--9-16:%209/16;--wp--preset--color--black:%20#000000;--wp--preset--color--cyan-bluish-gray:%20#abb8c3;--wp--preset--color--white:%20#ffffff;--wp--preset--color--pale-pink:%20#f78da7;--wp--preset--color--vivid-red:%20#cf2e2e;--wp--preset--color--luminous-vivid-orange:%20#ff6900;--wp--preset--color--luminous-vivid-amber:%20#fcb900;--wp--preset--color--light-green-cyan:%20#7bdcb5;--wp--preset--color--vivid-green-cyan:%20#00d084;--wp--preset--color--pale-cyan-blue:%20#8ed1fc;--wp--preset--color--vivid-cyan-blue:%20#0693e3;--wp--preset--color--vivid-purple:%20#9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple:%20linear-gradient(135deg,rgb(6,147,227)%200%,rgb(155,81,224)%20100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan:%20linear-gradient(135deg,rgb(122,220,180)%200%,rgb(0,208,130)%20100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange:%20linear-gradient(135deg,rgb(252,185,0)%200%,rgb(255,105,0)%20100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red:%20linear-gradient(135deg,rgb(255,105,0)%200%,rgb(207,46,46)%20100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray:%20linear-gradient(135deg,rgb(238,238,238)%200%,rgb(169,184,195)%20100%);--wp--preset--gradient--cool-to-warm-spectrum:%20linear-gradient(135deg,rgb(74,234,220)%200%,rgb(151,120,209)%2020%,rgb(207,42,186)%2040%,rgb(238,44,130)%2060%,rgb(251,105,98)%2080%,rgb(254,248,76)%20100%);--wp--preset--gradient--blush-light-purple:%20linear-gradient(135deg,rgb(255,206,236)%200%,rgb(152,150,240)%20100%);--wp--preset--gradient--blush-bordeaux:%20linear-gradient(135deg,rgb(254,205,165)%200%,rgb(254,45,45)%2050%,rgb(107,0,62)%20100%);--wp--preset--gradient--luminous-dusk:%20linear-gradient(135deg,rgb(255,203,112)%200%,rgb(199,81,192)%2050%,rgb(65,88,208)%20100%);--wp--preset--gradient--pale-ocean:%20linear-gradient(135deg,rgb(255,245,203)%200%,rgb(182,227,212)%2050%,rgb(51,167,181)%20100%);--wp--preset--gradient--electric-grass:%20linear-gradient(135deg,rgb(202,248,128)%200%,rgb(113,206,126)%20100%);--wp--preset--gradient--midnight:%20linear-gradient(135deg,rgb(2,3,129)%200%,rgb(40,116,252)%20100%);--wp--preset--font-size--small:%2013px;--wp--preset--font-size--medium:%2020px;--wp--preset--font-size--large:%2036px;--wp--preset--font-size--x-large:%2042px;--wp--preset--spacing--20:%200.44rem;--wp--preset--spacing--30:%200.67rem;--wp--preset--spacing--40:%201rem;--wp--preset--spacing--50:%201.5rem;--wp--preset--spacing--60:%202.25rem;--wp--preset--spacing--70:%203.38rem;--wp--preset--spacing--80:%205.06rem;--wp--preset--shadow--natural:%206px%206px%209px%20rgba(0,%200,%200,%200.2);--wp--preset--shadow--deep:%2012px%2012px%2050px%20rgba(0,%200,%200,%200.4);--wp--preset--shadow--sharp:%206px%206px%200px%20rgba(0,%200,%200,%200.2);--wp--preset--shadow--outlined:%206px%206px%200px%20-3px%20rgb(255,%20255,%20255),%206px%206px%20rgb(0,%200,%200);--wp--preset--shadow--crisp:%206px%206px%200px%20rgb(0,%200,%200);}.wp-block-button{--wp--preset--dimension--25:%2025%;--wp--preset--dimension--50:%2050%;--wp--preset--dimension--75:%2075%;--wp--preset--dimension--100:%20100%;}:where(body)%20{%20margin:%200;%20}:where(.is-layout-flex){gap:%200.5em;}:where(.is-layout-grid){gap:%200.5em;}body%20.is-layout-flex{display:%20flex;}.is-layout-flex{flex-wrap:%20wrap;align-items:%20center;}.is-layout-flex%20%3E%20:is(*,%20div){margin:%200;}body%20.is-layout-grid{display:%20grid;}.is-layout-grid%20%3E%20:is(*,%20div){margin:%200;}body{padding-top:%200px;padding-right:%200px;padding-bottom:%200px;padding-left:%200px;}:root%20:where(.wp-element-button,%20.wp-block-button__link){background-color:%20#32373c;border-width:%200;color:%20#fff;font-family:%20inherit;font-size:%20inherit;font-style:%20inherit;font-weight:%20inherit;letter-spacing:%20inherit;line-height:%20inherit;padding-top:%20calc(0.667em%20+%202px);padding-right:%20calc(1.333em%20+%202px);padding-bottom:%20calc(0.667em%20+%202px);padding-left:%20calc(1.333em%20+%202px);text-decoration:%20none;text-transform:%20inherit;}.has-black-color{color:%20var(--wp--preset--color--black)%20!important;}.has-cyan-bluish-gray-color{color:%20var(--wp--preset--color--cyan-bluish-gray)%20!important;}.has-white-color{color:%20var(--wp--preset--color--white)%20!important;}.has-pale-pink-color{color:%20var(--wp--preset--color--pale-pink)%20!important;}.has-vivid-red-color{color:%20var(--wp--preset--color--vivid-red)%20!important;}.has-luminous-vivid-orange-color{color:%20var(--wp--preset--color--luminous-vivid-orange)%20!important;}.has-luminous-vivid-amber-color{color:%20var(--wp--preset--color--luminous-vivid-amber)%20!important;}.has-light-green-cyan-color{color:%20var(--wp--preset--color--light-green-cyan)%20!important;}.has-vivid-green-cyan-color{color:%20var(--wp--preset--color--vivid-green-cyan)%20!important;}.has-pale-cyan-blue-color{color:%20var(--wp--preset--color--pale-cyan-blue)%20!important;}.has-vivid-cyan-blue-color{color:%20var(--wp--preset--color--vivid-cyan-blue)%20!important;}.has-vivid-purple-color{color:%20var(--wp--preset--color--vivid-purple)%20!important;}.has-black-background-color{background-color:%20var(--wp--preset--color--black)%20!important;}.has-cyan-bluish-gray-background-color{background-color:%20var(--wp--preset--color--cyan-bluish-gray)%20!important;}.has-white-background-color{background-color:%20var(--wp--preset--color--white)%20!important;}.has-pale-pink-background-color{background-color:%20var(--wp--preset--color--pale-pink)%20!important;}.has-vivid-red-background-color{background-color:%20var(--wp--preset--color--vivid-red)%20!important;}.has-luminous-vivid-orange-background-color{background-color:%20var(--wp--preset--color--luminous-vivid-orange)%20!important;}.has-luminous-vivid-amber-background-color{background-color:%20var(--wp--preset--color--luminous-vivid-amber)%20!important;}.has-light-green-cyan-background-color{background-color:%20var(--wp--preset--color--light-green-cyan)%20!important;}.has-vivid-green-cyan-background-color{background-color:%20var(--wp--preset--color--vivid-green-cyan)%20!important;}.has-pale-cyan-blue-background-color{background-color:%20var(--wp--preset--color--pale-cyan-blue)%20!important;}.has-vivid-cyan-blue-background-color{background-color:%20var(--wp--preset--color--vivid-cyan-blue)%20!important;}.has-vivid-purple-background-color{background-color:%20var(--wp--preset--color--vivid-purple)%20!important;}.has-black-border-color{border-color:%20var(--wp--preset--color--black)%20!important;}.has-cyan-bluish-gray-border-color{border-color:%20var(--wp--preset--color--cyan-bluish-gray)%20!important;}.has-white-border-color{border-color:%20var(--wp--preset--color--white)%20!important;}.has-pale-pink-border-color{border-color:%20var(--wp--preset--color--pale-pink)%20!important;}.has-vivid-red-border-color{border-color:%20var(--wp--preset--color--vivid-red)%20!important;}.has-luminous-vivid-orange-border-color{border-color:%20var(--wp--preset--color--luminous-vivid-orange)%20!important;}.has-luminous-vivid-amber-border-color{border-color:%20var(--wp--preset--color--luminous-vivid-amber)%20!important;}.has-light-green-cyan-border-color{border-color:%20var(--wp--preset--color--light-green-cyan)%20!important;}.has-vivid-green-cyan-border-color{border-color:%20var(--wp--preset--color--vivid-green-cyan)%20!important;}.has-pale-cyan-blue-border-color{border-color:%20var(--wp--preset--color--pale-cyan-blue)%20!important;}.has-vivid-cyan-blue-border-color{border-color:%20var(--wp--preset--color--vivid-cyan-blue)%20!important;}.has-vivid-purple-border-color{border-color:%20var(--wp--preset--color--vivid-purple)%20!important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background:%20var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple)%20!important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background:%20var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan)%20!important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background:%20var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange)%20!important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background:%20var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red)%20!important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background:%20var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray)%20!important;}.has-cool-to-warm-spectrum-gradient-background{background:%20var(--wp--preset--gradient--cool-to-warm-spectrum)%20!important;}.has-blush-light-purple-gradient-background{background:%20var(--wp--preset--gradient--blush-light-purple)%20!important;}.has-blush-bordeaux-gradient-background{background:%20var(--wp--preset--gradient--blush-bordeaux)%20!important;}.has-luminous-dusk-gradient-background{background:%20var(--wp--preset--gradient--luminous-dusk)%20!important;}.has-pale-ocean-gradient-background{background:%20var(--wp--preset--gradient--pale-ocean)%20!important;}.has-electric-grass-gradient-background{background:%20var(--wp--preset--gradient--electric-grass)%20!important;}.has-midnight-gradient-background{background:%20var(--wp--preset--gradient--midnight)%20!important;}.has-small-font-size{font-size:%20var(--wp--preset--font-size--small)%20!important;}.has-medium-font-size{font-size:%20var(--wp--preset--font-size--medium)%20!important;}.has-large-font-size{font-size:%20var(--wp--preset--font-size--large)%20!important;}.has-x-large-font-size{font-size:%20var(--wp--preset--font-size--x-large)%20!important;}/*#%20sourceURL=global-styles-inline-css%20*/%3C/style%3E%3Clink%20rel='stylesheet'%20id='wpml-legacy-horizontal-list-0-css'%20href='https://kyotomm.jp/dwp/wp-content/plugins/sitepress-multilingual-cms/templates/language-switchers/legacy-list-horizontal/style.min.css?ver=510000'%20media='all'%20/%3E%3Clink%20rel='stylesheet'%20id='mysite-style-test2-css'%20href='https://kyotomm.jp/dwp/wp-content/themes/manga_museum/style_sub.css?ver=151e396a5c3b17b4e1712932c2e1eab4'%20media='all'%20/%3E%3Clink%20rel=%22https://api.w.org/%22%20href=%22https://kyotomm.jp/wp-json/%22%20/%3E%3Cmeta%20name=%22generator%22%20content=%22WPML%20ver:5.1.0%20stt:1,28;%22%20/%3E%3Cnoscript%3E%3Cstyle%3E.lazyload[data-src]{display:none%20!important;}%3C/style%3E%3C/noscript%3E%3Cstyle%3E.lazyload{background-image:none%20!important;}.lazyload:before{background-image:none%20!important;}%3C/style%3E%20%20%20%20%3C/head%3E%3Cbody%20data-rsssl=1%20class=%22archive%20post-type-archive%20post-type-archive-event_exhibition%20wp-theme-manga_museum%22%3E%20%20%20%20%20%20%20%20%3Cdiv%20id=%22body_inner%22%20class=%22body-top%20%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cheader%20class=%22sp-header%20d-block%20d-xl-none%20w-100%22%20x-data=%22{open:%20false,%20sp_modal:%20false}%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22fixed-header%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdiv%20class=%22row%20no-gutters%20justify-content-between%20align-items-center%22%3E%20%20%20%20%20%20%3Cdiv%20class=%22col-8%22%3E%20%20%20%20%20%20%20%20%3Cdiv%20class=%22sp-header__brand%20ml-3%22%3E%20%20%20%20%20%20%20%20%20%20%3Ca%20class=%22d-inline-block%22%20href=%22https://kyotomm.jp%22%3E%20%20%20%20%20%20%20%20%20%20%20%20%3Cimg%20class=%22img-fluid%20lazyload%22%20src=%22data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATcAAAAoAQMAAAChGy+LAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAABRJREFUGBljGAWjYBSMglEwCsgAAAZAAAHET0OFAAAAAElFTkSuQmCC%22%20alt=%22%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%22%20width=%22311%22%20height=%2240%22%20data-src=%22https://kyotomm.jp/dwp/wp-content/uploads/2021/11/logo-2.svg%22%20decoding=%22async%22%20data-eio-rwidth=%22311%22%20data-eio-rheight=%2240%22%3E%3Cnoscript%3E%3Cimg%20class=%22img-fluid%22%20src=%22https://kyotomm.jp/dwp/wp-content/uploads/2021/11/logo-2.svg%22%20alt=%22%E4%BA%AC%E9%83%BD%E5%9B%BD%E9%9A%9B%E3%83%9E%E3%83%B3%E3%82%AC%E3%83%9F%E3%83%A5%E3%83%BC%E3%82%B8%E3%82%A2%E3%83%A0%22%20width=%22311%22%20height=%2240%22%20data-eio=%22l%22%3E%3C/noscript%3E"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "常設コーナー",
+   "url": "https://kyotomm.jp/event_category/permanent/"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "ワークショップ",
+   "url": "https://kyotomm.jp/event_category/workshop/"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "オンライン展覧会 マンガ・パンデミックWeb展 2025 2025年12月15日（月）～ 作品募集期間：2025年12月15日（月）～2026年2月28日（土）",
+   "url": "https://kyotomm.jp/ee/mangapandemic-2025/"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "ワークショップ",
+   "url": "https://kyotomm.jp/event_category/workshop"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "メイン展示「マンガって何？」",
+   "url": "https://kyotomm.jp/ee/per-exh_whatsmanga/"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "100人の舞妓展",
+   "url": "https://kyotomm.jp/ee/per-exh_maiko/"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "常設コーナー",
+   "url": "https://kyotomm.jp/event_category/permanent"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "終了した展示・イベントはこちら",
+   "url": "https://kyotomm.jp/event_tag/end/"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "さらに以前の 展示・イベント についてはこちら",
+   "url": "https://kyotomm.jp/event/"
+  },
+  {
+   "museum_id": "oyamazaki",
+   "museum": "アサヒグループ大山崎山荘美術館",
+   "text": "展覧会・イベントアーカイブ",
+   "url": "https://www.asahigroup-oyamazaki.com/exhibition/archive/"
+  },
+  {
+   "museum_id": "oyamazaki",
+   "museum": "アサヒグループ大山崎山荘美術館",
+   "text": "直近の展覧会",
+   "url": "https://www.asahigroup-oyamazaki.com/exhibition/e5ac61063c57c7dd7df4a6fee9987d81ba5c66a7/"
+  },
+  {
+   "museum_id": "ryukoku",
+   "museum": "龍谷ミュージアム",
+   "text": "今後開催予定の展覧会",
+   "url": "https://museum.ryukoku.ac.jp/exhibition/index.html#sche"
+  },
+  {
+   "museum_id": "ryukoku",
+   "museum": "龍谷ミュージアム",
+   "text": "展示コンセプト",
+   "url": "https://museum.ryukoku.ac.jp/exhibition/concept.html"
+  },
+  {
+   "museum_id": "ryukoku",
+   "museum": "龍谷ミュージアム",
+   "text": "ベゼクリク石窟大回廊復元展示",
+   "url": "https://museum.ryukoku.ac.jp/bezeklik/"
+  },
+  {
+   "museum_id": "ryukoku",
+   "museum": "龍谷ミュージアム",
+   "text": "開催予定の展示会",
+   "url": "https://museum.ryukoku.ac.jp/exhibition/index.html#sche"
+  },
+  {
+   "museum_id": "ryukoku",
+   "museum": "龍谷ミュージアム",
+   "text": "展示コンセプト",
+   "url": "https://museum.ryukoku.ac.jp/concept.html"
+  },
+  {
+   "museum_id": "hyogo-art",
+   "museum": "兵庫県立美術館",
+   "text": "年間スケジュール",
+   "url": "https://www.artm.pref.hyogo.jp/exhibition/"
+  },
+  {
+   "museum_id": "hyogo-art",
+   "museum": "兵庫県立美術館",
+   "text": "2020年度年間スケジュール",
+   "url": "https://www.artm.pref.hyogo.jp/hpmawp/wp-content/uploads/2020/11/exhibition2020-5.pdf"
+  },
+  {
+   "museum_id": "hyogo-art",
+   "museum": "兵庫県立美術館",
+   "text": "2020年度年間スケジュール",
+   "url": "https://www.artm.pref.hyogo.jp/hpmawp/wp-content/uploads/2020/06/exhibition2020-2.pdf"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "過去の特別展",
+   "url": "https://www.kobecitymuseum.jp/exhibition/past"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "過去の企画展",
+   "url": "https://www.kobecitymuseum.jp/exhibition/theme"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "常設展示トップ",
+   "url": "https://www.kobecitymuseum.jp/gallery/"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "神戸の歴史展示",
+   "url": "https://www.kobecitymuseum.jp/gallery/history_of_kobe"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "地域文化財展示室",
+   "url": "https://www.kobecitymuseum.jp/gallery/collection?theme=7"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "コレクション展示",
+   "url": "https://www.kobecitymuseum.jp/gallery/collection"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "イベントスケジュール",
+   "url": "https://www.kobecitymuseum.jp/info/event"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "神戸の歴史展示室",
+   "url": "https://www.kobecitymuseum.jp/gallery/history_of_kobe"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "コレクション展示室",
+   "url": "https://www.kobecitymuseum.jp/gallery/collection"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "大ゴッホ展 アルルの跳ね橋",
+   "url": "https://www.kobecitymuseum.jp/exhibition/detail?exhibition=397"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "詳細ページへ",
+   "url": "https://www.kobecitymuseum.jp/exhibition/detail?exhibition=397"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "2018 年以前の特別展",
+   "url": "https://www.kobecitymuseum.jp/exhibition/past_before2018"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "2018 年以前の企画",
+   "url": "https://www.kobecitymuseum.jp/exhibition/theme_before2018"
+  },
+  {
+   "museum_id": "koiso",
+   "museum": "神戸市立小磯記念美術館",
+   "text": "2026年度展覧会案内（PDF：2,476KB）",
+   "url": "https://www.city.kobe.lg.jp/documents/5298/20260326101837.pdf"
+  },
+  {
+   "museum_id": "koiso",
+   "museum": "神戸市立小磯記念美術館",
+   "text": "過去の展覧会/Past Exhibition",
+   "url": "https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/tenrankai/tenrankai_past.html"
+  },
+  {
+   "museum_id": "koiso",
+   "museum": "神戸市立小磯記念美術館",
+   "text": "神戸市立小磯記念美術館：イベント情報 / Event",
+   "url": "https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/event.html"
+  },
+  {
+   "museum_id": "koiso",
+   "museum": "神戸市立小磯記念美術館",
+   "text": "コレクション企画展示「色彩と絵画、新収蔵品とともに」と「小磯良平作品選Ⅰ」の開催",
+   "url": "https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/shikisaitokaiga.html"
+  },
+  {
+   "museum_id": "otani",
+   "museum": "西宮市大谷記念美術館",
+   "text": "▶ 展覧会詳細",
+   "url": "http://otanimuseum.jp/exhibition_260822.html"
+  },
+  {
+   "museum_id": "otani",
+   "museum": "西宮市大谷記念美術館",
+   "text": "▶ 展覧会詳細",
+   "url": "http://otanimuseum.jp/exhibition_260404.html"
+  },
+  {
+   "museum_id": "ashiya",
+   "museum": "芦屋市立美術博物館",
+   "text": "年間スケジュール（2026年）",
+   "url": "https://ashiya-museum.jp/wp-content/themes/ashiya/img/exhibition/schedule2026.pdf"
+  },
+  {
+   "museum_id": "ashiya",
+   "museum": "芦屋市立美術博物館",
+   "text": "コレクションの樹、36年目の春 －新収蔵品を中心に",
+   "url": "https://ashiya-museum.jp/exhibition/20614.html"
+  },
+  {
+   "museum_id": "ashiya",
+   "museum": "芦屋市立美術博物館",
+   "text": "チェコ絵本の作り方 －ボローニャ国際絵本展 受賞絵本から日チェコ共作のコミックまで－",
+   "url": "https://ashiya-museum.jp/exhibition/20799.html"
+  },
+  {
+   "museum_id": "ashiya",
+   "museum": "芦屋市立美術博物館",
+   "text": "令和8年度 歴史企画展「芦屋の古文書から②」",
+   "url": "https://ashiya-museum.jp/exhibition/20612.html"
+  },
+  {
+   "museum_id": "ashiya",
+   "museum": "芦屋市立美術博物館",
+   "text": "令和8年度特別展関連展示「北斎漫画と月岡芳年」",
+   "url": "https://ashiya-museum.jp/exhibition/21215.html"
+  },
+  {
+   "museum_id": "ashiya",
+   "museum": "芦屋市立美術博物館",
+   "text": "イベント・講座",
+   "url": "https://ashiya-museum.jp/event-program_new/"
+  },
+  {
+   "museum_id": "ashiya",
+   "museum": "芦屋市立美術博物館",
+   "text": "これまでの展覧会",
+   "url": "https://ashiya-museum.jp/exhibition_backnumber"
+  },
+  {
+   "museum_id": "ashiya",
+   "museum": "芦屋市立美術博物館",
+   "text": "これからの展覧会",
+   "url": "https://ashiya-museum.jp/exhibition_next"
+  },
+  {
+   "museum_id": "ashiya",
+   "museum": "芦屋市立美術博物館",
+   "text": "最新のイベント",
+   "url": "https://ashiya-museum.jp/event-program_new/"
+  },
+  {
+   "museum_id": "ashiya",
+   "museum": "芦屋市立美術博物館",
+   "text": "イベント・講座アーカイブ",
+   "url": "https://ashiya-museum.jp/event-program/"
+  },
+  {
+   "museum_id": "itami",
+   "museum": "市立伊丹ミュージアム",
+   "text": "開催中のイベント・今後の予定",
+   "url": "https://itami-im.jp/events/"
+  },
+  {
+   "museum_id": "itami",
+   "museum": "市立伊丹ミュージアム",
+   "text": "過去のイベント",
+   "url": "https://itami-im.jp/events/category/past/"
+  },
+  {
+   "museum_id": "itami",
+   "museum": "市立伊丹ミュージアム",
+   "text": "歴史常設展示",
+   "url": "https://itami-im.jp/about/permanent/"
+  },
+  {
+   "museum_id": "itami",
+   "museum": "市立伊丹ミュージアム",
+   "text": "俳諧・俳句 企画展 無料 伊丹っ子作品展 2026年10月27日(火)～10月31日(土) 会場：講座室",
+   "url": "https://itami-im.jp/exhibitions/itamikkosakuhinntenn-2026/"
+  },
+  {
+   "museum_id": "nara-art",
+   "museum": "奈良県立美術館",
+   "text": "・詳細をみる（展覧会ページへのリンク）",
+   "url": "https://www.pref.nara.lg.jp/n044/68464.html"
+  },
+  {
+   "museum_id": "nara-art",
+   "museum": "奈良県立美術館",
+   "text": "・詳細をみる（展覧会ページへのリンク）",
+   "url": "https://www.pref.nara.lg.jp/n044/p105007.html"
+  },
+  {
+   "museum_id": "nara-art",
+   "museum": "奈良県立美術館",
+   "text": "・詳細をみる（展覧会ページへのリンク）",
+   "url": "https://www.pref.nara.lg.jp/n044/p105008.html"
+  },
+  {
+   "museum_id": "nara-art",
+   "museum": "奈良県立美術館",
+   "text": "・詳細をみる（展覧会ページへのリンク）",
+   "url": "https://www.pref.nara.lg.jp/n044/p105026.html"
+  },
+  {
+   "museum_id": "nara-art",
+   "museum": "奈良県立美術館",
+   "text": "・詳細をみる（展覧会ページへのリンク）",
+   "url": "https://www.pref.nara.lg.jp/n044/p105025.html"
+  },
+  {
+   "museum_id": "nara-art",
+   "museum": "奈良県立美術館",
+   "text": "これからの展覧会",
+   "url": "https://www.pref.nara.lg.jp/n044/68463.html"
+  },
+  {
+   "museum_id": "nara-art",
+   "museum": "奈良県立美術館",
+   "text": "これまでの展覧会",
+   "url": "https://www.pref.nara.lg.jp/n044/54714.html"
+  },
+  {
+   "museum_id": "yamato",
+   "museum": "大和文華館",
+   "text": "2025年度展覧会スケジュール",
+   "url": "https://www.kintetsu-g-hd.co.jp/culture/yamato/exhibition/2025.html"
+  },
+  {
+   "museum_id": "yamato",
+   "museum": "大和文華館",
+   "text": "詳細はこちら",
+   "url": "https://www.kintetsu-g-hd.co.jp/culture/yamato/exhibition/waka-tegami.html"
+  },
+  {
+   "museum_id": "yamato",
+   "museum": "大和文華館",
+   "text": "詳細はこちら",
+   "url": "https://www.kintetsu-g-hd.co.jp/culture/yamato/exhibition/nakamura-naokatsu.html"
+  },
+  {
+   "museum_id": "yamato",
+   "museum": "大和文華館",
+   "text": "詳細はこちら",
+   "url": "https://www.kintetsu-g-hd.co.jp/culture/yamato/exhibition/hanawomederu_toku.html"
+  },
+  {
+   "museum_id": "yamato",
+   "museum": "大和文華館",
+   "text": "詳細はこちら",
+   "url": "https://www.kintetsu-g-hd.co.jp/culture/yamato/exhibition/nihonkougei.html"
+  },
+  {
+   "museum_id": "yamato",
+   "museum": "大和文華館",
+   "text": "詳細はこちら",
+   "url": "https://www.kintetsu-g-hd.co.jp/culture/yamato/exhibition/tenjou-paradise.html"
+  },
+  {
+   "museum_id": "shohaku",
+   "museum": "松伯美術館",
+   "text": "美術館の紹介",
+   "url": "https://www.kintetsu-g-hd.co.jp/culture/shohaku/introduce/exhibition_hall.html"
+  },
+  {
+   "museum_id": "kashikoken",
+   "museum": "奈良県立橿原考古学研究所附属博物館",
+   "text": "●全応募作品Web公開中●",
+   "url": "https://www.kashikoken.jp/museum/assets/img/index/pdf/Exhibition_The8thArchaeologicalPhotoCompetetion.pdf"
+  },
+  {
+   "museum_id": "shiga-art",
+   "museum": "滋賀県立美術館",
+   "text": "すべての展覧会",
+   "url": "https://www.shigamuseum.jp/exhibitions/"
+  },
+  {
+   "museum_id": "shiga-art",
+   "museum": "滋賀県立美術館",
+   "text": "常設展 小倉遊亀コーナー 2026年2月25日（水）〜2027年4月4日（日）",
+   "url": "https://www.shigamuseum.jp/exhibitions/13627/"
+  },
+  {
+   "museum_id": "shiga-art",
+   "museum": "滋賀県立美術館",
+   "text": "ラボ ＜国立印刷局との連携企画＞「お札を支える伝統技術～すき入れ・凹版・彩紋の世界～」 2026年10月6日（火）～11月15日（日）",
+   "url": "https://www.shigamuseum.jp/exhibitions/14631/"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "ディスカバリールーム",
+   "url": "https://www.biwahaku.jp/exhibition/discovery.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "おとなのディスカバリー",
+   "url": "https://www.biwahaku.jp/exhibition/a_discovery.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "びわ博の森を見に行こう",
+   "url": "https://www.biwahaku.jp/exhibition/forest.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "企画展示・その他展示",
+   "url": "https://www.biwahaku.jp/exhibition/special.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "展示交流補助ツール",
+   "url": "https://www.biwahaku.jp/exhibition/tool.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "常設展示室360度動画",
+   "url": "https://www.biwahaku.jp/exhibition/explanation.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "観察会・見学会",
+   "url": "https://www.biwahaku.jp/event/observe/"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "質問コーナー",
+   "url": "https://www.biwahaku.jp/event/question/"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "展示紹介トップへ",
+   "url": "https://www.biwahaku.jp/exhibition/"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "企画展示・その他展示トップ",
+   "url": "https://www.biwahaku.jp/exhibition/special.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "企画展示・その他展示 Ａ展示室 地域の人びとによる展示「堅田もぐらの会二人組」 2026年09月27日 - 2027年03月31日",
+   "url": "https://www.biwahaku.jp/event/2026/09/post_3587.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "その他の展示 第36回学芸員のこだわり展示「江戸時代の湖畔イメージに迫る―「湊はん志やう画巻」をよむ―」 2026年09月15日 - 2026年11月15日",
+   "url": "https://www.biwahaku.jp/event/2026/09/36.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "企画展示・その他展示 トピック展示「日本のカブトムシと変異個体」 2026年07月24日 - 2026年08月30日",
+   "url": "https://www.biwahaku.jp/event/2026/07/post_3586.html"
+  },
+  {
+   "museum_id": "sagawa",
+   "museum": "佐川美術館",
+   "text": "展覧会トップ",
+   "url": "https://www.sagawa-artmuseum.or.jp/plan/"
+  },
+  {
+   "museum_id": "sagawa",
+   "museum": "佐川美術館",
+   "text": "過去の展示情報",
+   "url": "https://www.sagawa-artmuseum.or.jp/plan/exhibition/archive.html"
+  },
+  {
+   "museum_id": "sagawa",
+   "museum": "佐川美術館",
+   "text": "年間スケジュールはこちら",
+   "url": "https://www.sagawa-artmuseum.or.jp/pdf/info.event_2026.pdf?20260713"
+  },
+  {
+   "museum_id": "otsu",
+   "museum": "大津市歴史博物館",
+   "text": "�W���E�C�x���g",
+   "url": "https://rekihaku.otsu.shiga.jp/event/index.html"
+  },
+  {
+   "museum_id": "otsu",
+   "museum": "大津市歴史博物館",
+   "text": "�X�P�W���[��",
+   "url": "https://rekihaku.otsu.shiga.jp/event/index.html"
+  },
+  {
+   "museum_id": "otsu",
+   "museum": "大津市歴史博物館",
+   "text": "��ݓW��",
+   "url": "https://rekihaku.otsu.shiga.jp/event/jyousetsu.html"
+  },
+  {
+   "museum_id": "otsu",
+   "museum": "大津市歴史博物館",
+   "text": "�~�j���W",
+   "url": "https://rekihaku.otsu.shiga.jp/event/minikikaku.html"
+  },
+  {
+   "museum_id": "otsu",
+   "museum": "大津市歴史博物館",
+   "text": "�ꂫ�͂��u��",
+   "url": "https://rekihaku.otsu.shiga.jp/event/kouza.html"
+  },
+  {
+   "museum_id": "otsu",
+   "museum": "大津市歴史博物館",
+   "text": "�M�������[(�݊�)",
+   "url": "https://rekihaku.otsu.shiga.jp/event/kashishitsu.html"
+  },
+  {
+   "museum_id": "otsu",
+   "museum": "大津市歴史博物館",
+   "text": "�V�ڂ��I��Âꂫ�͂�",
+   "url": "https://rekihaku.otsu.shiga.jp/event/asobou.html"
+  },
+  {
+   "museum_id": "otsu",
+   "museum": "大津市歴史博物館",
+   "text": "�ꂫ�͂��N�C�Y��",
+   "url": "https://rekihaku.otsu.shiga.jp/event/quiz.html"
+  },
+  {
+   "museum_id": "otsu",
+   "museum": "大津市歴史博物館",
+   "text": "�����̓��ʗ��p",
+   "url": "https://rekihaku.otsu.shiga.jp/guide/tokubetsu.html"
+  },
+  {
+   "museum_id": "otsu",
+   "museum": "大津市歴史博物館",
+   "text": "����܂ł̊��W�E�~�j���W�̈ꗗ >",
+   "url": "https://rekihaku.otsu.shiga.jp/event/history.html"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "これからのイベント",
+   "url": "https://www.momaw.jp/event/?status=future"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "終了したイベント",
+   "url": "https://www.momaw.jp/event/?status=archive"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "展覧会開催記録の詳細",
+   "url": "https://www.momaw.jp/outline/record-outline/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "MOMAWコレクション 版画と美術散歩 第2期 ピカソ《泣く女》と―凹版の小道",
+   "url": "https://www.momaw.jp/exhibit/2026col_prints_2nd/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "MOMAWコレクション 絵画と彫刻",
+   "url": "https://www.momaw.jp/exhibit/2026col_painting_sculpture/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "和歌山県立近代美術館・博物館の建築とデザイン",
+   "url": "https://www.momaw.jp/exhibit/architecture_design/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "MOMAWコレクション 版画と美術散歩 第1期 ムンク《病める子》と—平版の小道",
+   "url": "https://www.momaw.jp/exhibit/2026col_prints_1st/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "なつやすみの美術館16 もしも“美術”がなかったら",
+   "url": "https://www.momaw.jp/exhibit/2026_summer16/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "MOMAWコレクション 現代の「版」表現",
+   "url": "https://www.momaw.jp/exhibit/2026_col_modernprints/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "MOMAWコレクション 現代の美術",
+   "url": "https://www.momaw.jp/exhibit/2025collection_1970s_6th/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "第79回和歌山県美術展覧会（県展）／第11回和歌山県ジュニア美術展覧会（ジュニア県展）",
+   "url": "https://www.momaw.jp/exhibit/2025kenten_jnr/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "万博のレガシー —解体と再生、未完の営為を考える—",
+   "url": "https://www.momaw.jp/exhibit/2025_expos/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "MOMAWコレクション 名品選",
+   "url": "https://www.momaw.jp/exhibit/2025_col_selection/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "生誕120年 村井正誠展 色のやどり・形のうぶすな",
+   "url": "https://www.momaw.jp/exhibit/2025_muraimasanari/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "和歌山をめぐるローカリズムとモダニズム",
+   "url": "https://www.momaw.jp/exhibit/2025localism/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2026年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2026%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2025年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2025%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2024年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2024%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2023年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2023/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2022年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2022/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2021年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2021/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2020年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2020/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2019年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2019/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2018年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2018/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2017年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2017/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2016年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2016/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2015年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2015/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2014年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2014/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2013年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2013/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2012年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2012/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2011年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2011/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2010年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2010/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "今年度の展覧会",
+   "url": "https://hakubutu.wakayama.jp/exhibit-menu/exhibit-in-year-2026/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "常設展ガイド",
+   "url": "https://hakubutu.wakayama.jp/exhibit-menu/josetu/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "3D画像で体験！",
+   "url": "https://hakubutu.wakayama.jp/exhibit-menu/3d/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "その他の展示",
+   "url": "https://hakubutu.wakayama.jp/exhibit-menu/others/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "コーナー展示「《昭和100年》 “あのじゅう”の和歌山」",
+   "url": "https://hakubutu.wakayama.jp/exhibit/s100-anojuuwa2026/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "特別展「蘆雪生動 ―南紀 無量寺への旅―」",
+   "url": "https://hakubutu.wakayama.jp/exhibit/rosetu2026/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "特別展「紀伊徳川家の威風」",
+   "url": "https://hakubutu.wakayama.jp/exhibit/ihuu2025/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "夏休みこども向け企画展「くらべてみよう！ふたりの絵」",
+   "url": "https://hakubutu.wakayama.jp/exhibit/kuraberu2025/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "企画展 「祇園南海の詩と書−教養・芸術・心情−」",
+   "url": "https://hakubutu.wakayama.jp/exhibit/nankai2025/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "特別展「仏像のプロフィール わかやまうまれ、わかやまそだち」",
+   "url": "https://hakubutu.wakayama.jp/exhibit/profile2025/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "企画展 「 “写（うつす）” ―紀州のやきものを巡るまなざし― 」",
+   "url": "https://hakubutu.wakayama.jp/exhibit/utsusu/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "世界遺産「紀伊山地の霊場と参詣道」登録20周年記念特別展 聖地巡礼 ―熊野と高野― 第Ⅴ期 蘇りの地・熊野 ―熊野本宮大社・湯峯と熊野川―",
+   "url": "https://hakubutu.wakayama.jp/exhibit/seitijunrei-5/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "世界遺産「紀伊山地の霊場と参詣道」登録20周年記念特別展 聖地巡礼 ―熊野と高野― 第Ⅳ期 熊野信仰の美と荘厳 ―熊野速玉大社の神像と古神宝―",
+   "url": "https://hakubutu.wakayama.jp/exhibit/seitijunrei-4/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "世界遺産「紀伊山地の霊場と参詣道」登録20周年記念特別展 聖地巡礼 ―熊野と高野― 第Ⅲ期 人・道・祈り―紀伊路・伊勢路・大辺路をゆく―",
+   "url": "https://hakubutu.wakayama.jp/exhibit/seitijunrei-3/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "世界遺産「紀伊山地の霊場と参詣道」登録20周年記念特別展 聖地巡礼 ―熊野と高野― 第Ⅱ期 神仏・祖師の住まう山 ―高野山上・山麓の宗教文化―",
+   "url": "https://hakubutu.wakayama.jp/exhibit/seitijunrei-2/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "2025年度の展覧会",
+   "url": "https://hakubutu.wakayama.jp/exhibit_years/2025%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "2026年度の展覧会",
+   "url": "https://hakubutu.wakayama.jp/exhibit_years/2026%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "2024年度の展覧会",
+   "url": "https://hakubutu.wakayama.jp/exhibit_years/2024%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "2023年度の展覧会",
+   "url": "https://hakubutu.wakayama.jp/exhibit_years/2023%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "2022年度の展覧会",
+   "url": "https://hakubutu.wakayama.jp/exhibit_years/2022%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "2021年度の展覧会",
+   "url": "https://hakubutu.wakayama.jp/exhibit_years/2021%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "展覧会について",
+   "url": "https://reihokan.or.jp/tenrankai/"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "過去の記録（展覧会について）",
+   "url": "https://reihokan.or.jp/pages/23/"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "特別展・企画展",
+   "url": "https://reihokan.or.jp/pages/169/"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "展示替えに伴う臨時休館日のお知らせ",
+   "url": "https://reihokan.or.jp/pages/151?detail=1&amp;b_id=908&amp;r_id=124#block908"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "第46回大宝蔵展「高野山の名宝 ～大集合！ 金剛峯寺の宝物～」開催のお知らせです。",
+   "url": "https://reihokan.or.jp/pages/151?detail=1&amp;b_id=908&amp;r_id=113#block908"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "東京国立博物館 弘法大師生誕1250年記念 特別展「空海と真言の名宝展」開催のお知らせです。",
+   "url": "https://reihokan.or.jp/pages/151?detail=1&amp;b_id=908&amp;r_id=108#block908"
+  }
+ ]
+}
