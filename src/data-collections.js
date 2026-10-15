@@ -35,5 +35,11 @@ const COLLECTIONS = [
  museums:["miho","sagawa","biwahaku","shiga-art","hikone","otsu"]},
 {id:"kii",title:"紀伊半島の秘宝",lead:"高野山の密教美術から、南方熊楠の標本、熊野古道のガラスの美術館まで。距離はあるが、どれも代えがたい。",
  tip:"高野山は霊宝館と壇上伽藍・奥之院で一日。白浜・田辺は南方熊楠記念館と顕彰館を同じ日に。なかへち美術館は熊野古道歩きの休憩に。",
- museums:["reihokan","minakata","kenshokan","nakahechi","kujira","wakayama-museum"]}
+ museums:["reihokan","minakata","kenshokan","nakahechi","kujira","wakayama-museum"]},
+{id:"ise",title:"伊勢・鳥羽をめぐる",lead:"伊勢神宮の参拝に、式年遷宮と神宝を知る博物館を組み合わせる。鳥羽まで足を延ばせば、内藤廣設計の海の博物館と真珠島が待っている。",
+ tip:"外宮のせんぐう館から内宮へ向かう途中に徴古館・美術館（バス「神宮徴古館前」）。海の博物館は鳥羽駅からバスで35分かかるので、鳥羽泊まりの翌日に。",
+ museums:["sengukan","chokokan","umihaku","mikimoto","saiku"]},
+{id:"mie-art-trip",title:"津と三重の美術をたどる",lead:"津駅を起点に、県立美術館、総合博物館、川喜田半泥子の石水博物館へ。北へ向かえばパラミタミュージアム、南へ向かえば本居宣長の松阪。",
+ tip:"県立美術館と総合博物館はバスで10分ほど。石水博物館は本数の少ないバスなので時刻を確認して。",
+ museums:["mie-art","miemu","sekisui","paramita","norinaga","kuwana"]}
 ];

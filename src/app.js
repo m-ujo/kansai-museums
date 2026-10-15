@@ -1,14 +1,14 @@
 (function(){
 'use strict';
 const DATA_ASOF='2026-10-14';
-const PREFS=['大阪','京都','兵庫','奈良','滋賀','和歌山'];
+const PREFS=['大阪','京都','兵庫','奈良','滋賀','和歌山','三重'];
 const CATS={art:'美術館',history:'歴史・考古',science:'自然・科学',craft:'工芸・陶磁',special:'テーマ・専門',temple:'寺社宝物館'};
 const TAG_ORDER=['国宝','建築','庭園','日本画','現代美術','西洋美術','仏教美術','陶磁・茶の湯','工芸','考古','歴史','自然・科学','写真','文学','マンガ・サブカル','子ども向け','体験型','無料','駅近','夜間開館','季節限定'];
 const HOLIDAYS=new Set(['2026-01-01','2026-01-12','2026-02-11','2026-02-23','2026-03-20','2026-04-29','2026-05-03','2026-05-04','2026-05-05','2026-05-06','2026-07-20','2026-08-11','2026-09-21','2026-09-22','2026-09-23','2026-10-12','2026-11-03','2026-11-23',
  '2027-01-01','2027-01-11','2027-02-11','2027-02-23','2027-03-21','2027-03-22','2027-04-29','2027-05-03','2027-05-04','2027-05-05','2027-07-19','2027-08-11','2027-09-20','2027-09-23','2027-10-11','2027-11-03','2027-11-23']);
 const WD=['日','月','火','水','木','金','土'];
 
-const MUSEUMS=[].concat(MUSEUMS_OSAKA,MUSEUMS_KYOTO,MUSEUMS_HYOGO,MUSEUMS_NARA,MUSEUMS_SHIGA,MUSEUMS_WAKAYAMA);
+const MUSEUMS=[].concat(MUSEUMS_OSAKA,MUSEUMS_KYOTO,MUSEUMS_HYOGO,MUSEUMS_NARA,MUSEUMS_SHIGA,MUSEUMS_WAKAYAMA,MUSEUMS_MIE);
 const BY_ID=new Map(MUSEUMS.map(m=>[m.id,m]));
 const EX_BY_M=new Map();
 for(const e of EXHIBITIONS){ if(!EX_BY_M.has(e.m)) EX_BY_M.set(e.m,[]); EX_BY_M.get(e.m).push(e); }
@@ -48,6 +48,9 @@ function exStatus(e){
   if(left<=14) return {code:'ending',label:left===0?'本日まで':'あと'+left+'日'};
   return {code:'open',label:'開催中'};
 }
+function exLink(e){const m=BY_ID.get(e.m);if(e.page)return {href:e.page,kind:e.kind||'official'};const idx=(typeof EX_INDEX_URLS!=='undefined')&&EX_INDEX_URLS[e.m];if(idx)return {href:idx,kind:'index'};return {href:m.url,kind:'home'};}
+function exHref(e){return exLink(e).href;}
+function exTitle(e,cls){return '<a class="'+(cls||'ex-link')+'" href="'+esc(exHref(e))+'" target="_blank" rel="noopener">'+esc(e.title)+'</a>';}
 function exLive(m){return (EX_BY_M.get(m.id)||[]).filter(e=>{const c=exStatus(e).code;return c==='open'||c==='ending';});}
 function exFuture(m){return (EX_BY_M.get(m.id)||[]).filter(e=>exStatus(e).code!=='ended').sort((a,b)=>a.start.localeCompare(b.start));}
 
@@ -141,10 +144,10 @@ function exRow(e,withMuseum){
   const m=BY_ID.get(e.m), st=exStatus(e);
   return '<li class="ex-row">'+
     '<div class="ex-date"><span class="d">'+fmtD(e.start)+' – '+fmtD(e.end)+'</span><span class="ex-badge '+st.code+'">'+st.label+'</span></div>'+
-    '<div class="ex-main"><h3 class="ex-title">'+esc(e.title)+'</h3>'+
+    '<div class="ex-main"><h3 class="ex-title">'+exTitle(e)+'</h3>'+
     (withMuseum?'<div class="ex-museum"><button type="button" data-open="'+m.id+'">'+esc(m.name)+'</button><span style="color:var(--fg-3)">　'+esc(m.pref)+'・'+esc(m.area)+'</span></div>':'')+
     (e.note?'<p class="ex-note">'+esc(e.note)+'</p>':'')+
-    '<div class="ex-meta">'+(e.src?'<a href="'+esc(e.src)+'" target="_blank" rel="noopener">会期の出典</a>':'')+(e.conf!=='high'?'<span class="conf-m">会期は要確認</span>':'')+'</div>'+
+    '<div class="ex-meta"><span>'+({official:'リンク先: 公式の展覧会ページ',index:'リンク先: 館の展覧会一覧',listing:'リンク先: 展覧会情報サイト',home:'リンク先: 館の公式サイト'}[exLink(e).kind])+'</span>'+(e.src&&e.src!==exHref(e)?'<a href="'+esc(e.src)+'" target="_blank" rel="noopener">会期の出典</a>':'')+(e.conf!=='high'?'<span class="conf-m">会期は要確認</span>':'')+'</div>'+
     '</div></li>';
 }
 function fmtShort(s){const d=parseYmd(s);return (d.getMonth()+1)+'/'+d.getDate();}
@@ -166,7 +169,7 @@ function renderExhibitions(){
   $('ex-views').innerHTML=views.map(o=>'<button type="button" class="chip" data-exv="'+o[0]+'" aria-pressed="'+(v===o[0])+'">'+o[1]+'</button>').join('');
   const list=exFiltered();
   $('ex-count').textContent=list.length;
-  const hints={timeline:'横軸が日付、縦線が今日。棒をクリックすると館の詳細が開きます',board:'府県ごと・館ごとにまとめた一覧。館名で詳細が開きます',list:'会期終了が近い順。府県・種類・キーワードの絞り込みが効きます'};
+  const hints={timeline:'横軸が日付、縦線が今日。展覧会名や棒で展覧会のページ、館名で館の詳細が開きます',board:'府県ごと・館ごとにまとめた一覧。展覧会名で展覧会のページ、館名で館の詳細が開きます',list:'会期終了が近い順。展覧会名で展覧会のページが開きます'};
   $('ex-hint').textContent=hints[v];
   $('ex-timeline').hidden=v!=='timeline'; $('ex-board').hidden=v!=='board'; $('ex-list').hidden=v!=='list';
   if(!list.length){const empty='<div class="empty">条件に合う展覧会がありません。</div>';$('ex-timeline').innerHTML=empty;$('ex-board').innerHTML=empty;$('ex-list').innerHTML='<li class="empty" style="border:0">条件に合う展覧会がありません。</li>';return;}
@@ -200,8 +203,8 @@ function renderTimeline(list){
       const l=pos(s), r=pos(e); const cutL=s<rangeStart, cutR=e>rangeEnd;
       const cls='tl-bar '+x.st.code+(cutL?' cut-l':'')+(cutR?' cut-r':'');
       const label=x.st.code==='upcoming'?fmtShort(x.e.start)+'から':x.st.code==='ending'?x.st.label:fmtShort(x.e.end)+'まで';
-      rows+='<div class="tl-row"><div class="tl-label"><button type="button" class="tl-m" data-open="'+m.id+'">'+esc(m.name)+'</button><span class="tl-t" title="'+esc(x.e.title)+'">'+esc(x.e.title)+'</span><span class="tl-d">'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'</span></div>'+
-        '<div class="tl-track"><button type="button" class="'+cls+'" data-open="'+m.id+'" style="left:'+l.toFixed(2)+'%;width:'+Math.max(0.6,r-l).toFixed(2)+'%" title="'+esc(x.e.title)+'　'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'"><span class="visually-hidden">'+esc(x.e.title)+'</span></button>'+
+      rows+='<div class="tl-row"><div class="tl-label"><button type="button" class="tl-m" data-open="'+m.id+'">'+esc(m.name)+'</button><span class="tl-t" title="'+esc(x.e.title)+'">'+exTitle(x.e,'tl-link')+'</span><span class="tl-d">'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'</span></div>'+
+        '<div class="tl-track"><a class="'+cls+'" href="'+esc(exHref(x.e))+'" target="_blank" rel="noopener" style="left:'+l.toFixed(2)+'%;width:'+Math.max(0.6,r-l).toFixed(2)+'%" title="'+esc(x.e.title)+'　'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'"><span class="visually-hidden">'+esc(x.e.title)+'</span></a>'+
         (r<97?'<span class="tl-end" style="left:'+r.toFixed(2)+'%">'+esc(label)+'</span>':'')+'</div></div>';
     }
   }
@@ -219,7 +222,7 @@ function renderBoard(list){
       const st=openStatus(m,today);
       const exs=byM.get(m.id).sort((a,b)=>a.e.start.localeCompare(b.e.start));
       html+='<article class="bcard"><div class="bcard-head"><div><button type="button" class="bcard-name" data-open="'+m.id+'">'+esc(m.name)+'</button><div class="bcard-where">'+esc(m.area)+' ・ '+esc(m.hours)+'</div></div><span class="pill '+st.code+'">'+st.label+'</span></div><ul class="bcard-list">'+
-        exs.map(x=>'<li><span class="ex-badge '+x.st.code+'">'+x.st.label+'</span><span class="bcard-t">'+esc(x.e.title)+'</span><span class="bcard-d">'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'</span></li>').join('')+'</ul></article>';
+        exs.map(x=>'<li><span class="ex-badge '+x.st.code+'">'+x.st.label+'</span><span class="bcard-t">'+exTitle(x.e)+'</span><span class="bcard-d">'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'</span></li>').join('')+'</ul></article>';
     }
     html+='</div></section>';
   }
@@ -235,50 +238,93 @@ function renderCollections(){
   }).join('');
 }
 
-/* ---------- 描画: 地図（概略図） ---------- */
-const LNG0=134.30,LAT0=35.80,S=400,KX=Math.cos(34.6*Math.PI/180);
+/* ---------- 描画: 地図 ---------- */
+const LNG0=134.25,LAT0=35.80,S=400,KX=Math.cos(34.6*Math.PI/180);
 const px=lng=>(lng-LNG0)*S*KX, py=lat=>(LAT0-lat)*S;
-const MAP_W=px(136.45), MAP_H=py(33.45);
-const COAST=[[35.65,134.30],[35.65,134.45],[35.63,134.63],[35.64,134.82],[35.58,134.95],[35.55,135.10],[35.62,135.20],[35.75,135.22],[35.68,135.33],[35.55,135.28],[35.50,135.35],[35.47,135.42],[35.53,135.52],[35.48,135.62],[35.45,135.75],[35.55,135.95],[35.62,136.10],[35.62,136.45],[34.30,136.45],[34.20,136.33],[34.07,136.19],[33.88,136.10],[33.72,136.00],[33.60,135.95],[33.47,135.78],[33.55,135.50],[33.68,135.34],[33.72,135.37],[33.77,135.33],[33.88,135.15],[33.95,135.10],[34.08,135.10],[34.23,135.15],[34.32,135.12],[34.40,135.31],[34.47,135.36],[34.58,135.43],[34.65,135.43],[34.70,135.40],[34.71,135.34],[34.68,135.19],[34.64,135.11],[34.63,135.03],[34.64,134.99],[34.75,134.78],[34.78,134.67],[34.74,134.37],[34.74,134.30]];
-const AWAJI=[[34.60,135.02],[34.55,134.98],[34.40,134.92],[34.30,134.85],[34.25,134.72],[34.33,134.72],[34.45,134.78],[34.55,134.95]];
+const MAP_W=px(136.95), MAP_H=py(33.42);
 const BIWA=[[35.00,135.87],[35.03,135.90],[35.07,135.93],[35.10,135.95],[35.15,136.03],[35.22,136.10],[35.27,136.22],[35.35,136.26],[35.42,136.22],[35.50,136.12],[35.48,136.05],[35.40,136.02],[35.30,135.98],[35.20,135.92],[35.12,135.90],[35.05,135.87]];
-const CITIES=[['大阪',34.69,135.50],['京都',35.01,135.76],['神戸',34.69,135.19],['奈良',34.68,135.83],['大津',35.01,135.86],['和歌山',34.23,135.17],['姫路',34.83,134.69],['田辺',33.73,135.38],['高野山',34.21,135.58],['舞鶴',35.47,135.39],['長浜',35.38,136.27],['信楽',34.90,136.05],['新宮',33.72,136.00],['橿原',34.50,135.79]];
-const PREF_LABELS=[['京 都 府',35.33,135.60],['兵 庫 県',35.18,134.72],['滋 賀 県',35.30,136.38],['奈 良 県',34.38,135.95],['和 歌 山 県',33.95,135.60],['大 阪 府',34.58,135.60]];
-const ZOOMS={all:{label:'関西全域',lat:[33.45,35.80],lng:[134.30,136.45]},keihanshin:{label:'京阪神',lat:[34.55,35.12],lng:[135.05,135.98]},nara:{label:'奈良・南大阪',lat:[34.38,34.78],lng:[135.38,135.92]},shiga:{label:'滋賀',lat:[34.84,35.46],lng:[135.78,136.36]},wakayama:{label:'和歌山',lat:[33.48,34.32],lng:[135.03,136.05]}};
+const CITIES=[['大阪',34.69,135.50],['京都',35.01,135.76],['神戸',34.69,135.19],['奈良',34.68,135.83],['大津',35.01,135.86],['和歌山',34.23,135.17],['姫路',34.83,134.69],['田辺',33.73,135.38],['高野山',34.21,135.58],['舞鶴',35.47,135.39],['長浜',35.38,136.27],['信楽',34.90,136.05],['新宮',33.72,136.00],['橿原',34.50,135.79],['津',34.72,136.51],['伊勢',34.49,136.71],['鳥羽',34.48,136.84],['四日市',34.97,136.62],['伊賀',34.77,136.13],['尾鷲',34.07,136.19]];
+const PREF_LABELS=[['京 都 府',35.33,135.55],['兵 庫 県',35.15,134.72],['滋 賀 県',35.32,136.32],['奈 良 県',34.33,135.88],['和 歌 山 県',33.95,135.55],['大 阪 府',34.58,135.55],['三 重 県',34.60,136.40]];
+const ZOOMS={all:{label:'関西全域',lat:[33.42,35.80],lng:[134.25,136.95]},keihanshin:{label:'京阪神',lat:[34.55,35.12],lng:[135.05,135.98]},nara:{label:'奈良・南大阪',lat:[34.38,34.78],lng:[135.38,135.92]},shiga:{label:'滋賀',lat:[34.84,35.46],lng:[135.78,136.36]},wakayama:{label:'和歌山',lat:[33.48,34.32],lng:[135.03,136.05]},mie:{label:'三重',lat:[34.20,35.12],lng:[136.05,136.95]}};
+function ringPath(ring){return 'M'+ring.map(p=>px(p[0]).toFixed(1)+' '+py(p[1]).toFixed(1)).join('L')+'Z';}
+function prefPath(polys){return polys.map(poly=>poly.map(ringPath).join('')).join('');}
 function poly(pts){return pts.map(p=>px(p[1]).toFixed(1)+','+py(p[0]).toFixed(1)).join(' ');}
-let mapBuilt=false;
-function buildMap(){
-  if(mapBuilt) return; mapBuilt=true;
+let mapMode=null, leaflet=null, appliedZoom=null;
+function probeTiles(cb){
+  if(typeof L==='undefined'){cb(false);return;}
+  if(window.KMT_FORCE_TILES){cb(true);return;}
+  let done=false; const fin=ok=>{if(!done){done=true;cb(ok);}};
+  const img=new Image(); img.onload=()=>fin(true); img.onerror=()=>fin(false);
+  setTimeout(()=>fin(false),5000); img.src='https://tile.openstreetmap.org/7/112/50.png';
+}
+function gmapsUrl(m){return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(m.name+' '+m.city);}
+function buildLeaflet(){
+  $('map-frame').innerHTML='<div id="map-leaflet" class="map-leaflet"></div>';
+  const map=L.map('map-leaflet',{scrollWheelZoom:false,zoomSnap:0.5});
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'}).addTo(map);
+  const markers=new Map();
+  for(const m of MUSEUMS){
+    const c=L.circleMarker([m.lat,m.lng],{radius:m.pick===3?8:6,weight:1.5,fillOpacity:.95,className:'mk '+m.cat});
+    c.bindTooltip(m.name,{direction:'top',offset:[0,-6]});
+    c.on('click',()=>{
+      const st=openStatus(m,today), live=exLive(m).length;
+      c.bindPopup('<div class="mpop"><div class="cat '+m.cat+'">'+CATS[m.cat]+'</div><div class="mpop-name">'+esc(m.name)+'</div><div class="mpop-sub">'+esc(m.pref)+'・'+esc(m.area)+'　'+esc(m.hours)+'</div><div class="mpop-row"><span class="pill '+st.code+'">'+st.label+'</span>'+(live?'<span class="mpop-ex">会期中の展覧会 '+live+'件</span>':'')+'</div><div class="mpop-actions"><button type="button" class="btn primary" data-open="'+m.id+'">詳細を見る</button><a class="btn" href="'+gmapsUrl(m)+'" target="_blank" rel="noopener">Googleマップ</a></div></div>',{maxWidth:320,closeButton:true}).openPopup();
+    });
+    c.addTo(map); markers.set(m.id,c);
+  }
+  leaflet={map,markers};
+}
+function buildSvg(){
+  const neigh=Object.keys(GEO.neighbor).map(n=>'<path class="neigh-land" d="'+prefPath(GEO.neighbor[n])+'"/>').join('');
+  const land=Object.keys(GEO.target).map(n=>'<path class="pref-land" d="'+prefPath(GEO.target[n])+'"><title>'+n+'</title></path>').join('');
   const dots=MUSEUMS.map(m=>'<circle class="pt '+m.cat+'" data-id="'+m.id+'" cx="'+px(m.lng).toFixed(1)+'" cy="'+py(m.lat).toFixed(1)+'" r="5"><title>'+esc(m.name)+'</title></circle>').join('');
   const cities=CITIES.map(c=>'<g class="cityg"><circle class="cityDot" cx="'+px(c[2]).toFixed(1)+'" cy="'+py(c[1]).toFixed(1)+'" r="1.8"/><text class="city" x="'+(px(c[2])+4).toFixed(1)+'" y="'+(py(c[1])-4).toFixed(1)+'">'+c[0]+'</text></g>').join('');
   const prefs=PREF_LABELS.map(c=>'<text class="pref" x="'+px(c[2]).toFixed(1)+'" y="'+py(c[1]).toFixed(1)+'" text-anchor="middle">'+c[0]+'</text>').join('');
-  $('map-frame').innerHTML='<svg id="map-svg" viewBox="0 0 '+MAP_W.toFixed(0)+' '+MAP_H.toFixed(0)+'" role="img" aria-label="関西の館の位置を示す概略図">'+
-    '<polygon class="land" points="'+poly(COAST)+'"/><polygon class="land" points="'+poly(AWAJI)+'"/><polygon class="lake" points="'+poly(BIWA)+'"/>'+
-    prefs+cities+'<g id="map-dots">'+dots+'</g></svg><div class="map-hover" id="map-hover"></div>';
-  $('legend').innerHTML=Object.keys(CATS).map(c=>'<span style="--c:var(--cat-'+c+')">'+CATS[c]+'</span>').join('');
+  $('map-frame').innerHTML='<svg id="map-svg" viewBox="0 0 '+MAP_W.toFixed(0)+' '+MAP_H.toFixed(0)+'" role="img" aria-label="関西の館の位置を示す地図">'+
+    neigh+land+'<polygon class="lake" points="'+poly(BIWA)+'"/>'+prefs+cities+'<g id="map-dots">'+dots+'</g></svg><div class="map-hover" id="map-hover"></div>';
   const svg=$('map-svg'), hover=$('map-hover'), frame=$('map-frame');
   svg.addEventListener('mousemove',ev=>{const t=ev.target.closest('.pt');if(!t){hover.classList.remove('show');return;}const r=frame.getBoundingClientRect();hover.textContent=BY_ID.get(t.dataset.id).name;hover.style.left=(ev.clientX-r.left)+'px';hover.style.top=(ev.clientY-r.top)+'px';hover.classList.add('show');});
   svg.addEventListener('mouseleave',()=>hover.classList.remove('show'));
   svg.addEventListener('click',ev=>{const t=ev.target.closest('.pt');if(t)openDetail(t.dataset.id);});
 }
 function renderMap(){
-  buildMap();
   $('map-zoom').innerHTML=Object.keys(ZOOMS).map(k=>'<button type="button" class="chip" data-zoom="'+k+'" aria-pressed="'+(state.zoom===k)+'">'+ZOOMS[k].label+'</button>').join('');
-  const z=ZOOMS[state.zoom], x0=px(z.lng[0]), y0=py(z.lat[1]), w=px(z.lng[1])-x0, h=py(z.lat[0])-y0;
+  $('legend').innerHTML=Object.keys(CATS).map(c=>'<span style="--c:var(--cat-'+c+')">'+CATS[c]+'</span>').join('');
+  if(mapMode===null){
+    mapMode='probing'; $('map-frame').innerHTML='<div class="map-loading">地図を読み込んでいます…</div>';
+    probeTiles(ok=>{mapMode=ok?'tiles':'svg'; if(ok) buildLeaflet(); else buildSvg(); applyMap();});
+    return;
+  }
+  if(mapMode==='probing') return;
+  applyMap();
+}
+function applyMap(){
+  const z=ZOOMS[state.zoom];
+  if(mapMode==='tiles'){
+    $('map-note').textContent='地図: OpenStreetMap。点をクリックすると館の情報が開きます。絞り込み条件に合わない館は薄く表示します。';
+    leaflet.map.invalidateSize();
+    if(appliedZoom!==state.zoom){leaflet.map.fitBounds([[z.lat[0],z.lng[0]],[z.lat[1],z.lng[1]]],{padding:[12,12]});appliedZoom=state.zoom;}
+    leaflet.markers.forEach((c,id)=>{const el=c.getElement();if(el)el.classList.toggle('dim',!matches(BY_ID.get(id)));});
+    return;
+  }
+  $('map-note').textContent='概略図（都道府県の輪郭は簡略化）。点をクリックすると詳細が開きます。絞り込み条件に合わない館は薄く表示します。';
+  const x0=px(z.lng[0]), y0=py(z.lat[1]), w=px(z.lng[1])-x0, h=py(z.lat[0])-y0;
   const svg=$('map-svg'); svg.setAttribute('viewBox',x0.toFixed(1)+' '+y0.toFixed(1)+' '+w.toFixed(1)+' '+h.toFixed(1));
   const k=w/MAP_W;
   svg.querySelectorAll('.pt').forEach(el=>{const m=BY_ID.get(el.dataset.id);el.setAttribute('r',((m.pick===3?6.5:5)*Math.max(k,0.38)).toFixed(2));el.classList.toggle('dim',!matches(m));});
   svg.querySelectorAll('.city').forEach(el=>el.setAttribute('font-size',(11*Math.max(k,0.45)).toFixed(1)));
   svg.querySelectorAll('.cityDot').forEach(el=>el.setAttribute('r',(1.8*Math.max(k,0.45)).toFixed(2)));
   svg.querySelectorAll('.pref').forEach(el=>el.setAttribute('font-size',(13*Math.max(k,0.45)).toFixed(1)));
+  svg.querySelectorAll('.pref-land').forEach(el=>el.setAttribute('stroke-width',(1*Math.max(k,0.5)).toFixed(2)));
 }
 
 /* ---------- 詳細パネル ---------- */
 let lastFocus=null;
 function openDetail(id){
   const m=BY_ID.get(id); if(!m) return;
+  if(leaflet&&leaflet.map) leaflet.map.closePopup();
   const st=openStatus(m,today), exs=exFuture(m), cols=COL_BY_M.get(id)||[];
-  const gmaps='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(m.name+' '+m.city);
+  const gmaps=gmapsUrl(m);
   let info='<dt>開館時間</dt><dd>'+esc(m.hours)+'</dd><dt>休館日</dt><dd>'+esc(m.closed)+'</dd>';
   if(m.seasonal) info+='<dt>開館期間</dt><dd>'+esc(m.seasonal)+'</dd>';
   info+='<dt>料金</dt><dd>'+esc(m.fee)+'</dd><dt>アクセス</dt><dd>'+esc(m.access)+'</dd><dt>所要時間</dt><dd>'+esc(m.time)+'の目安</dd>';
