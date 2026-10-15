@@ -81,18 +81,24 @@ function score(anchorText,title){
 function anchors(html,baseUrl){
   const out=[]; const re=/<a\b([^>]*)>([\s\S]*?)<\/a>/gi; let m;
   while((m=re.exec(html))){
-    const attrs=m[1]; const href=(attrs.match(/href\s*=\s*"([^"]*)"|href\s*=\s*'([^']*)'|href\s*=\s*([^\s>]+)/i)||[])[1]||RegExp.$2||RegExp.$3||'';
-    if(!href||/^(javascript:|mailto:|tel:|#$)/i.test(href)) continue;
+    const attrs=m[1]; const hm=attrs.match(/href\s*=\s*"([^"]*)"|href\s*=\s*'([^']*)'|href\s*=\s*([^\s>]+)/i); const href=hm?(hm[1]||hm[2]||hm[3]||'').trim():'';
+    if(!href||/^(javascript:|mailto:|tel:|#)/i.test(href)||/\s|&nbsp;|[\u3000-\u9fff]/.test(href)) continue;
     let abs; try{abs=new URL(href,baseUrl).href;}catch(e){continue;}
+    if(/\s|%E3%80%80/.test(abs)) continue;
     const text=strip(m[2])||decode((attrs.match(/title="([^"]*)"|aria-label="([^"]*)"/i)||[])[1]||'');
     out.push({href:abs,text});
   }
   return out;
 }
+const GENERIC_ID=/^(pan|pankuzu|breadcrumb|main|content|contents|container|wrapper|wrap|header|footer|nav|menu|gnav|side|sidebar|top|page|body|notice|info|info_top|tmp_anchor|tmp_contents|tmp_[a-z_]+|section\d*|area|box|inner|outer|primary|secondary|column|col\d*|list|news|skip|anchor|here)$/i;
 function anchorIdFor(html,title){
-  // タイトルを含む直前の id="..." を探す（一覧ページ内の見出しアンカー）
+  // タイトルの直前（タグ除去後 600 文字以内）にある、展覧会固有らしい id="..." を探す
   const c=core(title); const re=/\bid\s*=\s*"([^"\s]+)"/gi; let m,best=null;
-  while((m=re.exec(html))){ const seg=strip(html.slice(m.index,m.index+6000)); if(norm(seg).includes(c)) best=m[1]; }
+  while((m=re.exec(html))){
+    const id=m[1]; if(GENERIC_ID.test(id)||id.length>40) continue;
+    const seg=norm(strip(html.slice(m.index,m.index+3000))); const at=seg.indexOf(c);
+    if(at>=0&&at<=600) best=id;
+  }
   return best;
 }
 function sameUrl(a,b){try{const x=new URL(a),y=new URL(b);return x.host.replace(/^www\./,'')===y.host.replace(/^www\./,'')&&x.pathname.replace(/\/$/,'')===y.pathname.replace(/\/$/,'');}catch(e){return false;}}
@@ -107,14 +113,21 @@ async function resolveLinks(){
     const m=BY_ID.get(mid); const indexUrl=EX_INDEX_URLS[mid]||m.url;
     const r=await fetchText(indexUrl);
     if(!r.text){say(`- [一覧取得失敗] ${m.name} ${indexUrl} (status ${r.status}${r.error?' '+r.error:''})`);continue;}
-    const as=anchors(r.text,r.url);
+    const as=anchors(r.text,r.url); const anchorUse=new Map();
     for(const e of list){
       let best=null,bs=0;
       for(const a of as){ if(sameUrl(a.href,indexUrl)||sameUrl(a.href,m.url)) continue; const sc=score(a.text,e.title); if(sc>bs){bs=sc;best=a;} }
       if(best&&bs>=0.7){ e.page=best.href; e.kind=/\.pdf(\?|$)/i.test(best.href)?'pdf':'official'; e.autolink=TODAY; resolved++; say(`- [個別ページ] ${m.name}「${e.title}」→ ${best.href}`); continue; }
+      if(e.kind==='listing') continue; // 展覧会情報サイトの個別ページは、公式の個別ページが見つかった時だけ置き換える
       const id=anchorIdFor(r.text,e.title);
-      if(id){ const u=indexUrl.split('#')[0]+'#'+id; if(e.page!==u){ e.page=u; e.kind='official'; e.autolink=TODAY; resolved++; say(`- [ページ内アンカー] ${m.name}「${e.title}」→ ${u}`); } continue; }
-      if(!e.page){ e.page=indexUrl; e.kind='index'; }
+      if(id){ anchorUse.set(id,(anchorUse.get(id)||0)+1); e._anchor=indexUrl.split('#')[0]+'#'+id; }
+      else if(!e.page){ e.page=indexUrl; e.kind='index'; }
+    }
+    for(const e of list){ // 同じ id に複数の展覧会が当たる場合は展覧会固有でないので使わない
+      if(!e._anchor) continue; const id=e._anchor.split('#')[1];
+      if(anchorUse.get(id)===1&&e.page!==e._anchor){ e.page=e._anchor; e.kind='official'; e.autolink=TODAY; resolved++; say(`- [ページ内アンカー] ${m.name}「${e.title}」→ ${e._anchor}`); }
+      else if(!e.page){ e.page=indexUrl; e.kind='index'; }
+      delete e._anchor;
     }
   }
   return resolved;
@@ -148,10 +161,17 @@ async function candidates(){
       const pathLooksLikeEx=/(exhibit|exhibition|planned|special|tenji|tenrankai|kikaku|tokubetsu|sp_evt|event)/i.test(new URL(a.href).pathname);
       if(!pathLooksLikeEx&&!/展|企画|特集/.test(t)) continue;
       if(/^(コレクション|展覧会|企画展示?|特別展|常設展|過去の展覧会|今後の展覧会|開催中の展覧会|展覧会一覧|展示案内|イベント|一覧|もっと見る|詳細|詳しく|english|top|home)$/i.test(t.trim())) continue;
+      if(/^終了|【終了】|カレンダー|本日の催し|講演会|トーク|ワークショップ|ギャラリーツアー|スケジュール|年間|PDF|申込|募集|チケット|アクセス|お知らせ一覧/.test(t)) continue;
+      if(/event-post|calendar|eventlist|\.pdf(\?|$)/i.test(a.href)) continue;
+      { // 会期の終了が今日より前なら除外（例: 2026.07.11～09.06 / 2025.10.25～2026.01.12）
+        const dm=t.match(/(20\d\d)[.\/年](\d{1,2})[.\/月](\d{1,2})日?\s*[~〜～－-]\s*(?:(20\d\d)[.\/年])?(\d{1,2})[.\/月](\d{1,2})/);
+        if(dm){ const ey=dm[4]||dm[1]; const end=ey+'-'+pad(+dm[5])+'-'+pad(+dm[6]); if(end<TODAY) continue; }
+      }
       if(sameUrl(a.href,indexUrl)||sameUrl(a.href,m.url)||/\.(jpg|png|gif|svg)(\?|$)/i.test(a.href)) continue;
       const c=core(t); if(known.has(m.id+'|'+c)) continue;
       if([...known].some(k=>k.startsWith(m.id+'|')&&(k.slice(m.id.length+1).includes(c)||c.includes(k.slice(m.id.length+1))))) continue;
       const key=a.href+'|'+c; if(seen.has(key)) continue; seen.add(key);
+      if(out.filter(x=>x.museum_id===m.id).length>=12) break;
       out.push({museum_id:m.id,museum:m.name,text:t,url:a.href});
     }
   }
