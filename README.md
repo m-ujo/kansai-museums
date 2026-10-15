@@ -45,7 +45,11 @@ kansai-museums/
    - 会期終了から 90 日以上たった展覧会を削除します。
    - 一覧ページ上でまだデータにない展覧会らしきリンクを `research/candidates.json` に書き出します。
    - `index.html` を再生成し、変更があれば main に push します（GitHub Pages が自動で再デプロイ）。
-2. **Claude の定期タスク**（月・木 07:40 JST）が、会期が近く終わる館や展覧会データのない館を中心に、公式サイトの検索結果から新しい展覧会・会期・休館情報を調べて `data-exhibitions.js` に追加し、再ビルドして push します。あわせて `node build.js --artifact` で生成した `artifact.html` を claude.ai の Artifact（https://claude.ai/artifact/NQRBtUq2Qfs2Q6hfkNwqzv ）に publish して、Artifact 版も最新にします（`artifact.html` は .gitignore 済み）。
+2. **Claude の定期タスク**（月・木 07:40 JST）が、会期が近く終わる館や展覧会データのない館を中心に（1回あたり最大25館）、公式サイトの検索結果から新しい展覧会・会期・休館情報を調べて `data-exhibitions.js` に追加し、再ビルドして push します。あわせて `node build.js --artifact` で生成した `artifact.html` を claude.ai の Artifact（https://claude.ai/artifact/NQRBtUq2Qfs2Q6hfkNwqzv ）に publish して、Artifact 版も最新にします（`artifact.html` は .gitignore 済み）。
+   - 仕組み: Claude Code のクラウド環境に「関西ミュージアム手帖 定期更新（専用セッション）」という専用セッションを1つ置き、定期タスクがそのセッションに毎回プロンプトを送ります。発火ごとに新しいセッションを作る方式では、セッションがリポジトリへの push 権限を持てず（`add_repo` ツールも無く）403 で失敗するため、この方式にしています。
+   - 1回の実行は約5分、費用は約1.5ドル（モデル claude-sonnet-5-5）。同じセッションで会話が続くため、実行のたびに文脈が約10万トークンずつ増えます。文脈が大きくなると1回あたりの費用も増えるので、2〜3か月に一度を目安に専用セッションを作り直してください。
+   - 作り直し方（Claude Code のチャットで依頼する）: `create_session` で `source_url: https://github.com/m-ujo/bid-monitor` を指定して新しいセッションを作り、その中で `add_repo`（owner m-ujo, repo bid-monitor, access push）と `git push --dry-run` が通ることを確認 → 古い定期タスクを `delete_trigger` で消し、`create_trigger` を `persistent_session_id` に新しいセッション ID、`cron_expression: CRON_TZ=Asia/Tokyo 40 7 * * 1,4`、同じプロンプトで作り直す（`update_trigger` では紐づけ先のセッションを変えられません）。
+   - 実行結果は専用セッションの最終報告（追加した展覧会、要確認の項目、push と Artifact の成否）で確認できます。Artifact だけ更新されてリポジトリが更新されていない、またはその逆の場合は、`data-exhibitions.js` を正として再ビルド・再 publish してそろえてください。
 
 手動で実行する場合: `cd kansai-museums && node scripts/update-links.js`（インターネット接続が必要）。
 
