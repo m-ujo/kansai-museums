@@ -37,6 +37,18 @@ kansai-museums/
 
 館データの主なフィールド: `closedDays`（休館曜日 0=日〜6=土）、`holidayRule`（祝日は開館）、`closure`（長期休館の説明）、`closedRanges`（臨時休館の期間）、`seasons` / `seasonMonths`（季節開館）、`pick`（1〜3、3は編集部おすすめ）。
 
+## 自動更新（毎週 月・木）
+
+1. **GitHub Actions**（`.github/workflows/kansai-museums-update.yml`、月・木 07:25 JST）が `scripts/update-links.js` を実行します。
+   - 個別ページが未設定の展覧会について、館の展覧会一覧ページ（`EX_INDEX_URLS`）を取得し、タイトルが一致するリンク、または一覧ページ内の id 付き見出しへのアンカー（例: `https://www.sci-museum.jp/event/#pl29139`）を `page` に設定します。
+   - 公式ページのリンク切れ（404）を確認し、切れていれば一覧ページに戻します。
+   - 会期終了から 90 日以上たった展覧会を削除します。
+   - 一覧ページ上でまだデータにない展覧会らしきリンクを `research/candidates.json` に書き出します。
+   - `index.html` を再生成し、変更があれば main に push します（GitHub Pages が自動で再デプロイ）。
+2. **Claude の定期タスク**（月・木 07:40 JST）が、会期が近く終わる館や展覧会データのない館を中心に、公式サイトの検索結果から新しい展覧会・会期・休館情報を調べて `data-exhibitions.js` に追加し、再ビルドして push します。
+
+手動で実行する場合: `cd kansai-museums && node scripts/update-links.js`（インターネット接続が必要）。
+
 ## データについて
 
 - 基準日: 2026年10月15日。展覧会の会期は各館の公式サイトや美術館情報サイトで確認したものですが、変更されることがあります。
