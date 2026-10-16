@@ -1,7 +1,7 @@
 <header class="masthead">
   <div class="wrap">
     <button type="button" class="theme-toggle" id="theme-toggle"></button>
-    <p class="version">ver 1.01</p>
+    <p class="version">ver 1.02</p>
     <p class="eyebrow">大阪・京都・兵庫・奈良・滋賀・和歌山・三重</p>
     <h1>関西ミュージアム手帖</h1>
     <p class="lede">2府5県の美術館・博物館を、編集部の視点で選んで案内する手帖。今日開いている館、会期中の展覧会、テーマ別の特集から行き先を決められます。</p>
@@ -83,6 +83,8 @@
       </div>
     </div>
     <div id="view-saved" role="tabpanel" aria-labelledby="tab-saved" hidden>
+      <p class="result-line"><span>展覧会 <strong id="saved-ex-count"></strong> 件</span><span id="saved-ex-hint"></span></p>
+      <ul class="ex-list saved-ex" id="saved-ex"></ul>
       <p class="result-line"><span><strong id="saved-count"></strong> 館</span><span id="saved-hint"></span></p>
       <div class="grid" id="saved-grid"></div>
     </div>

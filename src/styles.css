@@ -120,6 +120,18 @@ select.sort{border:1px solid var(--line-strong);background:var(--surface);color:
 .fav{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:var(--fg-2);border:0;border-radius:0;padding:2px 0}
 .fav[aria-pressed="true"]{color:var(--warn);border-color:var(--warn)}
 .fav .h::before{content:"♡"}
+.exfav{display:inline-grid;place-items:center;width:28px;height:28px;padding:0;border:0;background:transparent;color:var(--fg-3);font-size:16px;line-height:1;cursor:pointer}
+.exfav:hover{color:var(--warn)}
+.exfav[aria-pressed="true"]{color:var(--warn)}
+.exfav .h::before{content:"♡"}
+.exfav[aria-pressed="true"] .h::before{content:"♥"}
+.tl-label{grid-template-columns:minmax(0,1fr) 28px}
+.tl-label>.tl-m,.tl-label>.tl-t,.tl-label>.tl-d{grid-column:1}
+.tl-label>.exfav{grid-column:2;grid-row:1/4;align-self:center}
+.ex-date .exfav{justify-self:start;margin-left:-6px}
+.bcard-list li{grid-template-columns:auto minmax(0,1fr) 28px}
+.bcard-list li>.exfav{grid-column:3;grid-row:1/3;align-self:center}
+.ex-list.saved-ex{margin-bottom:28px}
 .fav[aria-pressed="true"] .h::before{content:"♥"}
 .empty{border:1px dashed var(--line-strong);border-radius:0;padding:28px 20px;text-align:center;color:var(--fg-2);font-size:14px}
 

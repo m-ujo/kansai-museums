@@ -799,6 +799,18 @@ select.sort{border:1px solid var(--line-strong);background:var(--surface);color:
 .fav{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:var(--fg-2);border:0;border-radius:0;padding:2px 0}
 .fav[aria-pressed="true"]{color:var(--warn);border-color:var(--warn)}
 .fav .h::before{content:"♡"}
+.exfav{display:inline-grid;place-items:center;width:28px;height:28px;padding:0;border:0;background:transparent;color:var(--fg-3);font-size:16px;line-height:1;cursor:pointer}
+.exfav:hover{color:var(--warn)}
+.exfav[aria-pressed="true"]{color:var(--warn)}
+.exfav .h::before{content:"♡"}
+.exfav[aria-pressed="true"] .h::before{content:"♥"}
+.tl-label{grid-template-columns:minmax(0,1fr) 28px}
+.tl-label>.tl-m,.tl-label>.tl-t,.tl-label>.tl-d{grid-column:1}
+.tl-label>.exfav{grid-column:2;grid-row:1/4;align-self:center}
+.ex-date .exfav{justify-self:start;margin-left:-6px}
+.bcard-list li{grid-template-columns:auto minmax(0,1fr) 28px}
+.bcard-list li>.exfav{grid-column:3;grid-row:1/3;align-self:center}
+.ex-list.saved-ex{margin-bottom:28px}
 .fav[aria-pressed="true"] .h::before{content:"♥"}
 .empty{border:1px dashed var(--line-strong);border-radius:0;padding:28px 20px;text-align:center;color:var(--fg-2);font-size:14px}
 
@@ -1009,7 +1021,7 @@ a.tl-bar{display:block}
 <header class="masthead">
   <div class="wrap">
     <button type="button" class="theme-toggle" id="theme-toggle"></button>
-    <p class="version">ver 1.01</p>
+    <p class="version">ver 1.02</p>
     <p class="eyebrow">大阪・京都・兵庫・奈良・滋賀・和歌山・三重</p>
     <h1>関西ミュージアム手帖</h1>
     <p class="lede">2府5県の美術館・博物館を、編集部の視点で選んで案内する手帖。今日開いている館、会期中の展覧会、テーマ別の特集から行き先を決められます。</p>
@@ -1091,6 +1103,8 @@ a.tl-bar{display:block}
       </div>
     </div>
     <div id="view-saved" role="tabpanel" aria-labelledby="tab-saved" hidden>
+      <p class="result-line"><span>展覧会 <strong id="saved-ex-count"></strong> 件</span><span id="saved-ex-hint"></span></p>
+      <ul class="ex-list saved-ex" id="saved-ex"></ul>
       <p class="result-line"><span><strong id="saved-count"></strong> 館</span><span id="saved-hint"></span></p>
       <div class="grid" id="saved-grid"></div>
     </div>
@@ -2075,7 +2089,7 @@ function exLive(m){return (EX_BY_M.get(m.id)||[]).filter(e=>{const c=exStatus(e)
 function exFuture(m){return (EX_BY_M.get(m.id)||[]).filter(e=>exStatus(e).code!=='ended').sort((a,b)=>a.start.localeCompare(b.start));}
 
 /* ---------- 状態 ---------- */
-const state={tab:'list',q:'',prefs:new Set(),cats:new Set(),tags:new Set(),openToday:false,hasEx:false,sort:'pick',exFilter:'open',exView:'timeline',favs:new Set(),railOpen:false,zoom:'all'};
+const state={tab:'list',q:'',prefs:new Set(),cats:new Set(),tags:new Set(),openToday:false,hasEx:false,sort:'pick',exFilter:'open',exView:'timeline',favs:new Set(),exFavs:new Set(),railOpen:false,zoom:'all'};
 // 明暗の切り替え（右上のボタン）。選んだ方を保存し、未選択なら端末の設定に従う
 const THEME_ICON={light:'<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2.2M10 16v2.2M1.8 10H4M16 10h2.2M4.2 4.2l1.6 1.6M14.2 14.2l1.6 1.6M4.2 15.8l1.6-1.6M14.2 5.8l1.6-1.6"/></svg>',dark:'<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16.2 12.6A6.6 6.6 0 0 1 7.4 3.8a6.6 6.6 0 1 0 8.8 8.8z"/></svg>'};
 function currentTheme(){const t=document.documentElement.dataset.theme;if(t==='light'||t==='dark')return t;return window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
@@ -2094,6 +2108,14 @@ function toggleTheme(){
 function loadFavs(){try{const a=JSON.parse(localStorage.getItem('kmt.favs')||'[]');if(Array.isArray(a))a.forEach(id=>{if(BY_ID.has(id))state.favs.add(id);});}catch(e){}}
 function saveFavs(){try{localStorage.setItem('kmt.favs',JSON.stringify([...state.favs]));}catch(e){}}
 loadFavs();
+// 展覧会の「行きたい」。館IDと展覧会名の組で覚える（データからなくなった展覧会は読み込み時に落とす）
+const exKey=e=>e.m+'|'+e.title;
+const EX_IDX=new Map(EXHIBITIONS.map((e,i)=>[e,i]));
+function loadExFavs(){try{const a=JSON.parse(localStorage.getItem('kmt.exfavs')||'[]');const keys=new Set(EXHIBITIONS.map(exKey));if(Array.isArray(a))a.forEach(k=>{if(keys.has(k))state.exFavs.add(k);});}catch(e){}}
+function saveExFavs(){try{localStorage.setItem('kmt.exfavs',JSON.stringify([...state.exFavs]));}catch(e){}}
+loadExFavs();
+function exHeart(e){const on=state.exFavs.has(exKey(e));return '<button type="button" class="exfav" data-exfav="'+EX_IDX.get(e)+'" aria-pressed="'+on+'" aria-label="行きたい: '+esc(e.title)+'" title="行きたい"><span class="h"></span></button>';}
+function favCount(){return state.favs.size+state.exFavs.size;}
 
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -2174,18 +2196,22 @@ function renderList(){
   $('list-grid').innerHTML=list.length?list.map(card).join(''):'<div class="empty">条件に合う館がありません。条件を減らしてみてください。</div>';
 }
 function renderSaved(){
+  const exs=EXHIBITIONS.filter(e=>state.exFavs.has(exKey(e))).sort((a,b)=>{const ea=exStatus(a).code==='ended',eb=exStatus(b).code==='ended';if(ea!==eb)return ea?1:-1;return a.end.localeCompare(b.end);});
+  $('saved-ex-count').textContent=exs.length;
+  $('saved-ex-hint').textContent=exs.length?'会期終了が近い順':'';
+  $('saved-ex').innerHTML=exs.length?exs.map(e=>exRow(e,true)).join(''):'<li class="empty" style="border:0">まだありません。展覧会の ♡ で、気になる展覧会をここに集められます。</li>';
   const list=sortList(MUSEUMS.filter(m=>state.favs.has(m.id)));
   $('saved-count').textContent=list.length;
   const openN=list.filter(m=>openStatus(m,today).code==='open').length;
   $('saved-hint').textContent=list.length?('うち本日開館 '+openN+'館。この端末のブラウザに保存されます'):'';
-  $('saved-grid').innerHTML=list.length?list.map(card).join(''):'<div class="empty">まだありません。カードの「♡ 行きたい」で、気になる館をここに集められます。</div>';
+  $('saved-grid').innerHTML=list.length?list.map(card).join(''):'<div class="empty">まだありません。館のカードの「♡ 行きたい」で、気になる館をここに集められます。</div>';
 }
 
 /* ---------- 描画: 展覧会 ---------- */
 function exRow(e,withMuseum){
   const m=BY_ID.get(e.m), st=exStatus(e);
   return '<li class="ex-row">'+
-    '<div class="ex-date"><span class="d">'+fmtD(e.start)+' – '+fmtD(e.end)+'</span><span class="ex-badge '+st.code+'">'+st.label+'</span></div>'+
+    '<div class="ex-date"><span class="d">'+fmtD(e.start)+' – '+fmtD(e.end)+'</span><span class="ex-badge '+st.code+'">'+st.label+'</span>'+exHeart(e)+'</div>'+
     '<div class="ex-main"><h3 class="ex-title">'+exTitle(e)+'</h3>'+
     (withMuseum?'<div class="ex-museum"><button type="button" data-open="'+m.id+'">'+esc(m.name)+'</button><span style="color:var(--fg-3)">　'+esc(m.pref)+'・'+esc(m.area)+'</span></div>':'')+
     (e.note?'<p class="ex-note">'+esc(e.note)+'</p>':'')+
@@ -2245,7 +2271,7 @@ function renderTimeline(list){
       const l=pos(s), r=pos(e); const cutL=s<rangeStart, cutR=e>rangeEnd;
       const cls='tl-bar '+x.st.code+(cutL?' cut-l':'')+(cutR?' cut-r':'');
       const label=x.st.code==='upcoming'?fmtShort(x.e.start)+'から':x.st.code==='ending'?x.st.label:fmtShort(x.e.end)+'まで';
-      rows+='<div class="tl-row"><div class="tl-label"><button type="button" class="tl-m" data-open="'+m.id+'">'+esc(m.name)+'</button><span class="tl-t" title="'+esc(x.e.title)+'">'+exTitle(x.e,'tl-link')+'</span><span class="tl-d">'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'</span></div>'+
+      rows+='<div class="tl-row"><div class="tl-label"><button type="button" class="tl-m" data-open="'+m.id+'">'+esc(m.name)+'</button><span class="tl-t" title="'+esc(x.e.title)+'">'+exTitle(x.e,'tl-link')+'</span><span class="tl-d">'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'</span>'+exHeart(x.e)+'</div>'+
         '<div class="tl-track"><a class="'+cls+'" href="'+esc(exHref(x.e))+'" target="_blank" rel="noopener" style="left:'+l.toFixed(2)+'%;width:'+Math.max(0.6,r-l).toFixed(2)+'%" title="'+esc(x.e.title)+'　'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'"><span class="visually-hidden">'+esc(x.e.title)+'</span></a>'+
         (r<97?'<span class="tl-end" style="left:'+r.toFixed(2)+'%">'+esc(label)+'</span>':'')+'</div></div>';
     }
@@ -2264,7 +2290,7 @@ function renderBoard(list){
       const st=openStatus(m,today);
       const exs=byM.get(m.id).sort((a,b)=>a.e.start.localeCompare(b.e.start));
       html+='<article class="bcard"><div class="bcard-head"><div><button type="button" class="bcard-name" data-open="'+m.id+'">'+esc(m.name)+'</button><div class="bcard-where">'+esc(m.area)+' ・ '+esc(m.hours)+'</div></div><span class="pill '+st.code+'">'+st.label+'</span></div><ul class="bcard-list">'+
-        exs.map(x=>'<li><span class="ex-badge '+x.st.code+'">'+x.st.label+'</span><span class="bcard-t">'+exTitle(x.e)+'</span><span class="bcard-d">'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'</span></li>').join('')+'</ul></article>';
+        exs.map(x=>'<li><span class="ex-badge '+x.st.code+'">'+x.st.label+'</span><span class="bcard-t">'+exTitle(x.e)+'</span><span class="bcard-d">'+fmtShort(x.e.start)+'–'+fmtShort(x.e.end)+'</span>'+exHeart(x.e)+'</li>').join('')+'</ul></article>';
     }
     html+='</div></section>';
   }
@@ -2478,7 +2504,15 @@ function toggleFav(id){
   if(state.favs.has(id)) state.favs.delete(id); else state.favs.add(id);
   saveFavs();
   document.querySelectorAll('[data-fav="'+id+'"]').forEach(b=>b.setAttribute('aria-pressed',String(state.favs.has(id))));
-  $('cnt-saved').textContent=state.favs.size?'('+state.favs.size+')':'';
+  $('cnt-saved').textContent=favCount()?'('+favCount()+')':'';
+  if(state.tab==='saved') renderSaved();
+}
+function toggleExFav(i){
+  const e=EXHIBITIONS[+i]; if(!e) return; const k=exKey(e);
+  if(state.exFavs.has(k)) state.exFavs.delete(k); else state.exFavs.add(k);
+  saveExFavs();
+  document.querySelectorAll('[data-exfav="'+i+'"]').forEach(b=>b.setAttribute('aria-pressed',String(state.exFavs.has(k))));
+  $('cnt-saved').textContent=favCount()?'('+favCount()+')':'';
   if(state.tab==='saved') renderSaved();
 }
 function renderTodayLine(){
@@ -2513,6 +2547,7 @@ document.addEventListener('click',ev=>{
   const t=ev.target.closest('button,a'); if(!t) return;
   if(t.dataset.open){openDetail(t.dataset.open);return;}
   if(t.dataset.fav){toggleFav(t.dataset.fav);return;}
+  if(t.dataset.exfav!==undefined){toggleExFav(t.dataset.exfav);return;}
   if(t.dataset.col){closeDetail();setTab('collections');const el=$('col-'+t.dataset.col);if(el)el.scrollIntoView({block:'start'});return;}
   if(t.dataset.tab){setTab(t.dataset.tab);return;}
   if(t.dataset.group){
@@ -2545,7 +2580,7 @@ $('data-asof').textContent=DATA_ASOF.replace(/-/g,'年').replace('年','年').re
 $('cnt-list').textContent='('+MUSEUMS.length+')';
 $('cnt-exhibitions').textContent='('+EXHIBITIONS.filter(e=>exStatus(e).code!=='ended').length+')';
 $('cnt-collections').textContent='('+COLLECTIONS.length+')';
-$('cnt-saved').textContent=state.favs.size?'('+state.favs.size+')':'';
+$('cnt-saved').textContent=favCount()?'('+favCount()+')':'';
 renderTodayLine(); renderRail(); syncRail();
 setTab((location.hash||'#list').slice(1),false);
 window.KMT={openStatus:openStatus,exStatus:exStatus,MUSEUMS:MUSEUMS,EXHIBITIONS:EXHIBITIONS};
