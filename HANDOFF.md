@@ -6,9 +6,8 @@
 
 ```bash
 # 初回だけ（すでにクローンがあれば clone は不要）
-git clone https://github.com/m-ujo/bid-monitor.git
-cd bid-monitor
-git switch main          # origin に古い kansai-museums ブランチが残っているが使わない
+git clone https://github.com/m-ujo/kansai-museums.git ~/kansai-museums
+cd ~/kansai-museums
 git pull origin main
 node -v                  # 18 以上。無ければ brew install node
 claude
@@ -16,7 +15,7 @@ claude
 
 最初のメッセージの例:
 
-> kansai-museums/HANDOFF.md と kansai-museums/README.md を読んで、「4. 次にやること」の1から進めて。
+> HANDOFF.md と README.md を読んで、「4. 次にやること」の1から進めて。
 
 - iPhone からも操作したい場合は、Mac のセッションで `/remote-control` を実行する。Mac をスリープさせないこと（蓋を閉じない。必要なら別のターミナルで `caffeinate -i`）。
 - 前のクラウドのセッション（`session_01V284jhcGHnP9bUQczbWovK`）は会話が長いので、引き継がずに新しく始める方針。会話ごと移したい場合は、Mac のこのフォルダで `claude --teleport session_01V284jhcGHnP9bUQczbWovK`。
@@ -25,7 +24,7 @@ claude
 
 | 項目 | 内容 |
 |---|---|
-| 公開ページ | https://m-ujo.github.io/bid-monitor/kansai-museums/ （main の `kansai-museums/index.html` を GitHub Pages が配信） |
+| 公開ページ | https://m-ujo.github.io/kansai-museums/ （リポジトリ m-ujo/kansai-museums の main の `index.html` を GitHub Pages が配信。2026-10-16 に bid-monitor から独立。旧 URL https://m-ujo.github.io/bid-monitor/kansai-museums/ は新 URL への移転案内） |
 | claude.ai の Artifact 版 | https://claude.ai/artifact/NQRBtUq2Qfs2Q6hfkNwqzv （`node build.js --artifact` で作る `artifact.html` を publish。`artifact.html` はコミットしない） |
 | 館 | 132館（大阪・京都・兵庫・奈良・滋賀・和歌山・三重） |
 | 展覧会 | 174件（すべて会期中か開催予定）。リンク先は official 137 / index 24 / news 6 / listing 6 / pdf 1 |
@@ -48,9 +47,9 @@ claude
 
 | 時刻（JST） | 何が | 内容 |
 |---|---|---|
-| 月・木 06:40 | GitHub Actions `kansai-museums-update.yml` | `scripts/update-links.js`。館の一覧ページを取得して個別ページのリンクを自動設定、リンク切れの確認、終了90日後の削除、未登録候補を `research/candidates.json` に書き出し。変化があれば main に push |
+| 月・木 06:40 | GitHub Actions `.github/workflows/update.yml` | `scripts/update-links.js`。館の一覧ページを取得して個別ページのリンクを自動設定、リンク切れの確認、終了90日後の削除、未登録候補を `research/candidates.json` に書き出し。変化があれば main に push |
 | 月・木 07:40 | Claude の定期タスク | 新しい展覧会を調べて追加し、push と Artifact の publish まで行う（下の補足） |
-| 月・木 09:30 | GitHub Actions `kansai-museums-check.yml` | `DATA_ASOF` が当日でなければ失敗にする。失敗すると GitHub から通知メールが届く |
+| 月・木 09:30 | GitHub Actions `.github/workflows/check.yml` | `DATA_ASOF` が当日でなければ失敗にする。失敗すると GitHub から通知メールが届く |
 
 - **3つとも、定期の時刻ではまだ一度も動いていない。** 10/15 の実行はすべて手動か試し実行で、更新チェックは一度も実行していない。初回は 10/19（月）。当日の 09:30 以降に、Actions の2件の結果と専用セッションの最終報告を確かめる。
 
@@ -73,7 +72,7 @@ Claude の定期タスクの補足:
 元の19行は次で出せる（下の表のタイトルは短くしてある）。いまの値は、そのタイトルで `src/data-exhibitions.js` を探して確かめる。
 
 ```bash
-git show 6cab9ac c45ec55 -- kansai-museums/src/data-exhibitions.js | grep '^+{'
+git show 6cab9ac c45ec55 -- src/data-exhibitions.js  # 独立前のコミット ID。新リポジトリでは ID が変わっている | grep '^+{'
 ```
 
 | 館ID | 展覧会 | 会期 | 確度 | リンク |
@@ -103,7 +102,7 @@ git show 6cab9ac c45ec55 -- kansai-museums/src/data-exhibitions.js | grep '^+{'
 - **ページは原文で見る:** `curl -sL <URL>` で取得して、会期とタイトルを原文の文字で照合する。WebFetch は小さなモデルの要約なので、日付の細部を取り違えることがある。本文が JavaScript で描かれていて取れないページは、Playwright で開くかユーザーに見てもらう。
 - **その展覧会のページか:** 同じ URL を複数の展覧会が `official` で使っていたら、年間予定のページの可能性が高い（genji の3件がそう。ほかに saiku・kuwana・norinaga にもある）。展覧会ごとのページが無ければ `kind` を `index` にする。
 - **展覧会と呼べるか:** heijo の「サクッと知りたい平城宮跡」は短い解説イベントの可能性がある。bunpaku の「田能村直入と近代京都の南画」は特別展ではなく総合展示で、調べたサブエージェントも載せるかの判断を求めていた。
-- **Codex に確かめさせる:** `-s read-only` の Codex はネットに出られない。Claude が `curl` で取ったページをリポジトリの外（例: `~/kmt-check/`）に保存し、それを Codex に渡して照合させる。例: `codex exec -C ~/kmt-check --skip-git-repo-check -s read-only "保存したページと、bid-monitor/kansai-museums/src/data-exhibitions.js の該当行を照合し、タイトル・会期・URL の食い違いを一覧にして"`。
+- **Codex に確かめさせる:** `-s read-only` の Codex はネットに出られない。Claude が `curl` で取ったページをリポジトリの外（例: `~/kmt-check/`）に保存し、それを Codex に渡して照合させる。例: `codex exec -C ~/kmt-check --skip-git-repo-check -s read-only "保存したページと、kansai-museums/src/data-exhibitions.js の該当行を照合し、タイトル・会期・URL の食い違いを一覧にして"`。
 
 サブエージェントが書き残していた手がかり:
 
@@ -115,7 +114,7 @@ git show 6cab9ac c45ec55 -- kansai-museums/src/data-exhibitions.js | grep '^+{'
 
 ### 2. 確度 medium の34件を公式サイトで確かめる
 
-検索結果だけで登録したものが多い。公式ページで確認できたら `conf` を `high` にし、`src` もそのページの URL にする。違っていれば直す。一覧は `kansai-museums` で次を実行すると出る。
+検索結果だけで登録したものが多い。公式ページで確認できたら `conf` を `high` にし、`src` もそのページの URL にする。違っていれば直す。一覧はリポジトリ直下で次を実行すると出る。
 
 ```bash
 node -e "const fs=require('fs');const ex=new Function(fs.readFileSync('src/data-exhibitions.js','utf8')+';return EXHIBITIONS')();for(const e of ex.filter(e=>e.conf==='medium'))console.log(e.m,'|',e.title,'|',e.start,'~',e.end,'|',e.page||'-')"
@@ -163,7 +162,7 @@ node -e "const fs=require('fs');const ex=new Function(fs.readFileSync('src/data-
 
 ### 5. 展覧会が未登録の46館
 
-46館のうち40館は、定期タスクがまだ調べていない（`research/checked.json` に記録なし）。10/19 と 10/22 の実行で順に回る見込み。調べて0件だった館は28日間は対象から外れる。その結果を見てから、0件の館を Mac で公式サイトから直接調べると早い。46館の一覧は `kansai-museums` で次を実行すると出る（`select-targets.js` は最近0件だった館を飛ばすので使わない）。
+46館のうち40館は、定期タスクがまだ調べていない（`research/checked.json` に記録なし）。10/19 と 10/22 の実行で順に回る見込み。調べて0件だった館は28日間は対象から外れる。その結果を見てから、0件の館を Mac で公式サイトから直接調べると早い。46館の一覧はリポジトリ直下で次を実行すると出る（`select-targets.js` は最近0件だった館を飛ばすので使わない）。
 
 ```bash
 node -e "const fs=require('fs');const S=p=>fs.readFileSync('src/'+p,'utf8');const F=['osaka','kyoto','hyogo','nara','shiga','wakayama','mie'];const M=new Function(F.map(f=>S('data-'+f+'.js')).join('\n')+';return [].concat('+F.map(f=>'MUSEUMS_'+f.toUpperCase()).join(',')+')')();const [ex,ix]=new Function(S('data-exhibitions.js')+';return [EXHIBITIONS,EX_INDEX_URLS]')();const t=new Date().toISOString().slice(0,10);const has=new Set(ex.filter(e=>e.end>=t).map(e=>e.m));for(const m of M){if(m.closure||has.has(m.id))continue;console.log(m.id,'|',m.name,'|',ix[m.id]||m.url)}"

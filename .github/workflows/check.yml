@@ -1,0 +1,28 @@
+name: 関西ミュージアム手帖 更新チェック
+
+# 毎週 月・木 09:30 JST（= 00:30 UTC）に、Claude の定期タスク（07:40 JST）がその日のうちに push したかを確かめる。
+# 定期タスクは追加が 0 件でも src/app.js の DATA_ASOF を当日に更新して push するので、DATA_ASOF が今日でなければ失敗にする
+# （失敗すると GitHub から通知メールが届く）。定期タスクを止めるときは、このワークフローも止めること。
+on:
+  schedule:
+    - cron: '30 0 * * 1,4'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: DATA_ASOF が今日（JST）か
+        run: |
+          today=$(TZ=Asia/Tokyo date +%Y-%m-%d)
+          asof=$(grep -o "DATA_ASOF='[0-9-]*'" src/app.js | cut -d"'" -f2)
+          echo "DATA_ASOF=$asof today=$today"
+          if [ "$asof" != "$today" ]; then
+            echo "::error::Claude の定期タスクが今日 push していません（DATA_ASOF=$asof）。専用セッションの最終報告と定期タスクの状態を確認してください。"
+            exit 1
+          fi

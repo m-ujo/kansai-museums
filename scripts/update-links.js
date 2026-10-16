@@ -5,7 +5,7 @@
 //  2. 設定済みの公式ページがリンク切れ（404/410）になっていないか確認し、切れていれば一覧ページに戻す
 //  3. 会期終了から 90 日以上たった展覧会を削除する
 //  4. 一覧ページ上の「まだデータにない展覧会らしきリンク」を research/candidates.json に書き出す（新規追加の手がかり）
-// 使い方: node scripts/update-links.js            （kansai-museums ディレクトリで実行）
+// 使い方: node scripts/update-links.js            （リポジトリ直下で実行）
 //        KMT_FIXTURES=dir node scripts/update-links.js   （テスト用: dir/<館ID>.html を一覧ページの代わりに読む）
 'use strict';
 const fs=require('fs'),path=require('path');
@@ -22,7 +22,7 @@ const today=new Date(); const pad=n=>String(n).padStart(2,'0'); const TODAY=toda
 const log=[]; const say=s=>{log.push(s);console.log(s);};
 
 /* ---------- 取得 ---------- */
-const UA='Mozilla/5.0 (compatible; kansai-museums-link-bot/1.0; +https://m-ujo.github.io/bid-monitor/kansai-museums/)';
+const UA='Mozilla/5.0 (compatible; kansai-museums-link-bot/1.0; +https://m-ujo.github.io/kansai-museums/)';
 const DEADLINE=Date.now()+8*60*1000; // ネットワーク処理全体の上限（8分）
 const overBudget=()=>Date.now()>DEADLINE;
 const cache=new Map();

@@ -1,0 +1,41 @@
+name: 関西ミュージアム手帖 リンク更新
+
+# 毎週 月・木 06:40 JST（= 日・水 21:40 UTC）に、各館の展覧会一覧ページから個別ページのリンクを解決し、
+# リンク切れを確認して index.html を再生成、変更があれば main に push する（GitHub Pages が自動で再デプロイ）。
+# Claude の定期タスク（07:40 JST）の 1 時間前に終えて、同じ日の push が衝突しないようにしている。
+on:
+  schedule:
+    - cron: '40 21 * * 0,3'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kansai-museums-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: 展覧会リンクの解決と再ビルド
+        run: node scripts/update-links.js
+      - name: コミットと push
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "変更なし"; exit 0
+          fi
+          git config user.name "kansai-museums-bot"
+          git config user.email "bot@hinotori-works.com"
+          git add -A
+          git commit -m "auto update: $(TZ=Asia/Tokyo date +%Y-%m-%d) 関西ミュージアム手帖（リンク）"
+          git pull --rebase origin main
+          git push origin HEAD:main

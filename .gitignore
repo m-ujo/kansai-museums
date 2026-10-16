@@ -1,0 +1,2 @@
+# claude.ai の Artifact 用に生成する一時ファイル（定期タスクが publish に使う。コミットしない）
+artifact.html

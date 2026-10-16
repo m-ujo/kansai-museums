@@ -16,7 +16,7 @@
 ## 構成
 
 ```
-kansai-museums/
+kansai-museums/        （リポジトリ m-ujo/kansai-museums の直下）
 ├── index.html          生成物（これだけで動く）
 ├── build.js            src/ を結合して index.html を生成
 └── src/
@@ -39,7 +39,7 @@ kansai-museums/
 
 ## 自動更新（毎週 月・木）
 
-1. **GitHub Actions**（`.github/workflows/kansai-museums-update.yml`、月・木 06:40 JST）が `scripts/update-links.js` を実行します。
+1. **GitHub Actions**（`.github/workflows/update.yml`、月・木 06:40 JST）が `scripts/update-links.js` を実行します。
    - 個別ページが未設定の展覧会について、館の展覧会一覧ページ（`EX_INDEX_URLS`）を取得し、タイトルが一致するリンク、または一覧ページ内の id 付き見出しへのアンカー（例: `https://www.sci-museum.jp/event/#pl29139`）を `page` に設定します。
    - 公式ページのリンク切れ（404）を確認し、切れていれば一覧ページに戻します。
    - 会期終了から 90 日以上たった展覧会を削除します。
@@ -50,11 +50,11 @@ kansai-museums/
    - 館の選び方: 会期が 21 日以内に終わり次の展覧会が未登録の館 → `candidates.json` に候補がある館 → 展覧会が未登録の館の順。`research/checked.json`（館ごとの最終調査日と見つけた件数）で、最近調べた館は後回しにし、28 日以内に調べて 0 件だった館は飛ばします。
    - 仕組み: Claude Code のクラウド環境に「関西ミュージアム手帖 定期更新（専用セッション）」という専用セッションを1つ置き、定期タスクがそのセッションに毎回プロンプトを送ります。発火ごとに新しいセッションを作る方式では、セッションがリポジトリへの push 権限を持てず（`add_repo` ツールも無く）403 で失敗するため、この方式にしています。
    - 費用の目安: 1回あたり 2 ドル前後（モデル claude-sonnet-5-5。試し実行では 1.3〜2.3 ドル）。同じセッションで会話が続くため文脈が少しずつ増え、1回あたりの費用も増えます。`get_session` の context_usage が 70 万トークンを超えたら（目安は 2〜3 か月に一度）専用セッションを作り直してください。
-   - 作り直し方（Claude Code のチャットで依頼する）: `create_session` で `source_url: https://github.com/m-ujo/bid-monitor` を指定して新しいセッションを作り、その中で `add_repo`（owner m-ujo, repo bid-monitor, access push）と `git push --dry-run` が通ることを確認 → 古い定期タスクを `delete_trigger` で消し、`create_trigger` を `persistent_session_id` に新しいセッション ID、`cron_expression: CRON_TZ=Asia/Tokyo 40 7 * * 1,4`、同じプロンプトで作り直す（`update_trigger` では紐づけ先のセッションを変えられません）。
+   - 作り直し方（Claude Code のチャットで依頼する）: `create_session` で `source_url: https://github.com/m-ujo/kansai-museums` を指定して新しいセッションを作り、その中で `add_repo`（owner m-ujo, repo kansai-museums, access push）と `git push --dry-run` が通ることを確認 → 古い定期タスクを `delete_trigger` で消し、`create_trigger` を `persistent_session_id` に新しいセッション ID、`cron_expression: CRON_TZ=Asia/Tokyo 40 7 * * 1,4`、同じプロンプトで作り直す（`update_trigger` では紐づけ先のセッションを変えられません）。
    - 実行結果は専用セッションの最終報告（追加した展覧会、要確認の項目、push と Artifact の成否）で確認できます。Artifact だけ更新されてリポジトリが更新されていない、またはその逆の場合は、`data-exhibitions.js` を正として再ビルド・再 publish してそろえてください。
-3. **更新チェック**（`.github/workflows/kansai-museums-check.yml`、月・木 09:30 JST）が、`DATA_ASOF` が当日に更新されているかを確かめ、されていなければ失敗します（GitHub から通知メールが届きます）。定期タスクを止めるときは、このワークフローも止めてください。
+3. **更新チェック**（`.github/workflows/check.yml`、月・木 09:30 JST）が、`DATA_ASOF` が当日に更新されているかを確かめ、されていなければ失敗します（GitHub から通知メールが届きます）。定期タスクを止めるときは、このワークフローも止めてください。
 
-手動で実行する場合: `cd kansai-museums && node scripts/update-links.js`（インターネット接続が必要）。
+手動で実行する場合: リポジトリ直下で `node scripts/update-links.js`（インターネット接続が必要）。
 
 ## データについて
 
