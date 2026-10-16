@@ -298,9 +298,9 @@ a.tl-bar{display:block}
 .mpop-actions{display:flex;gap:6px;margin-top:4px}
 .mpop-actions .btn{padding:5px 11px;font-size:12.5px}
 .mpop-actions a.btn{color:var(--fg)}
-:root{--tile-filter:grayscale(1) sepia(.15) contrast(.62) brightness(1.2)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--tile-filter:invert(1) hue-rotate(180deg) grayscale(1) brightness(.72) contrast(.85)}}
-:root[data-theme="dark"]{--tile-filter:invert(1) hue-rotate(180deg) grayscale(1) brightness(.72) contrast(.85)}
+:root{--tile-filter:url(#tile-tone) sepia(.15) contrast(.62) brightness(1.2)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--tile-filter:url(#tile-tone) invert(1) brightness(.72) contrast(.85)}}
+:root[data-theme="dark"]{--tile-filter:url(#tile-tone) invert(1) brightness(.72) contrast(.85)}
 .leaflet-tile-pane{filter:var(--tile-filter)}
 .map-locate a{display:flex;align-items:center;justify-content:center;color:#1d1d1b}
 .map-locate a.busy svg{animation:locate-pulse 1s ease-in-out infinite}

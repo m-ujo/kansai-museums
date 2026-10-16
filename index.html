@@ -977,9 +977,9 @@ a.tl-bar{display:block}
 .mpop-actions{display:flex;gap:6px;margin-top:4px}
 .mpop-actions .btn{padding:5px 11px;font-size:12.5px}
 .mpop-actions a.btn{color:var(--fg)}
-:root{--tile-filter:grayscale(1) sepia(.15) contrast(.62) brightness(1.2)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--tile-filter:invert(1) hue-rotate(180deg) grayscale(1) brightness(.72) contrast(.85)}}
-:root[data-theme="dark"]{--tile-filter:invert(1) hue-rotate(180deg) grayscale(1) brightness(.72) contrast(.85)}
+:root{--tile-filter:url(#tile-tone) sepia(.15) contrast(.62) brightness(1.2)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--tile-filter:url(#tile-tone) invert(1) brightness(.72) contrast(.85)}}
+:root[data-theme="dark"]{--tile-filter:url(#tile-tone) invert(1) brightness(.72) contrast(.85)}
 .leaflet-tile-pane{filter:var(--tile-filter)}
 .map-locate a{display:flex;align-items:center;justify-content:center;color:#1d1d1b}
 .map-locate a.busy svg{animation:locate-pulse 1s ease-in-out infinite}
@@ -1005,6 +1005,8 @@ a.tl-bar{display:block}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 </head>
 <body>
+<!-- 地図タイルを灰色にする計算式。海・海上の境界線・航路が同じ灰色になるよう、赤緑青の混ぜ方を調整 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="tile-tone" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0.9317 -0.4345 0.5028 0 0 0.9317 -0.4345 0.5028 0 0 0.9317 -0.4345 0.5028 0 0 0 0 0 1 0"/></filter></svg>
 <header class="masthead">
   <div class="wrap">
     <button type="button" class="theme-toggle" id="theme-toggle"></button>
