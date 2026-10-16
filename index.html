@@ -2316,9 +2316,9 @@ function buildLeaflet(){
   leaflet={map,markers};
 }
 // 地図タイルを読み込んだ時点で灰色にする（CSS の SVG フィルターは iPhone の Safari で効かないため）。
-// 海(170,211,223)・海上の境界線(167,171,194)・航路(142,166,236) が同じ灰色になる赤緑青の配分。
+// 陸はふつうの灰色（明るさ）にし、海と同じ青系の色（海・海上の境界線・航路・川や湖）は海の灰色1色で塗る。
 // 紙色・明暗・コントラストは CSS の --tile-filter で付ける。
-const TONE=[0.9317,-0.4345,0.5028];
+const SEA_GRAY=245;
 const ToneTileLayer=window.L?L.TileLayer.extend({createTile(coords,done){
   const canvas=document.createElement('canvas'); canvas.width=canvas.height=256;
   const img=new Image(); img.crossOrigin='anonymous';
@@ -2326,7 +2326,7 @@ const ToneTileLayer=window.L?L.TileLayer.extend({createTile(coords,done){
     const ctx=canvas.getContext('2d'); ctx.drawImage(img,0,0,256,256);
     try{
       const im=ctx.getImageData(0,0,256,256), d=im.data;
-      for(let i=0;i<d.length;i+=4){const v=TONE[0]*d[i]+TONE[1]*d[i+1]+TONE[2]*d[i+2];d[i]=d[i+1]=d[i+2]=v<0?0:v>255?255:v;}
+      for(let i=0;i<d.length;i+=4){const R=d[i],G=d[i+1],B=d[i+2];d[i]=d[i+1]=d[i+2]=(B-R>=20&&B>=G-8)?SEA_GRAY:0.299*R+0.587*G+0.114*B;}
       ctx.putImageData(im,0,0);
     }catch(e){ctx.filter='grayscale(1)';ctx.drawImage(img,0,0,256,256);}
     done(null,canvas);
