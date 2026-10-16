@@ -20,6 +20,9 @@
 - `src/` を編集して `node build.js` で `index.html` を作り直す。`src/` と `index.html` を一緒にコミットする。
 - 表示の確認は Chrome headless で行う（承認の要るブラウザペインは使わない）。自動チェックは `OUT=<scratchpad> KMT_URL=file://$HOME/kansai-museums/index.html node ~/kmt-test/check-public.mjs`（18項目）。push 後は `KMT_URL` を外して公開ページでも走らせる。
 - 見た目を変えるときは、試作をスクリーンショットで見せ、変更対象の表を出して承認を取ってから反映する。
+- ヘッダー左上の版数（`src/markup.html` の `.version`、最初は ver 1.00）は、見た目・機能の修正を push するたびに 0.01 ずつ上げる。
+- 月・木の自動のデータ更新（Actions・定期タスク）では上げない。
+- 大きな変更で 0.01 より大きく上げたいときは、有城さんに確認してから上げる。
 
 ## 自動で動くもの
 

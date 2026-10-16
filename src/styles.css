@@ -42,6 +42,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 /* masthead */
 .masthead{border-bottom:1px solid var(--line);background:var(--surface)}
 .masthead .wrap{padding-block:48px 32px;display:grid;gap:14px;position:relative}
+.version{position:absolute;top:16px;left:max(16px,env(safe-area-inset-left,0px));margin:0;font-size:10px;line-height:1;letter-spacing:.12em;color:var(--fg-3);font-variant-numeric:tabular-nums}
 .theme-toggle{position:absolute;top:16px;right:max(16px,env(safe-area-inset-right,0px));width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:2px;color:var(--fg-2);background:transparent;cursor:pointer}
 .theme-toggle:hover{color:var(--fg);border-color:var(--line-strong)}
 .eyebrow{margin:0;font-size:11px;letter-spacing:.32em;color:var(--fg-2)}
