@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-15",
+ "generated": "2026-10-16",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -13,24 +13,6 @@
    "museum": "国立国際美術館",
    "text": "国立国際美術館(NMAO)×大阪中之島美術館(NAKKA)コレクション活用連携事業 コレナカ NMAOサテライト",
    "url": "https://www.nmao.go.jp/events/event/20261010_nmao-satellite/"
-  },
-  {
-   "museum_id": "osaka-city-art",
-   "museum": "大阪市立美術館",
-   "text": "開催予定 円山応挙 リアルの先へ 空間革命 2027.02.06～04.04 特別展",
-   "url": "https://www.osaka-art-museum.jp/special_exhibition/10344"
-  },
-  {
-   "museum_id": "osaka-city-art",
-   "museum": "大阪市立美術館",
-   "text": "開催予定 生誕160周年記念特別展「復活！武藤山治コレクション―国宝を見出した紡績王」 2027.04.24～06.20 特別展",
-   "url": "https://www.osaka-art-museum.jp/special_exhibition/muto"
-  },
-  {
-   "museum_id": "osaka-city-art",
-   "museum": "大阪市立美術館",
-   "text": "開催予定 シンシナティ美術館展 ～アメリカに渡ったヨーロッパの至宝～ 2027.07.17～09.26 特別展",
-   "url": "https://www.osaka-art-museum.jp/special_exhibition/cincinnati"
   },
   {
    "museum_id": "omnh",
@@ -55,12 +37,6 @@
    "museum": "あべのハルカス美術館",
    "text": "ゴッホの跳ね橋と印象派の画家たち",
    "url": "https://www.aham.jp/exhibition/future/wallraf/"
-  },
-  {
-   "museum_id": "aham",
-   "museum": "あべのハルカス美術館",
-   "text": "エリック・カール展",
-   "url": "https://www.aham.jp/exhibition/future/ericcarle/"
   },
   {
    "museum_id": "fujita",
@@ -635,6 +611,12 @@
   {
    "museum_id": "hitohaku",
    "museum": "兵庫県立人と自然の博物館",
+   "text": "「植物シモバシラが魅せる氷の世界 ― 身近で観察できる氷をつくる植物･アキチョウジ ―」",
+   "url": "https://www.hitohaku.jp/exhibition/planning/frostpillar2026.html"
+  },
+  {
+   "museum_id": "hitohaku",
+   "museum": "兵庫県立人と自然の博物館",
    "text": "ひとはくで展示がしたい",
    "url": "https://www.hitohaku.jp/exhibition/everyone.html"
   },
@@ -667,12 +649,6 @@
    "museum": "芦屋市立美術博物館",
    "text": "令和8年度 歴史企画展「芦屋の古文書から②」",
    "url": "https://ashiya-museum.jp/exhibition/20612.html"
-  },
-  {
-   "museum_id": "ashiya",
-   "museum": "芦屋市立美術博物館",
-   "text": "令和8年度特別展関連展示「北斎漫画と月岡芳年」",
-   "url": "https://ashiya-museum.jp/exhibition/21215.html"
   },
   {
    "museum_id": "ashiya",
@@ -849,12 +825,6 @@
    "url": "https://www.shigamuseum.jp/exhibitions/"
   },
   {
-   "museum_id": "shiga-art",
-   "museum": "滋賀県立美術館",
-   "text": "常設展 小倉遊亀コーナー 2026年2月25日（水）〜2027年4月4日（日）",
-   "url": "https://www.shigamuseum.jp/exhibitions/13627/"
-  },
-  {
    "museum_id": "biwahaku",
    "museum": "滋賀県立琵琶湖博物館",
    "text": "ディスカバリールーム",
@@ -1013,20 +983,8 @@
   {
    "museum_id": "momaw",
    "museum": "和歌山県立近代美術館",
-   "text": "MOMAWコレクション 版画と美術散歩 第2期 ピカソ《泣く女》と―凹版の小道",
-   "url": "https://www.momaw.jp/exhibit/2026col_prints_2nd/"
-  },
-  {
-   "museum_id": "momaw",
-   "museum": "和歌山県立近代美術館",
    "text": "MOMAWコレクション 絵画と彫刻",
    "url": "https://www.momaw.jp/exhibit/2026col_painting_sculpture/"
-  },
-  {
-   "museum_id": "momaw",
-   "museum": "和歌山県立近代美術館",
-   "text": "和歌山県立近代美術館・博物館の建築とデザイン",
-   "url": "https://www.momaw.jp/exhibit/architecture_design/"
   },
   {
    "museum_id": "momaw",
@@ -1069,6 +1027,18 @@
    "museum": "和歌山県立近代美術館",
    "text": "MOMAWコレクション 名品選",
    "url": "https://www.momaw.jp/exhibit/2025_col_selection/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "生誕120年 村井正誠展 色のやどり・形のうぶすな",
+   "url": "https://www.momaw.jp/exhibit/2025_muraimasanari/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "和歌山をめぐるローカリズムとモダニズム",
+   "url": "https://www.momaw.jp/exhibit/2025localism/"
   },
   {
    "museum_id": "wakayama-museum",
