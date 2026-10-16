@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>関西ミュージアム手帖</title>
 <meta name="description" content="大阪・京都・兵庫・奈良・滋賀・和歌山・三重の美術館・博物館を、今日の開館状況・会期中の展覧会・テーマ別特集から探せる案内。">
+<script>try{var t=localStorage.getItem("kmt.theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>
 <meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#131312" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
@@ -719,7 +720,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 
 /* masthead */
 .masthead{border-bottom:1px solid var(--line);background:var(--surface)}
-.masthead .wrap{padding-block:48px 32px;display:grid;gap:14px}
+.masthead .wrap{padding-block:48px 32px;display:grid;gap:14px;position:relative}
+.theme-toggle{position:absolute;top:16px;right:max(16px,env(safe-area-inset-right,0px));width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:2px;color:var(--fg-2);background:transparent;cursor:pointer}
+.theme-toggle:hover{color:var(--fg);border-color:var(--line-strong)}
 .eyebrow{margin:0;font-size:11px;letter-spacing:.32em;color:var(--fg-2)}
 .masthead h1{margin:0;font-family:var(--font-display);font-weight:500;font-size:clamp(28px,4.6vw,44px);line-height:1.2;letter-spacing:.1em;text-wrap:balance;display:flex;align-items:center;gap:.6em}
 .masthead h1::after{content:"";flex:1 1 0;min-width:2em;height:12px;background:linear-gradient(var(--line-strong),var(--line-strong)) left center/calc(100% - 22px) 1px no-repeat,linear-gradient(var(--warn),var(--warn)) right center/12px 12px no-repeat}
@@ -978,6 +981,12 @@ a.tl-bar{display:block}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--tile-filter:invert(1) hue-rotate(180deg) grayscale(1) brightness(.72) contrast(.85)}}
 :root[data-theme="dark"]{--tile-filter:invert(1) hue-rotate(180deg) grayscale(1) brightness(.72) contrast(.85)}
 .leaflet-tile-pane{filter:var(--tile-filter)}
+.map-locate a{display:flex;align-items:center;justify-content:center;color:#1d1d1b}
+.map-locate a.busy svg{animation:locate-pulse 1s ease-in-out infinite}
+@keyframes locate-pulse{50%{opacity:.3}}
+.leaflet-overlay-pane path.here{fill:var(--warn);stroke:var(--surface)}
+.leaflet-overlay-pane path.here-halo{fill:var(--warn)}
+.map-msg{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:1000;max-width:calc(100% - 32px);padding:8px 12px;background:var(--surface);color:var(--fg);border:1px solid var(--line-strong);font-size:12.5px;line-height:1.5}
 
 /* map: outline mode */
 .map-frame .neigh-land{fill:var(--land);opacity:.45;stroke:none;pointer-events:none}
@@ -998,6 +1007,7 @@ a.tl-bar{display:block}
 <body>
 <header class="masthead">
   <div class="wrap">
+    <button type="button" class="theme-toggle" id="theme-toggle"></button>
     <p class="eyebrow">大阪・京都・兵庫・奈良・滋賀・和歌山・三重</p>
     <h1>関西ミュージアム手帖</h1>
     <p class="lede">2府5県の美術館・博物館を、編集部の視点で選んで案内する手帖。今日開いている館、会期中の展覧会、テーマ別の特集から行き先を決められます。</p>
@@ -2064,6 +2074,21 @@ function exFuture(m){return (EX_BY_M.get(m.id)||[]).filter(e=>exStatus(e).code!=
 
 /* ---------- 状態 ---------- */
 const state={tab:'list',q:'',prefs:new Set(),cats:new Set(),tags:new Set(),openToday:false,hasEx:false,sort:'pick',exFilter:'open',exView:'timeline',favs:new Set(),railOpen:false,zoom:'all'};
+// 明暗の切り替え（右上のボタン）。選んだ方を保存し、未選択なら端末の設定に従う
+const THEME_ICON={light:'<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2.2M10 16v2.2M1.8 10H4M16 10h2.2M4.2 4.2l1.6 1.6M14.2 14.2l1.6 1.6M4.2 15.8l1.6-1.6M14.2 5.8l1.6-1.6"/></svg>',dark:'<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16.2 12.6A6.6 6.6 0 0 1 7.4 3.8a6.6 6.6 0 1 0 8.8 8.8z"/></svg>'};
+function currentTheme(){const t=document.documentElement.dataset.theme;if(t==='light'||t==='dark')return t;return window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+function syncThemeButton(){
+  const b=$('theme-toggle'); if(!b) return; const now=currentTheme(), next=now==='dark'?'light':'dark';
+  b.innerHTML=THEME_ICON[next]; const label=next==='dark'?'暗い表示にする':'明るい表示にする';
+  b.title=label; b.setAttribute('aria-label',label);
+  document.querySelectorAll('meta[name="theme-color"]').forEach(m=>{m.content=now==='dark'?'#131312':'#f7f6f3';});
+}
+function toggleTheme(){
+  const next=currentTheme()==='dark'?'light':'dark';
+  document.documentElement.dataset.theme=next;
+  try{localStorage.setItem('kmt.theme',next);}catch(e){}
+  syncThemeButton();
+}
 function loadFavs(){try{const a=JSON.parse(localStorage.getItem('kmt.favs')||'[]');if(Array.isArray(a))a.forEach(id=>{if(BY_ID.has(id))state.favs.add(id);});}catch(e){}}
 function saveFavs(){try{localStorage.setItem('kmt.favs',JSON.stringify([...state.favs]));}catch(e){}}
 loadFavs();
@@ -2287,7 +2312,38 @@ function buildLeaflet(){
     });
     c.addTo(map); markers.set(m.id,c);
   }
+  map.addControl(new LocateControl());
   leaflet={map,markers};
+}
+// 現在地ボタン（ズームの下）。押すと現在地に印を置き、そこを中心にする
+let hereMarker=null;
+const LOCATE_ICON='<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="5.2"/><circle cx="10" cy="10" r="1.6" fill="currentColor" stroke="none"/><path d="M10 1.5v3M10 15.5v3M1.5 10h3M15.5 10h3"/></svg>';
+const LocateControl=window.L?L.Control.extend({options:{position:'topleft'},onAdd(map){
+  const box=L.DomUtil.create('div','leaflet-bar leaflet-control map-locate');
+  const a=L.DomUtil.create('a','',box); a.href='#'; a.setAttribute('role','button');
+  a.title='現在地を中心にする'; a.setAttribute('aria-label','現在地を中心にする'); a.innerHTML=LOCATE_ICON;
+  L.DomEvent.disableClickPropagation(box);
+  L.DomEvent.on(a,'click',e=>{L.DomEvent.preventDefault(e);locateMe(map,a);});
+  return box;
+}}):null;
+function mapMessage(text){
+  const host=document.getElementById('map-leaflet'); if(!host) return;
+  let el=host.querySelector('.map-msg'); if(!el){el=document.createElement('div');el.className='map-msg';el.setAttribute('role','status');host.appendChild(el);}
+  el.textContent=text; el.hidden=false; clearTimeout(el._t); el._t=setTimeout(()=>{el.hidden=true;},5000);
+}
+function locateMe(map,btn){
+  if(!navigator.geolocation){mapMessage('この端末では現在地を取得できません。');return;}
+  btn.classList.add('busy');
+  navigator.geolocation.getCurrentPosition(p=>{
+    btn.classList.remove('busy');
+    const ll=[p.coords.latitude,p.coords.longitude];
+    if(!hereMarker) hereMarker=[L.circleMarker(ll,{radius:18,weight:0,fillOpacity:.18,className:'here-halo',interactive:false}).addTo(map),L.circleMarker(ll,{radius:7,weight:3,fillOpacity:1,className:'here',interactive:false}).addTo(map)];
+    else hereMarker.forEach(c=>c.setLatLng(ll));
+    map.setView(ll,Math.max(map.getZoom(),13));
+  },err=>{
+    btn.classList.remove('busy');
+    mapMessage(err.code===1?'位置情報の利用が許可されていません。ブラウザか端末の設定で許可してください。':'現在地を取得できませんでした。');
+  },{enableHighAccuracy:true,timeout:10000,maximumAge:60000});
 }
 function buildSvg(){
   const neigh=Object.keys(GEO.neighbor).map(n=>'<path class="neigh-land" d="'+prefPath(GEO.neighbor[n])+'"/>').join('');
@@ -2451,6 +2507,9 @@ document.addEventListener('click',ev=>{
   if(t.id==='rail-toggle'){state.railOpen=!state.railOpen;syncRail();return;}
 });
 $('backdrop').addEventListener('click',closeDetail);
+syncThemeButton();
+$('theme-toggle').addEventListener('click',toggleTheme);
+if(window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener('change',syncThemeButton);
 document.addEventListener('keydown',ev=>{if(ev.key==='Escape')closeDetail();});
 $('q').addEventListener('input',ev=>{state.q=ev.target.value;render();});
 $('open-today').addEventListener('change',ev=>{state.openToday=ev.target.checked;render();});

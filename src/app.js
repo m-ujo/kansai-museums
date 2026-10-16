@@ -62,6 +62,21 @@ function exFuture(m){return (EX_BY_M.get(m.id)||[]).filter(e=>exStatus(e).code!=
 
 /* ---------- 状態 ---------- */
 const state={tab:'list',q:'',prefs:new Set(),cats:new Set(),tags:new Set(),openToday:false,hasEx:false,sort:'pick',exFilter:'open',exView:'timeline',favs:new Set(),railOpen:false,zoom:'all'};
+// 明暗の切り替え（右上のボタン）。選んだ方を保存し、未選択なら端末の設定に従う
+const THEME_ICON={light:'<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2.2M10 16v2.2M1.8 10H4M16 10h2.2M4.2 4.2l1.6 1.6M14.2 14.2l1.6 1.6M4.2 15.8l1.6-1.6M14.2 5.8l1.6-1.6"/></svg>',dark:'<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16.2 12.6A6.6 6.6 0 0 1 7.4 3.8a6.6 6.6 0 1 0 8.8 8.8z"/></svg>'};
+function currentTheme(){const t=document.documentElement.dataset.theme;if(t==='light'||t==='dark')return t;return window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+function syncThemeButton(){
+  const b=$('theme-toggle'); if(!b) return; const now=currentTheme(), next=now==='dark'?'light':'dark';
+  b.innerHTML=THEME_ICON[next]; const label=next==='dark'?'暗い表示にする':'明るい表示にする';
+  b.title=label; b.setAttribute('aria-label',label);
+  document.querySelectorAll('meta[name="theme-color"]').forEach(m=>{m.content=now==='dark'?'#131312':'#f7f6f3';});
+}
+function toggleTheme(){
+  const next=currentTheme()==='dark'?'light':'dark';
+  document.documentElement.dataset.theme=next;
+  try{localStorage.setItem('kmt.theme',next);}catch(e){}
+  syncThemeButton();
+}
 function loadFavs(){try{const a=JSON.parse(localStorage.getItem('kmt.favs')||'[]');if(Array.isArray(a))a.forEach(id=>{if(BY_ID.has(id))state.favs.add(id);});}catch(e){}}
 function saveFavs(){try{localStorage.setItem('kmt.favs',JSON.stringify([...state.favs]));}catch(e){}}
 loadFavs();
@@ -285,7 +300,38 @@ function buildLeaflet(){
     });
     c.addTo(map); markers.set(m.id,c);
   }
+  map.addControl(new LocateControl());
   leaflet={map,markers};
+}
+// 現在地ボタン（ズームの下）。押すと現在地に印を置き、そこを中心にする
+let hereMarker=null;
+const LOCATE_ICON='<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="5.2"/><circle cx="10" cy="10" r="1.6" fill="currentColor" stroke="none"/><path d="M10 1.5v3M10 15.5v3M1.5 10h3M15.5 10h3"/></svg>';
+const LocateControl=window.L?L.Control.extend({options:{position:'topleft'},onAdd(map){
+  const box=L.DomUtil.create('div','leaflet-bar leaflet-control map-locate');
+  const a=L.DomUtil.create('a','',box); a.href='#'; a.setAttribute('role','button');
+  a.title='現在地を中心にする'; a.setAttribute('aria-label','現在地を中心にする'); a.innerHTML=LOCATE_ICON;
+  L.DomEvent.disableClickPropagation(box);
+  L.DomEvent.on(a,'click',e=>{L.DomEvent.preventDefault(e);locateMe(map,a);});
+  return box;
+}}):null;
+function mapMessage(text){
+  const host=document.getElementById('map-leaflet'); if(!host) return;
+  let el=host.querySelector('.map-msg'); if(!el){el=document.createElement('div');el.className='map-msg';el.setAttribute('role','status');host.appendChild(el);}
+  el.textContent=text; el.hidden=false; clearTimeout(el._t); el._t=setTimeout(()=>{el.hidden=true;},5000);
+}
+function locateMe(map,btn){
+  if(!navigator.geolocation){mapMessage('この端末では現在地を取得できません。');return;}
+  btn.classList.add('busy');
+  navigator.geolocation.getCurrentPosition(p=>{
+    btn.classList.remove('busy');
+    const ll=[p.coords.latitude,p.coords.longitude];
+    if(!hereMarker) hereMarker=[L.circleMarker(ll,{radius:18,weight:0,fillOpacity:.18,className:'here-halo',interactive:false}).addTo(map),L.circleMarker(ll,{radius:7,weight:3,fillOpacity:1,className:'here',interactive:false}).addTo(map)];
+    else hereMarker.forEach(c=>c.setLatLng(ll));
+    map.setView(ll,Math.max(map.getZoom(),13));
+  },err=>{
+    btn.classList.remove('busy');
+    mapMessage(err.code===1?'位置情報の利用が許可されていません。ブラウザか端末の設定で許可してください。':'現在地を取得できませんでした。');
+  },{enableHighAccuracy:true,timeout:10000,maximumAge:60000});
 }
 function buildSvg(){
   const neigh=Object.keys(GEO.neighbor).map(n=>'<path class="neigh-land" d="'+prefPath(GEO.neighbor[n])+'"/>').join('');
@@ -449,6 +495,9 @@ document.addEventListener('click',ev=>{
   if(t.id==='rail-toggle'){state.railOpen=!state.railOpen;syncRail();return;}
 });
 $('backdrop').addEventListener('click',closeDetail);
+syncThemeButton();
+$('theme-toggle').addEventListener('click',toggleTheme);
+if(window.matchMedia) matchMedia('(prefers-color-scheme: dark)').addEventListener('change',syncThemeButton);
 document.addEventListener('keydown',ev=>{if(ev.key==='Escape')closeDetail();});
 $('q').addEventListener('input',ev=>{state.q=ev.target.value;render();});
 $('open-today').addEventListener('change',ev=>{state.openToday=ev.target.checked;render();});

@@ -41,7 +41,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 
 /* masthead */
 .masthead{border-bottom:1px solid var(--line);background:var(--surface)}
-.masthead .wrap{padding-block:48px 32px;display:grid;gap:14px}
+.masthead .wrap{padding-block:48px 32px;display:grid;gap:14px;position:relative}
+.theme-toggle{position:absolute;top:16px;right:max(16px,env(safe-area-inset-right,0px));width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:2px;color:var(--fg-2);background:transparent;cursor:pointer}
+.theme-toggle:hover{color:var(--fg);border-color:var(--line-strong)}
 .eyebrow{margin:0;font-size:11px;letter-spacing:.32em;color:var(--fg-2)}
 .masthead h1{margin:0;font-family:var(--font-display);font-weight:500;font-size:clamp(28px,4.6vw,44px);line-height:1.2;letter-spacing:.1em;text-wrap:balance;display:flex;align-items:center;gap:.6em}
 .masthead h1::after{content:"";flex:1 1 0;min-width:2em;height:12px;background:linear-gradient(var(--line-strong),var(--line-strong)) left center/calc(100% - 22px) 1px no-repeat,linear-gradient(var(--warn),var(--warn)) right center/12px 12px no-repeat}
@@ -300,6 +302,12 @@ a.tl-bar{display:block}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--tile-filter:invert(1) hue-rotate(180deg) grayscale(1) brightness(.72) contrast(.85)}}
 :root[data-theme="dark"]{--tile-filter:invert(1) hue-rotate(180deg) grayscale(1) brightness(.72) contrast(.85)}
 .leaflet-tile-pane{filter:var(--tile-filter)}
+.map-locate a{display:flex;align-items:center;justify-content:center;color:#1d1d1b}
+.map-locate a.busy svg{animation:locate-pulse 1s ease-in-out infinite}
+@keyframes locate-pulse{50%{opacity:.3}}
+.leaflet-overlay-pane path.here{fill:var(--warn);stroke:var(--surface)}
+.leaflet-overlay-pane path.here-halo{fill:var(--warn)}
+.map-msg{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);z-index:1000;max-width:calc(100% - 32px);padding:8px 12px;background:var(--surface);color:var(--fg);border:1px solid var(--line-strong);font-size:12.5px;line-height:1.5}
 
 /* map: outline mode */
 .map-frame .neigh-land{fill:var(--land);opacity:.45;stroke:none;pointer-events:none}
