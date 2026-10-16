@@ -38,6 +38,7 @@ function openStatus(m,d){
     if(hit(d)&&!(shift&&HOLIDAYS.has(s))) return {code:'closed',label:'本日休館（第'+nth(d)+'日月火水木金土'[w]+'曜）'};
     if(shift){ const y=new Date(d); y.setDate(y.getDate()-1); if(hit(y)&&HOLIDAYS.has(ymd(y))) return {code:'closed',label:'本日休館（祝日の翌日）'}; }
   }
+  if(m.openDaily&&m.openDaily.some(r=>s.slice(5)>=r[0]&&s.slice(5)<=r[1])) return {code:'open',label:'本日開館'};
   const holOpen=!!m.holidayRule, nextClosed=holOpen&&/翌/.test(m.closed||'');
   if(m.closedDays.includes(w)){
     if(holOpen&&HOLIDAYS.has(s)) return {code:'open',label:'本日開館（祝日）'};

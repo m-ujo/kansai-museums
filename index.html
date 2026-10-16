@@ -1206,7 +1206,15 @@ const MUSEUMS_OSAKA = [
 {id:"mingeikan",name:"大阪日本民芸館",kana:"おおさかにほんみんげいかん",pref:"大阪",city:"吹田市",area:"万博記念公園",cat:"craft",tags:["工芸"],lat:34.8080,lng:135.5296,
  access:"大阪モノレール 万博記念公園駅 徒歩15分",hours:"10:00–17:00",closed:"水曜（祝日の場合は翌日）",closedDays:[3],holidayRule:true,fee:"一般700円",url:"https://www.mingeikan-osaka.or.jp/",
  note:"1970年大阪万博のパビリオンを引き継いだ民芸館。陶磁、染織、木工など暮らしの中の美を、半年ごとの企画展で紹介。みんぱくとはしごできる。",
- highlights:["万博パビリオンの建物","民藝運動ゆかりのコレクション","国立民族学博物館の隣"],time:"45分",pick:1}
+ highlights:["万博パビリオンの建物","民藝運動ゆかりのコレクション","国立民族学博物館の隣"],time:"45分",pick:1},
+{id:"spatialart",name:"空間美術館-大阪-",kana:"くうかんびじゅつかんおおさか",pref:"大阪",city:"大阪市城東区",area:"森ノ宮",cat:"art",tags:["現代美術","体験型","駅近"],lat:34.6817,lng:135.5370,
+ access:"JR・地下鉄 森ノ宮駅 4番出口 徒歩4分（UR森之宮ビル1階「ほとりで」で受付）",hours:"13:30–19:30（完全予約制のツアー 13:30／15:00／16:30／18:00）",closed:"月〜水曜",closedDays:[1,2,3],fee:"大人 平日1,500円・土日1,800円・祝日2,000円（予約制）",url:"https://spatialart.org/",
+ note:"2026年8月、森ノ宮のUR森之宮ビルに開館した、空間作品を専門に扱う美術館。作家・千田泰広が光や糸、ガラス、水滴を使って空間そのものを体験させる作品10点を、約45分の音響作品をヘッドフォンで聴きながら見て回る。作品づくりに関わった地域の人たちが案内する。",
+ highlights:["空間そのものを体験させる千田泰広の作品10点","約45分の音響作品とともに巡る予約制ツアー","小学生以下は大人1人につき1人無料"],time:"60分",pick:2},
+{id:"taiyo",name:"太陽の塔",kana:"たいようのとう",pref:"大阪",city:"吹田市",area:"万博記念公園",cat:"art",tags:["現代美術","建築"],lat:34.8094,lng:135.5324,
+ access:"大阪モノレール 万博記念公園駅から中央口へ（入口は塔の裏側の地下）",hours:"10:00–17:00（入館は予約制）",closed:"水曜（祝日の場合は翌平日）。4/1〜5/2・10月・11月は無休",closedDays:[3],holidayRule:true,openDaily:[["04-01","05-02"],["10-01","11-30"]],fee:"大人720円（別途 自然文化園・日本庭園の入園料。入園とのセット券1,080円）",url:"https://taiyounotou-expo70.jp/",
+ note:"1970年の日本万国博覧会で岡本太郎がデザインした高さ約70mの塔。耐震工事とあわせて内部が再生され、2018年3月から公開されている。塔の中に立つ高さ約41mの「生命の樹」と、アメーバから人類までの292体の生物模型を、上りながら間近に見る。",
+ highlights:["高さ約41mの「生命の樹」と292体の生物模型","復元された第4の顔「地底の太陽」","国立民族学博物館と同じ万博記念公園の中"],time:"45分",pick:2,arch:"岡本太郎（1970）"}
 ];
 
 // ===== 館データ（京都府） =====
@@ -1321,7 +1329,12 @@ const MUSEUMS_KYOTO = [
 {id:"genji",name:"宇治市源氏物語ミュージアム",kana:"うじしげんじものがたりみゅーじあむ",pref:"京都",city:"宇治市",area:"宇治",cat:"special",tags:["文学","体験型"],lat:34.8923,lng:135.8104,
  access:"京阪 宇治駅 徒歩8分／JR 宇治駅 徒歩15分",hours:"9:00–17:00",closed:"月曜（祝日の場合は翌日）",closedDays:[1],holidayRule:true,fee:"一般600円",url:"https://www.city.uji.kyoto.jp/site/genji/",
  note:"「宇治十帖」の舞台で源氏物語の世界を映像と模型で体感。平安の牛車や六条院の模型があり、平等院・宇治上神社の散策と組み合わせたい。",
- highlights:["六条院と牛車の復元模型","オリジナル映像作品","平等院まで徒歩15分"],time:"45分",pick:1}
+ highlights:["六条院と牛車の復元模型","オリジナル映像作品","平等院まで徒歩15分"],time:"45分",pick:1},
+{id:"teamlab-kyoto",name:"チームラボ バイオヴォルテックス 京都",kana:"ちーむらぼばいおゔぉるてっくすきょうと",pref:"京都",city:"京都市南区",area:"京都駅",cat:"art",tags:["現代美術","子ども向け","体験型","夜間開館"],lat:34.9837,lng:135.7654,
+ access:"京都駅 八条東口 徒歩約7分／京阪 七条駅 徒歩約11分",hours:"9:00–21:00（最終入館19:30）",closed:"不定期（公式サイトで告知）",closedDays:[],fee:"大人3,800円（日時指定・変動価格制）",url:"https://www.teamlab.art/jp/e/kyoto/",
+ closedRanges:[["2026-11-17","2026-11-17","不定期の休館日"],["2026-11-19","2026-11-19","不定期の休館日"],["2026-12-15","2026-12-15","不定期の休館日"]],notice:"2026年11月17日（火）・19日（木）、12月15日（火）は休館。",
+ note:"2025年10月、京都駅の東南部に開館した国内最大のチームラボのミュージアム。延べ約10,000㎡に50以上の作品群があり、光と音の空間を体ごと巡る。公式によると平均滞在時間は2時間30分以上。",
+ highlights:["延べ約10,000㎡に50以上の作品群","体を動かす「運動の森」、共創がテーマの「学ぶ！未来の遊園地」","京都駅から徒歩圏、21時まで開館"],time:"150分",pick:2}
 ];
 
 // ===== 館データ（兵庫県） =====
@@ -2014,6 +2027,7 @@ function openStatus(m,d){
     if(hit(d)&&!(shift&&HOLIDAYS.has(s))) return {code:'closed',label:'本日休館（第'+nth(d)+'日月火水木金土'[w]+'曜）'};
     if(shift){ const y=new Date(d); y.setDate(y.getDate()-1); if(hit(y)&&HOLIDAYS.has(ymd(y))) return {code:'closed',label:'本日休館（祝日の翌日）'}; }
   }
+  if(m.openDaily&&m.openDaily.some(r=>s.slice(5)>=r[0]&&s.slice(5)<=r[1])) return {code:'open',label:'本日開館'};
   const holOpen=!!m.holidayRule, nextClosed=holOpen&&/翌/.test(m.closed||'');
   if(m.closedDays.includes(w)){
     if(holOpen&&HOLIDAYS.has(s)) return {code:'open',label:'本日開館（祝日）'};

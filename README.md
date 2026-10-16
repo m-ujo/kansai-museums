@@ -1,6 +1,6 @@
 # 関西ミュージアム手帖
 
-関西2府5県（大阪・京都・兵庫・奈良・滋賀・和歌山・三重）の美術館・博物館 132館を、編集部の視点でキュレーションする単一ファイルのWebアプリです。ビルド不要で `index.html` を開くだけで動きます。
+関西2府5県（大阪・京都・兵庫・奈良・滋賀・和歌山・三重）の美術館・博物館 135館を、編集部の視点でキュレーションする単一ファイルのWebアプリです。ビルド不要で `index.html` を開くだけで動きます。
 
 ## できること
 
@@ -35,7 +35,7 @@ kansai-museums/
 
 単体版の地図は Leaflet 1.9.4 を cdnjs から読み込み、OpenStreetMap のタイルを表示します（© OpenStreetMap contributors）。
 
-館データの主なフィールド: `closedDays`（休館曜日 0=日〜6=土）、`holidayRule`（祝日は開館）、`closure`（長期休館の説明）、`closedRanges`（臨時休館の期間）、`seasons` / `seasonMonths`（季節開館）、`pick`（1〜3、3は編集部おすすめ）。
+館データの主なフィールド: `closedDays`（休館曜日 0=日〜6=土）、`holidayRule`（祝日は開館）、`closure`（長期休館の説明）、`closedRanges`（臨時休館の期間）、`openDaily`（毎年この期間は休館曜日でも開館。`[["MM-DD","MM-DD"]]`、年をまたがない範囲）、`seasons` / `seasonMonths`（季節開館）、`pick`（1〜3、3は編集部おすすめ）。
 
 ## 自動更新（毎週 月・木）
 
