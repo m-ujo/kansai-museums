@@ -25,7 +25,7 @@
         <label for="q">キーワード</label>
         <input class="search" id="q" type="search" placeholder="館名・エリア・作家・テーマ" autocomplete="off">
       </div>
-      <div class="field">
+      <div class="field" id="field-pref">
         <span class="group-title">府県</span>
         <div class="chips" id="chips-pref"></div>
       </div>
@@ -74,7 +74,6 @@
     <div id="view-map" role="tabpanel" aria-labelledby="tab-map" hidden>
       <div class="map-wrap">
         <div class="map-tools">
-          <div class="chips" id="map-zoom"></div>
           <div class="legend" id="legend"></div>
         </div>
         <div class="map-frame" id="map-frame"></div>

@@ -69,8 +69,8 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function norm(s){return String(s).normalize('NFKC').toLowerCase().replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60));}
 
-function matchesBase(m){
-  if(state.prefs.size&&!state.prefs.has(m.pref)) return false;
+function matchesBase(m,noPref){
+  if(!noPref&&state.prefs.size&&!state.prefs.has(m.pref)) return false;
   if(state.cats.size&&!state.cats.has(m.cat)) return false;
   if(state.tags.size) for(const t of state.tags) if(!m.tags.includes(t)) return false;
   if(state.q){
@@ -83,6 +83,13 @@ function matchesBase(m){
 }
 function matches(m){
   if(!matchesBase(m)) return false;
+  if(state.openToday&&openStatus(m,today).code!=='open') return false;
+  if(state.hasEx&&!exLive(m).length) return false;
+  return true;
+}
+// 地図用: 地図タブには府県の絞り込みを出さないので、府県は条件に入れない
+function mapMatches(m){
+  if(!matchesBase(m,true)) return false;
   if(state.openToday&&openStatus(m,today).code!=='open') return false;
   if(state.hasEx&&!exLive(m).length) return false;
   return true;
@@ -329,7 +336,6 @@ function svgApplyVb(){
 }
 function svgPreset(){const z=ZOOMS[state.zoom];const x0=px(z.lng[0]),y0=py(z.lat[1]);vb.x=x0;vb.y=y0;vb.w=px(z.lng[1])-x0;vb.h=py(z.lat[0])-y0;svgApplyVb();}
 function renderMap(){
-  $('map-zoom').innerHTML=Object.keys(ZOOMS).map(k=>'<button type="button" class="chip" data-zoom="'+k+'" aria-pressed="'+(state.zoom===k)+'">'+ZOOMS[k].label+'</button>').join('');
   $('legend').innerHTML=Object.keys(CATS).map(c=>'<span style="--c:var(--cat-'+c+')">'+CATS[c]+'</span>').join('');
   if(mapMode===null){
     mapMode='probing'; $('map-frame').innerHTML='<div class="map-loading">地図を読み込んでいます…</div>';
@@ -345,12 +351,12 @@ function applyMap(){
     $('map-note').textContent='地図: OpenStreetMap。点をクリックすると館の情報が開きます。絞り込み条件に合わない館は薄く表示します。';
     leaflet.map.invalidateSize();
     if(appliedZoom!==state.zoom){leaflet.map.fitBounds([[z.lat[0],z.lng[0]],[z.lat[1],z.lng[1]]],{padding:[12,12]});appliedZoom=state.zoom;}
-    leaflet.markers.forEach((c,id)=>{const el=c.getElement();if(el)el.classList.toggle('dim',!matches(BY_ID.get(id)));});
+    leaflet.markers.forEach((c,id)=>{const el=c.getElement();if(el)el.classList.toggle('dim',!mapMatches(BY_ID.get(id)));});
     return;
   }
   $('map-note').textContent='概略図（都道府県の輪郭は簡略化）。ピンチやホイール、＋－で拡大、ドラッグで移動できます。点をクリックすると詳細が開きます。絞り込み条件に合わない館は薄く表示します。';
   if(appliedZoom!==state.zoom){svgPreset();appliedZoom=state.zoom;}
-  $('map-svg').querySelectorAll('.pt').forEach(el=>el.classList.toggle('dim',!matches(BY_ID.get(el.dataset.id))));
+  $('map-svg').querySelectorAll('.pt').forEach(el=>el.classList.toggle('dim',!mapMatches(BY_ID.get(el.dataset.id))));
 }
 
 /* ---------- 詳細パネル ---------- */
@@ -407,6 +413,7 @@ function setTab(tab,push){
   document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.tab===tab)));
   ['list','exhibitions','collections','map','saved'].forEach(t=>{$('view-'+t).hidden=t!==tab;});
   $('rail').hidden=(tab==='collections'||tab==='saved');
+  $('field-pref').hidden=(tab==='map');
   document.querySelector('.layout').classList.toggle('no-rail',$('rail').hidden);
   render();
   if(push!==false){try{history.replaceState(null,'','#'+tab);}catch(e){}}
@@ -435,7 +442,6 @@ document.addEventListener('click',ev=>{
   if(t.dataset.exf){state.exFilter=t.dataset.exf;renderExhibitions();return;}
   if(t.dataset.exv){state.exView=t.dataset.exv;renderExhibitions();return;}
   if(t.dataset.jump){state.exFilter=t.dataset.jump;state.exView='timeline';setTab('exhibitions');window.scrollTo({top:0});return;}
-  if(t.dataset.zoom){state.zoom=t.dataset.zoom;appliedZoom=null;renderMap();return;}
   if(t.dataset.mapzoom){const k=t.dataset.mapzoom;if(mapMode==='tiles'&&leaflet){if(k==='in')leaflet.map.zoomIn();else if(k==='out')leaflet.map.zoomOut();else{appliedZoom=null;applyMap();}}else if(mapMode==='svg'){const svg=$('map-svg');const r=svg.getBoundingClientRect();const c={x:r.left+r.width/2,y:r.top+r.height/2};if(k==='in')svgZoomAt(c,1.6);else if(k==='out')svgZoomAt(c,1/1.6);else svgPreset();}return;}
   if(t.id==='sheet-close'){closeDetail();return;}
   if(t.id==='reset'){state.q='';state.prefs.clear();state.cats.clear();state.tags.clear();state.openToday=false;state.hasEx=false;state.sort='pick';renderRail();render();return;}
