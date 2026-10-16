@@ -289,7 +289,7 @@ function gmapsUrl(m){return 'https://www.google.com/maps/search/?api=1&query='+e
 function buildLeaflet(){
   $('map-frame').innerHTML='<div id="map-leaflet" class="map-leaflet"></div>';
   const map=L.map('map-leaflet',{scrollWheelZoom:true,zoomSnap:0.5});
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'}).addTo(map);
+  new ToneTileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'}).addTo(map);
   const markers=new Map();
   for(const m of MUSEUMS){
     const c=L.circleMarker([m.lat,m.lng],{radius:m.pick===3?8:6,weight:1.5,fillOpacity:.95,className:'mk '+m.cat});
@@ -303,6 +303,26 @@ function buildLeaflet(){
   map.addControl(new LocateControl());
   leaflet={map,markers};
 }
+// 地図タイルを読み込んだ時点で灰色にする（CSS の SVG フィルターは iPhone の Safari で効かないため）。
+// 海(170,211,223)・海上の境界線(167,171,194)・航路(142,166,236) が同じ灰色になる赤緑青の配分。
+// 紙色・明暗・コントラストは CSS の --tile-filter で付ける。
+const TONE=[0.9317,-0.4345,0.5028];
+const ToneTileLayer=window.L?L.TileLayer.extend({createTile(coords,done){
+  const canvas=document.createElement('canvas'); canvas.width=canvas.height=256;
+  const img=new Image(); img.crossOrigin='anonymous';
+  img.onload=()=>{
+    const ctx=canvas.getContext('2d'); ctx.drawImage(img,0,0,256,256);
+    try{
+      const im=ctx.getImageData(0,0,256,256), d=im.data;
+      for(let i=0;i<d.length;i+=4){const v=TONE[0]*d[i]+TONE[1]*d[i+1]+TONE[2]*d[i+2];d[i]=d[i+1]=d[i+2]=v<0?0:v>255?255:v;}
+      ctx.putImageData(im,0,0);
+    }catch(e){ctx.filter='grayscale(1)';ctx.drawImage(img,0,0,256,256);}
+    done(null,canvas);
+  };
+  img.onerror=e=>done(e,canvas);
+  canvas.dataset.src=img.src=this.getTileUrl(coords);
+  return canvas;
+}}):null;
 // 現在地ボタン（ズームの下）。押すと現在地に印を置き、そこを中心にする
 let hereMarker=null;
 const LOCATE_ICON='<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="5.2"/><circle cx="10" cy="10" r="1.6" fill="currentColor" stroke="none"/><path d="M10 1.5v3M10 15.5v3M1.5 10h3M15.5 10h3"/></svg>';
