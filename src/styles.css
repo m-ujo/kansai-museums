@@ -157,7 +157,7 @@ select.sort{border:1px solid var(--line-strong);background:var(--surface);color:
 .legend{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--fg-2)}
 .legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:-1px;background:var(--c)}
 .map-frame{background:var(--sea);border:1px solid var(--line);border-radius:0;overflow:hidden;position:relative}
-.map-frame svg{display:block;width:100%;height:auto;max-height:78vh}
+.map-frame #map-svg{display:block;width:100%;height:auto;max-height:78vh}
 .map-frame .land{fill:var(--land);stroke:var(--line-strong);stroke-width:1}
 .map-frame .lake{fill:var(--sea);stroke:var(--line-strong);stroke-width:1px;vector-effect:non-scaling-stroke}
 .map-frame .city{font-family:var(--font-body);fill:var(--fg-2);pointer-events:none}
@@ -280,6 +280,9 @@ a.tl-bar{display:block}
 .leaflet-overlay-pane path.mk{stroke:var(--surface);fill:var(--fg-3)}
 .leaflet-overlay-pane path.mk.art{fill:var(--cat-art)}.leaflet-overlay-pane path.mk.history{fill:var(--cat-history)}.leaflet-overlay-pane path.mk.science{fill:var(--cat-science)}.leaflet-overlay-pane path.mk.craft{fill:var(--cat-craft)}.leaflet-overlay-pane path.mk.special{fill:var(--cat-special)}.leaflet-overlay-pane path.mk.temple{fill:var(--cat-temple)}
 .leaflet-overlay-pane path.mk.dim{opacity:.2;pointer-events:none}
+.map-frame .leaflet-popup-content-wrapper,.map-frame .leaflet-popup-tip{background:var(--surface);color:var(--fg);border-radius:2px;box-shadow:var(--shadow)}
+.map-frame .leaflet-popup-tip{border-radius:0}
+.map-frame .leaflet-container a.leaflet-popup-close-button{color:var(--fg-3)}
 .mpop{display:grid;gap:5px;font-family:var(--font-body);min-width:200px}
 .mpop .cat{font-size:11px}
 .mpop-name{font-family:var(--font-display);font-weight:500;font-size:16px;line-height:1.3}
@@ -288,6 +291,7 @@ a.tl-bar{display:block}
 .mpop-ex{color:var(--accent)}
 .mpop-actions{display:flex;gap:6px;margin-top:4px}
 .mpop-actions .btn{padding:5px 11px;font-size:12.5px}
+.mpop-actions a.btn{color:var(--fg)}
 :root{--tile-filter:none}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--tile-filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}}
 :root[data-theme="dark"]{--tile-filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9)}
@@ -299,8 +303,8 @@ a.tl-bar{display:block}
 .map-frame .pref-land:hover{fill:var(--surface-2)}
 
 /* map: gestures and zoom buttons (outline mode) */
-.map-frame svg{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
-.map-frame svg:active{cursor:grabbing}
+.map-frame #map-svg{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab}
+.map-frame #map-svg:active{cursor:grabbing}
 .map-ctrl{position:absolute;top:10px;left:10px;display:grid;gap:0;background:var(--surface);border:1px solid var(--line-strong);border-radius:0;overflow:hidden;box-shadow:none;z-index:3}
 .map-ctrl button{width:36px;height:36px;font-size:18px;line-height:1;display:grid;place-items:center;color:var(--fg);border-bottom:1px solid var(--line)}
 .map-ctrl button:last-child{border-bottom:0;font-size:16px}

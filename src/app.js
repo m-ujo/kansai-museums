@@ -27,12 +27,17 @@ function daysUntil(s){return Math.round((parseYmd(s)-today)/86400000);}
 function openStatus(m,d){
   const s=ymd(d), mo=d.getMonth()+1, day=d.getDate(), w=d.getDay();
   if(m.closure) return {code:'closure',label:'休館中'};
-  if(m.closedRanges&&m.closedRanges.some(r=>s>=r[0]&&s<=r[1])) return {code:'closed',label:'本日休館（展示替え）'};
+  if(m.closedRanges){ const r=m.closedRanges.find(r=>s>=r[0]&&s<=r[1]); if(r) return {code:'closed',label:'本日休館（'+(r[2]||'展示替え')+'）'}; }
   if((mo===12&&day>=28)||(mo===1&&day<=4)) return {code:'unknown',label:'年末年始・要確認'};
   if(m.unknownOpen) return {code:'unknown',label:'会期中のみ開館'};
   if(m.seasons){ if(!m.seasons.some(r=>s>=r[0]&&s<=r[1])) return {code:'seasonal',label:'季節開館・会期外'}; }
   else if(m.seasonMonths){ if(!m.seasonMonths.includes(mo)) return {code:'seasonal',label:'季節開館・会期外'}; }
-  if(m.thirdThu&&w===4&&day>=15&&day<=21) return {code:'closed',label:'本日休館（第3木曜）'};
+  if(m.nthClosed){
+    const nc=m.nthClosed, nth=x=>Math.floor((x.getDate()-1)/7)+1, hit=x=>x.getDay()===nc.wd&&nc.n.includes(nth(x));
+    const shift=/祝日の場合は翌日/.test(m.closed||'');
+    if(hit(d)&&!(shift&&HOLIDAYS.has(s))) return {code:'closed',label:'本日休館（第'+nth(d)+'日月火水木金土'[w]+'曜）'};
+    if(shift){ const y=new Date(d); y.setDate(y.getDate()-1); if(hit(y)&&HOLIDAYS.has(ymd(y))) return {code:'closed',label:'本日休館（祝日の翌日）'}; }
+  }
   const holOpen=!!m.holidayRule, nextClosed=holOpen&&/翌/.test(m.closed||'');
   if(m.closedDays.includes(w)){
     if(holOpen&&HOLIDAYS.has(s)) return {code:'open',label:'本日開館（祝日）'};

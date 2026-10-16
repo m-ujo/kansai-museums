@@ -46,7 +46,7 @@ const MUSEUMS_HYOGO = [
  note:"具体美術協会の拠点だった芦屋で、吉原治良ら具体の作品を所蔵・紹介。小出楢重のアトリエ再現もあり、戦前からの芦屋の文化を知る場所。",
  highlights:["具体美術協会のコレクション","小出楢重のアトリエ再現","谷崎潤一郎記念館が隣接"],time:"60分",pick:2},
 {id:"hakutsuru",name:"白鶴美術館",kana:"はくつるびじゅつかん",pref:"兵庫",city:"神戸市東灘区",area:"住吉",cat:"art",tags:["国宝","工芸","季節限定","建築"],lat:34.7325,lng:135.2567,
- access:"阪急 御影駅 徒歩15分／市バス「白鶴美術館前」すぐ",hours:"10:00–16:30",closed:"月曜（春季・秋季のみ開館）",closedDays:[1],holidayRule:true,seasonal:"春季（3〜6月）・秋季（9〜11月）のみ開館",seasonMonths:[3,4,5,6,9,10,11],fee:"一般800円",url:"https://www.hakutsuru-museum.org/",
+ access:"阪急 御影駅 徒歩15分／市バス「白鶴美術館前」すぐ",hours:"10:00–16:30",closed:"月曜（祝日の場合は開館し翌日休館）。春季・秋季のみ開館",closedDays:[1],holidayRule:true,seasonal:"春季（3〜6月）・秋季（9〜11月）のみ開館",seasonMonths:[3,4,5,6,9,10,11],fee:"一般800円",url:"https://www.hakutsuru-museum.org/",
  note:"白鶴酒造7代目・嘉納治兵衛の中国古代青銅器・鏡・陶磁のコレクション。国宝2件、重文22件。春秋のみ開館する本館の建築と、新館の絨毯も見逃せない。",
  highlights:["中国古代青銅器・銅鏡","国宝「大般若経」「賢愚経」","季節限定開館の和風建築"],time:"45分",pick:2},
 {id:"kosetsu-mikage",name:"香雪美術館",kana:"こうせつびじゅつかん",pref:"兵庫",city:"神戸市東灘区",area:"御影",cat:"art",tags:["仏教美術","陶磁・茶の湯","庭園"],lat:34.7236,lng:135.2478,
