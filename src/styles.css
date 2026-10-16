@@ -279,7 +279,8 @@ a.tl-bar{display:block}
 
 /* map: tiles mode */
 .map-loading{padding:48px 16px;text-align:center;color:var(--fg-3);font-size:13px}
-.map-leaflet{height:min(76vh,760px);min-height:380px;width:100%;background:var(--sea)}
+.map-leaflet{height:min(76vh,760px);min-height:380px;width:100%;background:var(--sea);isolation:isolate}
+@media (max-width:640px){.map-leaflet{height:min(58svh,480px);min-height:300px}.map-frame #map-svg{max-height:58svh}}
 .leaflet-overlay-pane path.mk{stroke:var(--surface);fill:var(--fg-3)}
 .leaflet-overlay-pane path.mk.art{fill:var(--cat-art)}.leaflet-overlay-pane path.mk.history{fill:var(--cat-history)}.leaflet-overlay-pane path.mk.science{fill:var(--cat-science)}.leaflet-overlay-pane path.mk.craft{fill:var(--cat-craft)}.leaflet-overlay-pane path.mk.special{fill:var(--cat-special)}.leaflet-overlay-pane path.mk.temple{fill:var(--cat-temple)}
 .leaflet-overlay-pane path.mk.dim{opacity:.2;pointer-events:none}
