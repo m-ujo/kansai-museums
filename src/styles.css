@@ -43,7 +43,9 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .masthead{border-bottom:1px solid var(--line);background:var(--surface)}
 .masthead .wrap{padding-block:48px 32px;display:grid;gap:14px}
 .eyebrow{margin:0;font-size:11px;letter-spacing:.32em;color:var(--fg-2)}
-.masthead h1{margin:0;font-family:var(--font-display);font-weight:500;font-size:clamp(28px,4.6vw,44px);line-height:1.2;letter-spacing:.1em;text-wrap:balance}
+.masthead h1{margin:0;font-family:var(--font-display);font-weight:500;font-size:clamp(28px,4.6vw,44px);line-height:1.2;letter-spacing:.1em;text-wrap:balance;display:flex;align-items:center;gap:.6em}
+.masthead h1::after{content:"";flex:1 1 0;min-width:2em;height:12px;background:linear-gradient(var(--line-strong),var(--line-strong)) left center/calc(100% - 22px) 1px no-repeat,linear-gradient(var(--warn),var(--warn)) right center/12px 12px no-repeat}
+@media (max-width:640px){.masthead h1{display:block}.masthead h1::after{display:block;width:100%;margin-top:12px}}
 .lede{margin:0;max-width:40em;color:var(--fg-2);font-size:13.5px;line-height:1.9}
 .today{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;font-size:13px;color:var(--fg-2);font-variant-numeric:tabular-nums}
 .today strong{color:var(--fg);font-weight:500}
@@ -51,12 +53,13 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 
 /* tabs */
 .tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
-.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-block:8px}
 .tabs .wrap::-webkit-scrollbar{display:none}
-.tab{flex:0 0 auto;padding:12px 14px 10px;border-bottom:2px solid transparent;color:var(--fg-2);font-size:14px;white-space:nowrap;margin-bottom:-1px;letter-spacing:.06em}
+.tab{flex:0 0 auto;padding:7px 16px;border-radius:2px;color:var(--fg-2);font-size:14px;white-space:nowrap;letter-spacing:.06em}
 .tab .cnt{font-size:12px;color:var(--fg-3);margin-left:4px;font-variant-numeric:tabular-nums}
-.tab[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--fg);font-weight:400}
-.tab:hover{color:var(--fg)}
+.tab:hover{background:var(--surface-2);color:var(--fg)}
+.tab[aria-selected="true"]{background:var(--fg);color:var(--bg);font-weight:400}
+.tab[aria-selected="true"] .cnt{color:var(--bg);opacity:.6}
 
 /* layout */
 .layout{display:grid;grid-template-columns:1fr;gap:20px;padding-block:20px 48px}
