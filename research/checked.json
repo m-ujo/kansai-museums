@@ -1,14 +1,14 @@
 {
  "aham": {
-  "last": "2026-10-15",
-  "found": 1
+  "last": "2026-10-19",
+  "found": 0
  },
  "akashi": {
   "last": "2026-10-15",
   "found": 1
  },
  "ashiya": {
-  "last": "2026-10-15",
+  "last": "2026-10-19",
   "found": 0
  },
  "azuchi": {
@@ -16,23 +16,23 @@
   "found": 0
  },
  "bbplaza": {
-  "last": "2026-10-15",
-  "found": 1
+  "last": "2026-10-19",
+  "found": 0
  },
  "biwahaku": {
-  "last": "2026-10-15",
+  "last": "2026-10-19",
   "found": 0
  },
  "bunpaku": {
-  "last": "2026-10-15",
-  "found": 2
+  "last": "2026-10-19",
+  "found": 0
  },
  "chado": {
   "last": "2026-10-15",
   "found": 0
  },
  "chokokan": {
-  "last": "2026-10-15",
+  "last": "2026-10-19",
   "found": 0
  },
  "cupnoodle": {
@@ -56,7 +56,7 @@
   "found": 0
  },
  "fujita": {
-  "last": "2026-10-15",
+  "last": "2026-10-19",
   "found": 0
  },
  "fukuda": {
@@ -243,6 +243,10 @@
   "last": "2026-10-15",
   "found": 0
  },
+ "noma": {
+  "last": "2026-10-19",
+  "found": 1
+ },
  "omnh": {
   "last": "2026-10-15",
   "found": 0
@@ -275,8 +279,24 @@
   "last": "2026-10-15",
   "found": 0
  },
+ "sannenzaka": {
+  "last": "2026-10-19",
+  "found": 0
+ },
+ "sayamaike": {
+  "last": "2026-10-19",
+  "found": 0
+ },
  "sci-museum": {
-  "last": "2026-10-15",
+  "last": "2026-10-19",
+  "found": 0
+ },
+ "sengukan": {
+  "last": "2026-10-19",
+  "found": 0
+ },
+ "shiba": {
+  "last": "2026-10-19",
   "found": 0
  },
  "shiga-art": {
@@ -287,12 +307,60 @@
   "last": "2026-10-15",
   "found": 0
  },
+ "spatialart": {
+  "last": "2026-10-19",
+  "found": 0
+ },
+ "sugioka": {
+  "last": "2026-10-19",
+  "found": 0
+ },
+ "taiyo": {
+  "last": "2026-10-19",
+  "found": 0
+ },
+ "teamlab-kyoto": {
+  "last": "2026-10-19",
+  "found": 0
+ },
+ "tenri": {
+  "last": "2026-10-19",
+  "found": 1
+ },
+ "todaiji": {
+  "last": "2026-10-19",
+  "found": 0
+ },
+ "toy": {
+  "last": "2026-10-19",
+  "found": 3
+ },
+ "ucc": {
+  "last": "2026-10-19",
+  "found": 0
+ },
+ "wakayama-castle": {
+  "last": "2026-10-19",
+  "found": 1
+ },
+ "wakayama-city": {
+  "last": "2026-10-19",
+  "found": 0
+ },
  "wakayama-museum": {
   "last": "2026-10-15",
   "found": 1
  },
+ "wakayama-nature": {
+  "last": "2026-10-19",
+  "found": 1
+ },
  "yamato": {
   "last": "2026-10-15",
+  "found": 0
+ },
+ "yanmar": {
+  "last": "2026-10-19",
   "found": 0
  },
  "yuki": {
