@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-16",
+ "generated": "2026-10-18",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -37,12 +37,6 @@
    "museum": "あべのハルカス美術館",
    "text": "ゴッホの跳ね橋と印象派の画家たち",
    "url": "https://www.aham.jp/exhibition/future/wallraf/"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
-   "text": "能楽 10 18 （日） 11:00-12:00 教えて能楽師！2026～特別編～",
-   "url": "https://fujita-museum.or.jp/event/2026/09/26/17006/"
   },
   {
    "museum_id": "yuki",
@@ -239,12 +233,6 @@
   {
    "museum_id": "bunpaku",
    "museum": "京都文化博物館",
-   "text": "第42回文化書道近畿連合会展 2026.10.17(土) 〜 10.18(日) ６階ミュージアムギャラリー",
-   "url": "https://www.bunpaku.or.jp/gallery_hall/20261017-1018/"
-  },
-  {
-   "museum_id": "bunpaku",
-   "museum": "京都文化博物館",
    "text": "京の名工展 2026.10.21(水) 〜 10.25(日) 5階ミュージアムギャラリー",
    "url": "https://www.bunpaku.or.jp/gallery_hall/20261021-1025/"
   },
@@ -265,6 +253,12 @@
    "museum": "京都文化博物館",
    "text": "京漆匠省庵工房 乾漆展 佐々木漆器 130年 記念展示会 2026.10.29(木) 〜 11.1(日) 5階ミュージアムギャラリー",
    "url": "https://www.bunpaku.or.jp/gallery_hall/20261029-1101-3/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "徳田嘉孝 作品展 2026.10.29(木) 〜 11.1(日) 5階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261029-1101-2/"
   },
   {
    "museum_id": "hosomi",
@@ -624,13 +618,19 @@
    "museum_id": "otani",
    "museum": "西宮市大谷記念美術館",
    "text": "▶ 展覧会詳細",
-   "url": "http://otanimuseum.jp/exhibition_260822.html"
+   "url": "http://otanimuseum.jp/exhibition_261031.html"
   },
   {
    "museum_id": "otani",
    "museum": "西宮市大谷記念美術館",
    "text": "▶ 展覧会詳細",
    "url": "http://otanimuseum.jp/exhibition_260404.html"
+  },
+  {
+   "museum_id": "otani",
+   "museum": "西宮市大谷記念美術館",
+   "text": "▶ 展覧会詳細",
+   "url": "http://otanimuseum.jp/exhibition_260822.html"
   },
   {
    "museum_id": "ashiya",
@@ -1037,8 +1037,8 @@
   {
    "museum_id": "momaw",
    "museum": "和歌山県立近代美術館",
-   "text": "和歌山をめぐるローカリズムとモダニズム",
-   "url": "https://www.momaw.jp/exhibit/2025localism/"
+   "text": "2026年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2026%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
   },
   {
    "museum_id": "wakayama-museum",
