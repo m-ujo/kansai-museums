@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-18",
+ "generated": "2026-10-22",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -19,96 +19,6 @@
    "museum": "大阪市立自然史博物館",
    "text": "テーマ展示・ミニ展示",
    "url": "https://omnh.jp/archives/category/%e3%83%86%e3%83%bc%e3%83%9e%e5%b1%95%e7%a4%ba%e3%83%bb%e3%83%9f%e3%83%8b%e5%b1%95%e7%a4%ba"
-  },
-  {
-   "museum_id": "aham",
-   "museum": "あべのハルカス美術館",
-   "text": "小村雪岱のすべて",
-   "url": "https://www.aham.jp/exhibition/future/komurasettai/"
-  },
-  {
-   "museum_id": "aham",
-   "museum": "あべのハルカス美術館",
-   "text": "特別展 古代エジプト",
-   "url": "https://www.aham.jp/exhibition/future/brooklyn/"
-  },
-  {
-   "museum_id": "aham",
-   "museum": "あべのハルカス美術館",
-   "text": "ゴッホの跳ね橋と印象派の画家たち",
-   "url": "https://www.aham.jp/exhibition/future/wallraf/"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和8年 春季展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2026_spring2.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和8年 早春展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2026_spring.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和7年 秋季展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2025_autumn.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和7年 夏季展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2025_summer.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和7年 春季展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2025_spring2.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和7年 早春展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2025_spring.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和6年 秋季展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2024_autumn.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和6年 夏季展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2024_summer.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和6年 春季展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2024_spring2.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和6年 早春展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2024_spring.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和5年 秋季展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2023_autumn.html"
-  },
-  {
-   "museum_id": "yuki",
-   "museum": "湯木美術館",
-   "text": "令和5年 夏季展",
-   "url": "http://www.yuki-museum.or.jp/exhibition/archives/2023_summer.html"
   },
   {
    "museum_id": "kyohaku",
@@ -339,36 +249,6 @@
    "url": "https://www.asahigroup-oyamazaki.com/exhibition/e5ac61063c57c7dd7df4a6fee9987d81ba5c66a7/"
   },
   {
-   "museum_id": "ryukoku",
-   "museum": "龍谷ミュージアム",
-   "text": "今後開催予定の展覧会",
-   "url": "https://museum.ryukoku.ac.jp/exhibition/index.html#sche"
-  },
-  {
-   "museum_id": "ryukoku",
-   "museum": "龍谷ミュージアム",
-   "text": "展示コンセプト",
-   "url": "https://museum.ryukoku.ac.jp/exhibition/concept.html"
-  },
-  {
-   "museum_id": "ryukoku",
-   "museum": "龍谷ミュージアム",
-   "text": "ベゼクリク石窟大回廊復元展示",
-   "url": "https://museum.ryukoku.ac.jp/bezeklik/"
-  },
-  {
-   "museum_id": "ryukoku",
-   "museum": "龍谷ミュージアム",
-   "text": "開催予定の展示会",
-   "url": "https://museum.ryukoku.ac.jp/exhibition/index.html#sche"
-  },
-  {
-   "museum_id": "ryukoku",
-   "museum": "龍谷ミュージアム",
-   "text": "展示コンセプト",
-   "url": "https://museum.ryukoku.ac.jp/concept.html"
-  },
-  {
    "museum_id": "kyoto-univ",
    "museum": "京都大学総合博物館",
    "text": "2026年度特別展 伊谷純一郎生誕百年記念「野生の眼、野生の心 自然の探究者 伊谷純一郎」",
@@ -513,6 +393,12 @@
    "url": "http://www.hakusasonso.jp/exhibition/detail/-part12026.html"
   },
   {
+   "museum_id": "hyogo-art",
+   "museum": "兵庫県立美術館",
+   "text": "3F、2F 展示室 2026年10月20日[火] － 2027年2月23日[火・祝] コレクション展Ⅱ 前衛って何だ!?",
+   "url": "https://www.artm.pref.hyogo.jp/exhibition/j_2610/index.html"
+  },
+  {
    "museum_id": "kobe-museum",
    "museum": "神戸市立博物館",
    "text": "常設展示トップ",
@@ -615,54 +501,6 @@
    "url": "https://www.hitohaku.jp/exhibition/everyone.html"
   },
   {
-   "museum_id": "otani",
-   "museum": "西宮市大谷記念美術館",
-   "text": "▶ 展覧会詳細",
-   "url": "http://otanimuseum.jp/exhibition_261031.html"
-  },
-  {
-   "museum_id": "otani",
-   "museum": "西宮市大谷記念美術館",
-   "text": "▶ 展覧会詳細",
-   "url": "http://otanimuseum.jp/exhibition_260404.html"
-  },
-  {
-   "museum_id": "otani",
-   "museum": "西宮市大谷記念美術館",
-   "text": "▶ 展覧会詳細",
-   "url": "http://otanimuseum.jp/exhibition_260822.html"
-  },
-  {
-   "museum_id": "ashiya",
-   "museum": "芦屋市立美術博物館",
-   "text": "コレクションの樹、36年目の春 －新収蔵品を中心に",
-   "url": "https://ashiya-museum.jp/exhibition/20614.html"
-  },
-  {
-   "museum_id": "ashiya",
-   "museum": "芦屋市立美術博物館",
-   "text": "チェコ絵本の作り方 －ボローニャ国際絵本展 受賞絵本から日チェコ共作のコミックまで－",
-   "url": "https://ashiya-museum.jp/exhibition/20799.html"
-  },
-  {
-   "museum_id": "ashiya",
-   "museum": "芦屋市立美術博物館",
-   "text": "令和8年度 歴史企画展「芦屋の古文書から②」",
-   "url": "https://ashiya-museum.jp/exhibition/20612.html"
-  },
-  {
-   "museum_id": "ashiya",
-   "museum": "芦屋市立美術博物館",
-   "text": "これからの展覧会",
-   "url": "https://ashiya-museum.jp/exhibition_next"
-  },
-  {
-   "museum_id": "ashiya",
-   "museum": "芦屋市立美術博物館",
-   "text": "最新のイベント",
-   "url": "https://ashiya-museum.jp/event-program_new/"
-  },
-  {
    "museum_id": "hakutsuru",
    "museum": "白鶴美術館",
    "text": "本館 生きもの活き！活き！ ―美術でめぐる白鶴動物ワンダーランド",
@@ -749,32 +587,44 @@
   {
    "museum_id": "nara-art",
    "museum": "奈良県立美術館",
-   "text": "・詳細をみる（展覧会ページへのリンク）",
+   "text": "詳細をみる（展覧会ページへのリンク）",
    "url": "https://www.pref.nara.lg.jp/n044/68464.html"
   },
   {
    "museum_id": "nara-art",
    "museum": "奈良県立美術館",
-   "text": "・詳細をみる（展覧会ページへのリンク）",
+   "text": "詳細をみる（展覧会ページへのリンク）",
    "url": "https://www.pref.nara.lg.jp/n044/p105007.html"
   },
   {
    "museum_id": "nara-art",
    "museum": "奈良県立美術館",
-   "text": "・詳細をみる（展覧会ページへのリンク）",
+   "text": "詳細をみる（展覧会ページへのリンク）",
    "url": "https://www.pref.nara.lg.jp/n044/p105008.html"
   },
   {
    "museum_id": "nara-art",
    "museum": "奈良県立美術館",
-   "text": "・詳細をみる（展覧会ページへのリンク）",
+   "text": "詳細をみる（展覧会ページへのリンク）",
    "url": "https://www.pref.nara.lg.jp/n044/p105026.html"
   },
   {
    "museum_id": "nara-art",
    "museum": "奈良県立美術館",
-   "text": "・詳細をみる（展覧会ページへのリンク）",
+   "text": "詳細をみる（展覧会ページへのリンク）",
    "url": "https://www.pref.nara.lg.jp/n044/p105025.html"
+  },
+  {
+   "museum_id": "nara-art",
+   "museum": "奈良県立美術館",
+   "text": "詳細をみる（展覧会ページへのリンク）",
+   "url": "https://www.pref.nara.lg.jp/n044/p105073.html"
+  },
+  {
+   "museum_id": "nara-art",
+   "museum": "奈良県立美術館",
+   "text": "展覧会オリジナルグッズ",
+   "url": "https://www.pref.nara.lg.jp/n044/p105037.html"
   },
   {
    "museum_id": "nara-art",
@@ -817,12 +667,6 @@
    "museum": "松伯美術館",
    "text": "美術館の紹介",
    "url": "https://www.kintetsu-g-hd.co.jp/culture/shohaku/introduce/exhibition_hall.html"
-  },
-  {
-   "museum_id": "shiga-art",
-   "museum": "滋賀県立美術館",
-   "text": "すべての展覧会",
-   "url": "https://www.shigamuseum.jp/exhibitions/"
   },
   {
    "museum_id": "biwahaku",
@@ -989,6 +833,12 @@
   {
    "museum_id": "momaw",
    "museum": "和歌山県立近代美術館",
+   "text": "MOMAWコレクション 版画と美術散歩 第3期 マティス『ジャズ』と―孔版の小道",
+   "url": "https://www.momaw.jp/exhibit/2026col_prints_3rd/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
    "text": "MOMAWコレクション 版画と美術散歩 第1期 ムンク《病める子》と—平版の小道",
    "url": "https://www.momaw.jp/exhibit/2026col_prints_1st/"
   },
@@ -1033,12 +883,6 @@
    "museum": "和歌山県立近代美術館",
    "text": "生誕120年 村井正誠展 色のやどり・形のうぶすな",
    "url": "https://www.momaw.jp/exhibit/2025_muraimasanari/"
-  },
-  {
-   "museum_id": "momaw",
-   "museum": "和歌山県立近代美術館",
-   "text": "2026年度の展覧会",
-   "url": "https://www.momaw.jp/exhibit_years/2026%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
   },
   {
    "museum_id": "wakayama-museum",
