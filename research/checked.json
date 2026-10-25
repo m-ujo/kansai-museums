@@ -16,23 +16,23 @@
   "found": 0
  },
  "bbplaza": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "biwahaku": {
-  "last": "2026-10-19",
+  "last": "2026-10-26",
   "found": 0
  },
  "bunpaku": {
-  "last": "2026-10-19",
-  "found": 0
+  "last": "2026-10-26",
+  "found": 5
  },
  "chado": {
   "last": "2026-10-15",
   "found": 0
  },
  "chokokan": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "cupnoodle": {
@@ -60,19 +60,19 @@
   "found": 0
  },
  "fukuda": {
-  "last": "2026-10-22",
-  "found": 1
+  "last": "2026-10-26",
+  "found": 0
  },
  "genji": {
   "last": "2026-10-15",
   "found": 3
  },
  "hakusasonso": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "hakutsuru": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "heijo": {
@@ -84,7 +84,7 @@
   "found": 0
  },
  "hikone": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "himeji-lit": {
@@ -92,7 +92,7 @@
   "found": 1
  },
  "hitohaku": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "horyuji": {
@@ -100,8 +100,12 @@
   "found": 0
  },
  "hosomi": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
+ },
+ "hyogo-art": {
+  "last": "2026-10-26",
+  "found": 1
  },
  "hyogo-koko": {
   "last": "2026-10-16",
@@ -120,7 +124,7 @@
   "found": 2
  },
  "itami": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "kahitsukan": {
@@ -156,7 +160,7 @@
   "found": 1
  },
  "kobe-museum": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "kofukuji": {
@@ -164,7 +168,7 @@
   "found": 0
  },
  "koiso": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "konjakukan": {
@@ -176,19 +180,19 @@
   "found": 0
  },
  "kyohaku": {
-  "last": "2026-10-22",
-  "found": 0
+  "last": "2026-10-26",
+  "found": 1
  },
  "kyoto-railway": {
   "last": "2026-10-16",
   "found": 1
  },
  "kyoto-univ": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "kyotomm": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "maizuru": {
@@ -216,11 +220,11 @@
   "found": 0
  },
  "momak": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "momaw": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 0
  },
  "nakahechi": {
@@ -228,7 +232,7 @@
   "found": 0
  },
  "nakka": {
-  "last": "2026-10-22",
+  "last": "2026-10-26",
   "found": 1
  },
  "nara-art": {
@@ -276,7 +280,7 @@
   "found": 0
  },
  "sagawa": {
-  "last": "2026-10-15",
+  "last": "2026-10-26",
   "found": 0
  },
  "sannenzaka": {
@@ -304,7 +308,7 @@
   "found": 0
  },
  "shohaku": {
-  "last": "2026-10-15",
+  "last": "2026-10-26",
   "found": 0
  },
  "spatialart": {
@@ -317,6 +321,10 @@
  },
  "taiyo": {
   "last": "2026-10-19",
+  "found": 0
+ },
+ "takeshiro": {
+  "last": "2026-10-26",
   "found": 0
  },
  "teamlab-kyoto": {
@@ -348,15 +356,15 @@
   "found": 0
  },
  "wakayama-museum": {
-  "last": "2026-10-15",
-  "found": 1
+  "last": "2026-10-26",
+  "found": 0
  },
  "wakayama-nature": {
   "last": "2026-10-19",
   "found": 1
  },
  "yamato": {
-  "last": "2026-10-15",
+  "last": "2026-10-26",
   "found": 0
  },
  "yanmar": {
