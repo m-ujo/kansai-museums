@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-25",
+ "generated": "2026-10-29",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -171,6 +171,18 @@
    "url": "https://kyotomm.jp/event_category/permanent"
   },
   {
+   "museum_id": "oyamazaki",
+   "museum": "アサヒグループ大山崎山荘美術館",
+   "text": "展覧会・イベントアーカイブ",
+   "url": "https://www.asahigroup-oyamazaki.com/exhibition/archive/"
+  },
+  {
+   "museum_id": "oyamazaki",
+   "museum": "アサヒグループ大山崎山荘美術館",
+   "text": "直近の展覧会",
+   "url": "https://www.asahigroup-oyamazaki.com/exhibition/e5ac61063c57c7dd7df4a6fee9987d81ba5c66a7/"
+  },
+  {
    "museum_id": "ryukoku",
    "museum": "龍谷ミュージアム",
    "text": "今後開催予定の展覧会",
@@ -271,6 +283,78 @@
    "museum": "京都大学総合博物館",
    "text": "蝶に会える日 村田泰隆コレクション展 Vol.2 東南アジアが育んだ多様性",
    "url": "https://www.museum.kyoto-u.ac.jp/special/20231129/"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "開催中・開催予定の企画展",
+   "url": "http://www.hakusasonso.jp/exhibition/index.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-66.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/-part12026.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-65.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "志野流二十一代家元継承記念展 「香道の正統 ー志野流五百五十年 一子相伝の血脈」",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-64.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-64.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "定家亜由子の花まんだら 京都と手しごと展",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-63.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-63.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "白沙村荘造営110年記念春季特別展「絶筆物語」",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/110.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/110.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "2026.10.10 SAT - 12.13 SUN 種房ひさ子 舞妓展",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/post-66.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "2026.08.29 SAT - 10.25 SUN 白沙村荘秋季展 part.1「月、皓々と2026」",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/-part12026.html"
   },
   {
    "museum_id": "koiso",
@@ -561,6 +645,72 @@
    "url": "https://www.shigamuseum.jp/exhibitions/"
   },
   {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "ディスカバリールーム",
+   "url": "https://www.biwahaku.jp/exhibition/discovery.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "おとなのディスカバリー",
+   "url": "https://www.biwahaku.jp/exhibition/a_discovery.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "びわ博の森を見に行こう",
+   "url": "https://www.biwahaku.jp/exhibition/forest.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "企画展示・その他展示",
+   "url": "https://www.biwahaku.jp/exhibition/special.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "展示交流補助ツール",
+   "url": "https://www.biwahaku.jp/exhibition/tool.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "常設展示室360度動画",
+   "url": "https://www.biwahaku.jp/exhibition/explanation.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "観察会・見学会",
+   "url": "https://www.biwahaku.jp/event/observe/"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "質問コーナー",
+   "url": "https://www.biwahaku.jp/event/question/"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "展示紹介トップへ",
+   "url": "https://www.biwahaku.jp/exhibition/"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "企画展示・その他展示トップ",
+   "url": "https://www.biwahaku.jp/exhibition/special.html"
+  },
+  {
+   "museum_id": "biwahaku",
+   "museum": "滋賀県立琵琶湖博物館",
+   "text": "企画展示・その他展示 Ａ展示室 地域の人びとによる展示「堅田もぐらの会二人組」 2026年09月27日 - 2027年03月31日",
+   "url": "https://www.biwahaku.jp/event/2026/09/post_3587.html"
+  },
+  {
    "museum_id": "sagawa",
    "museum": "佐川美術館",
    "text": "展覧会トップ",
@@ -781,6 +931,36 @@
    "museum": "和歌山県立博物館",
    "text": "世界遺産「紀伊山地の霊場と参詣道」登録20周年記念特別展 聖地巡礼 ―熊野と高野― 第Ⅳ期 熊野信仰の美と荘厳 ―熊野速玉大社の神像と古神宝―",
    "url": "https://hakubutu.wakayama.jp/exhibit/seitijunrei-4/"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "展覧会について",
+   "url": "https://reihokan.or.jp/tenrankai/"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "特別展・企画展",
+   "url": "https://reihokan.or.jp/pages/169/"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "展示替えに伴う臨時休館日のお知らせ",
+   "url": "https://reihokan.or.jp/pages/151?detail=1&b_id=908&r_id=124#block908"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "第46回大宝蔵展「高野山の名宝 ～大集合！ 金剛峯寺の宝物～」開催のお知らせです。",
+   "url": "https://reihokan.or.jp/pages/151?detail=1&b_id=908&r_id=113#block908"
+  },
+  {
+   "museum_id": "reihokan",
+   "museum": "高野山霊宝館",
+   "text": "東京国立博物館 弘法大師生誕1250年記念 特別展「空海と真言の名宝展」開催のお知らせです。",
+   "url": "https://reihokan.or.jp/pages/151?detail=1&b_id=908&r_id=108#block908"
   }
  ]
 }
