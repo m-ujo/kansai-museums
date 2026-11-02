@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29",
+ "generated": "2026-11-02",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -19,6 +19,12 @@
    "museum": "大阪市立自然史博物館",
    "text": "テーマ展示・ミニ展示",
    "url": "https://omnh.jp/archives/category/%e3%83%86%e3%83%bc%e3%83%9e%e5%b1%95%e7%a4%ba%e3%83%bb%e3%83%9f%e3%83%8b%e5%b1%95%e7%a4%ba"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "バトル 11 28 （土） 14:00-15:00 第１回欲しい作品バトル",
+   "url": "https://fujita-museum.or.jp/event/2026/10/30/17677/"
   },
   {
    "museum_id": "kyohaku",
@@ -139,12 +145,6 @@
    "museum": "福田美術館",
    "text": "ー東京・新宿歌舞伎町春画展WA×京都・愛のカタチー 大変お得な東西春画巡りのご案内(10/10-)",
    "url": "https://fukuda-art-museum.jp/info/202610095040"
-  },
-  {
-   "museum_id": "senoku",
-   "museum": "泉屋博古館",
-   "text": "現在は青銅器展のみ開催しています",
-   "url": "https://sen-oku.or.jp/news_20261020/"
   },
   {
    "museum_id": "kyotomm",
@@ -293,6 +293,18 @@
   {
    "museum_id": "hakusasonso",
    "museum": "白沙村荘 橋本関雪記念館",
+   "text": "白沙村荘秋季展「風、飄々と2026」",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/2026.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
+   "text": "read more...",
+   "url": "http://www.hakusasonso.jp/exhibition/detail/2026.html"
+  },
+  {
+   "museum_id": "hakusasonso",
+   "museum": "白沙村荘 橋本関雪記念館",
    "text": "read more...",
    "url": "http://www.hakusasonso.jp/exhibition/detail/post-66.html"
   },
@@ -343,18 +355,6 @@
    "museum": "白沙村荘 橋本関雪記念館",
    "text": "read more...",
    "url": "http://www.hakusasonso.jp/exhibition/detail/110.html"
-  },
-  {
-   "museum_id": "hakusasonso",
-   "museum": "白沙村荘 橋本関雪記念館",
-   "text": "2026.10.10 SAT - 12.13 SUN 種房ひさ子 舞妓展",
-   "url": "http://www.hakusasonso.jp/exhibition/detail/post-66.html"
-  },
-  {
-   "museum_id": "hakusasonso",
-   "museum": "白沙村荘 橋本関雪記念館",
-   "text": "2026.08.29 SAT - 10.25 SUN 白沙村荘秋季展 part.1「月、皓々と2026」",
-   "url": "http://www.hakusasonso.jp/exhibition/detail/-part12026.html"
   },
   {
    "museum_id": "koiso",
@@ -421,6 +421,12 @@
    "museum": "西宮市大谷記念美術館",
    "text": "▶ 展覧会詳細",
    "url": "http://otanimuseum.jp/exhibition_261031.html"
+  },
+  {
+   "museum_id": "otani",
+   "museum": "西宮市大谷記念美術館",
+   "text": "▶ 展覧会詳細",
+   "url": "http://otanimuseum.jp/exhibition_270116.html"
   },
   {
    "museum_id": "otani",
