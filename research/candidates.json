@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02",
+ "generated": "2026-11-05",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -15,6 +15,12 @@
    "url": "https://www.nmao.go.jp/events/event/20261010_nmao-satellite/"
   },
   {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "特別展・特別陳列",
+   "url": "https://www.osaka-art-museum.jp/index.php/special_exhibition"
+  },
+  {
    "museum_id": "omnh",
    "museum": "大阪市立自然史博物館",
    "text": "テーマ展示・ミニ展示",
@@ -23,7 +29,7 @@
   {
    "museum_id": "fujita",
    "museum": "藤田美術館",
-   "text": "バトル 11 28 （土） 14:00-15:00 第１回欲しい作品バトル",
+   "text": "対戦 11 28 （土） 14:00-15:00 第１回欲しい作品バトル",
    "url": "https://fujita-museum.or.jp/event/2026/10/30/17677/"
   },
   {
@@ -169,6 +175,18 @@
    "museum": "京都国際マンガミュージアム",
    "text": "常設コーナー",
    "url": "https://kyotomm.jp/event_category/permanent"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "「宇宙人神合懇展」 2026年11月25日（水）～ 2027年2月28日（日）",
+   "url": "https://kyotomm.jp/ee/uchujin-gokon/"
+  },
+  {
+   "museum_id": "kyotomm",
+   "museum": "京都国際マンガミュージアム",
+   "text": "ヤッサン一座の紙芝居スペシャル「京都から“走れ！地球を紙芝居”」 2026年12月6日（日）",
+   "url": "https://kyotomm.jp/ee/yassan-kamishibai-special/"
   },
   {
    "museum_id": "oyamazaki",
@@ -723,6 +741,12 @@
    "url": "https://www.sagawa-artmuseum.or.jp/plan/"
   },
   {
+   "museum_id": "sagawa",
+   "museum": "佐川美術館",
+   "text": "文化功労者顕彰記念展 千住博 自然へのまなざし",
+   "url": "https://www.sagawa-artmuseum.or.jp/plan/2026/11/post-188.html"
+  },
+  {
    "museum_id": "otsu",
    "museum": "大津市歴史博物館",
    "text": "�W���E�C�x���g",
@@ -809,12 +833,6 @@
   {
    "museum_id": "momaw",
    "museum": "和歌山県立近代美術館",
-   "text": "MOMAWコレクション 版画と美術散歩 第3期 マティス『ジャズ』と―孔版の小道",
-   "url": "https://www.momaw.jp/exhibit/2026col_prints_3rd/"
-  },
-  {
-   "museum_id": "momaw",
-   "museum": "和歌山県立近代美術館",
    "text": "MOMAWコレクション 絵画と彫刻",
    "url": "https://www.momaw.jp/exhibit/2026col_painting_sculpture/"
   },
@@ -845,12 +863,6 @@
   {
    "museum_id": "momaw",
    "museum": "和歌山県立近代美術館",
-   "text": "第79回和歌山県美術展覧会（県展）／第11回和歌山県ジュニア美術展覧会（ジュニア県展）",
-   "url": "https://www.momaw.jp/exhibit/2025kenten_jnr/"
-  },
-  {
-   "museum_id": "momaw",
-   "museum": "和歌山県立近代美術館",
    "text": "万博のレガシー —解体と再生、未完の営為を考える—",
    "url": "https://www.momaw.jp/exhibit/2025_expos/"
   },
@@ -865,6 +877,18 @@
    "museum": "和歌山県立近代美術館",
    "text": "生誕120年 村井正誠展 色のやどり・形のうぶすな",
    "url": "https://www.momaw.jp/exhibit/2025_muraimasanari/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2026年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2026%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
+  },
+  {
+   "museum_id": "momaw",
+   "museum": "和歌山県立近代美術館",
+   "text": "2025年度の展覧会",
+   "url": "https://www.momaw.jp/exhibit_years/2025%e5%b9%b4%e5%ba%a6%e3%81%ae%e5%b1%95%e8%a6%a7%e4%bc%9a/"
   },
   {
    "museum_id": "wakayama-museum",
