@@ -49,6 +49,24 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .masthead h1{margin:0;font-family:var(--font-display);font-weight:500;font-size:clamp(28px,4.6vw,44px);line-height:1.2;letter-spacing:.1em;text-wrap:balance;display:flex;align-items:center;gap:.6em}
 .masthead h1::after{content:"";flex:1 1 0;min-width:2em;height:12px;background:linear-gradient(var(--line-strong),var(--line-strong)) left center/calc(100% - 22px) 1px no-repeat,linear-gradient(var(--warn),var(--warn)) right center/12px 12px no-repeat}
 @media (max-width:640px){.masthead h1{display:block}.masthead h1::after{display:block;width:100%;margin-top:12px}}
+/* ヘッダーの名作スライドショー */
+@media (min-width:900px){.masthead .wrap{grid-template-columns:minmax(0,1fr) minmax(0,40%);column-gap:48px}.masthead .wrap>*:not(.fv):not(.theme-toggle):not(.version){grid-column:1}.fv{grid-column:2;grid-row:1/5;margin-top:28px}}
+@media (max-width:899px){.fv{order:9}}
+.masthead .wrap{grid-auto-flow:row dense}
+.fv{margin:0;display:grid;gap:8px}
+.fv-stage{position:relative;height:clamp(220px,26vw,320px)}
+.fv-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:right center;opacity:0;transition:opacity 1.2s ease}
+.fv-stage img.on{opacity:1}
+@media (max-width:899px){.fv-stage img{object-position:center}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fv-stage img{filter:brightness(.88)}}
+:root[data-theme="dark"] .fv-stage img{filter:brightness(.88)}
+.fv-foot{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.fv-credit{margin:0;font-size:10.5px;line-height:1.5;letter-spacing:.04em;color:var(--fg-3);text-align:right;flex:1;min-height:4.5em}
+.fv-credit b{font-weight:500;color:var(--fg-2)}
+.fv-dots{display:flex;gap:6px;flex:none}
+.fv-dots button{width:6px;height:6px;padding:0;border:0;border-radius:50%;background:var(--line-strong);cursor:pointer}
+.fv-dots button[aria-current="true"]{background:var(--fg-2)}
+@media (min-width:900px){.fv-foot{flex-direction:row-reverse}}
 .lede{margin:0;max-width:40em;color:var(--fg-2);font-size:13.5px;line-height:1.9}
 .today{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;font-size:13px;color:var(--fg-2);font-variant-numeric:tabular-nums}
 .today strong{color:var(--fg);font-weight:500}

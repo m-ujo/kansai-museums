@@ -728,6 +728,24 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .masthead h1{margin:0;font-family:var(--font-display);font-weight:500;font-size:clamp(28px,4.6vw,44px);line-height:1.2;letter-spacing:.1em;text-wrap:balance;display:flex;align-items:center;gap:.6em}
 .masthead h1::after{content:"";flex:1 1 0;min-width:2em;height:12px;background:linear-gradient(var(--line-strong),var(--line-strong)) left center/calc(100% - 22px) 1px no-repeat,linear-gradient(var(--warn),var(--warn)) right center/12px 12px no-repeat}
 @media (max-width:640px){.masthead h1{display:block}.masthead h1::after{display:block;width:100%;margin-top:12px}}
+/* ヘッダーの名作スライドショー */
+@media (min-width:900px){.masthead .wrap{grid-template-columns:minmax(0,1fr) minmax(0,40%);column-gap:48px}.masthead .wrap>*:not(.fv):not(.theme-toggle):not(.version){grid-column:1}.fv{grid-column:2;grid-row:1/5;margin-top:28px}}
+@media (max-width:899px){.fv{order:9}}
+.masthead .wrap{grid-auto-flow:row dense}
+.fv{margin:0;display:grid;gap:8px}
+.fv-stage{position:relative;height:clamp(220px,26vw,320px)}
+.fv-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:right center;opacity:0;transition:opacity 1.2s ease}
+.fv-stage img.on{opacity:1}
+@media (max-width:899px){.fv-stage img{object-position:center}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fv-stage img{filter:brightness(.88)}}
+:root[data-theme="dark"] .fv-stage img{filter:brightness(.88)}
+.fv-foot{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.fv-credit{margin:0;font-size:10.5px;line-height:1.5;letter-spacing:.04em;color:var(--fg-3);text-align:right;flex:1;min-height:4.5em}
+.fv-credit b{font-weight:500;color:var(--fg-2)}
+.fv-dots{display:flex;gap:6px;flex:none}
+.fv-dots button{width:6px;height:6px;padding:0;border:0;border-radius:50%;background:var(--line-strong);cursor:pointer}
+.fv-dots button[aria-current="true"]{background:var(--fg-2)}
+@media (min-width:900px){.fv-foot{flex-direction:row-reverse}}
 .lede{margin:0;max-width:40em;color:var(--fg-2);font-size:13.5px;line-height:1.9}
 .today{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;font-size:13px;color:var(--fg-2);font-variant-numeric:tabular-nums}
 .today strong{color:var(--fg);font-weight:500}
@@ -1021,11 +1039,12 @@ a.tl-bar{display:block}
 <header class="masthead">
   <div class="wrap">
     <button type="button" class="theme-toggle" id="theme-toggle"></button>
-    <p class="version">ver 1.02</p>
+    <p class="version">ver 1.03</p>
     <p class="eyebrow">大阪・京都・兵庫・奈良・滋賀・和歌山・三重</p>
     <h1>関西ミュージアム手帖</h1>
     <p class="lede">2府5県の美術館・博物館を、編集部の視点で選んで案内する手帖。今日開いている館、会期中の展覧会、テーマ別の特集から行き先を決められます。</p>
     <div class="today" id="today-line"></div>
+    <figure class="fv" aria-roledescription="スライドショー" aria-label="名作"><div class="fv-stage"></div><div class="fv-foot"><div class="fv-dots"></div><figcaption class="fv-credit"></figcaption></div></figure>
   </div>
 </header>
 
@@ -2608,6 +2627,29 @@ $('cnt-collections').textContent='('+COLLECTIONS.length+')';
 $('cnt-saved').textContent=favCount()?'('+favCount()+')':'';
 renderTodayLine(); renderRail(); syncRail();
 setTab((location.hash||'#list').slice(1),false);
+// ヘッダーの名作スライドショー（メトロポリタン美術館の CC0 画像。開くたびにランダムな作品から始め、8秒ごとに切り替える）
+(function(){const ART=[['436535','フィンセント・ファン・ゴッホ','糸杉のある麦畑','1889年'],['436532','フィンセント・ファン・ゴッホ','麦わら帽子の自画像','1887年'],['437881','ヨハネス・フェルメール','水差しを持つ若い女','1662年頃'],['435809','ピーテル・ブリューゲル（父）','穀物の収穫','1565年'],['437394','レンブラント・ファン・レイン','ホメロスの胸像を見つめるアリストテレス','1653年'],['438817','エドガー・ドガ','ダンス教室','1874年'],['435868','ポール・セザンヌ','カード遊びをする人々','1890–92年'],['437654','ジョルジュ・スーラ','サーカスの客寄せ','1887–88年']];
+const st=document.querySelector('.fv-stage'),cap=document.querySelector('.fv-credit'),dots=document.querySelector('.fv-dots'),fig=document.querySelector('.fv');
+let i=Math.floor(Math.random()*ART.length),timer=null,broken=false,paused=false;const imgs=[];
+// 画像が読めない環境（Artifact 版など）では枠ごと隠し、二度と動かさない
+function fail(){broken=true;clearInterval(timer);if(fig)fig.hidden=true;}
+ART.forEach((a,k)=>{const im=document.createElement('img');im.onerror=fail;im.alt=a[1]+'《'+a[2]+'》';im.decoding='async';im.setAttribute('aria-hidden','true');imgs.push(im);st.appendChild(im);
+ const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(k+1)+'枚目: '+a[2]);b.onclick=()=>{show(k);restart();};dots.appendChild(b);});
+function load(k){const im=imgs[k];if(!im.src)im.src='fv/'+ART[k][0]+'.jpg';return im;}
+// 読み込みが済んでから切り替える（前の作品が消えて空白になるのを防ぐ）
+function show(k){i=k;const im=load(k);load((k+1)%ART.length);
+ const apply=()=>{if(i!==k||broken)return;imgs.forEach((x,n)=>{x.classList.toggle('on',n===k);x.setAttribute('aria-hidden',String(n!==k));});
+  [...dots.children].forEach((b,n)=>b.setAttribute('aria-current',String(n===k)));
+  const a=ART[k];cap.innerHTML='<b>'+a[1]+'《'+a[2]+'》</b><br>'+a[3]+'　メトロポリタン美術館蔵（CC0）';};
+ if(im.complete&&im.naturalWidth)apply();else im.addEventListener('load',apply,{once:true});}
+const still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function restart(){clearInterval(timer);if(!still&&!broken&&!paused&&!document.hidden)timer=setInterval(()=>show((i+1)%ART.length),8000);}
+// マウスを乗せている間・点にフォーカスがある間は止める
+const pause=()=>{paused=true;clearInterval(timer);},resume=()=>{paused=false;restart();};
+fig.addEventListener('mouseenter',pause);fig.addEventListener('mouseleave',resume);
+fig.addEventListener('focusin',pause);fig.addEventListener('focusout',resume);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(timer);else restart();});
+show(i);restart();})();
 window.KMT={openStatus:openStatus,exStatus:exStatus,MUSEUMS:MUSEUMS,EXHIBITIONS:EXHIBITIONS};
 })();
 

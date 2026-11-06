@@ -15,6 +15,9 @@ const LEAFLET='<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4
 const body=markup+'\n<script>\n'+data+'\n</script>\n<script>\n'+app+'\n</script>\n';
 const full='<!doctype html>\n<html lang="ja">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n<title>関西ミュージアム手帖</title>\n<meta name="description" content="'+desc+'">\n<script>try{var t=localStorage.getItem("kmt.theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}</script>\n<meta name="theme-color" content="#f7f6f3" media="(prefers-color-scheme: light)">\n<meta name="theme-color" content="#131312" media="(prefers-color-scheme: dark)">\n<link rel="icon" type="image/png" sizes="32x32" href="'+ICON32+'">\n<link rel="apple-touch-icon" href="'+ICON180+'">\n'+fonts+'\n<style>\nhtml{color-scheme:light}\n'+leafletCss+'\n'+css+'\n</style>\n'+LEAFLET+'\n</head>\n<body>\n'+body+'</body>\n</html>\n';
 fs.writeFileSync(path.join(__dirname,'index.html'),full);
+// ヘッダーの名作の画像（src/fv/）は埋め込まず、公開フォルダの fv/ にコピーする
+fs.mkdirSync(path.join(__dirname,'fv'),{recursive:true});
+for(const f of fs.readdirSync(path.join(__dirname,'src','fv')))if(f.endsWith('.jpg'))fs.copyFileSync(path.join(__dirname,'src','fv',f),path.join(__dirname,'fv',f));
 console.log('index.html',(full.length/1024).toFixed(0)+'KB');
 if(process.argv.includes('--artifact')){
   const artifact='<title>関西ミュージアム手帖</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<meta name="description" content="'+desc+'">\n'+fonts+'\n<style>\n'+css+'\n</style>\n'+body;

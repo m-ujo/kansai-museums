@@ -555,5 +555,28 @@ $('cnt-collections').textContent='('+COLLECTIONS.length+')';
 $('cnt-saved').textContent=favCount()?'('+favCount()+')':'';
 renderTodayLine(); renderRail(); syncRail();
 setTab((location.hash||'#list').slice(1),false);
+// ヘッダーの名作スライドショー（メトロポリタン美術館の CC0 画像。開くたびにランダムな作品から始め、8秒ごとに切り替える）
+(function(){const ART=[['436535','フィンセント・ファン・ゴッホ','糸杉のある麦畑','1889年'],['436532','フィンセント・ファン・ゴッホ','麦わら帽子の自画像','1887年'],['437881','ヨハネス・フェルメール','水差しを持つ若い女','1662年頃'],['435809','ピーテル・ブリューゲル（父）','穀物の収穫','1565年'],['437394','レンブラント・ファン・レイン','ホメロスの胸像を見つめるアリストテレス','1653年'],['438817','エドガー・ドガ','ダンス教室','1874年'],['435868','ポール・セザンヌ','カード遊びをする人々','1890–92年'],['437654','ジョルジュ・スーラ','サーカスの客寄せ','1887–88年']];
+const st=document.querySelector('.fv-stage'),cap=document.querySelector('.fv-credit'),dots=document.querySelector('.fv-dots'),fig=document.querySelector('.fv');
+let i=Math.floor(Math.random()*ART.length),timer=null,broken=false,paused=false;const imgs=[];
+// 画像が読めない環境（Artifact 版など）では枠ごと隠し、二度と動かさない
+function fail(){broken=true;clearInterval(timer);if(fig)fig.hidden=true;}
+ART.forEach((a,k)=>{const im=document.createElement('img');im.onerror=fail;im.alt=a[1]+'《'+a[2]+'》';im.decoding='async';im.setAttribute('aria-hidden','true');imgs.push(im);st.appendChild(im);
+ const b=document.createElement('button');b.type='button';b.setAttribute('aria-label',(k+1)+'枚目: '+a[2]);b.onclick=()=>{show(k);restart();};dots.appendChild(b);});
+function load(k){const im=imgs[k];if(!im.src)im.src='fv/'+ART[k][0]+'.jpg';return im;}
+// 読み込みが済んでから切り替える（前の作品が消えて空白になるのを防ぐ）
+function show(k){i=k;const im=load(k);load((k+1)%ART.length);
+ const apply=()=>{if(i!==k||broken)return;imgs.forEach((x,n)=>{x.classList.toggle('on',n===k);x.setAttribute('aria-hidden',String(n!==k));});
+  [...dots.children].forEach((b,n)=>b.setAttribute('aria-current',String(n===k)));
+  const a=ART[k];cap.innerHTML='<b>'+a[1]+'《'+a[2]+'》</b><br>'+a[3]+'　メトロポリタン美術館蔵（CC0）';};
+ if(im.complete&&im.naturalWidth)apply();else im.addEventListener('load',apply,{once:true});}
+const still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function restart(){clearInterval(timer);if(!still&&!broken&&!paused&&!document.hidden)timer=setInterval(()=>show((i+1)%ART.length),8000);}
+// マウスを乗せている間・点にフォーカスがある間は止める
+const pause=()=>{paused=true;clearInterval(timer);},resume=()=>{paused=false;restart();};
+fig.addEventListener('mouseenter',pause);fig.addEventListener('mouseleave',resume);
+fig.addEventListener('focusin',pause);fig.addEventListener('focusout',resume);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(timer);else restart();});
+show(i);restart();})();
 window.KMT={openStatus:openStatus,exStatus:exStatus,MUSEUMS:MUSEUMS,EXHIBITIONS:EXHIBITIONS};
 })();
