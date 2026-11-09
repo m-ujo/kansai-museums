@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05",
+ "generated": "2026-11-09",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -9,22 +9,16 @@
    "url": "https://nakka-art.jp/exhibition/date-held/"
   },
   {
-   "museum_id": "nmao",
-   "museum": "国立国際美術館",
-   "text": "国立国際美術館(NMAO)×大阪中之島美術館(NAKKA)コレクション活用連携事業 コレナカ NMAOサテライト",
-   "url": "https://www.nmao.go.jp/events/event/20261010_nmao-satellite/"
-  },
-  {
-   "museum_id": "osaka-city-art",
-   "museum": "大阪市立美術館",
-   "text": "特別展・特別陳列",
-   "url": "https://www.osaka-art-museum.jp/index.php/special_exhibition"
-  },
-  {
    "museum_id": "omnh",
    "museum": "大阪市立自然史博物館",
    "text": "テーマ展示・ミニ展示",
    "url": "https://omnh.jp/archives/category/%e3%83%86%e3%83%bc%e3%83%9e%e5%b1%95%e7%a4%ba%e3%83%bb%e3%83%9f%e3%83%8b%e5%b1%95%e7%a4%ba"
+  },
+  {
+   "museum_id": "fujita",
+   "museum": "藤田美術館",
+   "text": "Kids 11 14 （土） 14:00‐14:20 子ども向け解説",
+   "url": "https://fujita-museum.or.jp/event/2026/11/09/17841/"
   },
   {
    "museum_id": "fujita",
@@ -145,12 +139,6 @@
    "museum": "福田美術館",
    "text": "展覧会一覧を見る",
    "url": "https://fukuda-art-museum.jp/exhibition"
-  },
-  {
-   "museum_id": "fukuda",
-   "museum": "福田美術館",
-   "text": "ー東京・新宿歌舞伎町春画展WA×京都・愛のカタチー 大変お得な東西春画巡りのご案内(10/10-)",
-   "url": "https://fukuda-art-museum.jp/info/202610095040"
   },
   {
    "museum_id": "kyotomm",
@@ -375,16 +363,16 @@
    "url": "http://www.hakusasonso.jp/exhibition/detail/110.html"
   },
   {
-   "museum_id": "koiso",
-   "museum": "神戸市立小磯記念美術館",
-   "text": "神戸市立小磯記念美術館：イベント情報 / Event",
-   "url": "https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/event.html"
+   "museum_id": "hyogo-art",
+   "museum": "兵庫県立美術館",
+   "text": "3F、2F 展示室 2026年10月20日[火] － 2027年2月23日[火・祝] コレクション展Ⅱ 前衛って何だ!?",
+   "url": "https://www.artm.pref.hyogo.jp/exhibition/j_2610/index.html"
   },
   {
    "museum_id": "koiso",
    "museum": "神戸市立小磯記念美術館",
-   "text": "コレクション企画展示「色彩と絵画、新収蔵品とともに」と「小磯良平作品選Ⅰ」の開催",
-   "url": "https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/shikisaitokaiga.html"
+   "text": "神戸市立小磯記念美術館：イベント情報 / Event",
+   "url": "https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/event.html"
   },
   {
    "museum_id": "hitohaku",
@@ -606,6 +594,12 @@
    "museum_id": "nara-art",
    "museum": "奈良県立美術館",
    "text": "詳細をみる（展覧会ページへのリンク）",
+   "url": "https://www.pref.nara.lg.jp/n044/p105072.html"
+  },
+  {
+   "museum_id": "nara-art",
+   "museum": "奈良県立美術館",
+   "text": "詳細をみる（展覧会ページへのリンク）",
    "url": "https://www.pref.nara.lg.jp/n044/p105073.html"
   },
   {
@@ -739,12 +733,6 @@
    "museum": "佐川美術館",
    "text": "展覧会トップ",
    "url": "https://www.sagawa-artmuseum.or.jp/plan/"
-  },
-  {
-   "museum_id": "sagawa",
-   "museum": "佐川美術館",
-   "text": "文化功労者顕彰記念展 千住博 自然へのまなざし",
-   "url": "https://www.sagawa-artmuseum.or.jp/plan/2026/11/post-188.html"
   },
   {
    "museum_id": "otsu",
@@ -911,12 +899,6 @@
   {
    "museum_id": "wakayama-museum",
    "museum": "和歌山県立博物館",
-   "text": "コーナー展示「《昭和100年》 “あのじゅう”の和歌山」",
-   "url": "https://hakubutu.wakayama.jp/exhibit/s100-anojuuwa2026/"
-  },
-  {
-   "museum_id": "wakayama-museum",
-   "museum": "和歌山県立博物館",
    "text": "特別展「蘆雪生動 ―南紀 無量寺への旅―」",
    "url": "https://hakubutu.wakayama.jp/exhibit/rosetu2026/"
   },
@@ -961,6 +943,12 @@
    "museum": "和歌山県立博物館",
    "text": "世界遺産「紀伊山地の霊場と参詣道」登録20周年記念特別展 聖地巡礼 ―熊野と高野― 第Ⅳ期 熊野信仰の美と荘厳 ―熊野速玉大社の神像と古神宝―",
    "url": "https://hakubutu.wakayama.jp/exhibit/seitijunrei-4/"
+  },
+  {
+   "museum_id": "wakayama-museum",
+   "museum": "和歌山県立博物館",
+   "text": "世界遺産「紀伊山地の霊場と参詣道」登録20周年記念特別展 聖地巡礼 ―熊野と高野― 第Ⅲ期 人・道・祈り―紀伊路・伊勢路・大辺路をゆく―",
+   "url": "https://hakubutu.wakayama.jp/exhibit/seitijunrei-3/"
   },
   {
    "museum_id": "reihokan",
