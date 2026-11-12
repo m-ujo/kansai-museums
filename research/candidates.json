@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-09",
+ "generated": "2026-11-12",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -120,6 +120,12 @@
    "museum_id": "hosomi",
    "museum": "細見美術館",
    "text": "展覧会特設ページ",
+   "url": "https://www.emuseum.or.jp/exhibition/ex095/index.html"
+  },
+  {
+   "museum_id": "hosomi",
+   "museum": "細見美術館",
+   "text": "展覧会特設ページ",
    "url": "https://www.emuseum.or.jp/exhibition/ex086/index.html"
   },
   {
@@ -167,12 +173,6 @@
   {
    "museum_id": "kyotomm",
    "museum": "京都国際マンガミュージアム",
-   "text": "「宇宙人神合懇展」 2026年11月25日（水）～ 2027年2月28日（日）",
-   "url": "https://kyotomm.jp/ee/uchujin-gokon/"
-  },
-  {
-   "museum_id": "kyotomm",
-   "museum": "京都国際マンガミュージアム",
    "text": "ヤッサン一座の紙芝居スペシャル「京都から“走れ！地球を紙芝居”」 2026年12月6日（日）",
    "url": "https://kyotomm.jp/ee/yassan-kamishibai-special/"
   },
@@ -186,7 +186,7 @@
    "museum_id": "oyamazaki",
    "museum": "アサヒグループ大山崎山荘美術館",
    "text": "直近の展覧会",
-   "url": "https://www.asahigroup-oyamazaki.com/exhibition/e5ac61063c57c7dd7df4a6fee9987d81ba5c66a7/"
+   "url": "https://www.asahigroup-oyamazaki.com/exhibition/hasegawa/"
   },
   {
    "museum_id": "ryukoku",
@@ -371,7 +371,7 @@
   {
    "museum_id": "koiso",
    "museum": "神戸市立小磯記念美術館",
-   "text": "神戸市立小磯記念美術館：イベント情報 / Event",
+   "text": "神戸市立小磯記念美術館：イベント情報／Event",
    "url": "https://www.city.kobe.lg.jp/a45010/kanko/bunka/bunkashisetsu/koisogallery/event.html"
   },
   {
@@ -403,6 +403,12 @@
    "museum": "兵庫県立人と自然の博物館",
    "text": "みんなの展示",
    "url": "https://www.hitohaku.jp/exhibition/everyone.html"
+  },
+  {
+   "museum_id": "hitohaku",
+   "museum": "兵庫県立人と自然の博物館",
+   "text": "「『ササヤマグノームス・サエグサイ』復元フィギュア完成記念ミニ展示」",
+   "url": "https://www.hitohaku.jp/infomation/event/figure-exhibition2026.html"
   },
   {
    "museum_id": "hitohaku",
