@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-12",
+ "generated": "2026-11-16",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -13,12 +13,6 @@
    "museum": "大阪市立自然史博物館",
    "text": "テーマ展示・ミニ展示",
    "url": "https://omnh.jp/archives/category/%e3%83%86%e3%83%bc%e3%83%9e%e5%b1%95%e7%a4%ba%e3%83%bb%e3%83%9f%e3%83%8b%e5%b1%95%e7%a4%ba"
-  },
-  {
-   "museum_id": "fujita",
-   "museum": "藤田美術館",
-   "text": "Kids 11 14 （土） 14:00‐14:20 子ども向け解説",
-   "url": "https://fujita-museum.or.jp/event/2026/11/09/17841/"
   },
   {
    "museum_id": "fujita",
@@ -103,6 +97,78 @@
    "museum": "京都国立近代美術館",
    "text": "独立行政法人国立美術館の所蔵作品展における観覧料金の改定について",
    "url": "https://www.momak.go.jp/Japanese/news/?sy=2026&tp=news#post-131905"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "フィルムシアターでのイベント",
+   "url": "https://www.bunpaku.or.jp/exhi_film/event"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "来月以降の催し",
+   "url": "https://www.bunpaku.or.jp/museum-event/next_month"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "ぶんぱく子ども教室",
+   "url": "https://www.bunpaku.or.jp/museum-event/classroom"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "京都アート・クラフトマーケット",
+   "url": "https://www.bunpaku.or.jp/museum-event/art-craft-market"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "ろうじ店舗イベント",
+   "url": "https://www.bunpaku.or.jp/museum-event/roji"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "地域連携イベント",
+   "url": "https://www.bunpaku.or.jp/museum-event/chiiki"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "ろうじ店舗の催し",
+   "url": "https://www.bunpaku.or.jp/museum-event/roji"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "現代の京刺繍展 2026.11.19(木) 〜 11.22(日) ６階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261119-1122/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "文博ろうじの古本まつり 2026.11.20(金) 〜 11.23(月・祝) 1階 ろうじ店舗前",
+   "url": "https://www.bunpaku.or.jp/roji-event/20261120-1123/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "大ZOU展 2026.11.21(土) 〜 11.23(月・祝) 別館ホール",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261121-1123/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "第37回 工芸美術創工会展 2026.11.25(水) 〜 11.29(日) 5階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261125-1129/"
+  },
+  {
+   "museum_id": "bunpaku",
+   "museum": "京都文化博物館",
+   "text": "第四回 花都の會書展 2026.11.28(土) 〜 11.29(日) ６階ミュージアムギャラリー",
+   "url": "https://www.bunpaku.or.jp/gallery_hall/20261128-1129/"
   },
   {
    "museum_id": "hosomi",
@@ -565,6 +631,12 @@
    "museum": "市立伊丹ミュージアム",
    "text": "歴史常設展示",
    "url": "https://itami-im.jp/about/permanent/"
+  },
+  {
+   "museum_id": "itami",
+   "museum": "市立伊丹ミュージアム",
+   "text": "歴史 企画展 無料 旧村シリーズ18「鴻池・荻野―尼崎藩の支配と村の営み―」 2027年1月16日（土）〜2月21日（日） 会場：展示室5",
+   "url": "https://itami-im.jp/exhibitions/%e6%97%a7%e6%9d%91%e3%82%b7%e3%83%aa%e3%83%bc%e3%82%ba18%e3%80%8c%e9%b4%bb%e6%b1%a0%e3%83%bb%e8%8d%bb%e9%87%8e%e2%80%95%e5%b0%bc%e5%b4%8e%e8%97%a9%e3%81%ae%e6%94%af%e9%85%8d%e3%81%a8%e6%9d%91%e3%81%ae/"
   },
   {
    "museum_id": "nara-art",
