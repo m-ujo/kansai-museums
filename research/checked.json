@@ -20,12 +20,12 @@
   "found": 0
  },
  "biwahaku": {
-  "last": "2026-11-12",
+  "last": "2026-11-19",
   "found": 0
  },
  "bunpaku": {
-  "last": "2026-10-26",
-  "found": 5
+  "last": "2026-11-19",
+  "found": 1
  },
  "chado": {
   "last": "2026-11-16",
@@ -52,7 +52,7 @@
   "found": 0
  },
  "fashion": {
-  "last": "2026-11-12",
+  "last": "2026-11-19",
   "found": 0
  },
  "fudoki": {
@@ -116,7 +116,7 @@
   "found": 2
  },
  "hyogo-rekihaku": {
-  "last": "2026-11-12",
+  "last": "2026-11-19",
   "found": 0
  },
  "iganinja": {
@@ -148,7 +148,7 @@
   "found": 1
  },
  "kamigata": {
-  "last": "2026-11-12",
+  "last": "2026-11-19",
   "found": 0
  },
  "kanji": {
@@ -156,7 +156,7 @@
   "found": 1
  },
  "kashikoken": {
-  "last": "2026-11-12",
+  "last": "2026-11-19",
   "found": 0
  },
  "kasuga": {
@@ -168,11 +168,11 @@
   "found": 0
  },
  "kenshokan": {
-  "last": "2026-11-12",
+  "last": "2026-11-19",
   "found": 0
  },
  "kinutani": {
-  "last": "2026-11-12",
+  "last": "2026-11-19",
   "found": 0
  },
  "kobe-museum": {
@@ -220,8 +220,8 @@
   "found": 0
  },
  "mcart": {
-  "last": "2026-11-12",
-  "found": 1
+  "last": "2026-11-19",
+  "found": 0
  },
  "miho": {
   "last": "2026-11-16",
@@ -288,11 +288,11 @@
   "found": 0
  },
  "osakajo": {
-  "last": "2026-11-12",
+  "last": "2026-11-19",
   "found": 0
  },
  "otani": {
-  "last": "2026-11-05",
+  "last": "2026-11-19",
   "found": 0
  },
  "otsu": {
@@ -316,11 +316,11 @@
   "found": 1
  },
  "sannenzaka": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "sayamaike": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "sci-museum": {
@@ -328,7 +328,7 @@
   "found": 0
  },
  "sengukan": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "senoku": {
@@ -336,7 +336,7 @@
   "found": 0
  },
  "shiba": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "shiga-art": {
@@ -348,15 +348,15 @@
   "found": 0
  },
  "spatialart": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "sugioka": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "taiyo": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "takeshiro": {
@@ -364,11 +364,11 @@
   "found": 0
  },
  "tanabe": {
-  "last": "2026-11-12",
+  "last": "2026-11-19",
   "found": 0
  },
  "teamlab-kyoto": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "tenri": {
@@ -376,19 +376,19 @@
   "found": 1
  },
  "tezuka": {
-  "last": "2026-11-12",
+  "last": "2026-11-19",
   "found": 0
  },
  "todaiji": {
-  "last": "2026-10-19",
-  "found": 0
+  "last": "2026-11-19",
+  "found": 1
  },
  "toy": {
   "last": "2026-10-19",
   "found": 3
  },
  "ucc": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "wakayama-castle": {
@@ -396,7 +396,7 @@
   "found": 1
  },
  "wakayama-city": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "wakayama-museum": {
@@ -412,7 +412,7 @@
   "found": 0
  },
  "yanmar": {
-  "last": "2026-10-19",
+  "last": "2026-11-19",
   "found": 0
  },
  "yuki": {
