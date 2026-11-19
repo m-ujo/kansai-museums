@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16",
+ "generated": "2026-11-19",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -143,12 +143,6 @@
   {
    "museum_id": "bunpaku",
    "museum": "京都文化博物館",
-   "text": "現代の京刺繍展 2026.11.19(木) 〜 11.22(日) ６階ミュージアムギャラリー",
-   "url": "https://www.bunpaku.or.jp/gallery_hall/20261119-1122/"
-  },
-  {
-   "museum_id": "bunpaku",
-   "museum": "京都文化博物館",
    "text": "文博ろうじの古本まつり 2026.11.20(金) 〜 11.23(月・祝) 1階 ろうじ店舗前",
    "url": "https://www.bunpaku.or.jp/roji-event/20261120-1123/"
   },
@@ -211,6 +205,12 @@
    "museum": "福田美術館",
    "text": "展覧会一覧を見る",
    "url": "https://fukuda-art-museum.jp/exhibition"
+  },
+  {
+   "museum_id": "fukuda",
+   "museum": "福田美術館",
+   "text": "図録「果蔬図巻と菜蟲譜」が「第68回 全国カタログ展」にて受賞！",
+   "url": "https://fukuda-art-museum.jp/info/202611185123"
   },
   {
    "museum_id": "kyotomm",
