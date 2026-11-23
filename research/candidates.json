@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-19",
+ "generated": "2026-11-23",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -175,12 +175,6 @@
    "museum": "細見美術館",
    "text": "気軽にお茶会体験 第35回「洋食器のミニ茶会Ⅳ」",
    "url": "https://www.emuseum.or.jp/event/index.html#ev138"
-  },
-  {
-   "museum_id": "hosomi",
-   "museum": "細見美術館",
-   "text": "展覧会特設ページ",
-   "url": "https://www.emuseum.or.jp/exhibition/ex095/index.html"
   },
   {
    "museum_id": "hosomi",
@@ -435,6 +429,48 @@
    "url": "https://www.artm.pref.hyogo.jp/exhibition/j_2610/index.html"
   },
   {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "常設展示トップ",
+   "url": "https://www.kobecitymuseum.jp/gallery/"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "神戸の歴史展示",
+   "url": "https://www.kobecitymuseum.jp/gallery/history_of_kobe"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "地域文化財展示室",
+   "url": "https://www.kobecitymuseum.jp/gallery/collection?theme=7"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "コレクション展示",
+   "url": "https://www.kobecitymuseum.jp/gallery/collection"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "神戸の歴史展示室",
+   "url": "https://www.kobecitymuseum.jp/gallery/history_of_kobe"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "コレクション展示室",
+   "url": "https://www.kobecitymuseum.jp/gallery/collection"
+  },
+  {
+   "museum_id": "kobe-museum",
+   "museum": "神戸市立博物館",
+   "text": "詳細ページへ",
+   "url": "https://www.kobecitymuseum.jp/exhibition/detail?exhibition=397"
+  },
+  {
    "museum_id": "koiso",
    "museum": "神戸市立小磯記念美術館",
    "text": "神戸市立小磯記念美術館：イベント情報／Event",
@@ -473,6 +509,12 @@
   {
    "museum_id": "hitohaku",
    "museum": "兵庫県立人と自然の博物館",
+   "text": "「植物シモバシラが魅せる氷の世界 ― 身近で観察できる氷をつくる植物･アキチョウジ ―」",
+   "url": "https://www.hitohaku.jp/exhibition/planning/frostpillar2026.html"
+  },
+  {
+   "museum_id": "hitohaku",
+   "museum": "兵庫県立人と自然の博物館",
    "text": "「『ササヤマグノームス・サエグサイ』復元フィギュア完成記念ミニ展示」",
    "url": "https://www.hitohaku.jp/infomation/event/figure-exhibition2026.html"
   },
@@ -481,12 +523,6 @@
    "museum": "兵庫県立人と自然の博物館",
    "text": "「但馬牛博物館×ひとはくコラボ展2026『但馬牛ビデオ劇場＆但馬牛のうた・詩展』」",
    "url": "https://www.hitohaku.jp/exhibition/planning/tajimaushi2026.html"
-  },
-  {
-   "museum_id": "hitohaku",
-   "museum": "兵庫県立人と自然の博物館",
-   "text": "「植物シモバシラが魅せる氷の世界 ― 身近で観察できる氷をつくる植物･アキチョウジ ―」",
-   "url": "https://www.hitohaku.jp/exhibition/planning/frostpillar2026.html"
   },
   {
    "museum_id": "hitohaku",
@@ -807,12 +843,6 @@
    "url": "https://www.biwahaku.jp/event/2026/09/post_3587.html"
   },
   {
-   "museum_id": "sagawa",
-   "museum": "佐川美術館",
-   "text": "展覧会トップ",
-   "url": "https://www.sagawa-artmuseum.or.jp/plan/"
-  },
-  {
    "museum_id": "otsu",
    "museum": "大津市歴史博物館",
    "text": "�W���E�C�x���g",
@@ -1051,12 +1081,6 @@
    "museum": "高野山霊宝館",
    "text": "第46回大宝蔵展「高野山の名宝 ～大集合！ 金剛峯寺の宝物～」開催のお知らせです。",
    "url": "https://reihokan.or.jp/pages/151?detail=1&b_id=908&r_id=113#block908"
-  },
-  {
-   "museum_id": "reihokan",
-   "museum": "高野山霊宝館",
-   "text": "東京国立博物館 弘法大師生誕1250年記念 特別展「空海と真言の名宝展」開催のお知らせです。",
-   "url": "https://reihokan.or.jp/pages/151?detail=1&b_id=908&r_id=108#block908"
   }
  ]
 }
