@@ -8,8 +8,8 @@
   "found": 2
  },
  "ashiya": {
-  "last": "2026-11-09",
-  "found": 0
+  "last": "2026-11-26",
+  "found": 1
  },
  "azuchi": {
   "last": "2026-10-15",
@@ -32,7 +32,7 @@
   "found": 0
  },
  "chikatsu": {
-  "last": "2026-11-23",
+  "last": "2026-11-26",
   "found": 0
  },
  "chokokan": {
@@ -48,11 +48,11 @@
   "found": 1
  },
  "dougukan": {
-  "last": "2026-11-23",
+  "last": "2026-11-26",
   "found": 0
  },
  "enryakuji": {
-  "last": "2026-11-23",
+  "last": "2026-11-26",
   "found": 0
  },
  "fashion": {
@@ -76,11 +76,11 @@
   "found": 3
  },
  "hakusasonso": {
-  "last": "2026-11-23",
+  "last": "2026-11-26",
   "found": 0
  },
  "hakutsuru": {
-  "last": "2026-11-23",
+  "last": "2026-11-26",
   "found": 0
  },
  "heijo": {
@@ -92,7 +92,7 @@
   "found": 0
  },
  "hikone": {
-  "last": "2026-11-09",
+  "last": "2026-11-26",
   "found": 0
  },
  "himeji-lit": {
@@ -100,7 +100,7 @@
   "found": 1
  },
  "hitohaku": {
-  "last": "2026-11-09",
+  "last": "2026-11-26",
   "found": 0
  },
  "horyuji": {
@@ -108,7 +108,7 @@
   "found": 0
  },
  "hosomi": {
-  "last": "2026-11-09",
+  "last": "2026-11-26",
   "found": 0
  },
  "hyogo-art": {
@@ -120,7 +120,7 @@
   "found": 2
  },
  "hyogo-rekihaku": {
-  "last": "2026-11-23",
+  "last": "2026-11-26",
   "found": 0
  },
  "iganinja": {
@@ -136,8 +136,8 @@
   "found": 2
  },
  "itami": {
-  "last": "2026-11-09",
-  "found": 0
+  "last": "2026-11-26",
+  "found": 1
  },
  "itsuo": {
   "last": "2026-11-02",
@@ -152,7 +152,7 @@
   "found": 1
  },
  "kamigata": {
-  "last": "2026-11-23",
+  "last": "2026-11-26",
   "found": 0
  },
  "kanji": {
@@ -160,11 +160,11 @@
   "found": 1
  },
  "kashikoken": {
-  "last": "2026-11-23",
+  "last": "2026-11-26",
   "found": 0
  },
  "kasuga": {
-  "last": "2026-11-23",
+  "last": "2026-11-26",
   "found": 0
  },
  "kawai": {
@@ -180,7 +180,7 @@
   "found": 0
  },
  "kobe-museum": {
-  "last": "2026-10-26",
+  "last": "2026-11-26",
   "found": 0
  },
  "kofukuji": {
@@ -188,7 +188,7 @@
   "found": 0
  },
  "koiso": {
-  "last": "2026-11-09",
+  "last": "2026-11-26",
   "found": 0
  },
  "konjakukan": {
@@ -240,12 +240,16 @@
   "found": 1
  },
  "mingeikan": {
-  "last": "2026-10-16",
-  "found": 1
+  "last": "2026-11-26",
+  "found": 0
  },
  "minka": {
   "last": "2026-11-16",
   "found": 0
+ },
+ "minpaku": {
+  "last": "2026-11-26",
+  "found": 1
  },
  "momak": {
   "last": "2026-11-12",
@@ -296,7 +300,7 @@
   "found": 0
  },
  "otani": {
-  "last": "2026-11-19",
+  "last": "2026-11-26",
   "found": 0
  },
  "otsu": {
@@ -304,11 +308,11 @@
   "found": 0
  },
  "oyamazaki": {
-  "last": "2026-11-09",
+  "last": "2026-11-26",
   "found": 0
  },
  "reihokan": {
-  "last": "2026-11-09",
+  "last": "2026-11-26",
   "found": 0
  },
  "ryukoku": {
@@ -352,7 +356,7 @@
   "found": 0
  },
  "shohaku": {
-  "last": "2026-11-09",
+  "last": "2026-11-26",
   "found": 0
  },
  "spatialart": {
@@ -384,7 +388,7 @@
   "found": 1
  },
  "tezuka": {
-  "last": "2026-11-19",
+  "last": "2026-11-26",
   "found": 0
  },
  "todaiji": {
@@ -412,15 +416,15 @@
   "found": 0
  },
  "wakayama-museum": {
-  "last": "2026-11-09",
-  "found": 1
+  "last": "2026-11-26",
+  "found": 0
  },
  "wakayama-nature": {
   "last": "2026-10-19",
   "found": 1
  },
  "yamato": {
-  "last": "2026-11-09",
+  "last": "2026-11-26",
   "found": 0
  },
  "yanmar": {
