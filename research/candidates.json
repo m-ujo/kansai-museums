@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23",
+ "generated": "2026-11-26",
  "note": "展覧会一覧ページ上の、まだデータにない展覧会らしきリンク。会期と内容を確認してから data-exhibitions.js に追加する。",
  "candidates": [
   {
@@ -7,6 +7,12 @@
    "museum": "大阪中之島美術館",
    "text": "開催予定の展覧会",
    "url": "https://nakka-art.jp/exhibition/date-held/"
+  },
+  {
+   "museum_id": "osaka-city-art",
+   "museum": "大阪市立美術館",
+   "text": "特別展・特別陳列",
+   "url": "https://www.osaka-art-museum.jp/index.php/special_exhibition"
   },
   {
    "museum_id": "omnh",
@@ -139,18 +145,6 @@
    "museum": "京都文化博物館",
    "text": "ろうじ店舗の催し",
    "url": "https://www.bunpaku.or.jp/museum-event/roji"
-  },
-  {
-   "museum_id": "bunpaku",
-   "museum": "京都文化博物館",
-   "text": "文博ろうじの古本まつり 2026.11.20(金) 〜 11.23(月・祝) 1階 ろうじ店舗前",
-   "url": "https://www.bunpaku.or.jp/roji-event/20261120-1123/"
-  },
-  {
-   "museum_id": "bunpaku",
-   "museum": "京都文化博物館",
-   "text": "大ZOU展 2026.11.21(土) 〜 11.23(月・祝) 別館ホール",
-   "url": "https://www.bunpaku.or.jp/gallery_hall/20261121-1123/"
   },
   {
    "museum_id": "bunpaku",
@@ -669,12 +663,6 @@
    "url": "https://itami-im.jp/about/permanent/"
   },
   {
-   "museum_id": "itami",
-   "museum": "市立伊丹ミュージアム",
-   "text": "歴史 企画展 無料 旧村シリーズ18「鴻池・荻野―尼崎藩の支配と村の営み―」 2027年1月16日（土）〜2月21日（日） 会場：展示室5",
-   "url": "https://itami-im.jp/exhibitions/%e6%97%a7%e6%9d%91%e3%82%b7%e3%83%aa%e3%83%bc%e3%82%ba18%e3%80%8c%e9%b4%bb%e6%b1%a0%e3%83%bb%e8%8d%bb%e9%87%8e%e2%80%95%e5%b0%bc%e5%b4%8e%e8%97%a9%e3%81%ae%e6%94%af%e9%85%8d%e3%81%a8%e6%9d%91%e3%81%ae/"
-  },
-  {
    "museum_id": "nara-art",
    "museum": "奈良県立美術館",
    "text": "詳細をみる（展覧会ページへのリンク）",
@@ -763,6 +751,12 @@
    "museum": "大和文華館",
    "text": "詳細はこちら",
    "url": "https://www.kintetsu-g-hd.co.jp/culture/yamato/exhibition/tenjou-paradise.html"
+  },
+  {
+   "museum_id": "yamato",
+   "museum": "大和文華館",
+   "text": "詳細はこちら",
+   "url": "https://www.kintetsu-g-hd.co.jp/culture/yamato/exhibition/kabuongyoku.html"
   },
   {
    "museum_id": "shohaku",
